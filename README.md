@@ -7,21 +7,22 @@
 
 Bookmarkd is a comprehensive app designed to enhance your reading experience. It allows users to keep track of their reading progress, connect with friends and share their literary discoveries, and discover new books that match their interests using an AI-powered recommendation system.
 
-# Features
-
-Reading progress tracking: Users can add the books they're reading to their virtual bookshelf, and Bookmarkd will keep track of their pages, chapters, and even plot points.
-Social media integration: Users can connect with friends and share their reading recommendations. They can also discuss characters, plot twists, and their favorite authors with the people who share their passion for literature.
-AI-powered book recommendations: Bookmarkd's intelligent recommendation system analyzes users' reading history and preferences to suggest books that they're sure to love.
-
-Installation
-Bookmarkd is a web application and can be accessed using any web browser.
-
 # Team Members
 Hannah
 Adam
 Jon
 Ameenah
 James
+
+
+# Features
+
+Reading progress tracking: Users can add the books they're reading to their virtual bookshelf, and Bookmarkd will keep track of their pages, chapters, and even plot points.
+Social media integration: Users can connect with friends and share their reading recommendations. They can also discuss characters, plot twists, and their favorite authors with the people who share their passion for literature.
+AI-powered book recommendations: Bookmarkd's intelligent recommendation system analyzes users' reading history and preferences to suggest books that they're sure to love.
+
+# Installation
+Bookmarkd is a web application and can be accessed using any web browser.
 
 # Usage
 To use Bookmarkd, simply create an account and start adding books to your virtual bookshelf. You can then track your reading progress, connect with friends, and discover new books.
