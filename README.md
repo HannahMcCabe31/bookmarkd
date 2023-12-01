@@ -2,6 +2,8 @@
 
 ![teamLogo](https://github.com/HannahMcCabe31/bookmarkd/assets/147779056/da8f71cb-8077-4bab-a445-51eb3303b157)
 
+![teamLogoWhite](https://github.com/HannahMcCabe31/bookmarkd/assets/147779056/ffcb2371-d15c-483f-8229-71ab556cdba9)
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
