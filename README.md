@@ -27,17 +27,7 @@ James
 To use Bookmarkd, simply create an account and start adding books to your virtual bookshelf. You can then track your reading progress, connect with friends, and discover new books.
 
 # Screenshots
-Image of user's virtual bookshelf on BookmarkdOpens in a new window
-daisy.org
-user's virtual bookshelf on Bookmarkd
-Image of user sharing a book recommendation with friends on BookmarkdOpens in a new window
-www.affirmations.com.au
-user sharing a book recommendation with friends on Bookmarkd
-Image of user receiving a book recommendation from Bookmarkd's AIOpens in a new window
-www.theholisticingredient.com
-user receiving a book recommendation from Bookmarkd's AI
-# Contributing
-Bookmarkd is an open-source project, and we welcome contributions from the community. Please see our contributing guidelines: CONTRIBUTING.md for more information.
+Image of user's virtual bookshelf 
 
 # License
 Bookmarkd is licensed under the MIT License: LICENSE.
