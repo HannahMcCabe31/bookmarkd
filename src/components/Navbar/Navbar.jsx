@@ -1,18 +1,19 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+  } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar()  {
     return (
-        <nav className="bg-navbar">
-        <div>
-        <h1 className="text-xl font-bold text-navbar">Hello World</h1>
-            <ul>
-                <li className="text-green-500 font-bold">Profile</li>
-                <li>Dashboard</li>
-                <li>Search</li>
-            </ul>
-        </div>
+        <nav className="bg-navbar p-4 fixed bottom-0 left-0 w-full flex justify-between items-center">
+                <Link to="/profile" className="text-button-beige">Profile</Link>
+                <Link to="/" className="text-button-beige">Dashboard</Link>
+                <Link to="/search" className="text-button-beige">Search</Link>
         </nav>
     );
-};
+}
 
 export default Navbar;
