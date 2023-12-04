@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { supabase } from "../Supabase/client.js";
+import { supabase } from "../../components/Supabase/client.js"
 import { Link, useNavigate } from "react-router-dom";
 import "./styles/LoginPageStyles.css";
 // import logo from "../assets/teamLogo.PNG";
@@ -74,7 +74,7 @@ const LoginPage = ({ setToken }) => {
 
       // Redirect to homepage if login is successful
       setToken(data);
-      navigate("/homepage");
+      navigate("/dashboard");
     } catch (error) {
       alert(error);
     }

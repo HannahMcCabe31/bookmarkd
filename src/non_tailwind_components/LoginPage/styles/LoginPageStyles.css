@@ -7,14 +7,14 @@
   font-family: "League Spartan", sans-serif;
 }
 
-body {
-  background-color: #14191d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-}
+/* body {
+    background-color: #14191d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+  } */
 
 .container {
   background-color: #fff;
