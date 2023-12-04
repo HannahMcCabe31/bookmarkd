@@ -26,11 +26,14 @@ function App() {
             <Routes>
                 <Route path="/" element={<LoginPage setToken={setToken} />} />
                 {token ? (
+                  <>
+                  <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/" element={<Navbar />}>
-                        <Route path="/dashboard" element={<Dashboard />} />
+                        
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/search" element={<Search />} />
                     </Route>
+                    </>
                 ) : null}
             </Routes>
         </Router>

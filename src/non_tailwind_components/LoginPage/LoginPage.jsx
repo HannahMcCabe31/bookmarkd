@@ -74,7 +74,7 @@ const LoginPage = ({ setToken }) => {
 
       // Redirect to homepage if login is successful
       setToken(data);
-      navigate("/dashboard");
+      navigate("/Dashboard");
     } catch (error) {
       alert(error);
     }

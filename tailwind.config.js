@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html",
-    "./src/**/.{js,ts,jsx,tsx}",'./pages/**/*.{html,js}',
-    './src/components/**/*.{html,jsx}'
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
     theme: {
       colors: {
@@ -13,7 +12,8 @@ export default {
           "shadow-gray": "#596278",
           "button-beige": "#E1DDD1",
           "heart-red": "#FF584E",
-          "star-blue": "#68B9FF"
+          "star-blue": "#68B9FF",
+          "white": "#FFFFFF"
         },
       extend: {
         },
