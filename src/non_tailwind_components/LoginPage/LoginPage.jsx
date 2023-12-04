@@ -82,6 +82,7 @@ const LoginPage = ({ setToken }) => {
 
   return (
     <>
+    <div className="loginPage_container">
       <div className="LoginPage-logo-container">
         <p className="LoginPage-logo">
           book<span className="LoginPage-logo-mark">mark</span>d
@@ -187,6 +188,7 @@ const LoginPage = ({ setToken }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
