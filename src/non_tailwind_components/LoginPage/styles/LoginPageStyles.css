@@ -246,3 +246,7 @@ LoginPage Logo
   font-size: 1.25rem;
   font-weight: 100;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
