@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Dashboard from "../Dashboard/Dashboard";
 import Profile from "../Profile/Profile";
 import Search from "../Search/Search";
 import LoginPage from "../../non_tailwind_components/LoginPage/LoginPage.jsx";
+import Recommendations from "../Recommendations/Recommendations.jsx";
 
 function App() {
     const [token, setToken] = useState(false);
@@ -23,15 +24,21 @@ function App() {
 
     return (
         <Router>
+            {token && <Navbar />} {/* Render Navbar if token is present */}
             <Routes>
                 <Route path="/" element={<LoginPage setToken={setToken} />} />
-                {token ? (
-                    <Route path="/" element={<Navbar />}>
-                        <Route path="/dashboard" element={<Dashboard />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/search" element={<Search />} />
-                    </Route>
-                ) : null}
+                
+                {/* Redirect to login if no token */}
+                {!token && <Route path="/dashboard" element={<Navigate to="/" />} />}
+                {!token && <Route path="/profile" element={<Navigate to="/" />} />}
+                {!token && <Route path="/search" element={<Navigate to="/" />} />}
+                {!token && <Route path="/recommendations" element={<Navigate to="/" />} />}
+    
+                {/* Protected routes */}
+                {token && <Route path="/dashboard" element={<Dashboard />} />}
+                {token && <Route path="/profile" element={<Profile />} />}
+                {token && <Route path="/search" element={<Search />} />}
+                {token && <Route path="/recommendations" element={<Recommendations />} />}
             </Routes>
         </Router>
     );

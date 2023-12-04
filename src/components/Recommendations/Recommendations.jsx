@@ -37,7 +37,10 @@ return (
         </select>
         </div>
         <div>
-            <input/>
+            <input type="text" 
+            placeholder="Please enter a book Title, Author or Genre that you enjoy" 
+            onChange={handleSearchInputChange}
+            value={`${searchInput}`} />
         </div>
             </div>
 )
