@@ -14,7 +14,7 @@ export default {
           "button-beige": "#E1DDD1",
           "heart-red": "#FF584E",
           "star-blue": "#68B9FF",
-          "white": "#FFFFFF"
+          "white": "#FFFFFF",
         },
       extend: {
         },
