@@ -5,6 +5,7 @@ export const SearchBar = styled(TextField)({
     "& label.MuiInputLabel-root": {
         fontFamily: "League Spartan",
         color: "#FFFFFF",
+        fontSize: "3vw"
     },
     "& label.Mui-root": {
         color: "#FFFFFF",
@@ -19,4 +20,6 @@ export const SearchBar = styled(TextField)({
             borderColor: "#FFFFFF",
         },
     },
-});
+    "& .MuiTextField-root": {
+        color: "#FFFFFF",
+}});

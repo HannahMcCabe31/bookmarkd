@@ -62,7 +62,7 @@ function Dashboard(props) {
                 <div>
                     <div className=" border-t flex flex-row justify-between "><p>My Profile</p><p>-</p></div>
                     <Link to="/recommendations">
-                    <div className="border-t flex flex-row justify-between "><p>My Book Reccommendation</p><p>-</p></div>
+                    <div className="border-t flex flex-row justify-between "><p>My Book Recommendations</p><p>-</p></div>
                         </Link> 
                     <div className="border-t flex flex-row justify-between "><p>My Friends</p><p>-</p></div>
                     <div className="border-t flex flex-row justify-between "><p>Settings</p><p>-</p></div>
