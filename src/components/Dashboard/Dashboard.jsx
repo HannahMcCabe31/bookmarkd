@@ -35,26 +35,31 @@ function Dashboard(props) {
               </h1>
             </div>
             {/* This div conatins the my current reads */}
-            <div className="bg-white text-black">
-              <div>
-                <button>My Current Read - </button>
-              </div>
-              <div>
-                <div>Image</div>
-                <div>
-                  <h2>Neuromancer</h2>
+            <div className=" text-black p-3">
+              <div className="border rounded-2xl bg-white p-1 border-element-blue border-4">
+                <button className="border rounded-full bg-element-blue text-white p-2  "> 
+                <div className="flex flex-row justify-between">
+                    <p className="text-sm mr-1">My Current Read</p> <img className="w-4"src={rightArrow} alt="Right arrow"/></div> </button>
+             
+              <div className="flex mx-5 justify-between">
+              <div className="w-36 h-44 mb-4 mt-3 bg-black border rounded-md"></div>
+                <div className="font-light">
+                  <h2 className="pl-3 text-2xl">Neuromancer</h2>
                   <p>Author:</p>
-                  <p>William Gibson</p>
+                  <p className="pl-11">William Gibson</p>
                   <p>Rating:</p>
-                  <p>3.90/5</p>
+                  <p className="pl-11">3.90 / 5</p>
                   <p>Current Page:</p>
-                  <p>160 of 320</p>
-                  <button>Update Activity</button>
+                  <p className="pl-8 font-medium">160 of 320</p>
+                  <button className="border rounded-full bg-element-blue text-white p-2  "> 
+                <div className="flex flex-row justify-between">
+                    <p className="text-sm">Update Activity</p> </div> </button>
                 </div>
+              </div>
               </div>
             </div>
             {/* This div contains multiple links to other pages */}
-            <div className="text-3xl flex flex-col m-5">
+            <div className="text-3xl flex flex-col m-5 mb-20">
               <div>
               <Link to="/profile">
                 <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
