@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { supabase } from "../../components/Supabase/client.js"
 import { Link, useNavigate } from "react-router-dom";
-import "./styles/LoginPageStyles.css";
+// import "./styles/LoginPageStyles.css";
 // import logo from "../assets/teamLogo.PNG";
 
 const LoginPage = ({ setToken }) => {
