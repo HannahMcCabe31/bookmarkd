@@ -15,11 +15,11 @@ Social media integration: Users can connect with friends and share their reading
 AI-powered book recommendations: Bookmarkd's intelligent recommendation system analyzes users' reading history and preferences to suggest books that they're sure to love.
 
 # Team Members
-Hannah
-Adam
-Jon
-Ameenah
-James
+Hannah  <br>
+Adam    <br>
+Jon     <br>
+Ameenah  <br>
+James <br>
 
 
 # Installation
