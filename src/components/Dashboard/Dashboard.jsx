@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 function Dashboard(props) {
   let navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(true
@@ -61,7 +61,9 @@ function Dashboard(props) {
             <div className="text-3xl flex flex-col m-5">
                 <div>
                     <div className=" border-t flex flex-row justify-between "><p>My Profile</p><p>-</p></div>
+                    <Link to="/recommendations">
                     <div className="border-t flex flex-row justify-between "><p>My Book Reccommendation</p><p>-</p></div>
+                        </Link> 
                     <div className="border-t flex flex-row justify-between "><p>My Friends</p><p>-</p></div>
                     <div className="border-t flex flex-row justify-between "><p>Settings</p><p>-</p></div>
 
