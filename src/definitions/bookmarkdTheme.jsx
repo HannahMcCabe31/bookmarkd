@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
+
 export const bookmarkd = createTheme({
   palette: {
     navbar: {
@@ -60,5 +61,5 @@ export const bookmarkd = createTheme({
       fontFamily: "League Spartan",
       letterSpacing: "0.00938em",
     },
-  },
+  }
 });

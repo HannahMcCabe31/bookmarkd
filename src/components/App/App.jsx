@@ -24,24 +24,38 @@ function App() {
     }, []);
 
     return (
-        <Router>
-            {token && <Navbar />} {/* Render Navbar if token is present */}
-            <Routes>
-                <Route path="/" element={<LoginPage setToken={setToken} />} />
-                
-                {/* Redirect to login if no token */}
-                {!token && <Route path="/dashboard" element={<Navigate to="/" />} />}
-                {!token && <Route path="/profile" element={<Navigate to="/" />} />}
-                {!token && <Route path="/search" element={<Navigate to="/" />} />}
-                {!token && <Route path="/recommendations" element={<Navigate to="/" />} />}
-    
-                {/* Protected routes */}
-                {token && <Route path="/dashboard" element={<Dashboard token={token} />} />}
-                {token && <Route path="/profile" element={<Profile />} />}
-                {token && <Route path="/search" element={<Search />} />}
-                {token && <Route path="/recommendations" element={<Recommendations />} />}
-            </Routes>
-        </Router>
+      <Router>
+        {token && <Navbar />}{" "}
+        {/* Render Navbar if token is present */}
+        <div className="pb-16">
+          <Routes>
+            <Route path="/" element={<LoginPage setToken={setToken} />} />
+
+            {/* Redirect to login if no token */}
+            {!token && (
+              <Route path="/dashboard" element={<Navigate to="/" />} />
+            )}
+            {!token && <Route path="/profile" element={<Navigate to="/" />} />}
+            {!token && <Route path="/search" element={<Navigate to="/" />} />}
+            {!token && (
+              <Route path="/recommendations" element={<Navigate to="/" />} />
+            )}
+
+            {/* Protected routes */}
+            {token && (
+              <Route path="/dashboard" element={<Dashboard token={token} />} />
+            )}
+            {token && <Route path="/profile" element={<Profile />} />}
+            {token && <Route path="/search" element={<Search />} />}
+            {token && (
+              <Route
+                path="/recommendations"
+                element={<Recommendations />}
+              />
+            )}
+          </Routes>
+        </div>
+      </Router>
     );
 }
 

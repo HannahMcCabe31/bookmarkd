@@ -5,8 +5,6 @@ import { SearchBar } from "../../definitions/CustomComponents";
 import { bookmarkd } from "../../definitions/bookmarkdTheme"
 import Typography from "@mui/material/Typography";
 
-
-
 function Recommendations() {
     const [searchType, setSearchType] = useState("title");
     const [searchInput, setSearchInput] = useState("");
@@ -58,7 +56,7 @@ function Recommendations() {
                             id="searchType"
                             value={searchType}
                             onChange={handleSearchTypeChange}
-                            sx={{ bgcolor: "white.main", borderRadius: 4 }}
+                            sx={{ bgcolor: "white.main", borderRadius: 4, marginLeft: 3 }}
                         >
                             <MenuItem value="title" className="">Title</MenuItem>
                             <MenuItem value="author">Author</MenuItem>
@@ -90,7 +88,7 @@ function Recommendations() {
                       sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
                     <Button
                         color="elementBlue"
-                        variant="contained"
+                variant="contained"
                         sx={{ borderRadius: 6, marginLeft: 4}}
                     >
                         Generate more
