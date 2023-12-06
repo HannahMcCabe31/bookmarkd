@@ -1,5 +1,5 @@
 import { styled } from "@mui/system";
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 
 export const SearchBar = styled(TextField)({
     "& label.MuiInputLabel-root": {
@@ -24,3 +24,15 @@ export const SearchBar = styled(TextField)({
     "& .MuiTextField-root": {
         color: "#FFFFFF",
 }});
+
+export const BookButton = styled(Button)({
+    padding: 0,
+    border: 0,
+    margin: 0,
+    minWidth: 0,
+    color:"#FFFFFF",
+    width: 32,
+    height: 32,
+})
+
+/*bg-element-blue text-white w-8 h-8*/

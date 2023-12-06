@@ -30,12 +30,7 @@ function Recommendations() {
         <Box component="section" sx={{ p: 2, fontFamily: "League Spartan" }}>
           {" "}
           <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              padding: 4,
-              alignItems: "left",
-            }}
+            className="flex p-8 flex-col items-start"
           >
             <Typography variant="h1">Recommendations</Typography>
             <Typography variant="p" marginY={4}>
