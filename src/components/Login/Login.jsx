@@ -1,46 +1,39 @@
-import React, {useState} from "react";
-import {
-  TextField,
-  Button,
-  Box,
-  Container,
-} from "@mui/material";
+import React, { useState } from "react";
+import { TextField, Button, Box, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { supabase } from "../../components/Supabase/client.js";
+import backarrow from "../../assets/backarrow.svg";
 
+function Login({ setToken }) {
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
+  function handleEmailAddressChange(e) {
+    setEmailAddress(e.target.value);
+  }
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
 
-function Login({setToken}) {
-    const [emailAddress, setEmailAddress] = useState("");
-    const [password, setPassword] = useState("");
-    let navigate = useNavigate();
+  async function handleLoginSubmit(e) {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: emailAddress,
+        password: password,
+      });
+      if (error) throw error;
 
-
-    function handleEmailAddressChange(e) {
-        setEmailAddress(e.target.value);
+      setToken(data);
+      navigate("/dashboard");
+    } catch (error) {
+      alert(error);
     }
-    function handlePasswordChange(e) {
-        setPassword(e.target.value);
-    }
-
-    async function handleLoginSubmit(e) {
-        e.preventDefault();
-        try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email: emailAddress,
-                password: password,
-            }); 
-            if (error) throw error;
-
-        setToken(data);
-        navigate("/dashboard");
-
-        } catch (error) {
-            alert(error);
-        }}
+  }
 
   return (
     <ThemeProvider theme={bookmarkd}>
@@ -49,42 +42,49 @@ function Login({setToken}) {
           <Typography variant="p" color="white.main">
             AI Powered
           </Typography>
+          {/* <Link to> */}
+          {/* <img src={backarrow}/>
+        </Link> */}
         </Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: 8,
+            marginTop: 12,
             marginBottom: 8,
           }}
         >
-          <Typography
-            variant="h1"
-          >
-            book<Typography display="inline" variant="h1" color="starBlue.main">mark</Typography>d
+          <Typography variant="logo" color="white.main" className="m-3">
+            book
+            <Typography display="inline" variant="logo" color="starBlue.main">
+              mark
+            </Typography>
+            d
           </Typography>
-          <Typography
-            variant="h2"
-            color="white.main"
-            sx={{ mb: 4 }}
-          >
+          <Typography variant="h4" color="white.main" className="mb-10">
             by readers, for readers
           </Typography>
-          <Typography variant="h3" color="white.main">
+          <Typography variant="p" color="white.main" className="m-5">
             We'll help you find your next great read
           </Typography>
           <Typography
-            component="h3"
-            variant="h3"
+            variant="p"
             color="white.main"
             textAlign="center"
+            className="m-5"
           >
             Register for a free account to use all of the site features
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1, width: 2/3}} textAlign="center">
+          <Typography variant="p" color="white.main" className="mt-10">Sign in using your email address</Typography>
+          <Box
+            component="form"
+            noValidate
+            sx={{ mt: 1, width: 2 / 3 }}
+            textAlign="center"
+          >
             <TextField
-            onChange={handleEmailAddressChange}
+              onChange={handleEmailAddressChange}
               margin="normal"
               required
               fullWidth
@@ -96,7 +96,7 @@ function Login({setToken}) {
               className="bg-input-gray rounded-3xl"
             />
             <TextField
-            onChange={handlePasswordChange}
+              onChange={handlePasswordChange}
               margin="normal"
               required
               fullWidth
@@ -108,8 +108,8 @@ function Login({setToken}) {
               className="bg-input-gray rounded-3xl"
             />
             <Box textAlign="center">
-            <Typography variant="p">
-              <Link className="text-white">Forgot your password?</Link>
+              <Typography variant="p">
+                <Link className="text-white">Forgot your password?</Link>
               </Typography>
             </Box>
             <Box textAlign="center">
@@ -118,12 +118,24 @@ function Login({setToken}) {
                 type="submit"
                 alignItems="center"
                 variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 10 }}
-                className="bg-[#06B502]"
+                sx={{ mt: 3, mb: 2, borderRadius: 2 }}
+                className="bg-[#06B502] w-2/3"
               >
                 SIGN IN
               </Button>
             </Box>
+          </Box>
+          <Box textAlign="center">
+            <Typography
+              variant="terms"
+              color="white.main"
+              className="p-2 pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center"
+            >
+              {" "}
+              By clicking &quot;Continue with Email/Apple/Google/X&quot; above,
+              you agree to bookmarkd&apos;s Terms & Conditions and Privacy
+              Policy
+            </Typography>
           </Box>
         </Box>
       </Container>
