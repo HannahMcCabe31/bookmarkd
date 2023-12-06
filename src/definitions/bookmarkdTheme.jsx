@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
+
 export const bookmarkd = createTheme({
   palette: {
     navbar: {
@@ -33,32 +34,39 @@ export const bookmarkd = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "3rem",
+      fontSize: "10vw",
       fontWeight: 400,
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "-0.01562em",
     },
     h2: {
-      fontSize: "2.5rem",
+      fontSize: "8vw",
       fontWeight: 300,
       lineHeight: 1.2,
       fontFamily: "League Spartan",
       letterSpacing: "-0.00833em",
     },
     h3: {
-      fontSize: "2rem",
+      fontSize: "6vw",
       fontWeight: 200,
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "0em",
     },
     p: {
-      fontSize: "1.5rem",
-      fontWeight: 200,
+      fontSize: "4vw",
+      fontWeight: 400,
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "0.00938em",
     },
+    button: {
+        textTransform: "none",
+    }
+    
   },
+  select: {
+    height: "10vh"
+}
 });
