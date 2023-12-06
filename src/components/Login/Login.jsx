@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { supabase } from "../../components/Supabase/client.js";
-import backarrow from "../../assets/backarrow.svg";
+import backArrow from "../../assets/backArrow.svg";
 
 function Login({ setToken }) {
   const [emailAddress, setEmailAddress] = useState("");
@@ -43,7 +43,7 @@ function Login({ setToken }) {
             AI Powered
           </Typography>
           {/* <Link to> */}
-          {/* <img src={backarrow}/>
+          {/* <img src={backArrow}/>
         </Link> */}
         </Box>
         <Box
