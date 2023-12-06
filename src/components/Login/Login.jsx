@@ -76,7 +76,9 @@ function Login({ setToken }) {
           >
             Register for a free account to use all of the site features
           </Typography>
-          <Typography variant="p" color="white.main" className="mt-10">Sign in using your email address</Typography>
+          <Typography variant="p" color="white.main" className="mt-10">
+            Sign in using your email address
+          </Typography>
           <Box
             component="form"
             noValidate
