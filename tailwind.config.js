@@ -15,7 +15,8 @@ export default {
           "heart-red": "#FF584E",
           "star-blue": "#68B9FF",
           "white": "#FFF",
-          "black": "#000"
+          "black": "#000",
+          "input-gray": "#CFD3DB"
 
         },
       extend: {

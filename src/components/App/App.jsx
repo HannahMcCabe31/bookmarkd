@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import Dashboard from "../Dashboard/Dashboard.jsx";
 import Profile from "../Profile/Profile";
 import Search from "../Search/Search";
-import LoginPage from "../../non_tailwind_components/LoginPage/LoginPage.jsx";
+// import LoginPage from "../../non_tailwind_components/LoginPage/LoginPage.jsx";
 import Recommendations from "../Recommendations/Recommendations.jsx";
 import Friends from "../Friends/Friends.jsx";
 import Settings from "../Settings/Settings.jsx";

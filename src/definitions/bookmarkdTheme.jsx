@@ -16,6 +16,9 @@ export const bookmarkd = createTheme({
     coolGray: {
       main: "#A7ADBB",
     },
+    inputGray: {    
+        main: "#C4C4C4",
+        },
     shadowGray: {
       main: "#596278",
     },
