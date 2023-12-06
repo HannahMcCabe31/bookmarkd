@@ -12,10 +12,6 @@ function CurrentlyReading(props) {
         <Link to="/book-page">
           <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4">
             <Box className="relative">
-              {/* <Button className="bg-element-blue text-white absolute top-0 end-0 w-8 h-8 p-0" >
-                  <Typography variant="p">▼</Typography>{" "}
-                  {/* <img className="w-4" src={rightArrow} alt="Right arrow" /> */}
-              {/* </Button>  */}
               <BookButton
                 className="absolute bg-element-blue top-0 end-0"
                 size="small"
@@ -25,8 +21,8 @@ function CurrentlyReading(props) {
               </BookButton>
             </Box>
 
-            <Box className="flex justify-evenly mr-10">
-              <Box className="w-36 h-44 my-auto bg-black ml-0.5 border rounded-md "></Box>
+            <Box className="flex justify-evenly gap-x-5 mr-10">
+              <Box className="w-36 h-56 my-auto bg-black border rounded-md "></Box>
               <Box className="font-light">
                 <Typography className="font-medium" variant="h3">
                   Neuromancer

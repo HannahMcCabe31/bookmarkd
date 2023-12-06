@@ -37,7 +37,7 @@ function Dashboard(props) {
             {isMobile ? (
                 <>
                     {/* Mobile display only  */}
-                    <div className="text-white">
+                    <div className="text-white p-6">
                         {/* This component contains the header (profile picture and username) */}
                         <WelcomeUser token={token} />
                         {/* This component contains the my current reads */}
