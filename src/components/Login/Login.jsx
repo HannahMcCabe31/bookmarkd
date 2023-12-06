@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { supabase } from "../../components/Supabase/client.js";
-import backArrow from "../../assets/backArrow.svg";
+// import backArrow from "../../assets/backArrow.svg";
 
 function Login({ setToken }) {
   const [emailAddress, setEmailAddress] = useState("");
