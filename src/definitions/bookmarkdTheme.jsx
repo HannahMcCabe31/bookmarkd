@@ -16,6 +16,9 @@ export const bookmarkd = createTheme({
     coolGray: {
       main: "#A7ADBB",
     },
+    inputGray: {    
+        main: "#C4C4C4",
+        },
     shadowGray: {
       main: "#596278",
     },
@@ -31,6 +34,9 @@ export const bookmarkd = createTheme({
     white: {
       main: "#FFFFFF",
     },
+    green: {
+        main: "#06B502"
+    }
   },
   typography: {
     h1: {
@@ -39,6 +45,13 @@ export const bookmarkd = createTheme({
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "-0.01562em",
+    },
+    logo: {
+      fontSize: "13vw",
+      fontWeight: 250,
+      lineHeight: 1.167,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.05em",
     },
     h2: {
       fontSize: "8vw",
@@ -53,6 +66,13 @@ export const bookmarkd = createTheme({
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "0em",
+    },
+    h4: {
+      fontSize: "5vw",
+      fontWeight: 200,
+      lineHeight: 1.235,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.00735em",
     },
     p: {
       fontSize: "4vw",
@@ -71,7 +91,14 @@ export const bookmarkd = createTheme({
     
     button: {
         textTransform: "none",
-    }
+    },
+    terms: {
+        fontSize: "2.5vw",
+        fontWeight: 400,
+        lineHeight: 1.167,
+        fontFamily: "League Spartan",
+        letterSpacing: "0.00938em",
+      },
     
   },
   select: {
