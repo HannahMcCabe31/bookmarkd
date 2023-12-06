@@ -56,9 +56,9 @@ function Recommendations() {
           >
             <Box margin={2} sx={{ p: 1}}>
               <div>
-                <label className="font-bold text-xl" htmlFor="searchType">
+<Typography variant="h3" sx={{fontWeight: "bold", fontSize: "5vw"}}>
                   Get recommendation by:
-                </label>
+                  </Typography>
               </div>
               <Select
                 id="searchType"
@@ -101,7 +101,7 @@ function Recommendations() {
             component="section"
             sx={{ p: 2, borderRadius: 4 }}
           >
-            <Typography variant="p">We recommend:</Typography>
+            <Typography variant="p">Recommendation output will get put here eventually</Typography>
           </Box>
           <Box
             sx={{
