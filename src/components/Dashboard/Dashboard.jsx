@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import rightArrow from "../../assets/rightArrow.svg"
+import rightArrow from "../../assets/rightArrow.svg";
 function Dashboard(props) {
   let navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false); // Add missing state variable
+
   useEffect(() => {
     function handleResize() {
       const screenSize = window.innerWidth;
@@ -14,7 +15,14 @@ function Dashboard(props) {
       }
     }
     window.addEventListener("resize", handleResize);
-  });
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   function handleLogout() {
     sessionStorage.removeItem("token");
@@ -22,10 +30,9 @@ function Dashboard(props) {
   }
   return (
     <div>
-      
       {isMobile ? (
         <>
-         {/* Mobile display only  */}
+          {/* Mobile display only  */}
           <div className="text-white">
             {/* This div contains the header (profile picture and username) */}
             <div className="mt-10 ml-4">
@@ -36,57 +43,62 @@ function Dashboard(props) {
             </div>
             {/* This div conatins the my current reads */}
             <div className=" text-black p-3">
-              <div className="border rounded-2xl bg-white p-1 border-element-blue border-4">
-                <button className="border rounded-full bg-element-blue text-white p-2  "> 
-                <div className="flex flex-row justify-between">
-                    <p className="text-sm mr-1">My Current Read</p> <img className="w-4"src={rightArrow} alt="Right arrow"/></div> </button>
-             
-              <div className="flex mx-5 justify-between">
-              <div className="w-36 h-44 mb-4 mt-3 bg-black border rounded-md"></div>
-                <div className="font-light">
-                  <h2 className="pl-3 text-2xl">Neuromancer</h2>
-                  <p>Author:</p>
-                  <p className="pl-11">William Gibson</p>
-                  <p>Rating:</p>
-                  <p className="pl-11">3.90 / 5</p>
-                  <p>Current Page:</p>
-                  <p className="pl-8 font-medium">160 of 320</p>
-                  <button className="border rounded-full bg-element-blue text-white p-2  "> 
-                <div className="flex flex-row justify-between">
-                    <p className="text-sm">Update Activity</p> </div> </button>
+              <Link to="/book-page">
+                <div className="border rounded-2xl bg-white p-1 border-element-blue border-4">
+                  <button className="border rounded-full bg-element-blue text-white p-2  ">
+                    <div className="flex flex-row justify-between">
+                      <p className="text-sm mr-1">My Current Read</p>{" "}
+                      <img className="w-4" src={rightArrow} alt="Right arrow" />
+                    </div>{" "}
+                  </button>
+
+                  <div className="flex mx-5 justify-evenly">
+                    <div className="w-36 h-44 mb-4 mt-3 bg-black border rounded-md"></div>
+                    <div className="font-light">
+                      <h2 className="pl-3 text-2xl">Neuromancer</h2>
+                      <p>Author:</p>
+                      <p className="pl-11">William Gibson</p>
+                      <p>Rating:</p>
+                      <p className="pl-11">3.90 / 5</p>
+                      <p>Current Page:</p>
+                      <p className="pl-8 font-medium">160 of 320</p>
+                      <button className="border rounded-full bg-element-blue text-white p-2  ">
+                        <div className="flex flex-row justify-between">
+                          <p className="text-sm">Update Activity</p>{" "}
+                        </div>{" "}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
+              </Link>
             </div>
             {/* This div contains multiple links to other pages */}
             <div className="text-3xl flex flex-col m-5 mb-20">
               <div>
-              <Link to="/profile">
-                <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-                  <p>My Profile</p>
-                  <img src={rightArrow} alt="Right arrow"/>
-                </div>
+                <Link to="/profile">
+                  <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+                    <p>My Profile</p>
+                    <img src={rightArrow} alt="Right arrow" />
+                  </div>
                 </Link>
                 <Link to="/recommendations">
-                <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-                  <p>My Book Recommendation</p>
-                  <img src={rightArrow} alt="Right arrow"/>
-                </div>
+                  <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+                    <p>My Book Recommendation</p>
+                    <img src={rightArrow} alt="Right arrow" />
+                  </div>
                 </Link>
                 <Link to="/friends">
-                <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-                  <p>My Friends</p>
-                  <img src={rightArrow} alt="Right arrow"/>
-                </div>
+                  <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+                    <p>My Friends</p>
+                    <img src={rightArrow} alt="Right arrow" />
+                  </div>
                 </Link>
                 <Link to="/settings">
-                <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-                  <p>Settings</p>
-                  <img src={rightArrow} alt="Right arrow"/>
-                </div>
+                  <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+                    <p>Settings</p>
+                    <img src={rightArrow} alt="Right arrow" />
+                  </div>
                 </Link>
-
-                
               </div>
             </div>
           </div>
@@ -100,7 +112,7 @@ function Dashboard(props) {
             <p className="mb-5">
               For an optimal mobile experience, please resize your browser
               window to a mobile size screen. This will ensure you have access
-              to all of the website's features.
+              to all bookmarkd's features.
             </p>
           </div>
           <button
