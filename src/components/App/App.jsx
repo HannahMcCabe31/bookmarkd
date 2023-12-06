@@ -81,7 +81,7 @@ function App() {
           {token && (
             <Route path="/dashboard" element={<Dashboard token={token} />} />
           )}
-          {token && <Route path="/profile" element={<Profile />} />}
+          {token && <Route path="/profile" element={<Profile token={token} />} />}
           {token && <Route path="/search" element={<Search />} />}
           {token && (
             <Route path="/recommendations" element={<Recommendations />} />
