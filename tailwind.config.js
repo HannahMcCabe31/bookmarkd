@@ -13,7 +13,10 @@ export default {
           "shadow-gray": "#596278",
           "button-beige": "#E1DDD1",
           "heart-red": "#FF584E",
-          "star-blue": "#68B9FF"
+          "star-blue": "#68B9FF",
+          "white": "#FFF",
+          "black": "#000"
+
         },
       extend: {
         },
