@@ -4,6 +4,7 @@ import {Box, Button} from "@mui/material"
 import Typography from "@mui/material/Typography"
 import { ThemeProvider } from "@mui/material/styles"
 import {bookmarkd} from "../../definitions/bookmarkdTheme"
+import { BookButton } from "../../definitions/CustomComponents";
 
 function CurrentlyReading(props) {
     return (
@@ -15,54 +16,54 @@ function CurrentlyReading(props) {
                   <Typography variant="p">▼</Typography>{" "}
                   {/* <img className="w-4" src={rightArrow} alt="Right arrow" /> */}
               {/* </Button>  */}
-              <Button
-                className="bg-element-blue text-white w-8 h-8 "
+              <BookButton
+                className="absolute bg-element-blue top-0 end-0"
                 size="small"
                 variant="filled"
               >
                 ▼
-              </Button>
+              </BookButton>
             </Box>
 
-            <Box className="flex justify-evenly mr-20">
+            <Box className="flex justify-evenly mr-10">
               <Box className="w-36 h-44 my-auto bg-black ml-0.5 border rounded-md "></Box>
               <Box className="font-light">
                 <Typography className="font-medium" variant="h3">
                   Neuromancer
                 </Typography>
-                <Typography className="font-medium" variant="subtitle">
+                <Typography className="font-medium" variant="p">
                   Author:
                 </Typography>
                 <Typography
                   className="text-center py-1 "
                   display="block"
-                  variant="subtitle"
+                  variant="p"
                 >
                   William Gibson
                 </Typography>
-                <Typography className="font-medium" variant="subtitle">
+                <Typography className="font-medium" variant="p">
                   Rating:
                 </Typography>
                 <Typography
                   className="text-center py-1"
                   display="block"
-                  variant="subtitle"
+                  variant="p"
                 >
                   3.90 / 5
                 </Typography>
-                <Typography className="font-medium" variant="subtitle">
+                <Typography className="font-medium" variant="p">
                   Current Page:
                 </Typography>
                 <Typography
                   className="text-center py-2"
                   display="block"
-                  variant="subtitle"
+                  variant="p"
                 >
                   160 of 320
                 </Typography>
                 {/* <Button className="border rounded-full bg-element-blue text-white p-2  ">
                         <Box className="flex flex-row justify-between">
-                          <Typography variant="subtitle">Update Activity</Typography>{" "}
+                          <Typography variant="p">Update Activity</Typography>{" "}
                         </Box>{" "}
                       </Button> */}
               </Box>

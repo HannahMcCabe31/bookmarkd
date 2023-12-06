@@ -67,7 +67,6 @@ export const bookmarkd = createTheme({
       lineHeight: 1.2,
       fontFamily: "League Spartan",
       letterSpacing: "0.00938em",
-
     },
     
     button: {

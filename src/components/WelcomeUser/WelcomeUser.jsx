@@ -1,7 +1,7 @@
-import {Box} from "@mui/material"
+import { Box } from "@mui/material"
 import Typography from "@mui/material/Typography"
 import { ThemeProvider } from "@mui/material/styles"
-import {bookmarkd} from "../../definitions/bookmarkdTheme"
+import { bookmarkd } from "../../definitions/bookmarkdTheme"
 
 function WelcomeUser(props) {
 
