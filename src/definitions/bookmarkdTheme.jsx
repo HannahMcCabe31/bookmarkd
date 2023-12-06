@@ -31,6 +31,9 @@ export const bookmarkd = createTheme({
     white: {
       main: "#FFFFFF",
     },
+    green: {
+        main: "#06B502"
+    }
   },
   typography: {
     h1: {

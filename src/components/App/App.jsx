@@ -19,6 +19,7 @@ import TermsConditions from "../TermsConditions/TermsConditions.jsx";
 import AIPowered from "../AIPowered/AIPowered.jsx";
 import ContactUs from "../ContactUs/ContactUs.jsx";
 import BookPage from "../BookPage/BookPage.jsx";
+import Login from "../Login/Login.jsx";
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
         {/* Render Navbar if token is present */}
         <div className="pb-16">
           <Routes>
-            <Route path="/" element={<LoginPage setToken={setToken} />} />
+            <Route path="/" element={<Login setToken={setToken} />} />
 
             {/* Redirect to login if no token */}
             {!token && <Route path="/dashboard" element={<Navigate to="/" />} />}
