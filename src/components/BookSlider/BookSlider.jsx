@@ -5,7 +5,7 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme"
 function BookSlider() {
     return (
         <ThemeProvider theme={bookmarkd}>
-        <Typography variant="h2" className="m-auto p-auto mt-4">Book Slider</Typography>
+        <Typography variant="h2" className="m-auto p-auto mt-[4vw]">Book Slider</Typography>
         </ThemeProvider>
     )
 }

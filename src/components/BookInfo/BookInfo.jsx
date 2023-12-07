@@ -15,16 +15,15 @@ function BookInfo() {
             </Typography>
             <Typography
                 variant="h3"
-                className="mx-auto my-0 p-auto pt-5 pb-0 mb-0"
+                className="mx-auto my-0 p-auto pt-[5vw] pb-0 mb-0"
             >
                 ★★★★☆
             </Typography>
             <Typography variant="subtitle" className="m-auto p-auto">
                 3,203 ratings
             </Typography>
-
             <BookSlider />
-            <Box className="flex text-ellipsis overflow-hidden m-auto p-4 rounded-2xl bg-element-blue w-[64vw] h-[32vw] text-center items-center">
+            <Box className="flex text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[3vw] w-[80vw] h-[40vw] text-center items-center">
                 <Typography variant="p" className="m-auto p-auto">
                     This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen 
                 </Typography>
