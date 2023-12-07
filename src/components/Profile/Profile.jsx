@@ -48,13 +48,8 @@ function Profile(props) {
                     <div className="text-white p-6">
                         {/* This component contains the header (profile picture and username) */}
                         <WelcomeUser token={token} />
-                        <Typography variant="h4" className="text-white">
-                            Currently Reading</Typography>
                         <ProfileCurrentlyReading/>
-                        <Typography variant="h4" className="text-white">
-                            Your Statistics</Typography>
                         <ProfileStatistics/>
-                        <Typography variant="h4" className="text-white">Your Bookshelves</Typography>
                         <ProfileBookshelves />
                     </div>
                 </>

@@ -8,6 +8,8 @@ function ProfileStatistics() {
 
     return(
         <ThemeProvider theme={bookmarkd}>
+        <Typography variant="h5" className="text-white">
+                            Your Statistics</Typography>
         <Box className="bg-element-blue">
 <Typography variant="h4">Total Books Read: 24</Typography>
 {/* needs icons */}

@@ -14,6 +14,8 @@ function ProfileBookshelves() {
 
     return(
         <ThemeProvider theme={bookmarkd}>
+         <Typography variant="h5" className="text-white">
+                            Your Bookshelves</Typography>
             <Box className="bg-element-blue">
                 {bookshelves.map((bookshelf) => (
                     <Box>
