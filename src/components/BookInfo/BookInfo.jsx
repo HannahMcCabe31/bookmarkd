@@ -24,9 +24,9 @@ function BookInfo() {
             </Typography>
 
             <BookSlider />
-            <Box className="truncate m-auto p-4 rounded-2xl bg-element-blue h-48 w-10/12">
-                <Typography variant="p" className="m-auto p-auto mt-4">
-                    
+            <Box className="flex text-ellipsis overflow-hidden m-auto p-4 rounded-2xl bg-element-blue w-[64vw] h-[32vw] text-center items-center">
+                <Typography variant="p" className="m-auto p-auto">
+                    This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen 
                 </Typography>
             </Box>
         </ThemeProvider>
