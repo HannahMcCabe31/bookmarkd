@@ -24,66 +24,46 @@ function ProfileCurrentlyReading() {
       <Typography variant="h5" className="text-white">
         Currently Reading
       </Typography>
-      <Box className="bg-element-blue rounded-3xl p-3 my-3">
-        <Box className="m-3">
+      <Box className="bg-element-blue rounded-3xl my-3 p-3">
+        <Box className="mb-3 m-3">
           <Typography variant="h6">The Wind in the Willows</Typography>
 
           <Typography variant="h8">by Kenneth Grahame</Typography>
-          <Box className="grid  grid-cols-[1fr, 3fr, 1fr] grid-rows-1 grid-flow-row-dense ">
+          <Box className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center">
             <Typography variant="h7" className="col-start-1">
               Progress:
             </Typography>
-            <div>
+            <div className="max-w-[45vw]">
             <BookSlider
               className="col-start-2 row-span-1"
             /></div>
-            {/* <Slider
-              defaultValue={50}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              className="text-background-blue"
-            /> */}
+        
             <Typography variant="h8" className="col-start-3">
               46%
             </Typography>
           </Box>
-          {/* <Box className="text-right">
-            <Typography variant="h8">
-              Page{" "}
-              <TextField
-                size="small"
-                className="w-1/4 bg-white rounded-xl"
-              ></TextField>{" "}
-              of 288
-            </Typography>
-          </Box> */}
+          </Box>
+         <Box className="m-3">
           <Typography variant="h6">Neuromancer</Typography>
-          <Typography variant="subtitle">by Ameenah Jalil</Typography>
-          <Box className="flex space-x-2 items-center">
-            <Typography variant="h7">Progress:</Typography>
-            <Slider
-              defaultValue={50}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              className="text-background-blue"
-            />
-            <Typography variant="h8">46%</Typography>
-          </Box>
-          <Box className="text-right">
-            <Typography variant="h8">
-              Page{" "}
-              <TextField
-                size="small"
-                className="w-1/4 bg-white rounded-xl"
-                name="Current Page"
-              >
-                140
-              </TextField>{" "}
-              of 288
+
+          <Typography variant="h8">by Ameenah Jalil</Typography>
+          <Box className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center">
+            <Typography variant="h7" className="col-start-1">
+              Progress:
+            </Typography>
+            <div className="max-w-[45vw]">
+            <BookSlider
+              className="col-start-2 row-span-1"
+            /></div>
+        
+            <Typography variant="h8" className="col-start-3">
+              46%
             </Typography>
           </Box>
-        </Box>
-        </Box>
+          </Box>
+          </Box>
+        
+
       </div>
     </ThemeProvider>
   
