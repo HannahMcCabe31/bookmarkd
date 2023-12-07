@@ -8,7 +8,7 @@ function BookPage() {
     return (
         <div className="text-white p-[3vw]">
             <img src={backArrow} alt="backArrow" className="w-[8vw] h-[8vw]" />
-            <div className="grid grid-cols-1 grid-rows-[80vw,1fr]">
+            <div className="grid grid-cols-1 grid-rows-[80vw,1fr] mt-[5vw]">
             <Box className="relative w-[80vw] h-[80vw] max-w-[900px] overflow-hidden m-auto p-auto shadow-element-shadow">
             <img src="/book_covers/neuromancer.webp" className="absolute m-auto p-auto top-[-25%] object-cover" />
             </Box>
