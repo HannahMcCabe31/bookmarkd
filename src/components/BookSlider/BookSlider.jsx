@@ -21,6 +21,7 @@ function handlePage(e, value) {
         <ThemeProvider theme={bookmarkd}>
             <Box className="flex justify-center">
                 <BookSlideBar
+                    className="p-0 mb-[2vw] mt-[4vw]"
                     valueLabelDisplay="auto"
                     aria-label="book slider"
                     defaultValue={160}
