@@ -36,7 +36,7 @@ title:"", author:"", totalPages:288, currentPage:144
       <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
       <Typography>46%</Typography>
       </Box>
-      <Typography>Page <TextField></TextField> of 288</Typography>
+      <Typography>Page <TextField name="Current Page">140</TextField> of 288</Typography>
 
     </Box>
     </ThemeProvider>
