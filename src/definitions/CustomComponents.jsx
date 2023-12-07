@@ -35,9 +35,6 @@ export const BookButton = styled(Button)({
     height: 32,
 })
 
-/*bg-element-blue text-white w-8 h-8*/
-
-
 export const BookSlideBar = styled(Slider)({
     color: '#A7ADBB',
     height: "3vw",
@@ -50,10 +47,10 @@ export const BookSlideBar = styled(Slider)({
       width: "5.5vw",
       backgroundColor: '#A7ADBB',
       border: '0.8vw solid #E1DDD1',
-      boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000055',
+      boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000030',
       '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
         boxShadow: '0px 0px 0.5vw 0.5vw #00000055',
-        boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000055',
+        boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000030',
       },
       '&:before': {
         display: 'none',

@@ -23,7 +23,7 @@ function BookInfo() {
                 3,203 ratings
             </Typography>
             <BookSlider />
-            <Box className="flex text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[4vw] w-[80vw] h-[30vw] text-center items-center shadow-element-shadow ">
+            <Box className="flex text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[4vw] w-[80vw] h-[30vw] text-center items-center shadow-element-shadow">
                 <Typography variant="p" className="m-auto p-auto line-clamp-4">
                     This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen 
                 </Typography>
