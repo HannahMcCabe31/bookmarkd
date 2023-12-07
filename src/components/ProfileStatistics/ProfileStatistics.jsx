@@ -1,5 +1,6 @@
 import flame from "../../assets/Flame.svg";
-
+import PagesRead from "../../assets/PagesRead.svg";
+import BooksRead from "../../assets/BooksRead.svg";
 import React, { useState, useEffect } from "react";
 import { Box, TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -15,11 +16,13 @@ function ProfileStatistics() {
                             Your Statistics</Typography>
         <Box className="bg-element-blue rounded-3xl grid grid-cols-3 my-3 p-3">
 
-<div>     
+<div>  
+<img src={BooksRead} alt="Books read" />   
 <Typography variant="h4">Total Books Read: 24</Typography>
 {/* needs icons */}
 </div> 
 <div>
+<img src={PagesRead} alt="Pages read" />
 <Typography variant="h4">Total Pages Read: 20,000</Typography>
 {/* needs isons */}
 </div>
