@@ -20,6 +20,7 @@ function ProfileCurrentlyReading() {
 
   return (
     <ThemeProvider theme={bookmarkd}>
+      <div className="text-white p-[3vw]">
       <Typography variant="h5" className="text-white">
         Currently Reading
       </Typography>
@@ -28,14 +29,14 @@ function ProfileCurrentlyReading() {
           <Typography variant="h6">The Wind in the Willows</Typography>
 
           <Typography variant="h8">by Kenneth Grahame</Typography>
-          <Box className="grid  grid-cols-3 grid-rows-1 grid-flow-row-dense ">
+          <Box className="grid  grid-cols-[1fr, 3fr, 1fr] grid-rows-1 grid-flow-row-dense ">
             <Typography variant="h7" className="col-start-1">
               Progress:
             </Typography>
+            <div>
             <BookSlider
               className="col-start-2 row-span-1"
-              
-            />
+            /></div>
             {/* <Slider
               defaultValue={50}
               aria-label="Default"
@@ -46,7 +47,7 @@ function ProfileCurrentlyReading() {
               46%
             </Typography>
           </Box>
-          <Box className="text-right">
+          {/* <Box className="text-right">
             <Typography variant="h8">
               Page{" "}
               <TextField
@@ -55,7 +56,7 @@ function ProfileCurrentlyReading() {
               ></TextField>{" "}
               of 288
             </Typography>
-          </Box>
+          </Box> */}
           <Typography variant="h6">Neuromancer</Typography>
           <Typography variant="subtitle">by Ameenah Jalil</Typography>
           <Box className="flex space-x-2 items-center">
@@ -82,8 +83,10 @@ function ProfileCurrentlyReading() {
             </Typography>
           </Box>
         </Box>
-      </Box>
+        </Box>
+      </div>
     </ThemeProvider>
+  
   );
 }
 
