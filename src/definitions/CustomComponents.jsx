@@ -49,9 +49,11 @@ export const BookSlideBar = styled(Slider)({
       height: "5.5vw",
       width: "5.5vw",
       backgroundColor: '#A7ADBB',
-      border: '5px solid #E1DDD1',
+      border: '0.8vw solid #E1DDD1',
+      boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000055',
       '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-        boxShadow: '0px 0px 5px 5px #00000055',
+        boxShadow: '0px 0px 0.5vw 0.5vw #00000055',
+        boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000055',
       },
       '&:before': {
         display: 'none',

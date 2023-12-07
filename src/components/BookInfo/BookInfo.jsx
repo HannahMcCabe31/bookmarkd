@@ -7,7 +7,7 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 function BookInfo() {
     return (
         <ThemeProvider theme={bookmarkd}>
-            <Typography variant="h2" className="m-auto p-auto mt-2">
+            <Typography variant="h2" className="m-auto p-auto mt-4">
                 Neuromancer
             </Typography>
             <Typography variant="p" className="m-auto p-auto mt-0">
@@ -23,7 +23,7 @@ function BookInfo() {
                 3,203 ratings
             </Typography>
             <BookSlider />
-            <Box className="flex text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[3vw] w-[80vw] h-[40vw] text-center items-center">
+            <Box className="flex text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[3vw] w-[80vw] h-[40vw] text-center items-center shadow-element-shadow">
                 <Typography variant="p" className="m-auto p-auto">
                     This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen 
                 </Typography>
