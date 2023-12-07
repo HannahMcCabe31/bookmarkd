@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, } from "react-router-dom";
+import ProfileCurrentlyReading from "../ProfileCurrentlyReading/ProfileCurrentlyReading";
 // import { Box, Button } from "@mui/material";
 // import Typography from "@mui/material/Typography";
 // import { ThemeProvider } from "@mui/material/styles";
 // import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
+
 
 // create container to render bookshelf components within
 
@@ -44,6 +46,7 @@ function Profile(props) {
                     <div className="text-white p-6">
                         {/* This component contains the header (profile picture and username) */}
                         <WelcomeUser token={token} />
+                        <ProfileCurrentlyReading/>
                     </div>
                 </>
             ) : (
