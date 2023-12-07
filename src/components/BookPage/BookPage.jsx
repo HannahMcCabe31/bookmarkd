@@ -7,9 +7,11 @@ import { Box } from "@mui/material";
 function BookPage() {
     return (
         <div className="text-white p-[3vw]">
-            <img src={backArrow} alt="backArrow" className="w-8 h-8" />
+            <img src={backArrow} alt="backArrow" className="w-[8vw] h-[8vw]" />
             <div className="grid grid-cols-1 grid-rows-[80vw,1fr]">
-            <img src="placeholder" className="w-[80vw] m-auto p-auto" />
+            <Box className="relative w-[80vw] h-[80vw] overflow-hidden m-auto p-auto">
+            <img src="/book_covers/neuromancer.webp" className="absolute m-auto p-auto top-[-25%]" />
+            </Box>
                 <Box variant="section" className="grid grid-span-2 grid-rows-7 grid-cols-1">
                     <BookInfo />
                     <BookMenu />
