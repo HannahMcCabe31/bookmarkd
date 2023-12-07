@@ -7,7 +7,7 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 function BookInfo() {
     return (
         <ThemeProvider theme={bookmarkd}>
-            <Typography variant="h2" className="m-auto p-auto mt-2">
+            <Typography variant="h2" className="m-auto p-auto mt-3">
                 Neuromancer
             </Typography>
             <Typography variant="p" className="m-auto p-auto mt-0">
