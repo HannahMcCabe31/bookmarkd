@@ -11,7 +11,6 @@ import { useState } from "react";
 
 function Search() {
   const [searchResults, setSearchResults] = useState(testData);
-  // console.log(searchResults[0].id);
 
   return (
     <ThemeProvider theme={bookmarkd}>

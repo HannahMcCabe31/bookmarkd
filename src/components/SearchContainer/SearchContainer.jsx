@@ -2,14 +2,14 @@ import React from "react";
 import { Box } from "@mui/material";
 import SearchResult from "../SearchResult/SearchResult";
 
-function SearchContainer() {
+function SearchContainer({ data }) {
+  // console.log(data);
   return (
     <div>
       <Box>
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
+        <SearchResult data={data} />
+        <SearchResult data={data} />
+        <SearchResult data={data} />
       </Box>
     </div>
   );
