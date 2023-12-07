@@ -88,6 +88,34 @@ export const bookmarkd = createTheme({
       fontFamily: "League Spartan",
       letterSpacing: "0.00938em",
     },
+    h5: {
+      fontSize: "5.5vw",
+      fontWeight: 330,
+      lineHeight: 1.167,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.05em",
+    },
+    h6: {
+      fontSize: "4.5vw",
+      fontWeight: 500,
+      lineHeight: 1.167,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.005em",
+    },
+    h7: { 
+      fontSize: "3.5vw",
+      fontWeight: 400,
+      lineHeight: 1.167,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.00938em",
+    },
+    h8: {
+      fontSize: "3.5vw",
+      fontWeight: 200,
+      lineHeight: 1.167,
+      fontFamily: "League Spartan",
+      letterSpacing: "0.00938em",
+    },
     
     button: {
         textTransform: "none",

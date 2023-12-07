@@ -22,7 +22,9 @@ function CurrentlyReading(props) {
             </Box>
 
             <Box className="flex justify-evenly gap-x-5 mr-10">
-              <Box className="w-36 h-56 my-auto bg-black border rounded-md "></Box>
+            <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
+            <img src="/book_covers/neuromancer.webp" className="absolute m-auto p-auto top-0" />
+            </Box>
               <Box className="font-light">
                 <Typography className="font-medium" variant="h3">
                   Neuromancer

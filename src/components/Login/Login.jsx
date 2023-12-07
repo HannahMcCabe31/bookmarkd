@@ -118,7 +118,6 @@ function Login({ setToken }) {
               <Button
                 onClick={handleLoginSubmit}
                 type="submit"
-                alignItems="center"
                 variant="contained"
                 sx={{ mt: 3, mb: 2, borderRadius: 2 }}
                 className="bg-[#06B502] w-2/3"
