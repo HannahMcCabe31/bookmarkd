@@ -3,6 +3,7 @@ import { Box, TextField, Slider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import BookSlider from "../BookSlider/BookSlider.jsx"
 
 function ProfileCurrentlyReading() {
   const [bookProgress, setBookProgress] = useState({
@@ -27,15 +28,23 @@ function ProfileCurrentlyReading() {
           <Typography variant="h6">The Wind in the Willows</Typography>
 
           <Typography variant="h8">by Kenneth Grahame</Typography>
-          <Box className="flex space-x-2 items-center">
-            <Typography variant="h7">Progress:</Typography>
-            <Slider
+          <Box className="grid  grid-cols-3 grid-rows-1 grid-flow-row-dense ">
+            <Typography variant="h7" className="col-start-1">
+              Progress:
+            </Typography>
+            <BookSlider
+              className="col-start-2 row-span-1"
+              
+            />
+            {/* <Slider
               defaultValue={50}
               aria-label="Default"
               valueLabelDisplay="auto"
               className="text-background-blue"
-            />
-            <Typography variant="h8">46%</Typography>
+            /> */}
+            <Typography variant="h8" className="col-start-3">
+              46%
+            </Typography>
           </Box>
           <Box className="text-right">
             <Typography variant="h8">
