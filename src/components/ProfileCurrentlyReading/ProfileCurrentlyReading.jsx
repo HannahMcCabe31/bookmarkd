@@ -3,7 +3,7 @@ import { Box, TextField, Slider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
-import BookSlider from "../BookSlider/BookSlider.jsx"
+import ProfileBookSlider from "../ProfileBookSlider/ProfileBookSlider.jsx"
 
 function ProfileCurrentlyReading() {
   const [bookProgress, setBookProgress] = useState({
@@ -30,17 +30,15 @@ function ProfileCurrentlyReading() {
 
           <Typography variant="h8">by Kenneth Grahame</Typography>
           <Box className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center">
-            <Typography variant="h7" className="col-start-1">
+            {/* <Typography variant="h7" className="col-start-1">
               Progress:
-            </Typography>
+            </Typography> */}
             <div className="max-w-[45vw]">
-            <BookSlider
+            <ProfileBookSlider
               className="col-start-2 row-span-1"
             /></div>
         
-            <Typography variant="h8" className="col-start-3">
-              46%
-            </Typography>
+
           </Box>
           </Box>
          <Box className="m-3">
@@ -48,17 +46,12 @@ function ProfileCurrentlyReading() {
 
           <Typography variant="h8">by Ameenah Jalil</Typography>
           <Box className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center">
-            <Typography variant="h7" className="col-start-1">
-              Progress:
-            </Typography>
+
             <div className="max-w-[45vw]">
-            <BookSlider
+            <ProfileBookSlider
               className="col-start-2 row-span-1"
             /></div>
         
-            <Typography variant="h8" className="col-start-3">
-              46%
-            </Typography>
           </Box>
           </Box>
           </Box>
