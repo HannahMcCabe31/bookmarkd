@@ -3,77 +3,38 @@ import { Box, TextField, Slider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import ProfileBookSlider from "../ProfileBookSlider/ProfileBookSlider.jsx";
 
 function ProfileCurrentlyReading() {
-  const [bookProgress, setBookProgress] = useState({
-    title: "",
-    author: "",
-    totalPages: 288,
-    currentPage: 144,
-  });
+ 
 
-  //AFTER BREAK WORK ON THIS
-  // function handlePageChange(e){
-  // (const currentPage, Value)
-  // }
+
 
   return (
     <ThemeProvider theme={bookmarkd}>
-      <Typography variant="h5" className="text-white">
-        Currently Reading
-      </Typography>
-      <Box className="bg-element-blue rounded-3xl p-3 my-3">
-        <Box className="m-3">
-          <Typography variant="h6">The Wind in the Willows</Typography>
+      <div className="text-white p-[3vw]">
+        <Typography variant="h5" className="text-white">
+          Currently Reading
+        </Typography>
+        <Box className="bg-element-blue rounded-3xl my-3 p-3">
+          <Box className="mb-3 m-3">
+            <Typography variant="h6">The Wind in the Willows</Typography>
 
-          <Typography variant="h8">by Kenneth Grahame</Typography>
-          <Box className="flex space-x-2 items-center">
-            <Typography variant="h7">Progress:</Typography>
-            <Slider
-              defaultValue={50}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              className="text-background-blue"
-            />
-            <Typography variant="h8">46%</Typography>
+            <Typography variant="h8">by Kenneth Grahame</Typography>
+            <div className="max-w-[45vw]">
+              <ProfileBookSlider className="col-start-2 row-span-1" />
+            </div>
           </Box>
-          <Box className="text-right">
-            <Typography variant="h8">
-              Page{" "}
-              <TextField
-                size="small"
-                className="w-1/4 bg-white rounded-xl"
-              ></TextField>{" "}
-              of 288
-            </Typography>
+          <Box className="m-3">
+            <Typography variant="h6">Neuromancer</Typography>
+
+            <Typography variant="h8">by Ameenah Jalil</Typography>
+              <div className="max-w-[45vw]">
+                <ProfileBookSlider className="col-start-2 row-span-1" />
+              </div>
+            </Box>
           </Box>
-          <Typography variant="h6">Neuromancer</Typography>
-          <Typography variant="subtitle">by Ameenah Jalil</Typography>
-          <Box className="flex space-x-2 items-center">
-            <Typography variant="h7">Progress:</Typography>
-            <Slider
-              defaultValue={50}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              className="text-background-blue"
-            />
-            <Typography variant="h8">46%</Typography>
-          </Box>
-          <Box className="text-right">
-            <Typography variant="h8">
-              Page{" "}
-              <TextField
-                size="small"
-                className="w-1/4 bg-white rounded-xl"
-                name="Current Page"
-              >
-                140
-              </TextField>{" "}
-              of 288
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+      </div>
     </ThemeProvider>
   );
 }
