@@ -20,8 +20,8 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
 
     return (
       <ThemeProvider theme={bookmarkd}>
-        <div className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center mx-">
-          <Typography variant="h7" className="col-start-1">
+        <div className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center space-x-5">
+          <Typography variant="h7" className="col-start-1 mb-3">
             Progress:
           </Typography>
 <div className=" col-start-2 row-span-1">
@@ -43,7 +43,7 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
             </Typography>
           </Box>
 </div>
-          <Typography variant="h8" className="col-start-3">
+          <Typography variant="h8" className="col-start-3 mb-3">
             {percentage}%
           </Typography>
         </div>
