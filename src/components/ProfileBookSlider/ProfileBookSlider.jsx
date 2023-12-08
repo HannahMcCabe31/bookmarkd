@@ -27,7 +27,7 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
 <div className=" col-start-2 row-span-1">
           <Box >
             <BookSlideBar
-              className="p-0 mb-[2vw] mt-[4vw] max-w-[45vw]"
+              className="p-0 mb-[2vw] mt-[4vw] max-w-[35vw]"
               valueLabelDisplay="auto"
               aria-label="book slider"
               defaultValue={160}
