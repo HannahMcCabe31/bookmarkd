@@ -3,14 +3,16 @@ import { Box } from "@mui/material";
 import SearchResult from "../SearchResult/SearchResult";
 
 function SearchContainer({ data }) {
-  // console.log(data);
   return (
     <div>
-      <Box>
-        <SearchResult data={data} />
-        <SearchResult data={data} />
-        <SearchResult data={data} />
-      </Box>
+      {data.map((item) => {
+        return (
+          // eslint-disable-next-line react/jsx-key
+          <Box>
+            <SearchResult key={item.id} title={item.title} cover={item.cover} />
+          </Box>
+        );
+      })}
     </div>
   );
 }
