@@ -45,7 +45,7 @@ function Profile(props) {
             {isMobile ? (
                 <>
                     {/* Mobile display only  */}
-                    <div className="text-white p-6">
+                    <div className="text-white p-[5vw]">
                         {/* This component contains the header (profile picture and username) */}
                         <WelcomeUser token={token} />
                         <ProfileCurrentlyReading/>
