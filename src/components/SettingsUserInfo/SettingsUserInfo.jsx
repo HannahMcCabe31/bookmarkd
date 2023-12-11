@@ -49,7 +49,7 @@ function ProfileUserInfo() {
             </Box>
             <Box className="flex flex-row justify-between mt-10">
                 <Typography variant="h4">Update Profile Picture</Typography>
-                <Button className= "bg-input-gray text-lg text-black font-bold py-1 px-5 rounded-md">Upload</Button>
+                <Button className= "bg-input-gray text-lg text-black font-bold py-1 px-5 rounded-md hover:bg-[#2196f3] active:bg-element-blue">Upload</Button>
             </Box>
             <Box className="flex flex-col items-center">
             <Button 
