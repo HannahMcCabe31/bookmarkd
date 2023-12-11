@@ -80,9 +80,25 @@ const LoginPage = ({ setToken }) => {
     }
   }
 
+  // Ai Powered Link
+  const handleAiPoweredClick = () => {
+    alert("Ai Powered");
+  };
+
+  // Footer Links
+  const handleFooterClickTermsAndConditions = () => {
+    alert("Terms & Conditions");
+  };
+  const handleFooterClickPrivacyPolicy = () => {
+    alert("Privacy Policy");
+  };
+
   return (
     <>
       <div className="loginPage_container">
+        <div class="header" onClick={handleAiPoweredClick}>
+          <h1>AI Powered.</h1>
+        </div>
         <div className="LoginPage-logo-container">
           <p className="LoginPage-logo">
             book<span className="LoginPage-logo-mark">mark</span>d
@@ -192,6 +208,22 @@ const LoginPage = ({ setToken }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div class="footer">
+          By clicking "Continue with Email/Apple/Google/X" above, you agree to
+          Bookmarkd's{" "}
+          <span
+            class="footer-link"
+            onClick={handleFooterClickTermsAndConditions}
+          >
+            Terms & Conditions
+          </span>{" "}
+          and
+          <span class="footer-link" onClick={handleFooterClickPrivacyPolicy}>
+            {" "}
+            Privacy Policy
+          </span>
+          .
         </div>
       </div>
     </>

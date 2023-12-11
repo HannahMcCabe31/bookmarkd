@@ -8,14 +8,16 @@
   color: white
 } */
 
- .loginPage_container {
-    background-color: #14191d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-  }
+.loginPage_container {
+  background-color: #14191d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
 .container {
   background-color: #fff;
@@ -23,9 +25,9 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 768px;
-  max-width: 100%;
   min-height: 500px;
+  width: 50vh;
+  max-width: 90vh !important;
 }
 
 .container p {
@@ -248,6 +250,25 @@ LoginPage Logo
   font-weight: 100;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.header {
+  position: relative;
+  right: -45vh;
+  z-index: 10;
+  font-weight: 300;
+  font-size: large;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer {
+  color: #fff;
+  font-weight: 300;
+  max-width: 70vh;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.footer span {
+  color: #fbf214;
+  cursor: pointer;
+}
