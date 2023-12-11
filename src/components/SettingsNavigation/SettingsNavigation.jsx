@@ -1,5 +1,7 @@
 import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
+import { Box,Button} from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 
 function SettingsNavigation() {
@@ -26,6 +28,21 @@ function SettingsNavigation() {
           </Link>
       
         </div>
+        <Box className="flex flex-row justify-between">
+        
+              <Link to="/contact-us">
+                <Typography variant="h3">Contact Us</Typography>
+              </Link>
+            
+            <div>
+              <Button
+                className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md "
+                // onClick={handleLogout}
+              >
+                LOG OUT
+              </Button>
+            </div>
+            </Box>
       </div>
     )
 }
