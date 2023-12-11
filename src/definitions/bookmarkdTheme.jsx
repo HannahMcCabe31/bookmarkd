@@ -42,6 +42,8 @@ export const bookmarkd = createTheme({
     body2: {
       fontWeight: "normal",
       marginBottom: 10,
+      fontFamily: "League Spartan",
+      
 
     },
     h1: {

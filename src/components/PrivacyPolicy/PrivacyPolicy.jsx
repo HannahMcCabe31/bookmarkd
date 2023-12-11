@@ -1,106 +1,96 @@
-import React from "react";
+
+
 import backArrow from "../../assets/BackArrow.svg";
 import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { bookmarkd } from "../../definitions/bookmarkdTheme";
 
-const PrivacyPolicy = () => {
+function PrivacyPolicy() {
   return (
     <>
-      <Link to="/settings">
-        <img src={backArrow} alt="backArrow" className="w-8 h-8" />
-      </Link>
-      <div>
-        <h1 className="text-white">PrivacyPolicy</h1>
-      </div>
+      <ThemeProvider theme={bookmarkd}>
+        <Link to="/settings">
+          <img src={backArrow} alt="backArrow" className="w-8 h-8 mt-5" />
+        </Link>
+        <Box className="flex flex-row justify-center">
+          <Typography variant="logo" className="text-white">
+            book
+            <Typography
+              display="inline"
+              variant="logo"
+              className="text-star-blue"
+            >
+              mark
+            </Typography>
+            d
+          </Typography>
+        </Box>
+        <Box>
+          <Typography
+            variant="h4"
+            className="flex flex-row justify-center text-white"
+          >
+            by readers, for readers
+          </Typography>
+        </Box>
+        <Typography variant="h4" className="text-white my-8">
+          Privacy Policy
+        </Typography>
+        <Typography className="text-white" variant="body2">
+          
+        <Typography variant="body2"> Effective Date: November 30, 2023 </Typography>
+
+
+        <Typography variant="body2"> Introduction </Typography>
+
+        <Typography variant="body2"> Bookmarkd is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information when you visit our website, use our mobile application, or purchase a product or service from us.
+Information We Collect
+We collect the following types of information from you:</Typography>
+
+<Typography variant="body2">Information you provide to us. This includes information you provide when you create an account, sign up for a newsletter, or contact us for customer support. This information may include your name, email address, phone number, and mailing address.</Typography>
+
+<Typography variant="body2">Information we collect automatically. This includes information about your device, browser, and IP address. We may also collect information about your browsing behavior on our website, such as the pages you visit and the links you click.</Typography>
+
+<Typography variant="body2">Information from third-party sources. We may collect information about you from third-party sources, such as public records and social media platforms.</Typography>
+
+<Typography variant="body2">How We Use Your Information</Typography>
+
+<Typography variant="body2">We use your information for the following purposes:</Typography>
+
+<Typography variant="body2">To provide our services. We use your information to provide you with our products and services, such as creating bookmarks, managing your bookmarks, and recommending books to you.</Typography>
+
+<Typography variant="body2">To improve our services. We use your information to improve our products and services, such as by identifying and fixing bugs and by developing new features.
+To communicate with you. We use your information to communicate with you about your account, our products and services, and other matters.</Typography>
+
+<Typography variant="body2">To send you marketing communications. We may use your information to send you marketing communications, such as emails about new products and services. You can unsubscribe from these communications at any time.</Typography>
+
+<Typography variant="body2">Disclosure of Your Information
+We may disclose your information to the following parties:
+Our service providers. We use service providers to help us provide our products and services, such as hosting our website and processing payments. These service providers may have access to your information, but they are not authorized to use it for their own purposes.</Typography>
+
+<Typography variant="body2">Third-party partners. We may share your information with third-party partners, such as booksellers and authors. These partners may use your information to send you marketing communications about their products and services.
+Law enforcement and government agencies. We may disclose your information to law enforcement and government agencies if we are required to do so by law.</Typography>
+
+<Typography variant="body2">Your Choices
+You have the following choices regarding your information:
+You can access and update your information. You can access and update your information by logging into your account.
+You can unsubscribe from marketing communications. You can unsubscribe from marketing communications by clicking on the "unsubscribe" link in any marketing email you receive.
+You can delete your account. You can delete your account by contacting us.</Typography>
+
+<Typography variant="body2">Data Security
+We use reasonable measures to protect your information from unauthorized access, disclosure, alteration, or destruction.
+Changes to This Privacy Policy
+We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated Privacy Policy on our website and by sending you an email.
+Contact Us
+If you have any questions about this Privacy Policy, please contact us at:
+Bookmarkd [email protected]</Typography>
+   </Typography>  
+</ThemeProvider> 
     </>
+     
   );
-};
+}
 
 export default PrivacyPolicy;
-
-// // import React from "react";
-// import backArrow from "../../assets/BackArrow.svg";
-// import { Link } from "react-router-dom";
-// import Typography from "@mui/material/Typography";
-// import { Box } from "@mui/material";
-// import { ThemeProvider } from "@mui/material/styles";
-// import { bookmarkd } from "../../definitions/bookmarkdTheme";
-
-// function TermsConditions() {
-//   return (
-//     <>
-//       <ThemeProvider theme={bookmarkd}>
-//         <Link to="/settings">
-//           <img src={backArrow} alt="backArrow" className="w-8 h-8 mt-5" />
-//         </Link>
-//         <Box className="flex flex-row justify-center">
-//           <Typography variant="logo" className="text-white">
-//             book
-//             <Typography
-//               display="inline"
-//               variant="logo"
-//               className="text-star-blue"
-//             >
-//               mark
-//             </Typography>
-//             d
-//           </Typography>
-//         </Box>
-//         <Box>
-//           <Typography
-//             variant="h4"
-//             className="flex flex-row justify-center text-white"
-//           >
-//             by readers, for readers
-//           </Typography>
-//         </Box>
-//         <Typography variant="h4" className="text-white">
-//           Terms & Conditions
-//         </Typography>
-//         <Typography variant="p">Effective Date: November 30, 2023
-
-// 1. Acceptance of Terms
-
-// By accessing or using the Bookmarkd website, mobile application, or any other products or services provided by Bookmarkd (collectively, the "Services"), you agree to be bound by these Terms and Conditions (the "Terms"). If you do not agree to these Terms, you may not access or use the Services.
-
-// 2. Account Registration
-
-// In order to access certain features of the Services, you may be required to create an account. You agree to provide accurate and complete information when creating your account. 
-
-// You are responsible for maintaining the confidentiality of your account password and for all activities that occur under your account. You agree to notify Bookmarkd immediately of any unauthorized use of your account.
-
-// 3. User Conduct
-
-// You agree to use the Services in a manner that is lawful, non-discriminatory, and respectful of others. You agree not to use the Services to:
-
-// Post or transmit any material that is illegal, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically, or otherwise objectionable.
-
-// Post or transmit any material that contains software viruses, Trojan horses, worms, or other harmful components.
-// Interfere with or disrupt the Services or servers or networks connected to the Services.
-// Use any device, software, or routine that interferes with the proper working of the Services.
-// Attempt to gain unauthorized access to the Services or any part thereof.
-// 4. Intellectual Property
-// The Services and all content contained therein, including but not limited to text, graphics, images, software, and audio, are the property of Bookmarkd or its licensors and are protected by copyright, trademark, and other intellectual property laws. You may not copy, reproduce, modify, distribute, display, perform, or create derivative works from any of the content without the prior written consent of Bookmarkd.
-// 5. Third-Party Links
-// The Services may contain links to third-party websites or services that are not owned or controlled by Bookmarkd. Bookmarkd has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You further acknowledge and agree that Bookmarkd shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such websites or services.
-// 6. Disclaimer of Warranties
-// THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. BOOKMARKD DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. BOOKMARKD DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE.
-// 7. Limitation of Liability
-// IN NO EVENT SHALL BOOKMARKD BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES ARISING OUT OF OR IN CONNECTION WITH THE USE OF OR INABILITY TO USE THE SERVICES, EVEN IF BOOKMARKD HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-// 8. Indemnification
-// You agree to indemnify, defend, and hold harmless Bookmarkd, its officers, directors, employees, and agents, from and against all claims, liabilities, damages, losses, costs, expenses, and fees (including reasonable attorneys' fees) arising out of or in connection with your use of the Services, your violation of these Terms, or your violation of any applicable laws or regulations.
-// 9. Governing Law
-// These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles.
-// 10. Entire Agreement
-// These Terms constitute the entire agreement between you and Bookmarkd and supersede all prior or contemporaneous communications, agreements, or representations, whether oral or written.
-// 11. Severability
-// If any provision of these Terms is held to be invalid or unenforceable, such provision shall be struck from these Terms and the remaining provisions shall remain in full force and effect.
-// 12. Waiver
-// No waiver of any provision of these Terms shall be effective unless in writing and signed by both parties.
-// 13. Amendments
-// Bookmarkd may modify these Terms from time to time. We will notify you of any material changes by posting the updated Terms on our website and by sending you an email. You are responsible for reviewing the updated Terms and agreeing to them before</Typography>
-//       </ThemeProvider>
-//     </>
-//   );
-// }
-
-// export default TermsConditions;

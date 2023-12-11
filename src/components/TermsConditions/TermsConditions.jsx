@@ -1,4 +1,3 @@
-// import React from "react";
 import backArrow from "../../assets/BackArrow.svg";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
@@ -45,6 +44,7 @@ function TermsConditions() {
               </Typography>
 
               <Typography className="mt-10" variant="body2">1. Acceptance of Terms</Typography>
+
               <Typography variant="body2" >
                 By accessing or using the Bookmarkd website, mobile application,
                 or any other products or services provided by Bookmarkd
@@ -52,8 +52,11 @@ function TermsConditions() {
                 Terms and Conditions (the "Terms"). If you do not agree to these
                 Terms, you may not access or use the Services.
               </Typography>
-              <Typography variant="body2" ><Typography variant="body2" >
-                2. Account Registration </Typography>In order to access certain features of
+              
+              <Typography variant="body2" >
+                2. Account Registration </Typography>
+                
+                <Typography variant="body2" >In order to access certain features of
                 the Services, you may be required to create an account. You
                 agree to provide accurate and complete information when creating
                 your account. You are responsible for maintaining the
@@ -61,8 +64,11 @@ function TermsConditions() {
                 that occur under your account. You agree to notify Bookmarkd
                 immediately of any unauthorized use of your account.
               </Typography>
+              
               <Typography variant="body2" >
-                3. User Conduct You agree to use the Services in a manner that
+                3. User Conduct </Typography>
+                <Typography variant="body2" >
+                You agree to use the Services in a manner that
                 is lawful, non-discriminatory, and respectful of others. You
                 agree not to use the Services to: Post or transmit any material
                 that is illegal, harmful, threatening, abusive, harassing,
@@ -76,6 +82,7 @@ function TermsConditions() {
                 the Services. Attempt to gain unauthorized access to the
                 Services or any part thereof.
               </Typography>
+
               <Typography variant="body2" >
                 4. Intellectual Property The Services and all content contained
                 therein, including but not limited to text, graphics, images,
