@@ -233,14 +233,15 @@ const LoginPage = ({ setToken }) => {
                   name="password"
                   onChange={handleLoginChange}
                 />
-                <a
+                <span
                   href="#"
                   onClick={() => {
                     setForgottenPassword(true);
                   }}
+                  className="forgotten-tag"
                 >
                   Forget Your Password?
-                </a>
+                </span>
                 <button>Sign In</button>
               </form>
             </div>
