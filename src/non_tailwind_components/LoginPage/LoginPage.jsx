@@ -78,10 +78,14 @@ const LoginPage = ({ setToken }) => {
   }
 
   // Forgotten Password Form
+  const [forgottenPasswordFormData, setForgottenPasswordFormData] = useState({
+    email: "",
+  });
+
   function handleForgottenPasswordChange(e) {
-    setLoginFormData((prevLoginFormData) => {
+    setForgottenPasswordFormData((prevForgottenPasswordFormData) => {
       return {
-        ...prevLoginFormData,
+        ...prevForgottenPasswordFormData,
         [e.target.name]: e.target.value,
       };
     });
@@ -89,14 +93,7 @@ const LoginPage = ({ setToken }) => {
 
   function handleForgottenPasswordSubmit(e) {
     e.preventDefault();
-    try {
-      const { data, error } = supabase.auth.api.resetPasswordForEmail(
-        loginFormData.email
-      );
-      alert("Check your email for the password reset link!");
-    } catch (error) {
-      alert(error);
-    }
+    alert("Check your email for the magic link!");
   }
 
   async function handleLoginSubmit(e) {

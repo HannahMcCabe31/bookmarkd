@@ -352,6 +352,7 @@ LoginPage Logo
   margin: 0 0 1rem;
   font-size: x-large;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 #forgotten-button {
