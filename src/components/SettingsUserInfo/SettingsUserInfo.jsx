@@ -8,7 +8,7 @@ function ProfileUserInfo() {
     return (
         <ThemeProvider theme={bookmarkd}>
         <Box>
-        <Typography className="border-b"variant="h3">Update Profile Information</Typography>
+        <Typography className="border-b border-element-blue"variant="h3">Update Profile Information</Typography>
             <Box>
                 <TextField
                  margin="normal"

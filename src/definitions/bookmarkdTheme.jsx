@@ -39,6 +39,11 @@ export const bookmarkd = createTheme({
     }
   },
   typography: {
+    body2: {
+      fontWeight: "normal",
+      marginBottom: 10,
+
+    },
     h1: {
       fontSize: "10vw",
       fontWeight: 400,
@@ -80,6 +85,7 @@ export const bookmarkd = createTheme({
       lineHeight: 1.167,
       fontFamily: "League Spartan",
       letterSpacing: "0.00938em",
+      
     },
     subtitle:{
       fontSize: "3vw",
