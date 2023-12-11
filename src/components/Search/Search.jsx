@@ -1,7 +1,7 @@
 import { Box, Button, Select, MenuItem, TextField } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
+
 import { SearchBar } from "../../definitions/CustomComponents";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
+
 import Typography from "@mui/material/Typography";
 import backArrow from "../../assets/BackArrow.svg";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ function Search() {
   }, [searchQuery]);
 
   return (
-    <ThemeProvider theme={bookmarkd}>
+
       <div className="bg-search h-screen flex flex-col text-white p-[3vw]">
         <Box className="flex text-center items-center">
           <Link to="/dashboard">
@@ -59,7 +59,6 @@ function Search() {
           <SearchContainer data={searchResults} />
         </Box>
       </div>
-    </ThemeProvider>
   );
 }
 

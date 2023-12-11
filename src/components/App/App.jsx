@@ -7,6 +7,8 @@ import {
     Navigate,
 } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
+import { bookmarkd } from "../../definitions/bookmarkdTheme.jsx";
+import { ThemeProvider } from "@mui/material/styles";
 import Dashboard from "../Dashboard/Dashboard.jsx";
 import Profile from "../Profile/Profile";
 import Search from "../Search/Search";
@@ -29,10 +31,8 @@ function App() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-
-
-        async function getUserInfo() {
-            if (token) {
+        if (token) {
+            async function getUserInfo() {
                 const responseRequest = await fetch(
                     `http://localhost:3000/api/user?user_id=${token.user.id}`,
                     {
@@ -43,22 +43,25 @@ function App() {
                     }
                 );
 
-                if (!responseRequest.ok) {
+                if (responseRequest.ok) {
+                    const responseData = await responseRequest.json();
+                    return responseData.payload;
+                } else if (!responseRequest.ok) {
                     console.error(`Status: ${responseRequest.status}`);
                     console.error(`Text: ${await responseRequest.text()}`);
                     console.error("Data not available");
                     return;
                 }
-                const responseData = await responseRequest.json();
-
-                const payload = await responseData.payload
-                console.log(payload);
-                setUserData(payload)
-                return payload;
             }
+
+            getUserInfo()
+                .then((payload) => {
+                    setUserData(payload);
+                })
+                .catch((error) => {
+                    console.error(`Error fetching: ${error}`);
+                });
         }
-        //setUserData(getUserInfo());
-        
     }, [token]);
 
     // Check if user is on mobile
@@ -94,6 +97,7 @@ function App() {
 
     return (
         <UserData.Provider value={userData}>
+            <ThemeProvider theme={bookmarkd}>
             <Router>
                 {token && <Navbar />}
                 {/* Render Navbar if token is present */}
@@ -193,6 +197,7 @@ function App() {
                     </Routes>
                 </div>
             </Router>
+            </ThemeProvider>
         </UserData.Provider>
     );
 }
