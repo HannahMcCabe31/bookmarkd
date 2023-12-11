@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import rightArrow from "../../assets/rightArrow.svg";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
 import SettingsUserInfo from "../SettingsUserInfo/SettingsUserInfo";
+import SettingsNavigation from "../SettingsNavigation/SettingsNavigation"
 import Typography from "@mui/material/Typography";
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 import { ThemeProvider } from "@mui/material/styles";
@@ -25,38 +26,13 @@ function Settings(props) {
           <WelcomeUser token={token} />
           {/* need a section for user email */}
           <SettingsUserInfo />
-          <Typography variant="h2">Edit Profile Information</Typography>
-          {/* Profile with username and email */}
-          <div>Image, Username, Email</div>
-          {/* update profile information */}
-          <div>Profile Information</div>
-          {/* List of settings options */}
-          <div>
-            <div>
-              <div>
-                <Link to="/privacy-policy">
-                  <div>
-                    <p>Privacy Policy</p>
-                    <img src={rightArrow} alt="Right arrow" />
-                  </div>
-                </Link>
-                <Link to="/terms-and-conditions">
-                  <div>
-                    <p>Terms & Conditions</p>
-                    <img src={rightArrow} alt="Right arrow" />
-                  </div>
-                </Link>
-                <Link to="/ai-powered">
-                  <div>
-                    <p>AI Powered</p>
-                    <img src={rightArrow} alt="Right arrow" />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-          {/* contact us or Log out*/}
-          <div>
+          <SettingsNavigation/>
+         
+         
+         
+          
+         
+          
             <div>
               <Link to="/contact-us">
                 <h1>Contact Us</h1>
@@ -71,7 +47,7 @@ function Settings(props) {
               </button>
             </div>
           </div>
-        </div>
+        
       </>
     </ThemeProvider>
   );
