@@ -4,7 +4,6 @@ import rightArrow from "../../assets/rightArrow.svg";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
 import SettingsUserInfo from "../SettingsUserInfo/SettingsUserInfo";
 import SettingsNavigation from "../SettingsNavigation/SettingsNavigation"
-
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
@@ -22,13 +21,16 @@ function Settings(props) {
   return (
     <ThemeProvider theme={bookmarkd}>
       <>
-        <div className="text-white mx-10">
+      <div className="text-white">
+        <div className="mx-10">
           <WelcomeUser token={token} />
           {/* need a section for user email */}
           <SettingsUserInfo />
+          </div>
+          <div>
           <SettingsNavigation/>
           </div>
-        
+          </div>
       </>
     </ThemeProvider>
   );

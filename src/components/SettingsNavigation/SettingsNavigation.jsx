@@ -2,27 +2,37 @@ import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
 import { Box,Button} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
+// import handleLogout from "../../utils/handleLogout";
 
 
 function SettingsNavigation() {
+
+  let navigate = useNavigate();
+  
+  function handleLogout() {
+    sessionStorage.removeItem("token");
+    navigate("/");
+  }
+
     return (
         <div className="text-3xl flex flex-col mt-5 px-5">
         <div>
           <Link to="/privacy-policy">
-            <div className=" py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-              <p>Privacy Policy</p>
+            <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+              <Typography variant="h3">Privacy Policy</Typography>
               <img src={rightArrow} alt="Right arrow" />
             </div>
           </Link>
           <Link to="/terms-and-conditions">
-            <div className=" py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-              <p>Terms and Conditions</p>
+            <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
+              <Typography variant="h3">Terms and Conditions</Typography>
               <img src={rightArrow} alt="Right arrow" />
             </div>
           </Link>
           <Link to="/ai-powered">
-            <div className=" py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-              <p>AI Powered</p>
+            <div className=" py-5 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between mb-5">
+              <Typography variant="h3">AI Powered</Typography>
               <img src={rightArrow} alt="Right arrow" />
             </div>
           </Link>
@@ -36,8 +46,8 @@ function SettingsNavigation() {
             
             <div>
               <Button
-                className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md "
-                // onClick={handleLogout}
+                className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md mb-5"
+                onClick={handleLogout}
               >
                 LOG OUT
               </Button>

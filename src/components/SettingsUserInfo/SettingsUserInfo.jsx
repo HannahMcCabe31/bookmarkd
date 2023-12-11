@@ -8,7 +8,7 @@ function ProfileUserInfo() {
     return (
         <ThemeProvider theme={bookmarkd}>
         <Box>
-        <Typography className="border-b"variant="h2">Update Profile Information</Typography>
+        <Typography className="border-b"variant="h3">Update Profile Information</Typography>
             <Box>
                 <TextField
                  margin="normal"
@@ -47,9 +47,9 @@ function ProfileUserInfo() {
               className="bg-input-gray rounded-3xl"
             />
             </Box>
-            <Box className="flex flex-row justify-between">
+            <Box className="flex flex-row justify-between mt-10">
                 <Typography variant="h4">Update Profile Picture</Typography>
-                <Button className= "bg-white text-lg text-black font-semi-bold py-1 px-10 rounded-md">Upload</Button>
+                <Button className= "bg-input-gray text-lg text-black font-bold py-1 px-5 rounded-md">Upload</Button>
             </Box>
             <Box className="flex flex-col items-center">
             <Button 

@@ -126,6 +126,7 @@ export const bookmarkd = createTheme({
     
     button: {
         textTransform: "none",
+        
     },
     terms: {
         fontSize: "2.5vw",
