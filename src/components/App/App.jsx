@@ -6,7 +6,7 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Dashboard from "../Dashboard/Dashboard.jsx";
 import Profile from "../Profile/Profile";
 import Search from "../Search/Search";
@@ -21,7 +21,34 @@ import ContactUs from "../ContactUs/ContactUs.jsx";
 import BookPage from "../BookPage/BookPage.jsx";
 import Login from "../Login/Login.jsx";
 
+export const UserData = createContext()
+
 function App() {
+
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch("/data/users.json");
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error status: ${response.status}`)
+                }
+
+                const data = await response.json()
+                console.log(data[0])
+                setUserData(data[0])
+
+            } catch (error) {
+                console.error(`Fetch error: ${error}`)
+          }
+        }
+        
+        fetchData()
+        console.log(userData)
+    }, [])
+
     const [token, setToken] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -57,87 +84,65 @@ function App() {
     }, []);
 
     return (
+      <UserData.Provider value={userData}>
         <Router>
-            {token && <Navbar />}
-            {/* Render Navbar if token is present */}
-            <div className="pb-16">
-                <Routes>
-                    {isMobile ? (
-                        <Route
-                            path="/"
-                            element={<Login setToken={setToken} />}
-                        />
-                    ) : (
-                        <Route
-                            path="/"
-                            element={<LoginPage setToken={setToken} />}
-                        />
-                    )}
+          {token && <Navbar />}
+          {/* Render Navbar if token is present */}
+          <div className="pb-16">
+            <Routes>
+              {isMobile ? (
+                <Route path="/" element={<Login setToken={setToken} />} />
+              ) : (
+                <Route path="/" element={<LoginPage setToken={setToken} />} />
+              )}
 
-                    {/* Redirect to login if no token */}
-                    {!token && (
-                        <Route
-                            path="/dashboard"
-                            element={<Navigate to="/" />}
-                        />
-                    )}
-                    {!token && (
-                        <Route path="/profile" element={<Navigate to="/" />} />
-                    )}
-                    {!token && (
-                        <Route path="/search" element={<Navigate to="/" />} />
-                    )}
-                    {!token && (
-                        <Route
-                            path="/recommendations"
-                            element={<Navigate to="/" />}
-                        />
-                    )}
-                    {!token && (
-                        <Route path="/settings" element={<Navigate to="/" />} />
-                    )}
+              {/* Redirect to login if no token */}
+              {!token && (
+                <Route path="/dashboard" element={<Navigate to="/" />} />
+              )}
+              {!token && (
+                <Route path="/profile" element={<Navigate to="/" />} />
+              )}
+              {!token && <Route path="/search" element={<Navigate to="/" />} />}
+              {!token && (
+                <Route path="/recommendations" element={<Navigate to="/" />} />
+              )}
+              {!token && (
+                <Route path="/settings" element={<Navigate to="/" />} />
+              )}
 
-                    {/* Protected routes */}
-                    {token && (
-                        <Route
-                            path="/dashboard"
-                            element={<Dashboard token={token} />}
-                        />
-                    )}
-                    {token && <Route path="/profile" element={<Profile token={token} />} />}
-                    {token && <Route path="/search" element={<Search />} />}
-                    {token && (
-                        <Route
-                            path="/recommendations"
-                            element={<Recommendations />}
-                        />
-                    )}
-                    {token && <Route path="/friends" element={<Friends />} />}
-                    {token && <Route path="/settings" element={<Settings />} />}
-                    {token && (
-                        <Route
-                            path="/privacy-policy"
-                            element={<PrivacyPolicy />}
-                        />
-                    )}
-                    {token && (
-                        <Route
-                            path="/terms-and-conditions"
-                            element={<TermsConditions />}
-                        />
-                    )}
-                    {token && (
-                        <Route path="/contact-us" element={<ContactUs />} />
-                    )}
-                    {token && (
-                        <Route path="/ai-powered" element={<AIPowered />} />
-                    )}
-                    {token && (
-                        <Route path="/book-page" element={<BookPage />} />
-                    )}
-                </Routes>
-            </div>
+              {/* Protected routes */}
+              {token && (
+                <Route
+                  path="/dashboard"
+                  element={<Dashboard token={token} />}
+                />
+              )}
+              {token && (
+                <Route path="/profile" element={<Profile token={token} />} />
+              )}
+              {token && <Route path="/search" element={<Search />} />}
+              {token && (
+                <Route path="/recommendations" element={<Recommendations />} />
+              )}
+              {token && <Route path="/friends" element={<Friends />} />}
+              {token && <Route path="/settings" element={<Settings />} />}
+              {token && (
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              )}
+              {token && (
+                <Route
+                  path="/terms-and-conditions"
+                  element={<TermsConditions />}
+                />
+              )}
+              {token && <Route path="/contact-us" element={<ContactUs />} />}
+              {token && <Route path="/ai-powered" element={<AIPowered />} />}
+              {token && <Route path="/book-page" element={<BookPage />} />}
+            </Routes>
+          </div>
         </Router>
+      </UserData.Provider>
     );
 }
 
