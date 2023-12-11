@@ -6,6 +6,8 @@ import "./styles/LoginPageStyles.css";
 // import logo from "../assets/teamLogo.PNG";
 
 const LoginPage = ({ setToken }) => {
+  const [forgottenPassword, setForgottenPassword] = useState(false);
+
   let navigate = useNavigate();
 
   // Toggle Button
@@ -73,6 +75,28 @@ const LoginPage = ({ setToken }) => {
 
   function handleTwitterSocialLogin() {
     alert("Twitter Social Login");
+  }
+
+  // Forgotten Password Form
+  function handleForgottenPasswordChange(e) {
+    setLoginFormData((prevLoginFormData) => {
+      return {
+        ...prevLoginFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  }
+
+  function handleForgottenPasswordSubmit(e) {
+    e.preventDefault();
+    try {
+      const { data, error } = supabase.auth.api.resetPasswordForEmail(
+        loginFormData.email
+      );
+      alert("Check your email for the password reset link!");
+    } catch (error) {
+      alert(error);
+    }
   }
 
   async function handleLoginSubmit(e) {
@@ -167,52 +191,95 @@ const LoginPage = ({ setToken }) => {
               <button>REGISTER</button>
             </form>
           </div>
-          <div className="form-container sign-in">
-            <form onSubmit={handleLoginSubmit}>
-              <h1 className="form-title">Sign In</h1>
-              <div className="social-icons">
-                <p
-                  className="apple social-button"
-                  onClick={handleAppleSocialLogin}
-                >
-                  <img src="../../../public/social-icons/apple.png" />
-                  Continue with Apple
-                </p>
-                <p
-                  className="google social-button"
-                  onClick={handleGoogleSocialLogin}
-                >
-                  <img src="../../../public/social-icons/google.png" /> Continue
-                  with Google
-                </p>
-                <p
-                  className="twitter social-button"
-                  onClick={handleTwitterSocialLogin}
-                >
-                  <img src="../../../public/social-icons/twitter.png" />{" "}
-                  Continue with Twitter
-                </p>
-              </div>
-              <span>or use your email password</span>
 
-              <span className="font-bold">Demo: JamSlam@email.com</span>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                onChange={handleLoginChange}
-              />
-              <span className="font-bold ">Demo: 123456</span>
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={handleLoginChange}
-              />
-              <a href="#">Forget Your Password?</a>
-              <button>Sign In</button>
-            </form>
-          </div>
+          {!forgottenPassword ? (
+            <div className="form-container sign-in">
+              {/* login */}
+              <form onSubmit={handleLoginSubmit}>
+                <h1 className="form-title">Sign In</h1>
+                <div className="social-icons">
+                  <p
+                    className="apple social-button"
+                    onClick={handleAppleSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/apple.png" />
+                    Continue with Apple
+                  </p>
+                  <p
+                    className="google social-button"
+                    onClick={handleGoogleSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/google.png" />{" "}
+                    Continue with Google
+                  </p>
+                  <p
+                    className="twitter social-button"
+                    onClick={handleTwitterSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/twitter.png" />{" "}
+                    Continue with Twitter
+                  </p>
+                </div>
+                <span>or use your email password</span>
+
+                <span className="font-bold">Demo: JamSlam@email.com</span>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleLoginChange}
+                />
+                <span className="font-bold ">Demo: 123456</span>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={handleLoginChange}
+                />
+                <a
+                  href="#"
+                  onClick={() => {
+                    setForgottenPassword(true);
+                  }}
+                >
+                  Forget Your Password?
+                </a>
+                <button>Sign In</button>
+              </form>
+            </div>
+          ) : (
+            <div className="form-container sign-in">
+              {/* forgottenPassword */}
+              <form onSubmit={handleForgottenPasswordSubmit}>
+                <h1 className="form-title">Sign In</h1>
+
+                <p className="">Enter your email to reset your password </p>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleForgottenPasswordChange}
+                />
+
+                <button id="forgotten-button">SEND</button>
+                <p>Check your email.</p>
+                <p>It has a magic link that will sign you in.</p>
+                <span
+                  className="font-bold forgotten-tag"
+                  onClick={() => {
+                    setForgottenPassword(false);
+                  }}
+                >
+                  Remember your Password?
+                </span>
+
+                <p className="email-contact">
+                  Any further issues, please contact us at{" "}
+                  <span className="email">contact@bookmarkd.com</span>
+                </p>
+              </form>
+            </div>
+          )}
           <div className="toggle-container">
             <div className="toggle">
               <div className="toggle-panel toggle-left">

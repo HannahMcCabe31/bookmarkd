@@ -307,6 +307,7 @@ LoginPage Logo
   font-weight: 400;
   line-height: normal;
 }
+
 .LoginPage-logo-slogan {
   width: 18rem;
   height: 2rem;
@@ -337,4 +338,25 @@ LoginPage Logo
 .footer span {
   color: #fbf214;
   cursor: pointer;
+}
+
+.email {
+  color: #136acf;
+}
+
+.email-contact {
+  text-align: center;
+}
+
+.forgotten-tag {
+  margin: 0 0 1rem;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+#forgotten-button {
+  background-color: rgb(8, 122, 8);
+  text-align: center;
+  justify-content: center;
+  margin: 0;
 }
