@@ -185,26 +185,36 @@ const LoginPage = ({ setToken }) => {
           <div className="toggle-container">
             <div className="toggle">
               <div className="toggle-panel toggle-left">
-                <h1>Already Registered with us...</h1>
-                <p>announce your new discoveries with your friends</p>
-                <button
-                  className="hidden"
-                  id="login"
-                  onClick={handleToggleClick}
-                >
-                  Sign In
-                </button>
+                <div className="toggle-panel-container">
+                  <h1>Already Registered with us...</h1>
+                  <h2 className="toggle-panel-info">
+                    announce your new discoveries with your friends
+                  </h2>
+                  <p>Sign in to use all of the features</p>
+                  <button
+                    className="hidden"
+                    id="login"
+                    onClick={handleToggleClick}
+                  >
+                    Sign In
+                  </button>
+                </div>
               </div>
               <div className="toggle-panel toggle-right">
-                <h1>Ready to Start a New Chapter...</h1>
-                <p>We ll help you find your next great read.</p>
-                <button
-                  className="hidden"
-                  id="register"
-                  onClick={handleToggleClick}
-                >
-                  REGISTER
-                </button>
+                <div className="toggle-panel-container">
+                  <h1>Ready to Start a New Chapter...</h1>
+                  <h2 className="toggle-panel-info">
+                    We'll help you find your next great read.
+                  </h2>
+                  <p>Register for a free account to use all of the features</p>
+                  <button
+                    className="hidden"
+                    id="register"
+                    onClick={handleToggleClick}
+                  >
+                    REGISTER
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -194,6 +194,36 @@
   transition: all 0.4s ease-in-out;
 }
 
+.toggle-panel-container {
+  max-width: 28vh;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.toggle-panel h1 {
+  font-size: 1.5rem;
+}
+
+.toggle-panel h2 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.toggle-panel p {
+  font-size: 0.75rem;
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.toggle-panel button {
+  margin: 0 auto;
+  border: 0.13rem solid #fff;
+  font-size: 0.8rem;
+  padding: 0.4rem 1.5rem;
+}
+
 .toggle-left {
   transform: translateX(-200%);
 }
