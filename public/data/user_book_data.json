@@ -1,6 +1,6 @@
 [
   {
-    "user_id": 1,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 3,
     "start_date": "2023-11-25",
     "end_date": "2023-12-15",
@@ -8,7 +8,7 @@
     "user_rating": 4
   },
   {
-    "user_id": 2,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 7,
     "start_date": "2023-11-18",
     "end_date": "2023-12-10",
@@ -16,7 +16,7 @@
     "user_rating": 5
   },
   {
-    "user_id": 3,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 10,
     "start_date": "2023-11-30",
     "end_date": "2023-12-20",
@@ -24,7 +24,7 @@
     "user_rating": 4
   },
   {
-    "user_id": 4,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 5,
     "start_date": "2023-11-10",
     "end_date": "2023-12-25",
@@ -32,7 +32,7 @@
     "user_rating": 4
   },
   {
-    "user_id": 5,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 8,
     "start_date": "2023-11-22",
     "end_date": "2023-12-18",
@@ -40,7 +40,7 @@
     "user_rating": 5
   },
   {
-    "user_id": 6,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 2,
     "start_date": "2023-11-15",
     "end_date": "2023-12-12",
@@ -48,7 +48,7 @@
     "user_rating": 4
   },
   {
-    "user_id": 7,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 6,
     "start_date": "2023-11-20",
     "end_date": "2023-12-22",
@@ -56,7 +56,7 @@
     "user_rating": 3
   },
   {
-    "user_id": 8,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 1,
     "start_date": "2023-11-12",
     "end_date": "2023-12-28",
@@ -64,7 +64,7 @@
     "user_rating": 5
   },
   {
-    "user_id": 9,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 4,
     "start_date": "2023-11-28",
     "end_date": "2023-12-14",
@@ -72,7 +72,7 @@
     "user_rating": 4
   },
   {
-    "user_id": 10,
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
     "book_id": 9,
     "start_date": "2023-11-14",
     "end_date": "2023-12-30",
