@@ -95,6 +95,16 @@
   transition: all 0.2s ease-in-out;
 }
 
+.form-container a {
+  margin: 0 0 0.1rem;
+}
+
+.form-container button {
+  font-size: 0.8rem;
+  padding: 0.4rem 2.5rem;
+  justify-content: start;
+}
+
 .sign-in {
   left: 0;
   width: 50%;
@@ -118,6 +128,11 @@
   animation: move 0.2s;
 }
 
+.form-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 @keyframes move {
   0%,
   49.99% {
@@ -132,18 +147,38 @@
 }
 
 .social-icons {
-  margin: 20px 0;
+  margin: 0.1rem 0;
 }
 
-.social-icons a {
-  border: 1px solid #ccc;
-  border-radius: 20%;
-  display: inline-flex;
-  justify-content: center;
+.social-icons p {
+  border: none;
+  margin: 0.45rem 0;
+  padding: 0.63vh 5vh;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  display: flex;
   align-items: center;
-  margin: 0 3px;
-  width: 40px;
-  height: 40px;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.apple {
+  background-color: #000;
+}
+.google {
+  background-color: #136acf;
+}
+.twitter {
+  background-color: #000;
 }
 
 .toggle-container {

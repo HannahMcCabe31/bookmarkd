@@ -62,6 +62,19 @@ const LoginPage = ({ setToken }) => {
     });
   }
 
+  // Social Login
+  function handleAppleSocialLogin() {
+    alert("Apple Social Login");
+  }
+
+  function handleGoogleSocialLogin() {
+    alert("Google Social Login");
+  }
+
+  function handleTwitterSocialLogin() {
+    alert("Twitter Social Login");
+  }
+
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
@@ -108,20 +121,29 @@ const LoginPage = ({ setToken }) => {
         <div className="container" id="container">
           <div className="form-container sign-up">
             <form onSubmit={handleRegisterSubmit}>
-              <h1 className="text-3xl">Create Account</h1>
+              <h1 className="form-title">Create Account</h1>
               <div className="social-icons">
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-github"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a>
+                <p
+                  className="apple social-button"
+                  onClick={handleAppleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/apple.png" />
+                  Continue with Apple
+                </p>
+                <p
+                  className="google social-button"
+                  onClick={handleGoogleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/google.png" /> Continue
+                  with Google
+                </p>
+                <p
+                  className="twitter social-button"
+                  onClick={handleTwitterSocialLogin}
+                >
+                  <img src="../../../public/social-icons/twitter.png" />{" "}
+                  Continue with Twitter
+                </p>
               </div>
               <span>or use your email for registeration</span>
               <input
@@ -147,20 +169,29 @@ const LoginPage = ({ setToken }) => {
           </div>
           <div className="form-container sign-in">
             <form onSubmit={handleLoginSubmit}>
-              <h1 className="text-3xl">Sign In</h1>
+              <h1 className="form-title">Sign In</h1>
               <div className="social-icons">
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-github"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a>
+                <p
+                  className="apple social-button"
+                  onClick={handleAppleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/apple.png" />
+                  Continue with Apple
+                </p>
+                <p
+                  className="google social-button"
+                  onClick={handleGoogleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/google.png" /> Continue
+                  with Google
+                </p>
+                <p
+                  className="twitter social-button"
+                  onClick={handleTwitterSocialLogin}
+                >
+                  <img src="../../../public/social-icons/twitter.png" />{" "}
+                  Continue with Twitter
+                </p>
               </div>
               <span>or use your email password</span>
 
