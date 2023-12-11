@@ -113,7 +113,7 @@ function App() {
                         />
                     )}
                     {token && <Route path="/friends" element={<Friends />} />}
-                    {token && <Route path="/settings" element={<Settings />} />}
+                    {token && <Route path="/settings" element={<Settings token={token} />} />}
                     {token && (
                         <Route
                             path="/privacy-policy"
