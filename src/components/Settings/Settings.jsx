@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import rightArrow from "../../assets/rightArrow.svg";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
 import SettingsUserInfo from "../SettingsUserInfo/SettingsUserInfo";
-import SettingsNavigation from "../SettingsNavigation/SettingsNavigation"
+import SettingsNavigation from "../SettingsNavigation/SettingsNavigation";
 import UserHeader from "../UserHeader/UserHeader";
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 import { ThemeProvider } from "@mui/material/styles";
@@ -16,22 +16,23 @@ function Settings(props) {
 
   function handleLogout() {
     sessionStorage.removeItem("token");
+    props.setToken(false);
     navigate("/");
   }
 
   return (
     <ThemeProvider theme={bookmarkd}>
       <>
-      <div className="text-white">
-        <div className="mx-10">
-          <UserHeader token={token} />
-          {/* need a section for user email */}
-          <SettingsUserInfo />
+        <div className="text-white">
+          <div className="mx-10">
+            <UserHeader token={token} />
+            {/* need a section for user email */}
+            <SettingsUserInfo />
           </div>
           <div>
-          <SettingsNavigation/>
+            <SettingsNavigation />
           </div>
-          </div>
+        </div>
       </>
     </ThemeProvider>
   );

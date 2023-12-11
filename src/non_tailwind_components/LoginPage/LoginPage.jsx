@@ -6,6 +6,8 @@ import "./styles/LoginPageStyles.css";
 // import logo from "../assets/teamLogo.PNG";
 
 const LoginPage = ({ setToken }) => {
+  const [forgottenPassword, setForgottenPassword] = useState(false);
+
   let navigate = useNavigate();
 
   // Toggle Button
@@ -62,6 +64,38 @@ const LoginPage = ({ setToken }) => {
     });
   }
 
+  // Social Login
+  function handleAppleSocialLogin() {
+    alert("Apple Social Login");
+  }
+
+  function handleGoogleSocialLogin() {
+    alert("Google Social Login");
+  }
+
+  function handleTwitterSocialLogin() {
+    alert("Twitter Social Login");
+  }
+
+  // Forgotten Password Form
+  const [forgottenPasswordFormData, setForgottenPasswordFormData] = useState({
+    email: "",
+  });
+
+  function handleForgottenPasswordChange(e) {
+    setForgottenPasswordFormData((prevForgottenPasswordFormData) => {
+      return {
+        ...prevForgottenPasswordFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  }
+
+  function handleForgottenPasswordSubmit(e) {
+    e.preventDefault();
+    alert("Check your email for the magic link!");
+  }
+
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
@@ -80,9 +114,25 @@ const LoginPage = ({ setToken }) => {
     }
   }
 
+  // Ai Powered Link
+  const handleAiPoweredClick = () => {
+    alert("Ai Powered");
+  };
+
+  // Footer Links
+  const handleFooterClickTermsAndConditions = () => {
+    alert("Terms & Conditions");
+  };
+  const handleFooterClickPrivacyPolicy = () => {
+    alert("Privacy Policy");
+  };
+
   return (
     <>
       <div className="loginPage_container">
+        <div className="header" onClick={handleAiPoweredClick}>
+          <h1>AI Powered.</h1>
+        </div>
         <div className="LoginPage-logo-container">
           <p className="LoginPage-logo">
             book<span className="LoginPage-logo-mark">mark</span>d
@@ -92,20 +142,29 @@ const LoginPage = ({ setToken }) => {
         <div className="container" id="container">
           <div className="form-container sign-up">
             <form onSubmit={handleRegisterSubmit}>
-              <h1 className="text-3xl">Create Account</h1>
+              <h1 className="form-title">Create Account</h1>
               <div className="social-icons">
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-github"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a>
+                <p
+                  className="apple social-button"
+                  onClick={handleAppleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/apple.png" />
+                  Continue with Apple
+                </p>
+                <p
+                  className="google social-button"
+                  onClick={handleGoogleSocialLogin}
+                >
+                  <img src="../../../public/social-icons/google.png" /> Continue
+                  with Google
+                </p>
+                <p
+                  className="twitter social-button"
+                  onClick={handleTwitterSocialLogin}
+                >
+                  <img src="../../../public/social-icons/twitter.png" />{" "}
+                  Continue with Twitter
+                </p>
               </div>
               <span>or use your email for registeration</span>
               <input
@@ -129,69 +188,151 @@ const LoginPage = ({ setToken }) => {
               <button>REGISTER</button>
             </form>
           </div>
-          <div className="form-container sign-in">
-            <form onSubmit={handleLoginSubmit}>
-              <h1 className="text-3xl">Sign In</h1>
-              <div className="social-icons">
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-github"></i>
-                </a>
-                <a href="#" className="icon">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a>
-              </div>
-              <span>or use your email password</span>
 
-              <span className="font-bold">Demo: JamSlam@email.com</span>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                onChange={handleLoginChange}
-              />
-              <span className="font-bold ">Demo: 123456</span>
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={handleLoginChange}
-              />
-              <a href="#">Forget Your Password?</a>
-              <button>Sign In</button>
-            </form>
-          </div>
+          {!forgottenPassword ? (
+            <div className="form-container sign-in">
+              {/* login */}
+              <form onSubmit={handleLoginSubmit}>
+                <h1 className="form-title">Sign In</h1>
+                <div className="social-icons">
+                  <p
+                    className="apple social-button"
+                    onClick={handleAppleSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/apple.png" />
+                    Continue with Apple
+                  </p>
+                  <p
+                    className="google social-button"
+                    onClick={handleGoogleSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/google.png" />{" "}
+                    Continue with Google
+                  </p>
+                  <p
+                    className="twitter social-button"
+                    onClick={handleTwitterSocialLogin}
+                  >
+                    <img src="../../../public/social-icons/twitter.png" />{" "}
+                    Continue with Twitter
+                  </p>
+                </div>
+                <span>or use your email password</span>
+
+                <span className="font-bold">Demo: JamSlam@email.com</span>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleLoginChange}
+                />
+                <span className="font-bold ">Demo: 123456</span>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={handleLoginChange}
+                />
+                <span
+                  href="#"
+                  onClick={() => {
+                    setForgottenPassword(true);
+                  }}
+                  className="forgotten-tag"
+                >
+                  Forget Your Password?
+                </span>
+                <button>Sign In</button>
+              </form>
+            </div>
+          ) : (
+            <div className="form-container sign-in">
+              {/* forgottenPassword */}
+              <form onSubmit={handleForgottenPasswordSubmit}>
+                <h1 className="form-title">Sign In</h1>
+
+                <p className="">Enter your email to reset your password </p>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleForgottenPasswordChange}
+                />
+
+                <button id="forgotten-button">SEND</button>
+                <p>Check your email.</p>
+                <p>It has a magic link that will sign you in.</p>
+                <span
+                  className="font-bold forgotten-tag"
+                  onClick={() => {
+                    setForgottenPassword(false);
+                  }}
+                >
+                  Remember your Password?
+                </span>
+
+                <p className="email-contact">
+                  Any further issues, please contact us at{" "}
+                  <span className="email">contact@bookmarkd.com</span>
+                </p>
+              </form>
+            </div>
+          )}
           <div className="toggle-container">
             <div className="toggle">
               <div className="toggle-panel toggle-left">
-                <h1>Already Registered with us...</h1>
-                <p>announce your new discoveries with your friends</p>
-                <button
-                  className="hidden"
-                  id="login"
-                  onClick={handleToggleClick}
-                >
-                  Sign In
-                </button>
+                <div className="toggle-panel-container">
+                  <h1>Already Registered with us...</h1>
+                  <h2 className="toggle-panel-info">
+                    announce your new discoveries with your friends
+                  </h2>
+                  <p>Sign in to use all of the features</p>
+                  <button
+                    className="hidden"
+                    id="login"
+                    onClick={handleToggleClick}
+                  >
+                    Sign In
+                  </button>
+                </div>
               </div>
               <div className="toggle-panel toggle-right">
-                <h1>Ready to Start a New Chapter...</h1>
-                <p>We ll help you find your next great read.</p>
-                <button
-                  className="hidden"
-                  id="register"
-                  onClick={handleToggleClick}
-                >
-                  REGISTER
-                </button>
+                <div className="toggle-panel-container">
+                  <h1>Ready to Start a New Chapter...</h1>
+                  <h2 className="toggle-panel-info">
+                    We'll help you find your next great read.
+                  </h2>
+                  <p>Register for a free account to use all of the features</p>
+                  <button
+                    className="hidden"
+                    id="register"
+                    onClick={handleToggleClick}
+                  >
+                    REGISTER
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="footer">
+          By clicking "Continue with Email/Apple/Google/X" above, you agree to
+          Bookmarkd's{" "}
+          <span
+            className="footer-link"
+            onClick={handleFooterClickTermsAndConditions}
+          >
+            Terms & Conditions
+          </span>{" "}
+          and
+          <span
+            className="footer-link"
+            onClick={handleFooterClickPrivacyPolicy}
+          >
+            {" "}
+            Privacy Policy
+          </span>
+          .
         </div>
       </div>
     </>
