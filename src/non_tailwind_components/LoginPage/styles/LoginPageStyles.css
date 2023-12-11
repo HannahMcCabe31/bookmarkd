@@ -108,7 +108,6 @@
 .sign-up {
   left: 0;
   width: 50%;
-  opactiy: 0;
   z-index: 1;
 }
 
@@ -223,6 +222,8 @@ LoginPage Logo
   flex-direction: column;
   margin-bottom: 1rem;
   font-family: "league spartan";
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 .LoginPage-logo {
@@ -251,9 +252,9 @@ LoginPage Logo
 }
 
 .header {
-  position: relative;
-  right: -45vh;
-  z-index: 10;
+  position: fixed;
+  top: 10vh;
+  left: 80%;
   font-weight: 300;
   font-size: large;
   color: #fff;

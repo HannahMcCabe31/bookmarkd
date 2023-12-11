@@ -79,7 +79,10 @@ function App() {
 
           {/* Protected routes */}
           {token && (
-            <Route path="/dashboard" element={<Dashboard token={token} />} />
+            <Route
+              path="/dashboard"
+              element={<Dashboard token={token} setToken={setToken} />}
+            />
           )}
           {token && (
             <Route path="/profile" element={<Profile token={token} />} />
@@ -89,7 +92,12 @@ function App() {
             <Route path="/recommendations" element={<Recommendations />} />
           )}
           {token && <Route path="/friends" element={<Friends />} />}
-          {token && <Route path="/settings" element={<Settings />} />}
+          {token && (
+            <Route
+              path="/settings"
+              element={<Settings setToken={setToken} />}
+            />
+          )}
           {token && (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           )}

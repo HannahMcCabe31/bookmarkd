@@ -4,6 +4,7 @@ function MobileResizeWarning(props) {
   function handleLogout() {
     sessionStorage.removeItem("token");
     props.navigate("/");
+    props.setToken(false);
   }
 
   return (

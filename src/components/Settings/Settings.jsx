@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import rightArrow from "../../assets/rightArrow.svg";
 
-const Settings = () => {
+const Settings = (props) => {
   let navigate = useNavigate();
 
   function handleLogout() {
     sessionStorage.removeItem("token");
+    props.setToken(false);
     navigate("/");
   }
 

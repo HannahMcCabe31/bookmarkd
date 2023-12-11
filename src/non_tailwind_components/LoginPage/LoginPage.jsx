@@ -96,7 +96,7 @@ const LoginPage = ({ setToken }) => {
   return (
     <>
       <div className="loginPage_container">
-        <div class="header" onClick={handleAiPoweredClick}>
+        <div className="header" onClick={handleAiPoweredClick}>
           <h1>AI Powered.</h1>
         </div>
         <div className="LoginPage-logo-container">
@@ -209,17 +209,20 @@ const LoginPage = ({ setToken }) => {
             </div>
           </div>
         </div>
-        <div class="footer">
+        <div className="footer">
           By clicking "Continue with Email/Apple/Google/X" above, you agree to
           Bookmarkd's{" "}
           <span
-            class="footer-link"
+            className="footer-link"
             onClick={handleFooterClickTermsAndConditions}
           >
             Terms & Conditions
           </span>{" "}
           and
-          <span class="footer-link" onClick={handleFooterClickPrivacyPolicy}>
+          <span
+            className="footer-link"
+            onClick={handleFooterClickPrivacyPolicy}
+          >
             {" "}
             Privacy Policy
           </span>

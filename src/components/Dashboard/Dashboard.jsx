@@ -45,7 +45,11 @@ function Dashboard(props) {
           </div>
         </>
       ) : (
-        <MobileResizeWarning token={token} navigate={navigate} />
+        <MobileResizeWarning
+          token={token}
+          navigate={navigate}
+          setToken={props.setToken}
+        />
       )}
     </div>
   );
