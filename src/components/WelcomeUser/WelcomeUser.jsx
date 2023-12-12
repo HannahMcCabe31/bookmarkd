@@ -2,12 +2,14 @@ import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useContext } from "react"
 import { ProfilePic } from "../App/App.jsx";
-
 import { Link } from "react-router-dom";
+import { TokenContext } from "../App/App.jsx";
 
-function WelcomeUser(props) {
+function WelcomeUser() {
 
 const profilePic = useContext(ProfilePic)
+const token = useContext(TokenContext)
+console.log(token)
 
   return (
     <Box
@@ -21,7 +23,7 @@ const profilePic = useContext(ProfilePic)
         />
       </Link>
       <Typography variant="h2">
-        Hello, {props.token.user.user_metadata.username}!
+        Hello, {token.user.user_metadata.username}!
       </Typography>
     </Box>
   );

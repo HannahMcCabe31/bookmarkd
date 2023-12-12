@@ -29,6 +29,9 @@ const CDN =
 
 export const UserData = createContext();
 export const ProfilePic = createContext();
+export const TokenContext = createContext();
+export const SetTokenContext = createContext();
+
 
 function App() {
   const [userData, setUserData] = useState();
@@ -128,6 +131,8 @@ function App() {
 
   return (
     <UserData.Provider value={userData}>
+    <TokenContext.Provider value={token}>
+    <SetTokenContext.Provider value={setToken}>
       <ProfilePic.Provider value={hasProfilePic}>
         <ThemeProvider theme={bookmarkd}>
           <Router>
@@ -167,9 +172,9 @@ function App() {
                     path="/dashboard"
                     element={
                       <Dashboard
-                        token={token}
+                        
                         setToken={setToken}
-                        hasProfilePic={hasProfilePic}
+                        
                       />
                     }
                   />
@@ -221,6 +226,8 @@ function App() {
           </Router>
         </ThemeProvider>
       </ProfilePic.Provider>
+      </SetTokenContext.Provider>
+      </TokenContext.Provider>
     </UserData.Provider>
   );
 }
