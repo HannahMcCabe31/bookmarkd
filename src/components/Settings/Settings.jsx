@@ -30,7 +30,7 @@ function Settings(props) {
             <SettingsUserInfo />
           </div>
           <div>
-            <SettingsNavigation />
+            <SettingsNavigation setToken={props.setToken} />
           </div>
         </div>
       </>

@@ -128,7 +128,7 @@ function App() {
               {token && (
                 <Route
                   path="/dashboard"
-                  element={<Dashboard token={token} />}
+                  element={<Dashboard token={token} setToken={setToken} />}
                 />
               )}
               {token && (

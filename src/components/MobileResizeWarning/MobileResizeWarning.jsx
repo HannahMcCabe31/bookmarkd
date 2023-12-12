@@ -3,12 +3,13 @@
 function MobileResizeWarning(props) {
   function handleLogout() {
     sessionStorage.removeItem("token");
-    props.navigate("/");
     props.setToken(false);
+    props.navigate("/");
   }
 
   return (
     <div className="h-screen flex flex-col items-center justify-center text-3xl text-white">
+      <div className="w-24 h-24 bg-white border rounded-full"></div>
       <div className="max-w-md">
         <h1 className="mb-3">
           Hello, {props.token.user.user_metadata.username}
