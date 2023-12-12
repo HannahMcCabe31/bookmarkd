@@ -24,9 +24,13 @@ function Settings(props) {
     <>
       <div className="text-white">
         <div className="mx-10">
-          <UserHeader token={token} />
+          <UserHeader token={token} hasProfilePic={props.hasProfilePic} />
           {/* need a section for user email */}
-          <SettingsUserInfo />
+          <SettingsUserInfo
+            token={token}
+            setHasProfilePic={props.setHasProfilePic}
+            getProfilePic={props.getProfilePic}
+          />
         </div>
         <div>
           <SettingsNavigation setToken={props.setToken} />

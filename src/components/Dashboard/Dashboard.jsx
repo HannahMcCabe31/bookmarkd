@@ -7,6 +7,7 @@ import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 
 function Dashboard(props) {
   const token = props.token;
+  // console.log(props.hasProfilePic);
 
   let navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false); // Add missing state variable
@@ -37,7 +38,7 @@ function Dashboard(props) {
           {/* Mobile display only  */}
           <div className="text-white p-6">
             {/* This component contains the header (profile picture and username) */}
-            <WelcomeUser token={token} />
+            <WelcomeUser token={token} hasProfilePic={props.hasProfilePic} />
             {/* This component contains the my current reads */}
             <CurrentlyReading />
             {/* This component contains multiple links to other pages */}
@@ -49,6 +50,7 @@ function Dashboard(props) {
           token={token}
           navigate={navigate}
           setToken={props.setToken}
+          hasProfilePic={props.hasProfilePic}
         />
       )}
     </div>

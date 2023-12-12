@@ -13,7 +13,10 @@ function UserHeader(props) {
         className=" flex flex-col items-center mb-10 mt-4 "
       >
         <Link to="/profile">
-          <Box className="w-24 h-24 bg-white border rounded-full" />
+          <img
+            className="w-24 h-24 bg-white border rounded-full"
+            src={props.hasProfilePic}
+          />
         </Link>
         <Typography variant="h2">
           {props.token.user.user_metadata.username}

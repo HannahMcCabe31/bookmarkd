@@ -22,6 +22,10 @@ import AIPowered from "../AIPowered/AIPowered.jsx";
 import ContactUs from "../ContactUs/ContactUs.jsx";
 import BookPage from "../BookPage/BookPage.jsx";
 import Login from "../Login/Login.jsx";
+import { supabase } from "../Supabase/client.js";
+
+const CDN =
+  "https://ddcqxtxffblwpqoaufri.supabase.co/storage/v1/object/public/profile/";
 
 export const UserData = createContext();
 
@@ -31,6 +35,8 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [hasProfilePic, setHasProfilePic] = useState([]);
 
+  // console.log(CDN + token?.user?.id + "/profilePic");
+  // console.log(hasProfilePic);
   useEffect(() => {
     if (token) {
       async function getUserInfo() {
@@ -62,6 +68,10 @@ function App() {
         .catch((error) => {
           console.error(`Error fetching: ${error}`);
         });
+    }
+
+    if (token) {
+      getProfilePic();
     }
   }, [token]);
 
@@ -96,6 +106,25 @@ function App() {
     }
   }, []);
 
+  async function getProfilePic() {
+    const { data, error } = await supabase.storage
+      .from("profile")
+      .list(token.user.id + "/", {
+        limit: 1,
+        offset: 0,
+        sortBy: { column: "created_at", order: "desc" },
+      });
+
+    if (data[0].name == ".emptyFolderPlaceholder") {
+      setHasProfilePic("../../../public/default-profile-pic.jpg");
+      // console.log(CDN + token?.user?.id + data.name);
+    } else if (data[0].name) {
+      setHasProfilePic(CDN + token?.user?.id + "/" + data[0].name);
+    } else {
+      console.log(error);
+    }
+  }
+
   return (
     <UserData.Provider value={userData}>
       <ThemeProvider theme={bookmarkd}>
@@ -129,11 +158,22 @@ function App() {
               {token && (
                 <Route
                   path="/dashboard"
-                  element={<Dashboard token={token} setToken={setToken} />}
+                  element={
+                    <Dashboard
+                      token={token}
+                      setToken={setToken}
+                      hasProfilePic={hasProfilePic}
+                    />
+                  }
                 />
               )}
               {token && (
-                <Route path="/profile" element={<Profile token={token} />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <Profile token={token} hasProfilePic={hasProfilePic} />
+                  }
+                />
               )}
               {token && <Route path="/search" element={<Search />} />}
               {token && (
@@ -143,7 +183,15 @@ function App() {
               {token && (
                 <Route
                   path="/settings"
-                  element={<Settings setToken={setToken} token={token} />}
+                  element={
+                    <Settings
+                      setToken={setToken}
+                      token={token}
+                      hasProfilePic={hasProfilePic}
+                      setHasProfilePic={setHasProfilePic}
+                      getProfilePic={getProfilePic}
+                    />
+                  }
                 />
               )}
               {token && (
