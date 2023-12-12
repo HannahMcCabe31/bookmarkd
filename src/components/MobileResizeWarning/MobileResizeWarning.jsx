@@ -1,19 +1,17 @@
 import { ProfilePic } from "../App/App.jsx";
 import { TokenContext } from "../App/App.jsx";
 import { SetTokenContext } from "../App/App.jsx";
-import { useContext } from "react"
-
-
+import { useContext } from "react";
 
 function MobileResizeWarning() {
-  const profilePic = useContext(ProfilePic)
-  const token = useContext(TokenContext)
-  const setToken = useContext(SetTokenContext)
-  
+  const profilePic = useContext(ProfilePic);
+  const token = useContext(TokenContext);
+  const setToken = useContext(SetTokenContext);
+
   function handleLogout() {
-    sessionStorage.removeItem("token");
     setToken(false);
-    console.log(token)
+    console.log("helo");
+    sessionStorage.removeItem("token");
     // props.navigate("/");
   }
 

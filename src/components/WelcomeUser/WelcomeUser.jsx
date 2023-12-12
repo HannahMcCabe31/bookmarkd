@@ -1,15 +1,13 @@
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { useContext } from "react"
+import { useContext } from "react";
 import { ProfilePic } from "../App/App.jsx";
 import { Link } from "react-router-dom";
 import { TokenContext } from "../App/App.jsx";
 
 function WelcomeUser() {
-
-const profilePic = useContext(ProfilePic)
-const token = useContext(TokenContext)
-console.log(token)
+  const profilePic = useContext(ProfilePic);
+  const token = useContext(TokenContext);
 
   return (
     <Box

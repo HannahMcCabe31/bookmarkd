@@ -31,7 +31,7 @@ export const UserData = createContext();
 export const ProfilePic = createContext();
 export const TokenContext = createContext();
 export const SetTokenContext = createContext();
-
+export const GetProfilePicFunction = createContext();
 
 function App() {
   const [userData, setUserData] = useState();
@@ -39,8 +39,6 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [hasProfilePic, setHasProfilePic] = useState([]);
 
-  // console.log(CDN + token?.user?.id + "/profilePic");
-  // console.log(hasProfilePic);
   useEffect(() => {
     if (token) {
       async function getUserInfo() {
@@ -121,7 +119,6 @@ function App() {
 
     if (data[0].name == ".emptyFolderPlaceholder") {
       setHasProfilePic("../../../public/default-profile-pic.jpg");
-      // console.log(CDN + token?.user?.id + data.name);
     } else if (data[0].name) {
       setHasProfilePic(CDN + token?.user?.id + "/" + data[0].name);
     } else {
@@ -131,102 +128,119 @@ function App() {
 
   return (
     <UserData.Provider value={userData}>
-    <TokenContext.Provider value={token}>
-    <SetTokenContext.Provider value={setToken}>
-      <ProfilePic.Provider value={hasProfilePic}>
-        <ThemeProvider theme={bookmarkd}>
-          <Router>
-            {token && <Navbar />}
-            {/* Render Navbar if token is present */}
-            <div className="pb-16">
-              <Routes>
-                {isMobile ? (
-                  <Route path="/" element={<Login setToken={setToken} />} />
-                ) : (
-                  <Route path="/" element={<LoginPage setToken={setToken} />} />
-                )}
+      <TokenContext.Provider value={token}>
+        <SetTokenContext.Provider value={setToken}>
+          <ProfilePic.Provider value={hasProfilePic}>
+            <GetProfilePicFunction.Provider value={getProfilePic}>
+              <ThemeProvider theme={bookmarkd}>
+                <Router>
+                  {token && <Navbar />}
+                  {/* Render Navbar if token is present */}
+                  <div className="pb-16">
+                    <Routes>
+                      {isMobile ? (
+                        <Route
+                          path="/"
+                          element={<Login setToken={setToken} />}
+                        />
+                      ) : (
+                        <Route
+                          path="/"
+                          element={<LoginPage setToken={setToken} />}
+                        />
+                      )}
 
-                {/* Redirect to login if no token */}
-                {!token && (
-                  <Route path="/dashboard" element={<Navigate to="/" />} />
-                )}
-                {!token && (
-                  <Route path="/profile" element={<Navigate to="/" />} />
-                )}
-                {!token && (
-                  <Route path="/search" element={<Navigate to="/" />} />
-                )}
-                {!token && (
-                  <Route
-                    path="/recommendations"
-                    element={<Navigate to="/" />}
-                  />
-                )}
-                {!token && (
-                  <Route path="/settings" element={<Navigate to="/" />} />
-                )}
+                      {/* Redirect to login if no token */}
+                      {!token && (
+                        <Route
+                          path="/dashboard"
+                          element={<Navigate to="/" />}
+                        />
+                      )}
+                      {!token && (
+                        <Route path="/profile" element={<Navigate to="/" />} />
+                      )}
+                      {!token && (
+                        <Route path="/search" element={<Navigate to="/" />} />
+                      )}
+                      {!token && (
+                        <Route
+                          path="/recommendations"
+                          element={<Navigate to="/" />}
+                        />
+                      )}
+                      {!token && (
+                        <Route path="/settings" element={<Navigate to="/" />} />
+                      )}
 
-                {/* Protected routes */}
-                {token && (
-                  <Route
-                    path="/dashboard"
-                    element={
-                      <Dashboard
-                        
-                        setToken={setToken}
-                        
-                      />
-                    }
-                  />
-                )}
-                {token && (
-                  <Route
-                    path="/profile"
-                    element={
-                      <Profile token={token} hasProfilePic={hasProfilePic} />
-                    }
-                  />
-                )}
-                {token && <Route path="/search" element={<Search />} />}
-                {token && (
-                  <Route
-                    path="/recommendations"
-                    element={<Recommendations />}
-                  />
-                )}
-                {token && <Route path="/friends" element={<Friends />} />}
-                {token && (
-                  <Route
-                    path="/settings"
-                    element={
-                      <Settings
-                        setToken={setToken}
-                        token={token}
-                        hasProfilePic={hasProfilePic}
-                        setHasProfilePic={setHasProfilePic}
-                        getProfilePic={getProfilePic}
-                      />
-                    }
-                  />
-                )}
-                {token && (
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                )}
-                {token && (
-                  <Route
-                    path="/terms-and-conditions"
-                    element={<TermsConditions />}
-                  />
-                )}
-                {token && <Route path="/contact-us" element={<ContactUs />} />}
-                {token && <Route path="/ai-powered" element={<AIPowered />} />}
-                {token && <Route path="/book-page" element={<BookPage />} />}
-              </Routes>
-            </div>
-          </Router>
-        </ThemeProvider>
-      </ProfilePic.Provider>
-      </SetTokenContext.Provider>
+                      {/* Protected routes */}
+                      {token && (
+                        <Route
+                          path="/dashboard"
+                          element={<Dashboard setToken={setToken} />}
+                        />
+                      )}
+                      {token && (
+                        <Route
+                          path="/profile"
+                          element={
+                            <Profile
+                              token={token}
+                              hasProfilePic={hasProfilePic}
+                            />
+                          }
+                        />
+                      )}
+                      {token && <Route path="/search" element={<Search />} />}
+                      {token && (
+                        <Route
+                          path="/recommendations"
+                          element={<Recommendations />}
+                        />
+                      )}
+                      {token && <Route path="/friends" element={<Friends />} />}
+                      {token && (
+                        <Route
+                          path="/settings"
+                          element={
+                            <Settings
+                              setToken={setToken}
+                              token={token}
+                              hasProfilePic={hasProfilePic}
+                              setHasProfilePic={setHasProfilePic}
+                              getProfilePic={getProfilePic}
+                            />
+                          }
+                        />
+                      )}
+                      {token && (
+                        <Route
+                          path="/privacy-policy"
+                          element={<PrivacyPolicy />}
+                        />
+                      )}
+                      {token && (
+                        <Route
+                          path="/terms-and-conditions"
+                          element={<TermsConditions />}
+                        />
+                      )}
+                      {token && (
+                        <Route path="/contact-us" element={<ContactUs />} />
+                      )}
+                      {token && (
+                        <Route path="/ai-powered" element={<AIPowered />} />
+                      )}
+                      {token && (
+                        <Route path="/book-page" element={<BookPage />} />
+                      )}
+                    </Routes>
+                  </div>
+                </Router>
+              </ThemeProvider>
+            </GetProfilePicFunction.Provider>
+          </ProfilePic.Provider>
+        </SetTokenContext.Provider>
       </TokenContext.Provider>
     </UserData.Provider>
   );

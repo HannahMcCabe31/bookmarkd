@@ -3,13 +3,12 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
-import { useContext } from "react"
-import { ProfilePic } from "../App/App.jsx";
+import { useContext } from "react";
+import { TokenContext, ProfilePic } from "../App/App.jsx";
 
-function UserHeader(props) {
-
+function UserHeader() {
   const profilePic = useContext(ProfilePic);
-  //    console.log(props.token.user)
+  const token = useContext(TokenContext);
   return (
     <ThemeProvider theme={bookmarkd}>
       <Box
@@ -23,10 +22,10 @@ function UserHeader(props) {
           />
         </Link>
         <Typography variant="h2">
-          {props.token.user.user_metadata.username}
+          {token.user.user_metadata.username}
         </Typography>
         <Box>
-          <Typography variant="h6">{props.token.user.email}</Typography>
+          <Typography variant="h6">{token.user.email}</Typography>
         </Box>
       </Box>
     </ThemeProvider>

@@ -9,9 +9,7 @@ import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 
-function Settings(props) {
-  const token = props.token;
-
+function Settings() {
   let navigate = useNavigate();
 
   function handleLogout() {
@@ -24,16 +22,17 @@ function Settings(props) {
     <>
       <div className="text-white">
         <div className="mx-10">
-          <UserHeader token={token} />
+          <UserHeader />
           {/* need a section for user email */}
           <SettingsUserInfo
-            token={token}
-            setHasProfilePic={props.setHasProfilePic}
-            getProfilePic={props.getProfilePic}
+          // setHasProfilePic={props.setHasProfilePic}
+          // getProfilePic={props.getProfilePic}
           />
         </div>
         <div>
-          <SettingsNavigation setToken={props.setToken} />
+          <SettingsNavigation
+          // setToken={props.setToken}
+          />
         </div>
       </div>
     </>
