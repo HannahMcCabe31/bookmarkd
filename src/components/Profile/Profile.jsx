@@ -43,7 +43,7 @@ function Profile(props) {
           {/* Mobile display only  */}
           <div className="text-white p-[5vw]">
             {/* This component contains the header (profile picture and username) */}
-            <WelcomeUser token={token} hasProfilePic={props.hasProfilePic} />
+            <WelcomeUser token={token}/>
             <ProfileCurrentlyReading />
             <ProfileStatistics />
             <ProfileBookshelves />

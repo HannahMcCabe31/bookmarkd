@@ -1,9 +1,14 @@
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { useContext } from "react"
+import { ProfilePic } from "../App/App.jsx";
 
 import { Link } from "react-router-dom";
 
 function WelcomeUser(props) {
+
+const profilePic = useContext(ProfilePic)
+
   return (
     <Box
       component="section"
@@ -12,7 +17,7 @@ function WelcomeUser(props) {
       <Link to="/profile">
         <img
           className="w-24 h-24 bg-white border rounded-full"
-          src={props.hasProfilePic}
+          src={profilePic}
         />
       </Link>
       <Typography variant="h2">

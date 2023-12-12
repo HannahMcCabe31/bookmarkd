@@ -3,8 +3,12 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
+import { useContext } from "react"
+import { ProfilePic } from "../App/App.jsx";
 
 function UserHeader(props) {
+
+  const profilePic = useContext(ProfilePic);
   //    console.log(props.token.user)
   return (
     <ThemeProvider theme={bookmarkd}>
@@ -15,7 +19,7 @@ function UserHeader(props) {
         <Link to="/profile">
           <img
             className="w-24 h-24 bg-white border rounded-full"
-            src={props.hasProfilePic}
+            src={profilePic}
           />
         </Link>
         <Typography variant="h2">

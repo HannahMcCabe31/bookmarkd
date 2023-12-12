@@ -1,6 +1,7 @@
 import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
 
+
 function DashboardNavigation() {
   return (
     <div className="text-3xl flex flex-col mt-5 px-5">
