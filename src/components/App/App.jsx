@@ -34,7 +34,7 @@ function App() {
     if (token) {
       async function getUserInfo() {
         const responseRequest = await fetch(
-          `http://localhost:3000/api/user?user_id=${token.user.id}`,
+          `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
           {
             method: `GET`,
             headers: {
