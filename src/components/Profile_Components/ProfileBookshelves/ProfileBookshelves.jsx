@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import { bookmarkd } from "../../../definitions/bookmarkdTheme";
 import Bookshelf from "../Bookshelf/Bookshelf"
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -21,7 +21,7 @@ function ProfileBookshelves( { bookshelves } ) {
         return (
           // eslint-disable-next-line react/jsx-key
           <Box>
-            <Bookshelf key={item.bookshelf_id} bookshelf_name={item.bookshelf_name} />
+            <Bookshelf key={item.bookshelf_id} bookshelf_name={item.bookshelf_name} bookshelf_books={item.bookshelf_books}/>
           </Box>
         );
       })}

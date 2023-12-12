@@ -1,12 +1,12 @@
-import flame from "../../assets/Flame.svg";
-import PagesRead from "../../assets/PagesRead.svg";
-import BooksRead from "../../assets/BooksRead.svg";
+import flame from "../../../assets/Flame.svg";
+import PagesRead from "../../../assets/PagesRead.svg";
+import BooksRead from "../../../assets/BooksRead.svg";
 import React, { useState, useEffect, useContext } from "react";
 import { Box, TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
-import { UserData } from "../App/App.jsx";
+import { bookmarkd } from "../../../definitions/bookmarkdTheme.jsx";
+import { UserData } from "../../App/App.jsx";
 
 function ProfileStatistics() {
     const userData = useContext(UserData);
