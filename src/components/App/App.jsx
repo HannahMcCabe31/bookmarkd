@@ -31,28 +31,28 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (token) {
-      async function getUserInfo() {
-        const responseRequest = await fetch(
-          `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
-          {
-            method: `GET`,
-            headers: {
-              Accept: "application/json",
-            },
-          }
-        );
-
-        if (responseRequest.ok) {
-          const responseData = await responseRequest.json();
-          return responseData.payload;
-        } else if (!responseRequest.ok) {
-          console.error(`Status: ${responseRequest.status}`);
-          console.error(`Text: ${await responseRequest.text()}`);
-          console.error("Data not available");
-          return;
+    async function getUserInfo() {
+      const responseRequest = await fetch(
+        `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
+        {
+          method: `GET`,
+          headers: {
+            Accept: "application/json",
+          },
         }
+      );
+
+      if (responseRequest.ok) {
+        const responseData = await responseRequest.json();
+        return responseData.payload;
+      } else if (!responseRequest.ok) {
+        console.error(`Status: ${responseRequest.status}`);
+        console.error(`Text: ${await responseRequest.text()}`);
+        console.error("Data not available");
+        return;
       }
+    }
+    if (token) {
 
       getUserInfo()
         .then((payload) => {

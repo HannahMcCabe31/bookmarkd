@@ -36,17 +36,25 @@ function Bookshelf(props) {
         console.log(book_id)
         getBooks(book_id)
         .then((payload) => {
-            setBooks(payload);
+            setBooks((books) => {
+                console.log(books)
+                [...books, payload]
+                console.log(payload)
+                console.log(books)
+            
+            });
+
         })
+        
         .catch((error) => {
             console.error(`Error fetching: ${error}`);
         });    });
+        console.log(books)
   }, []);
   return (
     <>
       <Typography variant="h4">
         {props.bookshelf_name}
-        {books.book_title}
       </Typography>
     </>
   );
