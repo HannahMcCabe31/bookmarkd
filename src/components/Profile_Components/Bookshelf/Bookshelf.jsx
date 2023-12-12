@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
+import Box from "@mui/material/Box";
 
 
 function Bookshelf(props) {
@@ -22,7 +23,7 @@ function Bookshelf(props) {
 
         if (responseRequest.ok) {
             const responseData = await responseRequest.json();
-            console.log(responseData)
+            // console.log(responseData)
             return responseData.payload;
         } else if (!responseRequest.ok) {
             console.error(`Status: ${responseRequest.status}`);
@@ -37,11 +38,7 @@ function Bookshelf(props) {
         getBooks(book_id)
         .then((payload) => {
             setBooks((books) => {
-                console.log(books)
-                [...books, payload]
-                console.log(payload)
-                console.log(books)
-            
+               return [...books, payload]
             });
 
         })
@@ -49,12 +46,17 @@ function Bookshelf(props) {
         .catch((error) => {
             console.error(`Error fetching: ${error}`);
         });    });
-        console.log(books)
-  }, []);
+  }, [props.bookshelf_books]);
   return (
     <>
       <Typography variant="h4">
         {props.bookshelf_name}
+        {books.length>0 && books.map((book) => {
+            return (
+                <Box key={book.id}>
+                    {book.title}
+                </Box>
+          )})}
       </Typography>
     </>
   );
