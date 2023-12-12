@@ -287,11 +287,7 @@ const LoginPage = ({ setToken }) => {
                     announce your new discoveries with your friends
                   </h2>
                   <p>Sign in to use all of the features</p>
-                  <button
-                    className="hidden"
-                    id="login"
-                    onClick={handleToggleClick}
-                  >
+                  <button id="login" onClick={handleToggleClick}>
                     Sign In
                   </button>
                 </div>
@@ -303,11 +299,7 @@ const LoginPage = ({ setToken }) => {
                     We'll help you find your next great read.
                   </h2>
                   <p>Register for a free account to use all of the features</p>
-                  <button
-                    className="hidden"
-                    id="register"
-                    onClick={handleToggleClick}
-                  >
+                  <button id="register" onClick={handleToggleClick}>
                     REGISTER
                   </button>
                 </div>

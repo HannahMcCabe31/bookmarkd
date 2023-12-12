@@ -1,12 +1,15 @@
 import BookSlider from "../BookSlider/BookSlider";
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
+
+
+
+
 
 function BookInfo() {
+
     return (
-        <ThemeProvider theme={bookmarkd}>
+        <>
             <Typography variant="h2" className="m-auto p-auto mt-3">
                 Neuromancer
             </Typography>
@@ -28,7 +31,7 @@ function BookInfo() {
                     This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen This is the book description, it is quite long but hopefully won't go off the sides of the screen 
                 </Typography>
             </Box>
-        </ThemeProvider>
+            </>
     );
 }
 

@@ -1,0 +1,82 @@
+[
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 3,
+    "start_date": "2023-11-25",
+    "end_date": "2023-12-15",
+    "page_progress": 120,
+    "user_rating": 4
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 7,
+    "start_date": "2023-11-18",
+    "end_date": "2023-12-10",
+    "page_progress": 280,
+    "user_rating": 5
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 10,
+    "start_date": "2023-11-30",
+    "end_date": "2023-12-20",
+    "page_progress": 80,
+    "user_rating": 4
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 5,
+    "start_date": "2023-11-10",
+    "end_date": "2023-12-25",
+    "page_progress": 380,
+    "user_rating": 4
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 8,
+    "start_date": "2023-11-22",
+    "end_date": "2023-12-18",
+    "page_progress": 200,
+    "user_rating": 5
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 2,
+    "start_date": "2023-11-15",
+    "end_date": "2023-12-12",
+    "page_progress": 150,
+    "user_rating": 4
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 6,
+    "start_date": "2023-11-20",
+    "end_date": "2023-12-22",
+    "page_progress": 220,
+    "user_rating": 3
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 1,
+    "start_date": "2023-11-12",
+    "end_date": "2023-12-28",
+    "page_progress": 450,
+    "user_rating": 5
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 4,
+    "start_date": "2023-11-28",
+    "end_date": "2023-12-14",
+    "page_progress": 130,
+    "user_rating": 4
+  },
+  {
+    "user_id": "9590f44c-1b03-4abe-8292-02f3f409a47b",
+    "book_id": 9,
+    "start_date": "2023-11-14",
+    "end_date": "2023-12-30",
+    "page_progress": 300,
+    "user_rating": 4
+  }
+]
