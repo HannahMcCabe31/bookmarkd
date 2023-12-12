@@ -5,8 +5,8 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
 
 function UserHeader(props) {
-//    console.log(props.token.user)
-   return (
+  //    console.log(props.token.user)
+  return (
     <ThemeProvider theme={bookmarkd}>
       <Box
         component="section"
@@ -19,10 +19,11 @@ function UserHeader(props) {
           {props.token.user.user_metadata.username}
         </Typography>
         <Box>
-        <Typography variant="h6">{props.token.user.email}</Typography>
-      </Box></Box>
+          <Typography variant="h6">{props.token.user.email}</Typography>
+        </Box>
+      </Box>
     </ThemeProvider>
-   );
+  );
 }
 
 export default UserHeader;

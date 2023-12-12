@@ -95,7 +95,7 @@ function App() {
           {token && (
             <Route
               path="/settings"
-              element={<Settings setToken={setToken} />}
+              element={<Settings setToken={setToken} token={token} />}
             />
           )}
           {token && (
