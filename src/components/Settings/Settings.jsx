@@ -21,20 +21,18 @@ function Settings(props) {
   }
 
   return (
-    <ThemeProvider theme={bookmarkd}>
-      <>
-        <div className="text-white">
-          <div className="mx-10">
-            <UserHeader token={token} />
-            {/* need a section for user email */}
-            <SettingsUserInfo />
-          </div>
-          <div>
-            <SettingsNavigation setToken={props.setToken} />
-          </div>
+    <>
+      <div className="text-white">
+        <div className="mx-10">
+          <UserHeader token={token} />
+          {/* need a section for user email */}
+          <SettingsUserInfo />
         </div>
-      </>
-    </ThemeProvider>
+        <div>
+          <SettingsNavigation setToken={props.setToken} />
+        </div>
+      </div>
+    </>
   );
 }
 

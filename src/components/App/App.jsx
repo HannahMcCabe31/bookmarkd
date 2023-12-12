@@ -29,6 +29,7 @@ function App() {
   const [userData, setUserData] = useState();
   const [token, setToken] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [hasProfilePic, setHasProfilePic] = useState([]);
 
   useEffect(() => {
     if (token) {
