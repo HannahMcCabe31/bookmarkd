@@ -39,7 +39,7 @@ function Dashboard(props) {
             {/* This component contains the header (profile picture and username) */}
             <WelcomeUser token={token} />
             {/* This component contains the my current reads */}
-            <CurrentlyReading />
+            <CurrentlyReading token={token} />
             {/* This component contains multiple links to other pages */}
             <DashboardNavigation />
           </div>
