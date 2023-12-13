@@ -6,11 +6,14 @@ import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { supabase } from "../../components/Supabase/client.js";
 // import backArrow from "../../assets/backArrow.svg";
+import { useContext } from "react";
+import { SetTokenContext } from "../App/App.jsx";
 
-function Login({ setToken }) {
+function Login() {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
+  const setToken = useContext(SetTokenContext);
 
   function handleEmailAddressChange(e) {
     setEmailAddress(e.target.value);

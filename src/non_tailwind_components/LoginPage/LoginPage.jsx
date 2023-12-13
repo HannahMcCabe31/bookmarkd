@@ -4,11 +4,14 @@ import { supabase } from "../../components/Supabase/client.js";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles/LoginPageStyles.css";
 // import logo from "../assets/teamLogo.PNG";
+import { useContext } from "react";
+import { SetTokenContext } from "../../components/App/App.jsx";
 
-const LoginPage = ({ setToken }) => {
+const LoginPage = () => {
   const [forgottenPassword, setForgottenPassword] = useState(false);
 
   let navigate = useNavigate();
+  let setToken = useContext(SetTokenContext);
 
   // Toggle Button
   const handleToggleClick = (e) => {

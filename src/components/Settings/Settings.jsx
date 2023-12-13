@@ -8,33 +8,65 @@ import UserHeader from "../UserHeader/UserHeader";
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import backArrow from "../../assets/BackArrow.svg";
+
+import { useContext, useEffect } from "react";
+import {
+  SetTokenContext,
+  IsMobileContext,
+  SetIsMobileContext,
+  HandleResizeFunction,
+} from "../App/App.jsx";
 
 function Settings() {
   let navigate = useNavigate();
+  const setToken = useContext(SetTokenContext);
+  const isMobile = useContext(IsMobileContext);
+  const setIsMobile = useContext(SetIsMobileContext);
+  const handleResize = useContext(HandleResizeFunction);
 
   function handleLogout() {
     sessionStorage.removeItem("token");
-    props.setToken(false);
+    setToken(false);
     navigate("/");
   }
 
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <div className="text-white">
-        <div className="mx-10">
-          <UserHeader />
-          {/* need a section for user email */}
-          <SettingsUserInfo
-          // setHasProfilePic={props.setHasProfilePic}
-          // getProfilePic={props.getProfilePic}
-          />
-        </div>
-        <div>
-          <SettingsNavigation
-          // setToken={props.setToken}
-          />
-        </div>
-      </div>
+      {isMobile ? (
+        <>
+          <Link to="/dashboard">
+            <img
+              src={backArrow}
+              alt="backArrow"
+              className="w-8 h-8 ml-10 mt-10"
+            />
+          </Link>
+          <div className="text-white">
+            <div className="mx-10">
+              <UserHeader />
+              {/* need a section for user email */}
+              <SettingsUserInfo />
+            </div>
+            <div>
+              <SettingsNavigation />
+            </div>
+          </div>
+        </>
+      ) : (
+        <MobileResizeWarning />
+      )}
     </>
   );
 }

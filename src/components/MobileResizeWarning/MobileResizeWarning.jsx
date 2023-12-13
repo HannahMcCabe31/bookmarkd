@@ -2,17 +2,18 @@ import { ProfilePic } from "../App/App.jsx";
 import { TokenContext } from "../App/App.jsx";
 import { SetTokenContext } from "../App/App.jsx";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MobileResizeWarning() {
+  let navigate = useNavigate();
   const profilePic = useContext(ProfilePic);
   const token = useContext(TokenContext);
   const setToken = useContext(SetTokenContext);
 
   function handleLogout() {
     setToken(false);
-    console.log("helo");
     sessionStorage.removeItem("token");
-    // props.navigate("/");
+    navigate("/");
   }
 
   return (

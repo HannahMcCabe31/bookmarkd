@@ -4,28 +4,27 @@ import ProfileCurrentlyReading from "../ProfileCurrentlyReading/ProfileCurrently
 import ProfileStatistics from "../ProfileStatistics/ProfileStatistics";
 import Typography from "@mui/material/Typography";
 import ProfileBookshelves from "../BookshelvesContainer/BookshelvesContainer";
-// import { ThemeProvider } from "@mui/material/styles";
-// import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
+import backArrow from "../../assets/BackArrow.svg";
+import { Link } from "react-router-dom";
+
 import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
+import { useContext } from "react";
+import {
+  IsMobileContext,
+  SetIsMobileContext,
+  HandleResizeFunction,
+} from "../App/App";
 
 // create container to render bookshelf components within
 
-function Profile(props) {
-  const token = props.token;
-
+function Profile() {
   let navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false); // Add missing state variable
+  const isMobile = useContext(IsMobileContext);
+  const setIsMobile = useContext(SetIsMobileContext);
+  const handleResize = useContext(HandleResizeFunction);
 
   useEffect(() => {
-    function handleResize() {
-      const screenSize = window.innerWidth;
-      if (screenSize < 550) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    }
     window.addEventListener("resize", handleResize);
 
     // Call handler right away so state gets updated with initial window size
@@ -41,16 +40,23 @@ function Profile(props) {
       {isMobile ? (
         <>
           {/* Mobile display only  */}
+          <Link to="/dashboard">
+            <img
+              src={backArrow}
+              alt="backArrow"
+              className="w-8 h-8 ml-10 mt-10"
+            />
+          </Link>
           <div className="text-white p-[5vw]">
             {/* This component contains the header (profile picture and username) */}
-            <WelcomeUser token={token}/>
+            <WelcomeUser />
             <ProfileCurrentlyReading />
             <ProfileStatistics />
             <ProfileBookshelves />
           </div>
         </>
       ) : (
-        <MobileResizeWarning token={token} />
+        <MobileResizeWarning />
       )}
     </div>
   );
