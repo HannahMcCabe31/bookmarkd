@@ -2,64 +2,53 @@ import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 
-
 function Bookshelf(props) {
-  // Stuff
-  const [books, setBooks] = useState([]);
+    // Stuff
+    const [books, setBooks] = useState([]);
 
-  useEffect(() => {
+    useEffect(() => {
+        async function fetchBooks() {
+            const bookPromises = props.bookshelf_books.map((book_id) =>
+                fetch(
+                    `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`,
+                    {
+                        method: `GET`,
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    }
+                )
+                    .then((response) =>
+                        response.ok ? response.json() : Promise.reject(response)
+                    )
+                    .then((data) => data.payload)
+                    .catch((error) => {
+                        console.error(
+                            `Error fetching book ${book_id}: `,
+                            error
+                        );
+                    })
+            );
 
-    async function getBooks(book_id) {
-        console.log(`function called with ${book_id}`)
-        const responseRequest = await fetch(
-            `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`,
-            {
-                method: `GET`,
-                headers: {
-                    Accept: "application/json",
-                },
-            }
-        );
-
-        if (responseRequest.ok) {
-            const responseData = await responseRequest.json();
-            // console.log(responseData)
-            return responseData.payload;
-        } else if (!responseRequest.ok) {
-            console.error(`Status: ${responseRequest.status}`);
-            console.error(`Text: ${await responseRequest.text()}`);
-            console.error("Data not available");
-            return;
+            const booksData = await Promise.all(bookPromises);
+            setBooks(booksData.filter((book) => book != null));
         }
-    }
 
-    props.bookshelf_books.map((book_id) => {
-        console.log(book_id)
-        getBooks(book_id)
-        .then((payload) => {
-            setBooks((books) => {
-               return [...books, payload]
-            });
+        fetchBooks();
 
-        })
-        
-        .catch((error) => {
-            console.error(`Error fetching: ${error}`);
-        });    });
-  }, [props.bookshelf_books]);
-  return (
-    <>
-      <Typography variant="h4">
-        {props.bookshelf_name}
-        {books.length>0 && books.map((book) => {
-            return (
-                <Box key={book.id}>
-                    {book.title}
-                </Box>
-          )})}
-      </Typography>
-    </>
-  );
+    }, [props.bookshelf_books]);
+
+    return (
+        <>
+            <Typography variant="h4">
+                <b>{props.bookshelf_name}</b>
+                {books.length > 0 &&
+                    books.map((book) => {
+                        return <Box key={book.id}>{book.title}</Box>;
+                    })}
+            </Typography>
+        </>
+    );
 }
 
 export default Bookshelf;
