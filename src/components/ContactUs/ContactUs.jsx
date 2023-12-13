@@ -34,52 +34,52 @@ function ContactUs() {
             by readers, for readers
           </Typography>
         </Box>
-        <Typography variant="body2" className="text-white">
+        <Typography variant="p" className="text-white">
           <Typography className="my-5" variant="h4">
             Contact Us
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="p" className="mb-6" display="block">
             We're always happy to hear from our readers and users. Whether you
             have a question, suggestion, or just want to say hi, feel free to
             reach out to us using the form below.
           </Typography>
           <Box>
-            <Typography variant="body2">General Inquiries: </Typography>
+            <Typography variant="p">General Inquiries: </Typography>
 
-            <Typography variant="body2" className="text-star-blue">
+            <Typography variant="p" className="text-star-blue">
               Contact@bookmarkd.com
             </Typography>
 
-            <Typography variant="body2" className="mb-5">
+            <Typography variant="p" className="my-5" display="block">
               You can also find us on social media:
             </Typography>
 
-            <Typography variant="body2" className="flex flex-row mb-5">
+            <Typography variant="p" className="flex flex-row mb-5">
               Facebook:{" "}
-              <Typography className="text-star-blue" variant="body2">
+              <Typography className="text-star-blue" variant="p">
                 @bookmarkd
               </Typography>
             </Typography>
 
-            <Typography variant="body2" className="flex flex-row mb-5">
+            <Typography variant="p" className="flex flex-row mb-5">
               Twitter:{" "}
-              <Typography variant="body2" className="text-star-blue">
+              <Typography variant="p" className="text-star-blue">
                 @bookmarkd
               </Typography>
             </Typography>
 
-            <Typography variant="body2" className="flex flex-row mb-5">
+            <Typography variant="p" className="flex flex-row mb-5">
               Instagram:{" "}
-              <Typography variant="body2" className="text-star-blue">
+              <Typography variant="p" className="text-star-blue">
                 @bookmarkd
               </Typography>
             </Typography>
 
-            <Typography variant="body2" className="mb-7">
+            <Typography variant="p" className="mb-7">
               We hope to hear from you soon!
             </Typography>
 
-            <Typography variant="body2">
+            <Typography variant="p">
               Please note that our response time may vary depending on the
               volume of inquiries we receive. We will do our best to respond to
               your message within 24 hours.
