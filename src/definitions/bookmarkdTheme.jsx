@@ -38,14 +38,10 @@ export const bookmarkd = createTheme({
         main: "#06B502"
     }
   },
-  typography: {
-    body2: {
-      fontWeight: "normal",
-      marginBottom: 10,
-      fontFamily: "League Spartan",
-      
 
-    },
+
+  typography: {
+   
     h1: {
       fontSize: "10vw",
       fontWeight: 400,
