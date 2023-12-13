@@ -1,6 +1,6 @@
 import { ProfilePic } from "../App/App.jsx";
 import { TokenContext } from "../App/App.jsx";
-import { SetTokenContext } from "../App/App.jsx";
+import { SetTokenContext, HandleSignOutFunction } from "../App/App.jsx";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,12 +9,7 @@ function MobileResizeWarning() {
   const profilePic = useContext(ProfilePic);
   const token = useContext(TokenContext);
   const setToken = useContext(SetTokenContext);
-
-  function handleLogout() {
-    setToken(false);
-    sessionStorage.removeItem("token");
-    navigate("/");
-  }
+  const handleSignOut = useContext(HandleSignOutFunction);
 
   return (
     <div>
@@ -37,7 +32,7 @@ function MobileResizeWarning() {
         </div>
         <button
           className="border p-2 hover:text-star-blue"
-          onClick={handleLogout}
+          onClick={handleSignOut}
         >
           LOG OUT
         </button>

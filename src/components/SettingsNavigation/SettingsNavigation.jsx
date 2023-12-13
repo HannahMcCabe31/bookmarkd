@@ -5,17 +5,12 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 // import handleLogout from "../../utils/handleLogout";
 import { useContext } from "react";
-import { SetTokenContext } from "../App/App.jsx";
+import { SetTokenContext, HandleSignOutFunction } from "../App/App.jsx";
 
 function SettingsNavigation() {
   let navigate = useNavigate();
   const setToken = useContext(SetTokenContext);
-
-  function handleLogout() {
-    sessionStorage.removeItem("token");
-    setToken(false);
-    navigate("/");
-  }
+  const handleSignOut = useContext(HandleSignOutFunction);
 
   return (
     <div className="text-3xl flex flex-col mt-5 px-5">
@@ -47,7 +42,7 @@ function SettingsNavigation() {
         <div>
           <Button
             className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md mb-5"
-            onClick={handleLogout}
+            onClick={handleSignOut}
           >
             LOG OUT
           </Button>

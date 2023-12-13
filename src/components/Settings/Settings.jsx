@@ -16,6 +16,7 @@ import {
   IsMobileContext,
   SetIsMobileContext,
   HandleResizeFunction,
+  ProfilePic,
 } from "../App/App.jsx";
 
 function Settings() {
@@ -24,12 +25,7 @@ function Settings() {
   const isMobile = useContext(IsMobileContext);
   const setIsMobile = useContext(SetIsMobileContext);
   const handleResize = useContext(HandleResizeFunction);
-
-  function handleLogout() {
-    sessionStorage.removeItem("token");
-    setToken(false);
-    navigate("/");
-  }
+  const profilePic = useContext(ProfilePic);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
