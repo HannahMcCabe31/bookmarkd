@@ -5,8 +5,60 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { BookButton } from "../../definitions/CustomComponents";
+import { useState, useEffect } from "react";
 
 function CurrentlyReading(props) {
+  const user_id = props.token?.user.id;
+
+  const [currentlyReading, setCurrentlyReading] = useState(6);
+  const [currentBook, setCurrentBook] = useState({});
+  const [userBookData, setUserBookData] = useState({});
+
+  useEffect(() => {
+    async function fetchBook(currentlyReading) {
+      const book = await fetch(
+        `https://bookmarkd-server.onrender.com/api/books?book_id=${currentlyReading}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (book.ok) {
+        const bookData = await book.json();
+
+        return bookData.payload;
+      }
+    }
+    async function fetchUserBookData(user_id, book_id) {
+      const userBookData = await fetch(
+        `https://bookmarkd-server.onrender.com/api/user_book_data?book_id=${book_id}&user_id=${user_id}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (userBookData.ok) {
+        const data = await userBookData.json();
+
+        return data.payload;
+      }
+    }
+    fetchBook(currentlyReading).then((payload) => {
+      console.log(payload);
+      setCurrentBook(payload);
+    });
+    fetchUserBookData(user_id, currentlyReading).then((payload) => {
+      console.log(payload);
+      setUserBookData(payload);
+    });
+  }, [currentlyReading]);
+
   return (
     <ThemeProvider theme={bookmarkd}>
       <Link to="/book-page">
@@ -35,7 +87,7 @@ function CurrentlyReading(props) {
             </Box>
             <Box className="font-light">
               <Typography className="font-medium" variant="h3">
-                Neuromancer
+                {currentBook?.title ? currentBook.title : "loading"}
               </Typography>
               <Typography className="font-medium" variant="p">
                 Author:
@@ -45,7 +97,7 @@ function CurrentlyReading(props) {
                 display="block"
                 variant="p"
               >
-                William Gibson
+                {currentBook?.author ? currentBook.author : "loading"}
               </Typography>
               <Typography className="font-medium" variant="p">
                 Rating:
@@ -65,7 +117,13 @@ function CurrentlyReading(props) {
                 display="block"
                 variant="p"
               >
-                160 of 320
+                {userBookData?.page_progress
+                  ? userBookData.page_progress
+                  : "loading"}{" "}
+                of{" "}
+                {currentBook?.number_of_pages
+                  ? currentBook.number_of_pages
+                  : "loading"}
               </Typography>
               {/* <Button className="border rounded-full bg-element-blue text-white p-2  ">
                         <Box className="flex flex-row justify-between">

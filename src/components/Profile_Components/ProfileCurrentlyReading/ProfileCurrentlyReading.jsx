@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, TextField, Slider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import { bookmarkd } from "../../../definitions/bookmarkdTheme.jsx";
 import ProfileBookSlider from "../ProfileBookSlider/ProfileBookSlider.jsx";
 
 function ProfileCurrentlyReading() {

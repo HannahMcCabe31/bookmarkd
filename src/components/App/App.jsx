@@ -1,5 +1,3 @@
-/* eslint-disable no-inner-declarations */
-// import React from "react";
 import Navbar from "../Navbar/Navbar";
 import {
   BrowserRouter as Router,
@@ -47,17 +45,17 @@ function App() {
 
   useEffect(() => {
     if (token) {
-    async function getUserInfo() {
-      const responseRequest = await fetch(
-        `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
-        {
-          method: `GET`,
-          headers: {
-            Accept: "application/json",
-          },
-        }
+      async function getUserInfo() {
+        const responseRequest = await fetch(
+          `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
+          {
+            method: `GET`,
+            headers: {
+              Accept: "application/json",
+            },
+          }
         );
-        
+
         if (responseRequest.ok) {
           const responseData = await responseRequest.json();
           // console.log(responseData);
@@ -69,7 +67,6 @@ function App() {
           return;
         }
       }
-    
 
       getUserInfo()
         .then((payload) => {
@@ -80,10 +77,11 @@ function App() {
           console.error(`Error fetching: ${error}`);
         });
 
-    if (token) {
-      getProfilePic();
+      if (token) {
+        getProfilePic();
+      }
     }
-  }}, [token]);
+  }, [token]);
 
   function handleResize() {
     const screenSize = window.innerWidth;
