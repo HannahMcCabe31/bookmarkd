@@ -8,6 +8,7 @@ import { supabase } from "../../components/Supabase/client.js";
 // import backArrow from "../../assets/backArrow.svg";
 import { useContext } from "react";
 import { SetTokenContext } from "../App/App.jsx";
+import backArrow from "../../assets/BackArrow.svg";
 
 function Login() {
   const [emailAddress, setEmailAddress] = useState("");
@@ -169,6 +170,13 @@ function Login() {
         </Container>
       ) : (
         <Container maxWidth="sm">
+        <Link to="/">
+            <img onClick={() => setForgottenPassword(false)}
+              src={backArrow}
+              alt="backArrow"
+              className="w-8 h-8 ml-10 mt-10"
+            />
+          </Link>
           <Box textAlign="right" sx={{ mt: 3 }}>
             <Typography variant="p" color="white.main">
               AI Powered
