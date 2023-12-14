@@ -1,6 +1,8 @@
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
+import { ImageList, ImageListItem } from "@mui/material";
+
 
 function Bookshelf(props) {
     // Stuff
@@ -10,7 +12,8 @@ function Bookshelf(props) {
         async function fetchBooks() {
             const bookPromises = props.bookshelf_books.map((book_id) =>
                 fetch(
-                    `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`,
+                    // `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`
+                    `http://localhost:3000/api/books?book_id=${book_id}`,
                     {
                         method: `GET`,
                         headers: {
@@ -40,15 +43,18 @@ function Bookshelf(props) {
 
     return (
         <>
-            <Typography variant="h4">
-                <b>{props.bookshelf_name}</b>
-                {books.length > 0 &&
-                    books.map((book) => {
-                        return <Box key={book.id}>{book.title}</Box>;
-                    })}
-            </Typography>
+          <Typography>
+            <b>{props.bookshelf_name}</b>
+          </Typography>
+          <Box>
+            {books.length > 0 &&
+              books.map((book) => {
+                return <img src={book?.image ? book.image : "loading"} key={book.book_id}></img>;
+              })}
+            
+          </Box>
         </>
-    );
+      );
 }
 
 export default Bookshelf;

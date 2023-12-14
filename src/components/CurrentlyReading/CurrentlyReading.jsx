@@ -15,12 +15,13 @@ function CurrentlyReading(props) {
 
     const [currentlyReading, setCurrentlyReading] = useState(6);
     const [currentBook, setCurrentBook] = useState({});
+    
     const [userBookData, setUserBookData] = useState({});
 
     useEffect(() => {
         async function fetchBook(currentlyReading) {
             const book = await fetch(
-                `https://bookmarkd-server.onrender.com/api/books?book_id=${currentlyReading}`,
+                `http://localhost:3000/api/books?book_id=${currentlyReading}`,
                 {
                     method: "GET",
                     headers: {
@@ -69,6 +70,7 @@ function CurrentlyReading(props) {
                 <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4">
                     <Box className="relative">
                         <Box>
+                            
                             <Typography
                                 className=" font-medium text-xl py-1"
                                 variant="h3"
@@ -88,7 +90,7 @@ function CurrentlyReading(props) {
                     <Box className="flex justify-evenly gap-x-5 mr-10">
                         <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
                             <img
-                                src="/book_covers/neuromancer.webp"
+                                src={currentBook?.image ?? "/book_covers/neuromancer.webp"}
                                 className="absolute m-auto p-auto top-0"
                             />
                         </Box>

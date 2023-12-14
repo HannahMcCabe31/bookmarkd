@@ -8,8 +8,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 function ProfileBookshelves( { bookshelves } ) {
 
-    console.log(bookshelves)
-
     return (
         <ThemeProvider theme={bookmarkd}>
             <Typography variant="h5" className="text-white">
@@ -20,8 +18,8 @@ function ProfileBookshelves( { bookshelves } ) {
             {bookshelves && bookshelves.map((item) => {
         return (
           // eslint-disable-next-line react/jsx-key
-          <Box>
-            <Bookshelf key={item.bookshelf_id} bookshelf_name={item.bookshelf_name} bookshelf_books={item.bookshelf_books}/>
+          <Box key={item.bookshelf_id}>
+            <Bookshelf bookshelf_name={item.bookshelf_name} bookshelf_books={item.bookshelf_books}/>
           </Box>
         );
       })}
