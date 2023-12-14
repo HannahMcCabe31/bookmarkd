@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 import Navbar from "../Navbar/Navbar";
 import {
   BrowserRouter as Router,

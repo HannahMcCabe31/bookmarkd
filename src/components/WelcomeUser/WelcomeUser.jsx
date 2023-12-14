@@ -12,7 +12,7 @@ function WelcomeUser() {
   return (
     <Box
       component="section"
-      className=" flex items-center space-x-6 mb-10 mt-4 "
+      className=" flex items-center space-x-6 mb-10 mt-4 md:items-center md:justify-center"
     >
       <Link to="/profile">
         <img
