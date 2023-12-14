@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
-import { BookSlideBar } from "../../definitions/CustomComponents";
+import { bookmarkd } from "../../../definitions/bookmarkdTheme";
+import { BookSlideBar } from "../../../definitions/CustomComponents";
 
 function ProfileBookSlider() {
 

@@ -1,62 +1,69 @@
 import { useState, useEffect } from "react";
-import { useNavigate, } from "react-router-dom";
-import ProfileCurrentlyReading from "../ProfileCurrentlyReading/ProfileCurrentlyReading";
-import ProfileStatistics from "../ProfileStatistics/ProfileStatistics";
-import Typography from "@mui/material/Typography";
-import ProfileBookshelves from "../BookshelvesContainer/BookshelvesContainer";
-// import { ThemeProvider } from "@mui/material/styles";
-// import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import ProfileBookshelves from "../Profile_Components/ProfileBookshelves/ProfileBookshelves";
+import ProfileStatistics from "../Profile_Components/ProfileStatistics/ProfileStatistics";
+import ProfileCurrentlyReading from "../Profile_Components/ProfileCurrentlyReading/ProfileCurrentlyReading";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
-import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
 
 
+
+import { useContext } from "react";
+import {
+
+  TokenContext
+} from "../App/App";
 
 // create container to render bookshelf components within
 
-function Profile(props) {
+function Profile() {
 
-  const token = props.token;
+  const token = useContext(TokenContext)
 
-  let navigate = useNavigate();
-    const [isMobile, setIsMobile] = useState(false); // Add missing state variable
+  const [bookshelves, setBookshelves] = useState();
 
     useEffect(() => {
-        function handleResize() {
-            const screenSize = window.innerWidth;
-            if (screenSize < 550) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
+        async function getBookshelves() {
+            const responseRequest = await fetch(
+                `https://bookmarkd-server.onrender.com/api/bookshelves?user_id=${token.user.id}`,
+                {
+                    method: `GET`,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }
+            );
+
+            if (responseRequest.ok) {
+                const responseData = await responseRequest.json();
+                return responseData.payload;
+            } else if (!responseRequest.ok) {
+                console.error(`Status: ${responseRequest.status}`);
+                console.error(`Text: ${await responseRequest.text()}`);
+                console.error("Data not available");
+                return;
             }
         }
-        window.addEventListener("resize", handleResize);
+        if (token) {
+ 
 
-        // Call handler right away so state gets updated with initial window size
-        handleResize();
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+            getBookshelves()
+                .then((payload) => {
+                    setBookshelves(payload);
+                })
+                .catch((error) => {
+                    console.error(`Error fetching: ${error}`);
+                });
+        }
     }, []);
 
-
-  return (
-        <div>
-            {isMobile ? (
-                <>
-                    {/* Mobile display only  */}
-                    <div className="text-white p-[5vw]">
-                        {/* This component contains the header (profile picture and username) */}
-                        <WelcomeUser token={token} />
-                        <ProfileCurrentlyReading/>
-                        <ProfileStatistics/>
-                        <ProfileBookshelves />
-                    </div>
-                </>
-            ) : (
-                <MobileResizeWarning token={token} />
-            )}
-        </div>
+    return (
+        <>
+            <div className="text-white p-[5vw]">
+                <WelcomeUser token={token} />
+                <ProfileCurrentlyReading />
+                <ProfileStatistics />
+                <ProfileBookshelves bookshelves={bookshelves} />
+            </div>
+        </>
     );
 }
 

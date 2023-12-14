@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -5,7 +6,8 @@
     "author": "F. Scott Fitzgerald",
     "number_of_pages": 180,
     "date_published": "1925-04-10",
-    "short_description": "A classic novel depicting the decadence of the Jazz Age in America."
+    "short_description": "A classic novel depicting the decadence of the Jazz Age in America.",
+    "image": "../book_covers/TheGreatGatsby.png"
   },
   {
     "id": 2,

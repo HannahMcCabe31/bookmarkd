@@ -1,5 +1,8 @@
 import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+
+
 
 function DashboardNavigation() {
   return (
@@ -7,13 +10,13 @@ function DashboardNavigation() {
       <div>
         <Link to="/profile">
           <div className=" py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-            <p>My Profile</p>
+            <Typography variant="h2">My Profile</Typography>
             <img src={rightArrow} alt="Right arrow" />
           </div>
         </Link>
         <Link to="/recommendations">
           <div className=" py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-            <p>My Book Recommendation</p>
+            <Typography variant="h2">My Book Recommendations</Typography>
             <img src={rightArrow} alt="Right arrow" />
           </div>
         </Link>
@@ -25,7 +28,7 @@ function DashboardNavigation() {
           </Link> */}
         <Link to="/settings">
           <div className="py-8 px-2 border-t border-element-blue border-t-2 flex flex-row justify-between ">
-            <p>Settings</p>
+            <Typography variant="h2">Settings</Typography>
             <img src={rightArrow} alt="Right arrow" />
           </div>
         </Link>

@@ -1,40 +1,33 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
-import rightArrow from "../../assets/rightArrow.svg";
-import WelcomeUser from "../WelcomeUser/WelcomeUser";
+import { Link } from "react-router-dom";
 import SettingsUserInfo from "../SettingsUserInfo/SettingsUserInfo";
 import SettingsNavigation from "../SettingsNavigation/SettingsNavigation";
 import UserHeader from "../UserHeader/UserHeader";
-import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
-import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import backArrow from "../../assets/BackArrow.svg";
+import { useContext } from "react";
+import { TokenContext } from "../App/App";
 
-function Settings(props) {
-  const token = props.token;
-
-  let navigate = useNavigate();
-
-  function handleLogout() {
-    sessionStorage.removeItem("token");
-    props.setToken(false);
-    navigate("/");
-  }
+function Settings() {
+    const token = useContext(TokenContext)
 
   return (
-    <ThemeProvider theme={bookmarkd}>
-      <>
-        <div className="text-white">
-          <div className="mx-10">
-            <UserHeader token={token} />
-            {/* need a section for user email */}
-            <SettingsUserInfo />
-          </div>
-          <div>
-            <SettingsNavigation />
+        <div className="md:max-w-[85%] md:pl-[20%]">
+          <Link to="/dashboard">
+            <img
+              src={backArrow}
+              alt="backArrow"
+              className="w-8 h-8 ml-10 mt-10 md:hidden"
+            />
+          </Link>
+          <div className="text-white">
+            <div className="mx-10 md:m-0">
+              <UserHeader token={token}/>
+              {/* need a section for user email */}
+              <SettingsUserInfo token={token}/>
+              <SettingsNavigation />
+            </div>
           </div>
         </div>
-      </>
-    </ThemeProvider>
   );
 }
 
