@@ -12,8 +12,8 @@ function Bookshelf(props) {
         async function fetchBooks() {
             const bookPromises = props.bookshelf_books.map((book_id) =>
                 fetch(
-                    // `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`
-                    `http://localhost:3000/api/books?book_id=${book_id}`,
+                    `https://bookmarkd-server.onrender.com/api/books?book_id=${book_id}`,
+                    
                     {
                         method: `GET`,
                         headers: {
@@ -49,7 +49,7 @@ function Bookshelf(props) {
           <Box>
             {books.length > 0 &&
               books.map((book) => {
-                return <img src={book?.image ? book.image : "loading"} key={book.book_id}></img>;
+                return <img src={book?.image ? `https://bookmarkd-server.onrender.com${book.image}` : "loading"} key={book.book_id}></img>;
               })}
             
           </Box>
