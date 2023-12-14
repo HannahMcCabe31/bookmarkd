@@ -7,6 +7,7 @@ import useUserData from "./useUserData.js";
 import { TokenContext } from "../../App/App";
 import Statistics from "../Statistics/Statistics.jsx";
 
+
 function ProfileStatistics() {
     const [userData, setUserData] = useState(null);
     const token = useContext(TokenContext);

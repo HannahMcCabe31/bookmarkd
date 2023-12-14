@@ -9,45 +9,47 @@ import { useState, useEffect, useContext } from "react";
 import { TokenContext } from "../App/App";
 
 function CurrentlyReading(props) {
-    const token = useContext(TokenContext);
-    const user_id = token?.user.id;
+  const token = useContext(TokenContext);
+  const user_id = token?.user.id;
 
-    const [currentlyReading, setCurrentlyReading] = useState(6);
-    const [currentBook, setCurrentBook] = useState({});
-    const [userBookData, setUserBookData] = useState({});
+  const [currentlyReading, setCurrentlyReading] = useState(6);
+  const [currentBook, setCurrentBook] = useState({});
 
-    useEffect(() => {
-        async function fetchBook(currentlyReading) {
-            const book = await fetch(
-                `https://bookmarkd-server.onrender.com/api/books?book_id=${currentlyReading}`,
-                {
-                    method: "GET",
-                    headers: {
-                        Accept: "application/json",
-                    },
-                }
-            );
+  const [userBookData, setUserBookData] = useState({});
 
-            if (book.ok) {
-                const bookData = await book.json();
+  useEffect(() => {
+    async function fetchBook(currentlyReading) {
+      const book = await fetch(
+        `https://bookmarkd-server.onrender.com/api/books?book_id=${currentlyReading}`,
 
-                return bookData.payload;
-            }
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
         }
+      );
 
-        async function fetchUserBookData(user_id, book_id) {
-            const userBookData = await fetch(
-                `https://bookmarkd-server.onrender.com/api/user_book_data?book_id=${book_id}&user_id=${user_id}`,
-                {
-                    method: "GET",
-                    headers: {
-                        Accept: "application/json",
-                    },
-                }
-            );
+      if (book.ok) {
+        const bookData = await book.json();
 
-            if (userBookData.ok) {
-                const data = await userBookData.json();
+        return bookData.payload;
+      }
+    }
+
+    async function fetchUserBookData(user_id, book_id) {
+      const userBookData = await fetch(
+        `https://bookmarkd-server.onrender.com/api/user_book_data?book_id=${book_id}&user_id=${user_id}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (userBookData.ok) {
+        const data = await userBookData.json();
 
                 return data.payload;
             }
@@ -82,63 +84,63 @@ function CurrentlyReading(props) {
                         </BookButton>
                     </Box>
 
-                    <Box className="flex justify-evenly gap-x-5 mr-10">
-                        <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
-                            <img
-                                src="/book_covers/neuromancer.webp"
-                                className="absolute m-auto p-auto top-0"
-                            />
-                        </Box>
-                        <Box className="font-light">
-                            <Typography className="font-medium" variant="h3">
-                                {currentBook?.title
-                                    ? currentBook.title
-                                    : "loading"}
-                            </Typography>
-                            <Typography className="font-medium" variant="p">
-                                Author:
-                            </Typography>
-                            <Typography
-                                className="text-center py-1 "
-                                display="block"
-                                variant="p"
-                            >
-                                {currentBook?.author
-                                    ? currentBook.author
-                                    : "loading"}
-                            </Typography>
-                            <Typography className="font-medium" variant="p">
-                                Rating:
-                            </Typography>
-                            <Typography
-                                className="text-center py-1"
-                                display="block"
-                                variant="p"
-                            >
-                                3.90 / 5
-                            </Typography>
-                            <Typography className="font-medium" variant="p">
-                                Current Page:
-                            </Typography>
-                            <Typography
-                                className="text-center py-2"
-                                display="block"
-                                variant="p"
-                            >
-                                {userBookData?.page_progress
-                                    ? userBookData.page_progress
-                                    : "loading"}{" "}
-                                of{" "}
-                                {currentBook?.number_of_pages
-                                    ? currentBook.number_of_pages
-                                    : "loading"}
-                            </Typography>
-                        </Box>
-                    </Box>
-                </Box>
-            </Link>
-        </ThemeProvider>
-    );
+          <Box className="flex justify-evenly gap-x-5 mr-10">
+            <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
+              <img
+                src={
+                  currentBook?.image
+                    ? `https://bookmarkd-server.onrender.com${currentBook.image}`
+                    : "loading"
+                }
+                className="absolute m-auto p-auto top-0"
+              />
+            </Box>
+            <Box className="font-light">
+              <Typography className="font-medium" variant="h3">
+                {currentBook?.title ? currentBook.title : "loading"}
+              </Typography>
+              <Typography className="font-medium" variant="p">
+                Author:
+              </Typography>
+              <Typography
+                className="text-center py-1 "
+                display="block"
+                variant="p"
+              >
+                {currentBook?.author ? currentBook.author : "loading"}
+              </Typography>
+              <Typography className="font-medium" variant="p">
+                Rating:
+              </Typography>
+              <Typography
+                className="text-center py-1"
+                display="block"
+                variant="p"
+              >
+                3.90 / 5
+              </Typography>
+              <Typography className="font-medium" variant="p">
+                Current Page:
+              </Typography>
+              <Typography
+                className="text-center py-2"
+                display="block"
+                variant="p"
+              >
+                {userBookData?.page_progress
+                  ? userBookData.page_progress
+                  : "loading"}{" "}
+                of{" "}
+                {currentBook?.number_of_pages
+                  ? currentBook.number_of_pages
+                  : "loading"}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Link>
+    </ThemeProvider>
+  );
 }
 
 export default CurrentlyReading;
