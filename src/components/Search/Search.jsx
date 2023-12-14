@@ -28,7 +28,6 @@ function Search() {
       item.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setSearchResults(results);
-    console.log(searchResults);
   }, [searchQuery]);
 
   return (

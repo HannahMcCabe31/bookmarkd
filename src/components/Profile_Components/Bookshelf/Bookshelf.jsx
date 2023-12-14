@@ -35,7 +35,6 @@ function Bookshelf(props) {
         }
 
         fetchBooks();
-
     }, [props.bookshelf_books]);
 
     return (
@@ -43,8 +42,12 @@ function Bookshelf(props) {
             <Typography variant="h4">
                 <b>{props.bookshelf_name}</b>
                 {books.length > 0 &&
-                    books.map((book) => {
-                        return <Box key={book.id}>{book.title}</Box>;
+                    books.map((book, i) => {
+                        return (
+                            <Box key={`book_` + i} variant="section">
+                                <Box >{book.title}</Box>
+                            </Box>
+                        );
                     })}
             </Typography>
         </>

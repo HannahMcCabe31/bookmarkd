@@ -3,17 +3,12 @@ import { Link } from "react-router-dom";
 import SettingsUserInfo from "../SettingsUserInfo/SettingsUserInfo";
 import SettingsNavigation from "../SettingsNavigation/SettingsNavigation";
 import UserHeader from "../UserHeader/UserHeader";
-
-
 import backArrow from "../../assets/BackArrow.svg";
-
 import { useContext } from "react";
-import {
-    SetTokenContext,
-} from "../App/App.jsx";
+import { TokenContext } from "../App/App";
 
 function Settings() {
-    const setToken = useContext(SetTokenContext);
+    const token = useContext(TokenContext)
 
     return (
         <div>
@@ -26,9 +21,9 @@ function Settings() {
             </Link>
             <div className="text-white">
                 <div className="mx-10">
-                    <UserHeader />
+                    <UserHeader token={token} />
                     {/* need a section for user email */}
-                    <SettingsUserInfo />
+                    <SettingsUserInfo token={token} />
                 </div>
                 <div>
                     <SettingsNavigation />

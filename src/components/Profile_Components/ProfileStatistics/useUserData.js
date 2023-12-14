@@ -1,7 +1,7 @@
-function getUserInfo() {
-        if (token) {
-            console.log(`Token is true so lezgo`)
-            async function getUserInfo() {
+function useUserData(token) {
+    if (token) {
+        return (async function getUserInfo() {
+            try {
                 const responseRequest = await fetch(
                     `https://bookmarkd-server.onrender.com/api/user?user_id=${token.user.id}`,
                     {
@@ -15,21 +15,19 @@ function getUserInfo() {
                 if (responseRequest.ok) {
                     const responseData = await responseRequest.json();
                     return responseData.payload;
-                } else if (!responseRequest.ok) {
+                } else {
                     console.error(`Status: ${responseRequest.status}`);
                     console.error(`Text: ${await responseRequest.text()}`);
                     console.error("Data not available");
-                    return;
+                    return null;
                 }
+            } catch (error) {
+                console.error(`Error fetching: ${error}`);
+                return null;
             }
-
-            getUserInfo()
-                .then((payload) => {
-                    setUserData(payload);
-                })
-                .catch((error) => {
-                    console.error(`Error fetching: ${error}`);
-                });
-
-        }
+        })();
+    }
+    return null;
 }
+
+export default useUserData

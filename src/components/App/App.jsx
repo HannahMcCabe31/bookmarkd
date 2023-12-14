@@ -9,11 +9,10 @@ import AppRoutes from "../AppRoutes/AppRoutes.jsx";
 const CDN =
     "https://ddcqxtxffblwpqoaufri.supabase.co/storage/v1/object/public/profile/";
 
-// all contexts
 
 export const TokenContext = createContext();
 export const SetTokenContext = createContext();
-// export const HandleSignOutFunction = createContext();
+
 
 function App() {
     const [token, setToken] = useState(false);

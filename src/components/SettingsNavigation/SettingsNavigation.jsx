@@ -2,14 +2,14 @@ import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom";
-// import handleLogout from "../../utils/handleLogout";
-import { useContext } from "react";
-import { SetTokenContext } from "../App/App.jsx";
+
 
 function SettingsNavigation() {
-  let navigate = useNavigate();
-  const setToken = useContext(SetTokenContext);
+
+    function handleSignOut() {
+        console.log(`handleSignOut was called`)
+    }
+
 
   return (
     <div className="text-3xl flex flex-col mt-5 px-5">

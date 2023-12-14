@@ -6,12 +6,10 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { supabase } from "../Supabase/client.js";
 import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
-import { TokenContext, SetTokenContext } from "../App/App.jsx";
-import { ProfilePictureContext } from "../App/contexts/ProfilePictureProvider.jsx";
+import { SetTokenContext } from "../App/App.jsx";
 
-function ProfileUserInfo() {
-    const { hasProfilePic, setHasProfilePic } = useContext(ProfilePictureContext);
-    const token = useContext(TokenContext);
+function ProfileUserInfo({ token }) {
+
     const setToken = useContext(SetTokenContext);
 
     const [formData, setFormData] = useState({
@@ -19,6 +17,10 @@ function ProfileUserInfo() {
         email: token.user.email,
         password: token.user.password,
     });
+
+    function getProfilePic() {
+        console.log(`getProfilePic called`)
+    }
 
     async function handleUpdateProfileInfo(e) {
 

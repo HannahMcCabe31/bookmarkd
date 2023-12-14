@@ -9,8 +9,7 @@ import { useState, useEffect, useContext } from "react";
 import { TokenContext } from "../App/App";
 
 function CurrentlyReading(props) {
-
-    const token = useContext(TokenContext)
+    const token = useContext(TokenContext);
     const user_id = token?.user.id;
 
     const [currentlyReading, setCurrentlyReading] = useState(6);
@@ -54,11 +53,9 @@ function CurrentlyReading(props) {
             }
         }
         fetchBook(currentlyReading).then((payload) => {
-            console.log(payload);
             setCurrentBook(payload);
         });
         fetchUserBookData(user_id, currentlyReading).then((payload) => {
-            console.log(payload);
             setUserBookData(payload);
         });
     }, [currentlyReading]);
