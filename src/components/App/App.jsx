@@ -13,6 +13,15 @@ export const SetTokenContext = createContext();
 function App() {
     const [token, setToken] = useState(false);
 
+    function handleResize() {
+        const screenSize = window.innerWidth;
+        if (screenSize < 768) {
+          setIsMobile(true);
+        } else {
+          setIsMobile(false);
+        }
+      }
+
     if (token) {
         sessionStorage.setItem("token", JSON.stringify(token));
     }
