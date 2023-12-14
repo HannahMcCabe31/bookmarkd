@@ -6,10 +6,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { supabase } from "../Supabase/client.js";
 import AppRoutes from "../AppRoutes/AppRoutes.jsx";
 
-const CDN =
-    "https://ddcqxtxffblwpqoaufri.supabase.co/storage/v1/object/public/profile/";
-
-
 export const TokenContext = createContext();
 export const SetTokenContext = createContext();
 

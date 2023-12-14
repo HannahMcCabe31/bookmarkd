@@ -10,7 +10,33 @@ import { SetTokenContext } from "../App/App.jsx";
 
 function ProfileUserInfo({ token }) {
 
+    const CDN =
+    "https://ddcqxtxffblwpqoaufri.supabase.co/storage/v1/object/public/profile/";
+
+    const [hasProfilePic, setHasProfilePic] = useState();
     const setToken = useContext(SetTokenContext);
+
+    async function getProfilePic(token) {
+        console.log("getProfilePic was")
+    const { data, error } = await supabase.storage
+        .from("profile")
+        .list(token.user.id + "/", {
+            limit: 1,
+            offset: 0,
+            sortBy: { column: "created_at", order: "desc" },
+        });
+
+    if (data[0].name == ".emptyFolderPlaceholder") {
+        setHasProfilePic("../../../public/default-profile-pic.jpg");
+    } else if (data[0].name) {
+        setHasProfilePic(CDN + token?.user?.id + "/" + data[0].name);
+    } else {
+        console.log(error);
+    }
+}
+
+
+
 
     const [formData, setFormData] = useState({
         username: token.user.user_metadata.username,
@@ -18,13 +44,9 @@ function ProfileUserInfo({ token }) {
         password: token.user.password,
     });
 
-    function getProfilePic() {
-        console.log(`getProfilePic called`)
-    }
+
 
     async function handleUpdateProfileInfo(e) {
-
-
         const { data, error } = await supabase.auth.updateUser({
             data: {
                 username:
