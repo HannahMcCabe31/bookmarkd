@@ -2,13 +2,19 @@ import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { SetTokenContext } from "../App/App.jsx";
+import { useContext } from "react";
 
 
 function SettingsNavigation() {
 
+    const setToken = useContext(SetTokenContext);
+
     function handleSignOut() {
-        console.log(`handleSignOut was called`)
-    }
+        sessionStorage.removeItem("token");
+        setToken(false);
+        setHasProfilePic([]);
+      }
 
 
   return (

@@ -9,7 +9,6 @@ import AppRoutes from "../AppRoutes/AppRoutes.jsx";
 export const TokenContext = createContext();
 export const SetTokenContext = createContext();
 
-
 function App() {
     const [token, setToken] = useState(false);
 
@@ -29,9 +28,10 @@ function App() {
             <SetTokenContext.Provider value={setToken}>
                 <ThemeProvider theme={bookmarkd}>
                     <Router>
-                        <Navbar />
-
-                        <AppRoutes token={token} />
+                        {token && <Navbar />}
+                        <div className="pb-16">
+                            <AppRoutes token={token} />
+                        </div>
                     </Router>
                 </ThemeProvider>
             </SetTokenContext.Provider>
