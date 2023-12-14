@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 import Navbar from "../Navbar/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
@@ -16,12 +17,13 @@ function App() {
         sessionStorage.setItem("token", JSON.stringify(token));
     }
 
-    useEffect(() => {
-        if (sessionStorage.getItem("token")) {
-            let data = JSON.parse(sessionStorage.getItem("token"));
-            setToken(data);
-        }
-    }, []);
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      let data = JSON.parse(sessionStorage.getItem("token"));
+      setToken(data);
+    }
+  }, []);
+
 
     return (
         <TokenContext.Provider value={token}>

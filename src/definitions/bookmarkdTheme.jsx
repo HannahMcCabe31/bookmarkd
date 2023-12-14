@@ -133,8 +133,8 @@ export const bookmarkd = createTheme({
         
     },
     terms: {
-        fontSize: "2.5vw",
-        fontWeight: 400,
+        fontSize: "1.5vw",
+        fontWeight: 50,
         lineHeight: 1.167,
         fontFamily: "League Spartan",
         letterSpacing: "0.00938em",

@@ -63,12 +63,12 @@ function CurrentlyReading(props) {
     return (
         <ThemeProvider theme={bookmarkd}>
             <Link to="/book-page">
-                <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4">
+                <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4 md:mx-20">
                     <Box className="relative">
                         <Box>
                             <Typography
-                                className=" font-medium text-xl py-1"
-                                variant="h3"
+                                className="py-1"
+                                variant="h6"
                             >
                                 My Current Read
                             </Typography>
