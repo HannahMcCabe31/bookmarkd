@@ -10,27 +10,25 @@ import { TokenContext } from "../App/App";
 function Settings() {
     const token = useContext(TokenContext)
 
-    return (
-        <div>
-            <Link to="/dashboard">
-                <img
-                    src={backArrow}
-                    alt="backArrow"
-                    className="w-8 h-8 ml-10 mt-10"
-                />
-            </Link>
-            <div className="text-white">
-                <div className="mx-10">
-                    <UserHeader token={token} />
-                    {/* need a section for user email */}
-                    <SettingsUserInfo token={token} />
-                </div>
-                <div>
-                    <SettingsNavigation />
-                </div>
+  return (
+        <div className="md:max-w-[85%] md:pl-[20%]">
+          <Link to="/dashboard">
+            <img
+              src={backArrow}
+              alt="backArrow"
+              className="w-8 h-8 ml-10 mt-10 md:hidden"
+            />
+          </Link>
+          <div className="text-white">
+            <div className="mx-10 md:m-0">
+              <UserHeader token={token}/>
+              {/* need a section for user email */}
+              <SettingsUserInfo token={token}/>
+              <SettingsNavigation />
             </div>
+          </div>
         </div>
-    );
+  );
 }
 
 export default Settings;
