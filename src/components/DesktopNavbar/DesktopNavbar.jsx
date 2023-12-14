@@ -8,7 +8,7 @@ function DesktopNavbar() {
   return (
     <>
       {token ? (
-        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pl-10 pr-10 fixed left-0 w-1/8 flex flex-col justify-between items-center z-[1500]">
+        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pl-10 pr-10 fixed left-0 w-1/8 flex flex-col justify-between items-center z-[1500] h-full">
           <Link to="/profile" className="text-button-beige">
             <img className="max-h-9" src="/img/profile_icon.png" />
           </Link>

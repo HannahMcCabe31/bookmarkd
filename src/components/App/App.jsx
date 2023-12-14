@@ -87,7 +87,7 @@ function App() {
 
   function handleResize() {
     const screenSize = window.innerWidth;
-    if (screenSize < 550) {
+    if (screenSize < 768) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
