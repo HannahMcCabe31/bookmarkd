@@ -4,10 +4,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { TokenContext, ProfilePic } from "../App/App.jsx";
 
 function UserHeader() {
-  const profilePic = useContext(ProfilePic);
   const token = useContext(TokenContext);
   return (
     <ThemeProvider theme={bookmarkd}>

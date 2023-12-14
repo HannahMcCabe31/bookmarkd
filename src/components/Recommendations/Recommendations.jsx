@@ -7,32 +7,14 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import Typography from "@mui/material/Typography";
 import backArrow from "../../assets/BackArrow.svg";
 
-import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
+
 import { useContext, useEffect } from "react";
-import {
-  IsMobileContext,
-  SetIsMobileContext,
-  HandleResizeFunction,
-} from "../App/App";
 
 function Recommendations() {
   const [searchType, setSearchType] = useState("title");
   const [searchInput, setSearchInput] = useState("");
   const [recommendations, setRecommendations] = useState([]);
-  const isMobile = useContext(IsMobileContext);
-  const setIsMobile = useContext(SetIsMobileContext);
-  const handleResize = useContext(HandleResizeFunction);
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -49,8 +31,6 @@ function Recommendations() {
 
   return (
     <div>
-      {isMobile ? (
-        // Do i need to set the background colour?
         <ThemeProvider theme={bookmarkd}>
           <Link to="/dashboard">
             <img
@@ -168,9 +148,6 @@ function Recommendations() {
             </Box>
           </div>
         </ThemeProvider>
-      ) : (
-        <MobileResizeWarning />
-      )}
     </div>
   );
 }

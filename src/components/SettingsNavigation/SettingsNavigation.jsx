@@ -5,12 +5,11 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 // import handleLogout from "../../utils/handleLogout";
 import { useContext } from "react";
-import { SetTokenContext, HandleSignOutFunction } from "../App/App.jsx";
+import { SetTokenContext } from "../App/App.jsx";
 
 function SettingsNavigation() {
   let navigate = useNavigate();
   const setToken = useContext(SetTokenContext);
-  const handleSignOut = useContext(HandleSignOutFunction);
 
   return (
     <div className="text-3xl flex flex-col mt-5 px-5">

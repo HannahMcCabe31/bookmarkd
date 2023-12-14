@@ -1,12 +1,11 @@
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useContext } from "react";
-import { ProfilePic } from "../App/App.jsx";
 import { Link } from "react-router-dom";
 import { TokenContext } from "../App/App.jsx";
+import defaultProfilePic from "/default-profile-pic.jpg"
 
 function WelcomeUser() {
-  const profilePic = useContext(ProfilePic);
   const token = useContext(TokenContext);
 
   return (
@@ -17,7 +16,7 @@ function WelcomeUser() {
       <Link to="/profile">
         <img
           className="w-24 h-24 bg-white border rounded-full"
-          src={profilePic}
+          src={defaultProfilePic}
         />
       </Link>
       <Typography variant="h2">

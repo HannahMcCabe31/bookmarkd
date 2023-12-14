@@ -1,17 +1,16 @@
 import flame from "../../../assets/Flame.svg";
 import PagesRead from "../../../assets/PagesRead.svg";
 import BooksRead from "../../../assets/BooksRead.svg";
-import React, { useState, useEffect, useContext } from "react";
-import { Box, TextField } from "@mui/material";
+import { useContext } from "react";
+import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../../definitions/bookmarkdTheme.jsx";
-import { UserData } from "../../App/App.jsx";
+import { UserDataContext } from "../../App/contexts/UserDataProvider.jsx";
 
 function ProfileStatistics() {
-    const userData = useContext(UserData);
-    console.log(`userData is below`)
-    console.log(userData)
+    const userData = useContext(UserDataContext);
+    console.log(userData);
 
     return (
         <ThemeProvider theme={bookmarkd}>
@@ -51,7 +50,7 @@ function ProfileStatistics() {
                         <Typography variant="h4">
                             Reading Streak:{" "}
                             <Typography variant="stats">
-                                {userData.reading_streak}
+                                {/* {userData.reading_streak} */}
                             </Typography>
                         </Typography>
                     </div>
