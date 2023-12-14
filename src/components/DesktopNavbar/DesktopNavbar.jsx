@@ -51,13 +51,13 @@ function DesktopNavbar() {
           </Link>
           </Box>
           <Box className="bg-element-blue w-full rounded text-center my-4">
-          <Link to="/search" className="text-button-beige">
+          <Link to="/recommendations" className="text-button-beige">
             <img className="max-h-9 inline" src="/img/search_icon.png" />
             <Typography variant="terms" className="text-white">Book REC</Typography>
           </Link>
           </Box>
           <Box className="bg-element-blue w-full rounded text-center my-4">
-          <Link to="/search" className="text-button-beige">
+          <Link to="/settings" className="text-button-beige">
             <img className="max-h-9 inline" src="/img/search_icon.png" />
             <Typography variant="terms" className="text-white">Settings</Typography>
           </Link>
