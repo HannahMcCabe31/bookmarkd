@@ -68,8 +68,11 @@ function ProfileUserInfo() {
   }
   return (
     <ThemeProvider theme={bookmarkd}>
-      <Box>
-        <Typography className="border-b border-element-blue" variant="h3">
+      <Box className="md:max-w-[44%]">
+        <Typography
+          className="border-b border-element-blue md:text-[3vh] md:mt-[25vh] md:mb-[1.5vh] md:pb-[1.5vh]"
+          variant="h3"
+        >
           Update Profile Information
         </Typography>
         <Box>
@@ -83,7 +86,7 @@ function ProfileUserInfo() {
             name="userName"
             // autoComplete="userName"
             //  autoFocus
-            className="bg-input-gray rounded-3xl"
+            className="bg-input-gray rounded-3xl "
           ></TextField>
           <TextField
             margin="normal"
@@ -108,8 +111,10 @@ function ProfileUserInfo() {
             className="bg-input-gray rounded-3xl"
           />
         </Box>
-        <Box className="flex flex-row justify-between mt-10">
-          <Typography variant="h4">Update Profile Picture</Typography>
+        <Box className="flex flex-row justify-between mt-10 md:mt-[3vh]">
+          <Typography variant="h4" className="md:text-[2.5vh]">
+            Update Profile Picture
+          </Typography>
 
           <label
             className="bg-input-gray text-lg text-black font-bold py-1 px-5 rounded-md hover:bg-[#43474a] active:bg-element-blue"
@@ -125,13 +130,13 @@ function ProfileUserInfo() {
             onChange={(e) => handleProfilePicChange(e)}
           />
         </Box>
-        <Box className="flex flex-col items-center">
+        <Box className="flex flex-col items-center md:mt-[2vh]">
           <Button
             // onClick={handleLoginSubmit}
             type="submit"
             variant="contained"
             sx={{ mt: 3, mb: 2, borderRadius: 2 }}
-            className="bg-[#06B502] w-1/3 font-bold"
+            className="bg-[#06B502] w-1/3 font-bold md:text-[2vh] md:w-[30%]"
             onClick={(getProfilePic, handleUpdateProfileInfo)}
           >
             UPDATE
