@@ -14,6 +14,7 @@ import {
   IsMobileContext,
   SetIsMobileContext,
   HandleResizeFunction,
+  TokenContext
 } from "../App/App";
 
 // create container to render bookshelf components within
@@ -23,36 +24,55 @@ function Profile() {
   const isMobile = useContext(IsMobileContext);
   const setIsMobile = useContext(SetIsMobileContext);
   const handleResize = useContext(HandleResizeFunction);
+  const token = useContext(TokenContext)
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
+  const [bookshelves, setBookshelves] = useState();
 
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
+    useEffect(() => {
+        async function getBookshelves() {
+            const responseRequest = await fetch(
+                `https://bookmarkd-server.onrender.com/api/bookshelves?user_id=${token.user.id}`,
+                {
+                    method: `GET`,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }
+            );
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+            if (responseRequest.ok) {
+                const responseData = await responseRequest.json();
+                return responseData.payload;
+            } else if (!responseRequest.ok) {
+                console.error(`Status: ${responseRequest.status}`);
+                console.error(`Text: ${await responseRequest.text()}`);
+                console.error("Data not available");
+                return;
+            }
+        }
+        if (token) {
+ 
 
-  return (
-    <div>
-      {isMobile ? (
+            getBookshelves()
+                .then((payload) => {
+                    setBookshelves(payload);
+                })
+                .catch((error) => {
+                    console.error(`Error fetching: ${error}`);
+                });
+        }
+    }, []);
+
+    return (
         <>
-          {/* Mobile display only  */}
-          <div className="text-white p-[5vw]">
-            {/* This component contains the header (profile picture and username) */}
-            <WelcomeUser />
-            <ProfileCurrentlyReading />
-            <ProfileStatistics />
-            <ProfileBookshelves />
-          </div>
+            <div className="text-white p-[5vw]">
+                <WelcomeUser token={token} />
+                <ProfileCurrentlyReading />
+                <ProfileStatistics />
+                <ProfileBookshelves bookshelves={bookshelves} />
+            </div>
         </>
-      ) : (
-        <MobileResizeWarning />
-      )}
-    </div>
-  );
+    );
 }
 
 export default Profile;
