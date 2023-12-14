@@ -1,21 +1,14 @@
-import React from "react";
-import MobileResizeWarning from "../MobileResizeWarning/MobileResizeWarning";
-import { useContext, useEffect } from "react";
-import {
-  IsMobileContext,
-  SetIsMobileContext,
-  HandleResizeFunction,
-  TokenContext,
-} from "../App/App";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useContext } from "react";
+import { TokenContext } from "../App/App";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+function DesktopNavbar() {
   const token = useContext(TokenContext);
 
   return (
     <>
       {token ? (
-        <nav className="bg-navbar p-2 pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center z-[1500]">
+        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pl-10 pr-10 fixed left-0 w-1/8 flex flex-col justify-between items-center z-[1500]">
           <Link to="/profile" className="text-button-beige">
             <img className="max-h-9" src="/img/profile_icon.png" />
           </Link>
@@ -33,4 +26,7 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default DesktopNavbar;
+
+
+// md:flex md:flex-col md:left-0 md:h-full md:w-1/6 md:bg-gradient-to-b md:from-desktop-navbar md:to-background-blue

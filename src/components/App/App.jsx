@@ -1,5 +1,6 @@
 /* eslint-disable no-inner-declarations */
 import Navbar from "../Navbar/Navbar";
+import DesktopNavbar from "../DesktopNavbar/DesktopNavbar";
 import {
   BrowserRouter as Router,
   Routes,
@@ -154,6 +155,7 @@ function App() {
                       <ThemeProvider theme={bookmarkd}>
                         <Router>
                           {token && isMobile && <Navbar />}
+                          {token && !isMobile && <DesktopNavbar />}
                           {/* Render Navbar if token is present */}
                           <div className="pb-16">
                             <Routes>
@@ -162,6 +164,7 @@ function App() {
                               ) : (
                                 <Route path="/" element={<LoginPage />} />
                               )}
+                              {/* Render desktop navbar if not mobile if token is present */}
 
                               {/* Redirect to login if no token */}
                               {!token && (

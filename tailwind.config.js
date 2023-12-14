@@ -16,7 +16,10 @@ export default {
           "star-blue": "#68B9FF",
           "white": "#FFF",
           "black": "#000",
-          "input-gray": "#CFD3DB"
+          "input-gray": "#CFD3DB",
+          "desktop-navbar": "#15232F",
+          
+          
 
         },
       extend: {
