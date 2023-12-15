@@ -13,7 +13,7 @@ import { data } from "autoprefixer";
 function Recommendations() {
   const [searchType, setSearchType] = useState("title");
   const [searchInput, setSearchInput] = useState("");
-  const [recommendations, setRecommendations] = useState("");
+  const [recommendations, setRecommendations] = useState([]);
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -32,26 +32,45 @@ function Recommendations() {
     e.preventDefault();
     // fetch data from server
     console.log("fetching data");
-    const response = await fetch(
-      "https://bookmarkd-server.onrender.com/api/ai_api",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: searchInput,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:3000/api/ai_api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: searchInput,
+      }),
+    });
 
     if (response.ok) {
       const data = await response.json();
       console.log(data);
-      setRecommendations(data.payload.content);
+      // setRecommendations(data.payload.content);
+      setRecommendations(extractBooks(data.payload.content));
+      console.log(recommendations);
     } else {
       console.log("error");
     }
+  }
+
+  function extractBooks(text) {
+    const regex = /(\d+)\.\s+\"(.*?)\" by (.*?)$/gm; // Regex pattern to match the book titles and authors
+
+    let matches;
+    const books = [];
+
+    while ((matches = regex.exec(text)) !== null) {
+      const [, number, title, author] = matches;
+      books.push({ number: parseInt(number), title, author });
+    }
+
+    // Storing book titles and authors in separate variables
+    let book1, book2, book3;
+    if (books.length >= 3) {
+      [book1, book2, book3] = books;
+    }
+
+    return books;
   }
 
   return (
@@ -152,10 +171,19 @@ function Recommendations() {
                 component="section"
                 sx={{ p: 2, borderRadius: 4 }}
               >
-                <p className="md:text-[4vh] md:pb-[0.8vh]">We recommend:</p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  {recommendations} <br />
+                <p className="md:p-5 md:text-[4vh] md:pb-[0.8vh]">
+                  We recommend:
                 </p>
+                {recommendations.map((item, val) => {
+                  return (
+                    <div className="m-5" key={val}>
+                      <p className="md: text-[3vh] md:py-[0.4vh]">
+                        {item.number}. {item.title} by {item.author} <br />
+                      </p>
+                    </div>
+                  );
+                })}{" "}
+                <br />
               </Box>
               <Box
                 sx={{
