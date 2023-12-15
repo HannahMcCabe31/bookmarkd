@@ -13,9 +13,8 @@ function CurrentlyReading(props) {
   const user_id = token?.user.id;
 
   const [currentlyReading, setCurrentlyReading] = useState(6);
-  const [currentBook, setCurrentBook] = useState({});
-
-  const [userBookData, setUserBookData] = useState({});
+  const [currentBook, setCurrentBook] = useState();
+  const [userBookData, setUserBookData] = useState();
 
   useEffect(() => {
     async function fetchBook(currentlyReading) {
@@ -64,7 +63,7 @@ function CurrentlyReading(props) {
 
     return (
         <ThemeProvider theme={bookmarkd}>
-            <Link to="/book-page">
+            <Link to={currentBook ? `/book-page/${currentBook.book_id}` : `/dashboard`}>
                 <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4 md:mx-20">
                     <Box className="relative">
                         <Box>
