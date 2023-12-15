@@ -54,7 +54,7 @@ function App() {
                     <Router>
                         {token && isMobile && <Navbar />}
                         {token && !isMobile && <DesktopNavbar />}
-                        <div className="pb-16">
+                        <div className="pb-16 md:pl-32">
                             <AppRoutes token={token} />
                         </div>
                     </Router>
