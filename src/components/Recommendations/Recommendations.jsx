@@ -39,6 +39,7 @@ function Recommendations() {
       },
       body: JSON.stringify({
         prompt: searchInput,
+        searchType: searchType,
       }),
     });
 
@@ -177,8 +178,12 @@ function Recommendations() {
                 {recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
-                      <p className="md: text-[3vh] md:py-[0.4vh]">
-                        {item.number}. {item.title} by {item.author} <br />
+                      <p className="md: text-[1.5rem] md:py-[0.4vh]">
+                        {item.number}.{" "}
+                        <span className="italic md:m-2 md:text-[1.8rem]">
+                          "{item.title}"
+                        </span>
+                        <br /> by <span className="">{item.author}</span>
                       </p>
                     </div>
                   );
