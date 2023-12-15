@@ -65,11 +65,11 @@ function CurrentlyReading(props) {
     return (
         <ThemeProvider theme={bookmarkd}>
             <Link to="/book-page">
-                <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4 md:mx-20">
+                <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4 lg:mx-20">
                     <Box className="relative">
                         <Box>
                             <Typography
-                                className="py-1"
+                                className="pt-1"
                                 variant="h6"
                             >
                                 My Current Read
@@ -85,15 +85,16 @@ function CurrentlyReading(props) {
                     </Box>
 
           <Box className="flex justify-evenly gap-x-5 mr-10">
-            <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
+            <Box className="relative w-[80vw] h-[60vw] overflow-hidden mx-auto px-auto">
               <img
                 src={
                   currentBook?.image
                     ? `https://bookmarkd-server.onrender.com${currentBook.image}`
                     : "loading"
                 }
-                className="absolute m-auto p-auto top-0"
+                className="absolute top-0 object-contain"
               />
+              {/* m-auto p-auto */}
             </Box>
             <Box className="font-light">
               <Typography className="font-medium" variant="h3">
