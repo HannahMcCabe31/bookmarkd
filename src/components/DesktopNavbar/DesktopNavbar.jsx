@@ -5,7 +5,11 @@ import BookmarkdLogo from "../../assets/BookmarkdLogo.png";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
-
+function handleSignOut() {
+  sessionStorage.removeItem("token");
+  setToken(false);
+  setHasProfilePic([]);
+}
 
 
 function DesktopNavbar() {
@@ -14,7 +18,7 @@ function DesktopNavbar() {
   return (
     <>
       {token ? (
-        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pt-5 fixed left-0 w-1/8 flex flex-col items-center z-[1500] h-full">
+        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pt-5 fixed left-0 top-0 w-1/8 flex flex-col items-center z-[1500] h-full">
         <Box>
         <Box className="hidden lg:block">
         <Typography variant="subtitle" color="white.main">
@@ -64,7 +68,7 @@ function DesktopNavbar() {
           </Link>
           </Box>
           <Box className="bg-background-blue w-full rounded text-center absolute bottom-10">
-          <Link to="/search" className="text-button-beige">
+          <Link onClick={handleSignOut} className="text-button-beige">
             <Typography variant="terms" className="text-white block font-bold">LOG OUT</Typography>
           </Link>
           </Box>

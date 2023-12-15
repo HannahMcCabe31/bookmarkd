@@ -142,7 +142,7 @@ function Recommendations() {
                   justifyContent: "space-between",
                 }}
               >
-                <Button
+                {/* <Button
                   variant="contained"
                   sx={{
                     borderRadius: 6,
@@ -163,7 +163,7 @@ function Recommendations() {
                   className="md:text-[2vh] bg-element-blue"
                 >
                   Save response
-                </Button>
+                </Button> */}
               </Box>
             </Box>
           </div>
