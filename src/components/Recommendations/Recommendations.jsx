@@ -32,15 +32,18 @@ function Recommendations() {
     e.preventDefault();
     // fetch data from server
     console.log("fetching data");
-    const response = await fetch("http://localhost:3000/api/ai_api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: searchInput,
-      }),
-    });
+    const response = await fetch(
+      "https://bookmarkd-server.onrender.com/api/ai_api",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: searchInput,
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
