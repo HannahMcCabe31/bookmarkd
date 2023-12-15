@@ -32,20 +32,23 @@ function ProfileStatistics() {
     }, [token]);
 
     return (
-        <ThemeProvider theme={bookmarkd}>
-            <div className="p-3">
-                <Typography variant="h5" className="text-white">
-                    Your Statistics
-                </Typography>
+      <ThemeProvider theme={bookmarkd}>
+        <div className="p-3 md:p-0 lg:p-0">
+          <Typography
+            variant="h5"
+            className="text-white md:text-xl lg:text-xl"
+          >
+            Your Statistics
+          </Typography>
 
-                <Box className="bg-element-blue rounded-3xl grid grid-cols-3 mt-3 p-3">
-                    {/* While waiting for userData to pull in from the back-end, display a loading circle :) */}
-                    {!userData && <CircularProgress />}
-                    {/* Once userData has loaded in from the fetch request, display the data */}
-                    {userData && <Statistics userData={userData} />}
-                </Box>
-            </div>
-        </ThemeProvider>
+          <Box className="bg-element-blue rounded-3xl grid grid-cols-3 mt-3 p-3 md:p-2">
+            {/* While waiting for userData to pull in from the back-end, display a loading circle :) */}
+            {!userData && <CircularProgress />}
+            {/* Once userData has loaded in from the fetch request, display the data */}
+            {userData && <Statistics userData={userData} />}
+          </Box>
+        </div>
+      </ThemeProvider>
     );
 }
 

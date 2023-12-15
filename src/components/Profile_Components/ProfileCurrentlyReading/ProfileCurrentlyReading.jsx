@@ -12,28 +12,30 @@ function ProfileCurrentlyReading() {
 
   return (
     <ThemeProvider theme={bookmarkd}>
-      <div className="text-white p-[3vw]">
-        <Typography variant="h5" className="text-white">
+      <div className="text-white p-[3vw] lg:p-0 md:p-0">
+        <Typography variant="h5" className="text-white md:text-xl lg:text-xl">
           Currently Reading
         </Typography>
-        <Box className="bg-element-blue rounded-3xl my-3 p-3">
-          <Box className="mb-3 m-3">
-            <Typography variant="h6">The Wind in the Willows</Typography>
-
-            <Typography variant="h8">by Kenneth Grahame</Typography>
+        <Box className="bg-element-blue rounded-3xl my-3 p-3 md:p-1">
+          <Box className="m-3">
+            <Typography variant="h6" className="md:text-sm">
+              The Wind in the Willows
+            </Typography>
+    
+            <Typography variant="h8" className="md:text-xs">by Kenneth Grahame</Typography>
             <div className="max-w-[45vw]">
               <ProfileBookSlider className="col-start-2 row-span-1" />
             </div>
           </Box>
           <Box className="m-3">
-            <Typography variant="h6">Neuromancer</Typography>
+            <Typography variant="h6" className="md:text-sm">Neuromancer</Typography>
 
-            <Typography variant="h8">by Ameenah Jalil</Typography>
-              <div className="max-w-[45vw]">
-                <ProfileBookSlider className="col-start-2 row-span-1" />
-              </div>
-            </Box>
+            <Typography variant="h8" className="md:text-xs">by Ameenah Jalil</Typography>
+            <div className="max-w-[45vw]">
+              <ProfileBookSlider className="col-start-2 row-span-1" />
+            </div>
           </Box>
+        </Box>
       </div>
     </ThemeProvider>
   );

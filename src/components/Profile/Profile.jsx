@@ -56,14 +56,20 @@ function Profile() {
     }, []);
 
     return (
-        <>
-            <div className="text-white p-[5vw]">
-                <WelcomeUser token={token} />
-                <ProfileCurrentlyReading />
-                <ProfileStatistics />
-                <ProfileBookshelves bookshelves={bookshelves} />
+      <>
+        <div className="text-white p-[5vw]">
+          <WelcomeUser token={token} />
+          <div className="md:grid md:grid-cols-2 lg:ml-36 md:ml-24 md:mr-16 md:mt-20 lg:mr-28">
+            <div className="md:col-start-2 ">
+              <ProfileCurrentlyReading />
+              <ProfileStatistics />
             </div>
-        </>
+            <div className="md:col-start-1 md:col-end-2 md:row-start-1">
+              <ProfileBookshelves bookshelves={bookshelves} />
+            </div>
+          </div>
+        </div>
+      </>
     );
 }
 

@@ -41,23 +41,29 @@ function Bookshelf(props) {
     }, [props.bookshelf_books]);
 
     return (
-        <>
-          <Typography>
-            <b>{props.bookshelf_name}</b>
-          </Typography>
-          <Box>
-            {books.length > 0 &&
-              books.map((book, i) => {
-                return (
+      <Box className="mb-5 md:mb-2">
+        <Typography variant="h8" className="md:text-sm">
+          <b>{props.bookshelf_name}</b>
+        </Typography>
+        <Box className="flex flex-row bg-white rounded-[1vw] px-2 mt-1">
+          {books.length > 0 &&
+            books.map((book, i) => {
+              return (
                 <Box key={`bookimage_` + i}>
-                <img src={book?.image ? `https://bookmarkd-server.onrender.com${book.image}` : "loading"}></img>
+                  <img
+                    className="max-h-[20vw] md:max-h-[10vw] m-1 ml-0 "
+                    src={
+                      book?.image
+                        ? `https://bookmarkd-server.onrender.com${book.image}`
+                        : "loading"
+                    }
+                  ></img>
                 </Box>
-                )
-              })}
-            
-          </Box>
-        </>
-      );
+              );
+            })}
+        </Box>
+      </Box>
+    );
 }
 
 export default Bookshelf;
