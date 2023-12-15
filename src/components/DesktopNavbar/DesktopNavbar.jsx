@@ -16,7 +16,8 @@ function DesktopNavbar() {
       {token ? (
         <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pt-5 fixed left-0 w-1/8 flex flex-col items-center z-[1500] h-full">
         <Box>
-        <Typography variant="subtitle" color="white.main" className="">
+        <Box className="hidden lg:block">
+        <Typography variant="subtitle" color="white.main">
               book
               <Typography display="inline" variant="subtitle" color="starBlue.main">
                 mark
@@ -24,7 +25,7 @@ function DesktopNavbar() {
               d
             </Typography>
             <Typography variant="terms" className="text-white block">By Readers, For Readers</Typography>
-
+        </Box>
         <img
                                 src={BookmarkdLogo}
                                 alt="Bookmarkd Logo"
@@ -32,34 +33,34 @@ function DesktopNavbar() {
                             />
             
             </Box>
-            <Box className="bg-element-blue w-full rounded text-center my-4"> 
+            <Box className="sm:bg-invisible lg:bg-element-blue w-full rounded text-center my-4"> 
           <Link to="/profile" className="text-button-beige">
-            <img className="max-h-9 inline" src="/img/profile_icon.png" />
-            <Typography variant="terms" className="text-white">Profile</Typography>
+            <img className="max-h-9 inline mr-1" src="/img/profile_icon.png" />
+            <Typography variant="terms" className="text-white hidden lg:inline-block">Profile</Typography>
           </Link>
           </Box>
-          <Box className="bg-element-blue w-full rounded text-center my-4">
+          <Box className="sm:bg-invisible lg:bg-element-blue w-full rounded text-center my-4">
           <Link to="/dashboard" className="text-button-beige">
-            <img className="max-h-9 inline" src="/img/dashboard_icon.png" />
-            <Typography variant="terms" className="text-white">Home</Typography>
+            <img className="max-h-9 inline mr-1" src="/img/dashboard_icon.png" />
+            <Typography variant="terms" className="text-white hidden lg:inline-block">Home</Typography>
           </Link>
           </Box>
-          <Box className="bg-element-blue w-full rounded text-center my-4">
+          <Box className="sm:bg-invisible lg:bg-element-blue w-full rounded text-center my-4 lg:block">
           <Link to="/search" className="text-button-beige">
-            <img className="max-h-9 inline" src="/img/search_icon.png" />
-            <Typography variant="terms" className="text-white">Search</Typography>
+            <img className="max-h-9 inline mr-1" src="/img/search_icon.png" />
+            <Typography variant="terms" className="text-white hidden lg:inline-block">Search</Typography>
           </Link>
           </Box>
-          <Box className="bg-element-blue w-full rounded text-center my-4">
+          <Box className="sm:bg-invisible lg:bg-element-blue w-full rounded text-center my-4">
           <Link to="/recommendations" className="text-button-beige">
-            <img className="max-h-9 inline" src="/img/search_icon.png" />
-            <Typography variant="terms" className="text-white">Book REC</Typography>
+            <img className="max-h-9 inline mr-1" src="/img/recrobot.png" />
+            <Typography variant="terms" className="text-white hidden lg:inline-block">Book REC</Typography>
           </Link>
           </Box>
-          <Box className="bg-element-blue w-full rounded text-center my-4">
+          <Box className="sm:bg-invisible lg:bg-element-blue w-full rounded text-center my-4">
           <Link to="/settings" className="text-button-beige">
-            <img className="max-h-9 inline" src="/img/search_icon.png" />
-            <Typography variant="terms" className="text-white">Settings</Typography>
+            <img className="max-h-9 inline mr-1" src="/img/settings.png" />
+            <Typography variant="terms" className="text-white hidden lg:inline-block">Settings</Typography>
           </Link>
           </Box>
           <Box className="bg-background-blue w-full rounded text-center absolute bottom-10">
