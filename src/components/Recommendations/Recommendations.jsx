@@ -7,14 +7,13 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import Typography from "@mui/material/Typography";
 import backArrow from "../../assets/BackArrow.svg";
 
-
 import { useContext, useEffect } from "react";
+import { data } from "autoprefixer";
 
 function Recommendations() {
   const [searchType, setSearchType] = useState("title");
   const [searchInput, setSearchInput] = useState("");
-  const [recommendations, setRecommendations] = useState([]);
-
+  const [recommendations, setRecommendations] = useState("");
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -28,28 +27,32 @@ function Recommendations() {
   function saveRecommendations() {
     setRecommendations([]);
   }
-  useEffect(()=> {
-  async function fetchUserBookData(user_id, book_id) {
-    const userBookData = await fetch(
-      `https://bookmarkd-server.onrender.com/api/user_book_data?book_id=${book_id}&user_id=${user_id}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
+  useEffect(() => {}, []);
+  async function fetchAIRec(e) {
+    e.preventDefault();
+    // fetch data from server
+    console.log("fetching data");
+    const response = await fetch("http://localhost:3000/api/ai_api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: searchInput,
+      }),
+    });
 
-    if (userBookData.ok) {
-      const data = await userBookData.json();
-
-              return data.payload;
-          }
-      }})
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      setRecommendations(data.payload.content);
+    } else {
+      console.log("error");
+    }
+  }
 
   return (
     <div>
-
       <ThemeProvider theme={bookmarkd}>
         <div className="md:max-w-[85%] md:pl-[20%]">
           <Link to="/dashboard" className="md:hidden">
@@ -133,7 +136,11 @@ function Recommendations() {
                     variant="standard"
                     color="starBlue"
                     inputProps={{ style: { color: "white" } }}
+                    onChange={handleSearchInputChange}
                   ></SearchBar>
+                </Box>
+                <Box>
+                  <button onClick={fetchAIRec}>Submit</button>
                 </Box>
               </div>
               <Box
@@ -144,13 +151,7 @@ function Recommendations() {
               >
                 <p className="md:text-[4vh] md:pb-[0.8vh]">We recommend:</p>
                 <p className="md: text-[3vh] md:py-[0.4vh]">
-                  Minecraft: The Island By Max Brooks <br />
-                </p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  Terrortome by Garth Merginhi <br />
-                </p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  The Blade Itself by Joe Abercrombie <br />
+                  {recommendations} <br />
                 </p>
               </Box>
               <Box
