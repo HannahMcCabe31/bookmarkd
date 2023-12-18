@@ -3,7 +3,8 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { bookmarkd } from "../../../definitions/bookmarkdTheme";
-import { BookSlideBar } from "../../../definitions/CustomComponents";
+// import { BookSlideBar } from "../../../definitions/CustomComponents";
+import { BookPageSlider } from '../../../definitions/CustomComponents';
 
 function ProfileBookSlider() {
 
@@ -26,7 +27,7 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
           </Typography>
 <div className=" col-start-2 row-span-1">
           <Box >
-            <BookSlideBar
+            <BookPageSlider
               className="p-0 mb-[2vw] mt-[4vw] md:m-2 max-w-[45vw] md:max-w-[15vw] lg:max-w-[18vw]"
               valueLabelDisplay="auto"
               aria-label="book slider"
