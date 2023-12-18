@@ -50,49 +50,49 @@ function CurrentlyReading(props) {
       if (userBookData.ok) {
         const data = await userBookData.json();
 
-                return data.payload;
-            }
-        }
-        fetchBook(currentlyReading).then((payload) => {
-            setCurrentBook(payload);
-        });
-        fetchUserBookData(user_id, currentlyReading).then((payload) => {
-            setUserBookData(payload);
-        });
-    }, [currentlyReading]);
+        return data.payload;
+      }
+    }
+    fetchBook(currentlyReading).then((payload) => {
+      setCurrentBook(payload);
+    });
+    fetchUserBookData(user_id, currentlyReading).then((payload) => {
+      setUserBookData(payload);
+    });
+  }, [currentlyReading]);
 
-    return (
-        <ThemeProvider theme={bookmarkd}>
-            <Link to={currentBook ? `/book-page/${currentBook.book_id}` : `/dashboard`}>
-                <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4 md:mx-20">
-                    <Box className="relative">
-                        <Box>
-                            <Typography
-                                className="py-1"
-                                variant="h6"
-                            >
-                                My Current Read
-                            </Typography>
-                        </Box>
-                        <BookButton
-                            className="absolute bg-element-blue top-0 end-0"
-                            size="small"
-                            variant="filled"
-                        >
-                            ▼
-                        </BookButton>
-                    </Box>
+  return (
+    <ThemeProvider theme={bookmarkd}>
+      <Link
+        to={currentBook ? `/book-page/${currentBook.book_id}` : `/dashboard`}
+      >
+        <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4  lg:mx-20">
+          <Box className="relative">
+            <Box>
+              <Typography className="pt-1" variant="h6">
+                My Current Read
+              </Typography>
+            </Box>
+            <BookButton
+              className="absolute bg-element-blue top-0 end-0"
+              size="small"
+              variant="filled"
+            >
+              ▼
+            </BookButton>
+          </Box>
 
           <Box className="flex justify-evenly gap-x-5 mr-10">
-            <Box className="relative w-[80vw] h-[40vw] overflow-hidden m-auto p-auto">
+            <Box className="relative w-[80vw] h-[60vw] overflow-hidden mx-auto px-auto">
               <img
                 src={
                   currentBook?.image
                     ? `https://bookmarkd-server.onrender.com${currentBook.image}`
                     : "loading"
                 }
-                className="absolute m-auto p-auto top-0"
+                className="absolute top-0 object-contain"
               />
+              {/* m-auto p-auto */}
             </Box>
             <Box className="font-light">
               <Typography className="font-medium" variant="h3">
