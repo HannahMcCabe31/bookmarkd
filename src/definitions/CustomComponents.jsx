@@ -50,7 +50,7 @@ export const BookSlideBar = styled(Slider)({
       boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000030',
       '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
         boxShadow: '0px 0px 0.5vw 0.5vw #00000055',
-        boxShadow: ' inset 0px 0px 0.5vw 0.5vw #00000030',
+        boxShadow: 'inset 0px 0px 0.5vw 0.5vw #00000030',
       },
       '&:before': {
         display: 'none',
@@ -78,3 +78,22 @@ export const BookSlideBar = styled(Slider)({
       },
     },
   });
+
+  export const BookPageSlider = styled(Slider)({
+    color: '#68B9FF',
+    height: "1vw",
+    width: "30vw",
+    '& .MuiSlider-track': {
+      border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+        display: 'none',
+        },
+        '&:before': {
+          display: 'none',
+        },
+        '&.Mui-disabled .MuiSlider-track': {
+            color: '#68B9FF'
+          }
+      },
+  );

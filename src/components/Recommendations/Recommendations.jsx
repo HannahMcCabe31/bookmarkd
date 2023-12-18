@@ -7,14 +7,13 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import Typography from "@mui/material/Typography";
 import backArrow from "../../assets/BackArrow.svg";
 
-
 import { useContext, useEffect } from "react";
+import { data } from "autoprefixer";
 
 function Recommendations() {
   const [searchType, setSearchType] = useState("title");
   const [searchInput, setSearchInput] = useState("");
   const [recommendations, setRecommendations] = useState([]);
-
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -28,10 +27,58 @@ function Recommendations() {
   function saveRecommendations() {
     setRecommendations([]);
   }
+  useEffect(() => {}, []);
+  async function fetchAIRec(e) {
+    e.preventDefault();
+    // fetch data from server
+    console.log("fetching data");
+    const response = await fetch(
+      "https://bookmarkd-server.onrender.com/api/ai_api",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: searchInput,
+          searchType: searchType,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      // setRecommendations(data.payload.content);
+      setRecommendations(extractBooks(data.payload.content));
+      console.log(recommendations);
+    } else {
+      console.log("error");
+    }
+  }
+
+  function extractBooks(text) {
+    const regex = /(\d+)\.\s+\"(.*?)\" by (.*?)$/gm; // Regex pattern to match the book titles and authors
+
+    let matches;
+    const books = [];
+
+    while ((matches = regex.exec(text)) !== null) {
+      const [, number, title, author] = matches;
+      books.push({ number: parseInt(number), title, author });
+    }
+
+    // Storing book titles and authors in separate variables
+    let book1, book2, book3;
+    if (books.length >= 3) {
+      [book1, book2, book3] = books;
+    }
+
+    return books;
+  }
 
   return (
     <div>
-
       <ThemeProvider theme={bookmarkd}>
         <div className="md:max-w-[85%] md:pl-[20%]">
           <Link to="/dashboard" className="md:hidden">
@@ -115,7 +162,11 @@ function Recommendations() {
                     variant="standard"
                     color="starBlue"
                     inputProps={{ style: { color: "white" } }}
+                    onChange={handleSearchInputChange}
                   ></SearchBar>
+                </Box>
+                <Box>
+                  <button onClick={fetchAIRec}>Submit</button>
                 </Box>
               </div>
               <Box
@@ -124,16 +175,23 @@ function Recommendations() {
                 component="section"
                 sx={{ p: 2, borderRadius: 4 }}
               >
-                <p className="md:text-[4vh] md:pb-[0.8vh]">We recommend:</p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  Minecraft: The Island By Max Brooks <br />
+                <p className="md:p-5 md:text-[4vh] md:pb-[0.8vh]">
+                  We recommend:
                 </p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  Terrortome by Garth Merginhi <br />
-                </p>
-                <p className="md: text-[3vh] md:py-[0.4vh]">
-                  The Blade Itself by Joe Abercrombie <br />
-                </p>
+                {recommendations.map((item, val) => {
+                  return (
+                    <div className="m-5" key={val}>
+                      <p className="md: text-[1.5rem] md:py-[0.4vh]">
+                        {item.number}.{" "}
+                        <span className="italic md:m-2 md:text-[1.8rem]">
+                          "{item.title}"
+                        </span>
+                        <br /> by <span className="">{item.author}</span>
+                      </p>
+                    </div>
+                  );
+                })}{" "}
+                <br />
               </Box>
               <Box
                 sx={{
@@ -142,7 +200,7 @@ function Recommendations() {
                   justifyContent: "space-between",
                 }}
               >
-                <Button
+                {/* <Button
                   variant="contained"
                   sx={{
                     borderRadius: 6,
@@ -163,7 +221,7 @@ function Recommendations() {
                   className="md:text-[2vh] bg-element-blue"
                 >
                   Save response
-                </Button>
+                </Button> */}
               </Box>
             </Box>
           </div>

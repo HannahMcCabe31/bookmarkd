@@ -8,7 +8,7 @@ function SearchContainer({ data }) {
       {data.map((item, i) => {
         return (
           // eslint-disable-next-line react/jsx-key
-          <Box key={`searchresult_` + i} >
+          <Box key={`searchresult_` + i}>
             <SearchResult title={item.title} cover={item.cover} />
           </Box>
         );

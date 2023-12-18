@@ -28,10 +28,11 @@ function Search() {
       item.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setSearchResults(results);
+    console.log(searchResults);
   }, [searchQuery]);
 
   return (
-    <div className="md:max-w-[85%] md:pl-[20%]">
+    <div className=" md:max-w-[85%] md:pl-[20%]">
       <div className="bg-search h-screen flex flex-col text-white p-[3vw]">
         <Box className="flex text-center items-center md:hidden">
           <Link to="/dashboard">
@@ -46,7 +47,7 @@ function Search() {
         <form className="text-center" onSubmit={handleSearch}>
           <TextField
             onChange={handleUpdateQuery}
-            className="border bg-element-blue rounded-[15vw] m-0 mt-[10vw] p-0 w-4/5 md:mt-[5vh] md:mb-0 md:w-[100vh] md:rounded-[5vw] md:p-[0.4rem] "
+            className="border bg-element-blue rounded-[15vw] m-0 mt-[10vw] p-0 w-4/5 md:mt-[5vh] md:w-[80vh] md:rounded-[5vw] md:p-[0.2rem] md:mb-[5vh]"
             placeholder="Search for books, users, authors..."
             inputProps={{ "aria-label": "search", style: { color: "white" } }}
             color="starBlue"
@@ -55,7 +56,9 @@ function Search() {
         </form>
 
         <Box>
-          <SearchContainer data={searchResults} />
+          <div className="md:ml-[12vh]">
+            <SearchContainer data={searchResults} />
+          </div>
         </Box>
       </div>
     </div>

@@ -11,11 +11,11 @@ function UserHeader({ token }) {
     <ThemeProvider theme={bookmarkd}>
       <Box
         component="section"
-        className=" flex flex-col items-center mb-10 mt-4  md:absolute md:top-[10vh] md:right-[18%] md:m-0 md:p-0 "
+        className=" flex flex-col items-center mb-10 mt-4 md:absolute md:top-[10vh] md:right-10 md:m-0 md:p-0 lg:mr-4"
       >
         <Link to="/profile">
           <img
-            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[25vh] md:h-[25vh] md:mb-[2.5vh]"
+            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[15vh] md:h-[15vh] md:mb-[2.5vh] lg:w-[20vh] lg:h-[20vh]"
             src={defaultProfilePic}
           />
         </Link>

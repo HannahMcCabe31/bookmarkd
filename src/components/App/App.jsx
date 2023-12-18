@@ -17,7 +17,7 @@ function App() {
 
     function handleResize() {
         const screenSize = window.innerWidth;
-        if (screenSize < 768) {
+        if (screenSize < 640) {
           setIsMobile(true);
         } else {
           setIsMobile(false);
@@ -54,7 +54,7 @@ function App() {
                     <Router>
                         {token && isMobile && <Navbar />}
                         {token && !isMobile && <DesktopNavbar />}
-                        <div className="pb-16">
+                        <div className="pb-16 md:pl-32">
                             <AppRoutes token={token} />
                         </div>
                     </Router>
