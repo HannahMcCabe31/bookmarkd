@@ -5,11 +5,11 @@ import SearchResult from "../SearchResult/SearchResult";
 function SearchContainer({ data }) {
   return (
     <div>
-      {data.map((item, i) => {
+      {data.map((item) => {
         return (
           // eslint-disable-next-line react/jsx-key
-          <Box key={`searchresult_` + i} >
-            <SearchResult title={item.title} cover={item.cover} />
+          <Box>
+            <SearchResult key={item.id} title={item.title} cover={item.cover} />
           </Box>
         );
       })}
