@@ -3,10 +3,10 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { BookSlideBar } from "../../definitions/CustomComponents";
 
-function BookSlider() {
-    const [pageNumber, setPageNumber] = useState(160);
+function BookSlider({bookPageData}) {
+    const [pageNumber, setPageNumber] = useState(10);
 
-    const maxPages = 320;
+    const maxPages = bookPageData.number_of_pages;
 
     function handlePage(e, value) {
         setPageNumber(value);
@@ -19,7 +19,7 @@ function BookSlider() {
                     className="p-0 mb-[2vw] mt-[4vw]"
                     valueLabelDisplay="auto"
                     aria-label="book slider"
-                    defaultValue={160}
+                    defaultValue={10}
                     min={0}
                     max={maxPages}
                     onChange={handlePage}
