@@ -78,3 +78,22 @@ export const BookSlideBar = styled(Slider)({
       },
     },
   });
+
+  export const BookPageSlider = styled(Slider)({
+    color: '#68B9FF',
+    height: "1vw",
+    width: "30vw",
+    '& .MuiSlider-track': {
+      border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+        display: 'none',
+        },
+        '&:before': {
+          display: 'none',
+        },
+        '&.Mui-disabled .MuiSlider-track': {
+            color: '#68B9FF'
+          }
+      },
+  );

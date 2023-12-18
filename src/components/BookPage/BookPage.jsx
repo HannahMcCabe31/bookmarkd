@@ -44,8 +44,8 @@ function BookPage() {
                     className="w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw]"
                 />
             </Link>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-cols-[50%, 50%] grid-rows-[80vw,1fr] mt-[5vw]">
-                <Box className="relative w-[70vw] h-[70vw] md:w-[30vw] md:h-[45vw] max-w-[900px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-cols-[50%, 50%] md:mt-0 grid-rows-[80vw,1fr] mt-[5vw]">
+                <Box className="relative w-[70vw] h-[70vw] md:w-[25vw] md:h-[36vw] max-w-[900px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
                     {bookPageData.image ? (
                         <img
                             src={`https://bookmarkd-server.onrender.com${bookPageData.image}`}
@@ -64,18 +64,12 @@ function BookPage() {
                         />
                     )}
                 </Box>
-                {/*                 <Box
-                    variant="section"
-                    className="grid md:col-start-2 md:col-end-2 md:row-span-2 grid-rows-7 grid-cols-1"
-                > */}
                 <BookInfo
                     bookPageData={bookPageData}
                     leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
                     rightElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-1 text-center"
                     rightLowerElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-2 text-center"
                 />
-                {/* <BookMenu /> */}
-                {/*                 </Box> */}
             </div>
         </div>
     );
