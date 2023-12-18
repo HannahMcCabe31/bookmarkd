@@ -82,7 +82,7 @@ function Recommendations() {
   return (
     <div>
       <ThemeProvider theme={bookmarkd}>
-        <div className="md:max-w-[85%] md:pl-[20%]">
+        <div className="md:mr-20 lg:mr-20">
           <Link to="/dashboard" className="md:hidden">
             <img
               src={backArrow}
@@ -96,15 +96,11 @@ function Recommendations() {
               sx={{ p: 2, fontFamily: "League Spartan" }}
             >
               {" "}
-              <Box className="flex p-8 flex-col items-start">
+              <Box className="flex p-8 flex-col items-start md:p-6 lg:p-6">
                 <Typography variant="h1" className="md:text-[7vh]">
                   Recommendations
                 </Typography>
-                <Typography
-                  variant="p"
-                  
-                  className="md:text-[3vh] italic my-6"
-                >
+                <Typography variant="p" className="md:text-[3vh] italic my-6">
                   "The sky above the port was the colour of television, tuned to
                   a dead channel." - William Gibson, Neuromancer
                 </Typography>
@@ -113,77 +109,65 @@ function Recommendations() {
                   below.
                 </Typography>
               </Box>
-              <div className="md:grid grid-cols-3">
-                <Box
-                  component="section"
-                  bgcolor="elementBlue.main"
-                  marginRight={4}
-                  marginLeft={4}
-                  sx={{ p: "auto", borderRadius: 4 }}
-                
-                >
-                  <Box className="p-4 ">
-                    <div>
-                      <Typography
-                        variant="h3"
-                      
-                        className="mb-2"
-                      >
-                        Get recommendation by:
-                      </Typography>
-                    </div>
-                    <Select
-                      id="searchType"
-                      value={searchType}
-                      onChange={handleSearchTypeChange}
-                     
-                     className="bg-white rounded-lg min-w-[99%]"
+              <div className="md:flex md:flex-row md:items-end ">
+                <Box className="p-4 mb-2 mx-8 rounded-2xl bg-element-blue">
+                  <div>
+                    <Typography
+                      variant="h3"
+                      className="md:text-xl lg:text-xl"
                     >
-                      <MenuItem value="title">Title</MenuItem>
-                      <MenuItem value="author">Author</MenuItem>
-                      <MenuItem value="genre">Genre</MenuItem>
-                    </Select>
-                  </Box>
+                      Get recommendation by:
+                    </Typography>
+                  </div>
+                  <Select
+                    id="searchType"
+                    value={searchType}
+                    onChange={handleSearchTypeChange}
+                    className="bg-white rounded-lg min-w-[99%]"
+                  >
+                    <MenuItem value="title">Title</MenuItem>
+                    <MenuItem value="author">Author</MenuItem>
+                    <MenuItem value="genre">Genre</MenuItem>
+                  </Select>
                 </Box>
-                <Box
-                  // className="md:grow-1 bg-element-blue "
-                 
-                  component="section"
 
-                  className="md:text-[5px] grow-2 md:py-[3vh] md:m-0 md:mr-8 bg-element-blue p-5 rounded-2xl m-8"
+                <Box
+                  // // className="md:grow-1 bg-element-blue "
+                  className="p-4 mb-2 mx-8 rounded-2xl bg-element-blue md:text-2xl md:h-full"
+      
                 >
-                  <SearchBar className=""
+                  <SearchBar
+                    // className=" lg:text-2xl bg-starBlue"
                     id="search-bar"
                     label={`Search by ${searchType}`}
                     variant="standard"
-                    color="starBlue"
-                    inputProps={{ style: { color: "white" } }}
+                    inputProps={{ style: { color: "white",  } }}
                     onChange={handleSearchInputChange}
                   ></SearchBar>
                 </Box>
-                <Box  >
-                  <button className="bg-element-blue   text-white rounded-2xl px-5 py-2 ml-8" onClick={fetchAIRec}>Submit</button>
-                </Box>
+                <div >
+                  <button
+                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 ml-8 md:mr-8 lg:mr-8"
+                    onClick={fetchAIRec}
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
               <Box
-                
-               
                 component="section"
-               
                 className="p-4 rounded-2xl bg-element-blue m-8"
               >
-                <Typography variant="h4">
+                <Typography variant="h4" className="md:text-2xl lg:text-2xl">
                   We recommend:
                 </Typography>
                 {!recommendations && <CircularProgress />}
-                
-
                 {recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
-                      <p className="md: text-[1.5rem] md:py-[0.4vh]">
+                      <p className="md:text-2xl md:py-[0.4vh]">
                         {item.number}.{" "}
-                        <span className="italic md:m-2 md:text-[1.8rem]">
+                        <span className="italic md:m-2 md:text-2xl">
                           "{item.title}"
                         </span>
                         <br /> by <span className="">{item.author}</span>
@@ -193,14 +177,14 @@ function Recommendations() {
                 })}{" "}
                 <br />
               </Box>
-              <Box
+              {/* <Box
                 sx={{
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "space-between",
                 }}
-              >
-                {/* <Button
+              > */}
+              {/* <Button
                   variant="contained"
                   sx={{
                     borderRadius: 6,
@@ -222,7 +206,7 @@ function Recommendations() {
                 >
                   Save response
                 </Button> */}
-              </Box>
+              {/* </Box> */}
             </Box>
           </div>
         </div>
