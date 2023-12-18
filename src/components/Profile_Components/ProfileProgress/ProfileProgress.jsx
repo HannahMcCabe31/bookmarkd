@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
-function ProfileProgress({ isOpen, onClose, onUpdateProgress }) {
-  const [pageNumber, setPageNumber] = useState(160);
+function ProfileProgress({ isOpen, onClose, onUpdateProgress, currentPageNumber }) {
+  const [pageNumber, setPageNumber] = useState("");
+  const [progressModalOpen, setProgressModalOpen] = useState(false);
   const maxPages = 320;
 
   function handleInputChange(e) {
@@ -16,19 +17,23 @@ function ProfileProgress({ isOpen, onClose, onUpdateProgress }) {
   }
 
   return (
-    <Box className={"modal ${isOpen ? `block` : `hidden`}"}>
-      <Box>
+    <Box className={`modal ${isOpen ? `block` : `hidden`} absolute top-[50%] left-[50%]  bg-element-blue rounded p-6 content-center m-auto`}>
+      <Box className="">
         <label>
+        <Typography>
           New Page Number:
-          <input
+          <input className="text-black rounded ml-5"
             type="text"
             value={pageNumber}
             onChange={handleInputChange}
           ></input>
-        </label>
-        <Button onClick={handleProgressUpdate}>Update Progress</Button>
-        <Button onClick={onClose}>Cancel</Button>
-      </Box>
+        </Typography></label>
+        <Box className="mx-auto p-auto text-center mt-3">
+        <Button   onClick={handleProgressUpdate} className="mx-2">Update Progress</Button>
+        <Button onClick={onClose} className="mx-2">Cancel</Button>
+      </Box></Box>
     </Box>
   );
 }
+
+export default ProfileProgress;
