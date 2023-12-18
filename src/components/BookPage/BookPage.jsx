@@ -23,7 +23,7 @@ function BookPage() {
           className="grid grid-span-2 grid-rows-7 grid-cols-1"
         >
           <BookInfo />
-          <BookMenu />
+          {/* <BookMenu /> */}
         </Box>
       </div>
     </div>
