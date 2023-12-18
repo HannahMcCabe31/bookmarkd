@@ -6,6 +6,7 @@ import { SearchBar } from "../../definitions/CustomComponents";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import Typography from "@mui/material/Typography";
 import backArrow from "../../assets/BackArrow.svg";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { useContext, useEffect } from "react";
 import { data } from "autoprefixer";
@@ -178,6 +179,7 @@ function Recommendations() {
                 <p className="md:p-5 md:text-[4vh] md:pb-[0.8vh]">
                   We recommend:
                 </p>
+                {!recommendations && <CircularProgress />}
                 {recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
