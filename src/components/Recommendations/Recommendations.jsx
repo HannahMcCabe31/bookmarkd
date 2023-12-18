@@ -16,6 +16,7 @@ function Recommendations() {
   const [searchInput, setSearchInput] = useState("");
   const [recommendations, setRecommendations] = useState([]);
 
+
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
   }
@@ -101,8 +102,8 @@ function Recommendations() {
                 </Typography>
                 <Typography
                   variant="p"
-                  marginY={4}
-                  className="md:text-[3vh] italic"
+                  
+                  className="md:text-[3vh] italic my-6"
                 >
                   "The sky above the port was the colour of television, tuned to
                   a dead channel." - William Gibson, Neuromancer
@@ -112,21 +113,21 @@ function Recommendations() {
                   below.
                 </Typography>
               </Box>
-              <div className="md:flex flex-row ">
+              <div className="md:grid grid-cols-3">
                 <Box
                   component="section"
                   bgcolor="elementBlue.main"
                   marginRight={4}
                   marginLeft={4}
                   sx={{ p: "auto", borderRadius: 4 }}
-                  className="md:border-red grow"
+                
                 >
-                  <Box margin={2} sx={{ p: 1 }} className="md:text-2xl ">
+                  <Box className="p-4 ">
                     <div>
                       <Typography
                         variant="h3"
-                        sx={{ fontWeight: "bold", fontSize: "5vw" }}
-                        className="md:text-[3vh]"
+                      
+                        className="mb-2"
                       >
                         Get recommendation by:
                       </Typography>
@@ -135,14 +136,8 @@ function Recommendations() {
                       id="searchType"
                       value={searchType}
                       onChange={handleSearchTypeChange}
-                      sx={{
-                        bgcolor: "white.main",
-                        borderRadius: 1,
-                        minWidth: 19 / 20,
-                        height: 40,
-                        marginBottom: 2,
-                        marginTop: 1,
-                      }}
+                     
+                     className="bg-white rounded-lg min-w-[99%]"
                     >
                       <MenuItem value="title">Title</MenuItem>
                       <MenuItem value="author">Author</MenuItem>
@@ -152,12 +147,12 @@ function Recommendations() {
                 </Box>
                 <Box
                   // className="md:grow-1 bg-element-blue "
-                  margin={4}
+                 
                   component="section"
-                  sx={{ p: 2, borderRadius: 4 }}
-                  className="md:text-[5px] grow-2 md:py-[3vh] md:m-0 md:mr-8 bg-element-blue"
+
+                  className="md:text-[5px] grow-2 md:py-[3vh] md:m-0 md:mr-8 bg-element-blue p-5 rounded-2xl m-8"
                 >
-                  <SearchBar
+                  <SearchBar className=""
                     id="search-bar"
                     label={`Search by ${searchType}`}
                     variant="standard"
@@ -166,20 +161,23 @@ function Recommendations() {
                     onChange={handleSearchInputChange}
                   ></SearchBar>
                 </Box>
-                <Box>
-                  <button onClick={fetchAIRec}>Submit</button>
+                <Box  >
+                  <button className="bg-element-blue   text-white rounded-2xl px-5 py-2 ml-8" onClick={fetchAIRec}>Submit</button>
                 </Box>
               </div>
               <Box
-                bgcolor="elementBlue.main"
-                margin={4}
+                
+               
                 component="section"
-                sx={{ p: 2, borderRadius: 4 }}
+               
+                className="p-4 rounded-2xl bg-element-blue m-8"
               >
-                <p className="md:p-5 md:text-[4vh] md:pb-[0.8vh]">
+                <Typography variant="h4">
                   We recommend:
-                </p>
+                </Typography>
                 {!recommendations && <CircularProgress />}
+                
+
                 {recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
