@@ -97,3 +97,22 @@ export const BookSlideBar = styled(Slider)({
           }
       },
   );
+
+  export const ProfileSlider = styled(Slider)({
+    color: '#68B9FF',
+    height: "1vw",
+    width: "100%",
+    '& .MuiSlider-track': {
+      border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+        display: 'none',
+        },
+        '&:before': {
+          display: 'none',
+        },
+        '&.Mui-disabled .MuiSlider-track': {
+            color: '#68B9FF'
+          }
+      },
+  );

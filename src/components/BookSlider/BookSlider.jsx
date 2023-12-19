@@ -25,7 +25,7 @@ function BookSlider({ bookPageData }) {
                         onChange={handlePage}
                         disabled
                     />
-                </Box>
+                </Box>  
                 <Box className="flex justify-center mt-0 pt-0">
                     <Typography variant="subtitle">
                         {pageNumber} of {maxPages} pages

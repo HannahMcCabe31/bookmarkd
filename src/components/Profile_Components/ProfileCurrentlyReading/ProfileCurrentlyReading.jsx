@@ -23,7 +23,7 @@ function ProfileCurrentlyReading() {
             </Typography>
     
             <Typography variant="h8" className="md:text-xs">by Kenneth Grahame</Typography>
-            <div className="max-w-[45vw]">
+            <div>
               <ProfileBookSlider className="col-start-2 row-span-1" />
             </div>
           </Box>
@@ -31,7 +31,7 @@ function ProfileCurrentlyReading() {
             <Typography variant="h6" className="md:text-sm">Neuromancer</Typography>
 
             <Typography variant="h8" className="md:text-xs">by Ameenah Jalil</Typography>
-            <div className="max-w-[45vw]">
+            <div>
               <ProfileBookSlider className="col-start-2 row-span-1" />
             </div>
           </Box>
