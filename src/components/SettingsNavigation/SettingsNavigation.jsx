@@ -66,6 +66,7 @@ function SettingsNavigation() {
           </div>
         </Box>
       </div>
+      {/* flex flex-col items-center mb-10 mt-4 md:absolute md:top-[10vh] md:right-10 md:m-0 md:p-0 lg:mr-4 */}
       <div className="md:flex md:flex-row-reverse hidden">
         <Link to="/contact-us">
           <Typography
