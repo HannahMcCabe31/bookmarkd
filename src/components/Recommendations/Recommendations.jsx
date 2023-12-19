@@ -16,21 +16,10 @@ function Recommendations() {
   const [searchInput, setSearchInput] = useState("");
   const [recommendations, setRecommendations] = useState();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    if (recommendations && searchInput) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 500);
 
-      // Cleanup
-      return () => clearTimeout(timer);
-    }
-  }, [searchInput]);
 
-  
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -47,6 +36,7 @@ function Recommendations() {
   useEffect(() => {}, []);
   async function fetchAIRec(e) {
     e.preventDefault();
+    setLoading(true);
     // fetch data from server
     console.log("fetching data");
     const response = await fetch(
@@ -72,6 +62,8 @@ function Recommendations() {
     } else {
       console.log("error");
     }
+
+    setLoading(false);
   }
 
   function extractBooks(text) {
@@ -181,10 +173,12 @@ function Recommendations() {
                   We recommend:
                 </Typography>
           
-                  {!recommendations && <CircularProgress />}
+                  {
+                    loading && <CircularProgress className="hidden={!loading}"/>
+                  }
                 {recommendations && recommendations.map((item, val) => {
                   return (
-                    <div className="m-5" key={val}>
+                    <div className="m-5" key={val} hidden={loading}>
                       <p className="md:text-2xl md:py-[0.4vh]">
                         {item.number}.{" "}
                         <span className="italic md:m-2 md:text-2xl">
