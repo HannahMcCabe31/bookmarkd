@@ -35,7 +35,7 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
     return (
       <>
         <div className="grid  grid-cols-[1fr, 1fr, 1fr] grid-rows-1 grid-flow-row-dense items-center space-x-5" onClick={handleModalOpen}>
-          <Typography variant="h7" className="col-start-1 mb-3 md:text-xs">
+          <Typography variant="h7" className="col-start-1 mb-3 md:text-sm lg:text-base">
             Progress:
           </Typography>
 <div className=" col-start-2 row-span-1">
@@ -55,12 +55,12 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
           </Box>
 
           <Box className="flex justify-center mt-0 pt-0">
-            <Typography variant="subtitle" className="md:text-xs">
+            <Typography variant="subtitle" className="md:text-sm lg:text-base">
               {pageNumber} of {maxPages} pages
             </Typography>
           </Box>
 </div>
-          <Typography variant="h8" className="col-start-3 mb-3 md:text-xs">
+          <Typography variant="h8" className="col-start-3 mb-3 md:text-sm lg:text-base">
             {percentage}%
           </Typography>
           
