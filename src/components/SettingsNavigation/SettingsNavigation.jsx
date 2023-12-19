@@ -20,7 +20,7 @@ function SettingsNavigation() {
   return (
     <>
       <div className="text-3xl flex flex-col mt-5 px-5 md:pt-[2vh] md:max-w-[60%] ">
-        <div>
+        <div className="md:ml-40 lg:ml-40 ">
           <Link to="/privacy-policy">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
               <Typography variant="h3" className="md:text-4xl md:my-[2vh]">
@@ -50,7 +50,7 @@ function SettingsNavigation() {
           <Link to="/contact-us">
             <Typography
               variant="h3"
-              className="md:text-3xl md:my-[2vh] md:hidden"
+              className="mb-20 md:text-3xl md:my-[2vh] md:hidden"
             >
               Contact Us
             </Typography>

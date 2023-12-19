@@ -77,7 +77,7 @@ function ProfileUserInfo({ token }) {
   }
   return (
     <ThemeProvider theme={bookmarkd}>
-      <Box className="md:max-w-[44%] md:left-0  md:mt-[10vh] lg:ml-20">
+      <Box className="md:max-w-[44%] md:left-0  md:mt-[10vh] md:ml-40 lg:ml-40">
         <Typography className="border-b border-element-blue" variant="h3">
           Update Profile Information
         </Typography>
