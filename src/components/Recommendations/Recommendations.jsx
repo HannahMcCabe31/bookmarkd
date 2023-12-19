@@ -88,8 +88,7 @@ function Recommendations() {
 
   return (
     <div>
-      <ThemeProvider theme={bookmarkd}>
-        <div className="md:mr-20 lg:mr-30 lg:ml-20 xl:ml-40 xl:mr-40 sm:ml-10">
+        <div className="md:mr-20 md:ml-20 lg:mr-10 lg:ml-40 lg:pl-5">
           <Link to="/dashboard" className="md:hidden">
             <img
               src={backArrow}
@@ -225,7 +224,6 @@ function Recommendations() {
             </Box>
           </div>
         </div>
-      </ThemeProvider>
     </div>
   );
 }
