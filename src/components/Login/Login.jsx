@@ -14,6 +14,8 @@ function Login() {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [forgottenPassword, setForgottenPassword] = useState(false);
+  const [forgottenPasswordDesktop, setForgottenPasswordDesktop] =
+    useState(false);
   const [isRegister, setisRegister] = useState(false);
   let navigate = useNavigate();
   const setToken = useContext(SetTokenContext);
@@ -188,147 +190,262 @@ function Login() {
           </Box>
 
           <Box className="hidden md:block m-0 p-0">
-            <div className="text-white text-[1.3rem] font-light flex justify-end pt-[5%] pr-[5%]">
-              <p className="cursor-pointer" onClick={handleAIPowered}>
+            <Box className="text-white text-[1.3rem] font-light flex justify-end pt-[3.5%] pr-[5%]">
+              <Typography
+                variant="p"
+                className="cursor-pointer text-[1.8rem] opacity-80"
+                onClick={handleAIPowered}
+              >
                 {" "}
                 AI Powered.
-              </p>
-            </div>
-            <h1 className="text-white text-[3.8rem] flex flex-row justify-center mb-[-1.2rem] ">
+              </Typography>
+            </Box>
+            <Typography
+              variant="logo"
+              className="text-white text-[3.8rem] flex flex-row justify-center mb-[-0.8rem] "
+            >
               book
               <span className="text-star-blue p-0 m-0">mark</span>d
-            </h1>
+            </Typography>
 
-            <p className="flex flex-row justify-center text-[1.2rem] text-white mb-6">
+            <Typography
+              variant="logo"
+              className="flex flex-row justify-center text-[1.2rem] text-white mb-6"
+            >
               by readers, for readers
-            </p>
+            </Typography>
 
             <Box className=" bg-[#14191d] flex items-center justify-center ">
               <Box className="bg-white shadow-[0_5px_15px_rgba(0,0,0,0.35)]  overflow-hidden min-h-[500px] rounded-[30px] w-[44rem] h-[32rem]">
                 <Box className="flex justify-center">
                   <Box className="flex justify-center  w-[100%] h-[100%]">
                     <form className="bg-white flex flex-col justify-center ">
-                      <h1 className="text-[2.5rem] font-bold self-center mb-[0.5rem] mt-[2rem]">
+                      <Typography className="text-[2.5rem] font-bold self-center mb-[0.5rem] mt-[2rem]">
                         Sign In
-                      </h1>
-                      <div className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
-                        <img
-                          src="../../../public/social-icons/apple.png"
-                          className="w-[1.8rem]  pr-2 mr-[0.6rem] "
-                        />
-                        <p> Continue with Apple</p>
-                      </div>
-                      <div className="self-center text-center bg-[#0077BA] flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
-                        <img
-                          src="../../../public/social-icons/google.png"
-                          className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
-                        />
-                        <p>Continue with Google</p>
-                      </div>
-                      <div className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
-                        <img
-                          src="../../../public/social-icons/twitter.png"
-                          className="w-[1.5rem]  pr-1 mr-[0.69rem]"
-                        />
-                        <p>Continue with Twitter</p>
-                      </div>
+                      </Typography>
+                      {!forgottenPasswordDesktop ? (
+                        <>
+                          <Box className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.5rem] mb-[0.5rem] cursor-pointer">
+                            <img
+                              src="../../../public/social-icons/apple.png"
+                              className="w-[2rem]  pr-3 mr-[0.45rem] "
+                            />
+                            <Typography
+                              variant="p"
+                              className="text-[1rem] self-center pt-[0.35rem]"
+                            >
+                              {" "}
+                              Continue with Apple
+                            </Typography>
+                          </Box>
+                          <Box className="self-center text-center bg-[#0077BA] flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
+                            <img
+                              src="../../../public/social-icons/google.png"
+                              className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
+                            />
+                            <Typography variant="p" class="text-[0.9rem]">
+                              Continue with Google
+                            </Typography>
+                          </Box>
+                          <Box className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
+                            <img
+                              src="../../../public/social-icons/twitter.png"
+                              className="w-[1.5rem]  pr-1 mr-[0.69rem]"
+                            />
+                            <Typography
+                              variant="p"
+                              className="text-[1rem] pt-1"
+                            >
+                              Continue with Twitter
+                            </Typography>
+                          </Box>
 
-                      <p className="self-center mt-[0.4rem] mb-[0.5rem] text-[0.8rem]">
-                        or use your email password
-                      </p>
-                      <p className="self-center  text-[0.8rem] mb-[0.1rem]">
-                        <span className=" font-bold">DEMO:</span>{" "}
-                        JamSlam@Email.com
-                      </p>
-                      <input
-                        className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
-                        type="email"
-                        placeholder="Email"
-                        onChange={handleEmailAddressChange}
-                      />
-                      <p className="self-center  text-[0.8rem] mb-[0.1rem]">
-                        <span className=" font-bold">DEMO:</span> 123456
-                      </p>
-                      <input
-                        className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
-                        type="password"
-                        placeholder="Password"
-                        onChange={handlePasswordChange}
-                      />
-                      <p className="self-center ">Forgot your Password?</p>
-                      <button
-                        type="submit"
-                        onClick={handleLoginSubmit}
-                        className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
-                      >
-                        SIGN IN
-                      </button>
+                          <Typography className="self-center mt-[0.4rem] mb-[0.5rem] text-[0.8rem]">
+                            or use your email password
+                          </Typography>
+                          <p className="self-center  text-[0.8rem] mb-[0.1rem]">
+                            <span className=" font-bold">DEMO:</span>{" "}
+                            JamSlam@Email.com
+                          </p>
+                          <input
+                            className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
+                            type="email"
+                            placeholder="Email"
+                            onChange={handleEmailAddressChange}
+                          />
+                          <p className="self-center  text-[0.8rem] mb-[0.1rem]">
+                            <span className=" font-bold">DEMO:</span> 123456
+                          </p>
+                          <input
+                            className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
+                            type="password"
+                            placeholder="Password"
+                            onChange={handlePasswordChange}
+                          />
+                          <Typography
+                            variant="p"
+                            className="self-center cursor-pointer mt-1 text-[1rem] font-semibold"
+                            onClick={() => {
+                              setForgottenPasswordDesktop(true);
+                            }}
+                          >
+                            Forgot your Password?
+                          </Typography>
+                          <button
+                            type="submit"
+                            onClick={handleLoginSubmit}
+                            className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
+                          >
+                            SIGN IN
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <Typography className="self-center  mb-4 mt-5 text-[1rem] font-bold">
+                            Forgotten your Password?
+                          </Typography>
+
+                          <input
+                            className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-1 w-[18rem]"
+                            type="email"
+                            placeholder="Email"
+                            onChange={handleForgottenPasswordSubmit}
+                          />
+
+                          <button
+                            type="submit"
+                            onClick={handleLoginSubmit}
+                            className="self-center p-2 bg-[#06B502] text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-2 px-10"
+                          >
+                            SEND
+                          </button>
+                          <Typography
+                            className="self-center cursor-pointer mb-5 font-bold text-[0.8rem]"
+                            onClick={() => {
+                              setForgottenPasswordDesktop(false);
+                            }}
+                          >
+                            Remember your Password?
+                          </Typography>
+                          <Box className="flex  flex-col justify-center">
+                            <Typography className="self-center mb-5">
+                              Check your email.
+                            </Typography>
+                            <Typography className="self-center mb-[3rem]">
+                              It has a magic link that'll sign you in.
+                            </Typography>
+                            <p className="flex flex-col font-semibold">
+                              Any further issues, please contact us at{" "}
+                              <span className="text-[#006ECD] self-center">
+                                contact@bookmarkd.com
+                              </span>
+                            </p>
+                          </Box>
+                        </>
+                      )}
                     </form>
                   </Box>
 
                   <Box>
                     <Box
-                      className={`bg-background-blue flex text-white h-[31.5rem] duration-500 w-[21.8rem] fixed  transition-all  mt-1 ${
+                      className={`bg-background-blue flex text-white h-[31.5rem]  w-[21.8rem] absolute  transition-all duration-[0.55s] mt-1 ${
                         !isRegister
-                          ? " rounded-r-[1.9rem]"
+                          ? " rounded-r-[1.9rem] "
                           : "rounded-l-[1.9rem] -translate-x-[21.8rem]"
                       }`}
                     >
-                      <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center">
-                        <h1 className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
-                          Ready to Start a New Chapter...
-                        </h1>
+                      {!isRegister ? (
+                        <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center  duration-1000 transition-opacity opacity-100 ">
+                          <Typography className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
+                            Ready to Start a New Chapter...
+                          </Typography>
 
-                        <p className="self-center mb-[2vh] text-start">
-                          We'll help you find your next great read
-                        </p>
+                          <p className="self-center mb-[2vh] text-start">
+                            We'll help you find your next great read
+                          </p>
 
-                        <p className="self-center mt-[4rem] text-[0.8rem] w-[80%]">
-                          Register for a free account to use all of the site
-                          features
-                        </p>
-                        <button
-                          type="submit"
-                          className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
-                          onClick={() => {
-                            isRegister
-                              ? setisRegister(false)
-                              : setisRegister(true);
-                          }}
-                        >
-                          REGISTER
-                        </button>
-                      </Box>
+                          <p className="self-center mt-[4rem] text-[0.8rem] w-[80%]">
+                            Register for a free account to use all of the site
+                            features
+                          </p>
+                          <button
+                            type="submit"
+                            className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
+                            onClick={() => {
+                              isRegister
+                                ? setisRegister(false)
+                                : setisRegister(true);
+                            }}
+                          >
+                            REGISTER
+                          </button>
+                        </Box>
+                      ) : (
+                        <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center transition-all duration-1000">
+                          <Typography className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
+                            Already Registered with us...
+                          </Typography>
+
+                          <p className="self-center mb-[2vh] text-start">
+                            accounce your new discoveries with your friends
+                          </p>
+
+                          <p className="self-center mt-[4rem] text-[0.8rem] w-[80%]">
+                            Sign in to use all of the site features
+                          </p>
+                          <button
+                            type="submit"
+                            className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
+                            onClick={() => {
+                              isRegister
+                                ? setisRegister(false)
+                                : setisRegister(true);
+                            }}
+                          >
+                            SIGN IN
+                          </button>
+                        </Box>
+                      )}
                     </Box>
                   </Box>
                   <Box className={`flex justify-center  w-[100%] h-[100%] `}>
                     <form className="bg-white flex flex-col justify-center ">
-                      <h1 className="text-[2.5rem] font-bold self-center mb-[1rem] mt-[2rem]">
+                      <Typography className="text-[2.5rem] font-bold self-center mb-[1rem] mt-[2rem]">
                         Create Account
-                      </h1>
-                      <div className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
+                      </Typography>
+                      <Box className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.5rem] mb-[0.5rem] cursor-pointer">
                         <img
-                          src="social-icons/apple.png"
-                          className="w-[1.8rem]  pr-2 mr-[0.6rem] "
+                          src="../../../public/social-icons/apple.png"
+                          className="w-[2rem]  pr-3 mr-[0.45rem] "
                         />
-                        <p> Continue with Apple</p>
-                      </div>
-                      <div className="self-center text-center bg-[#0077BA] flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
+                        <Typography
+                          variant="p"
+                          className="text-[1rem] self-center pt-[0.35rem]"
+                        >
+                          {" "}
+                          Continue with Apple
+                        </Typography>
+                      </Box>
+                      <Box className="self-center text-center bg-[#0077BA] flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
                         <img
-                          src="public/social-icons/google.png"
+                          src="../../../public/social-icons/google.png"
                           className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
                         />
-                        <p>Continue with Google</p>
-                      </div>
-                      <div className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
+                        <Typography variant="p" class="text-[0.9rem]">
+                          Continue with Google
+                        </Typography>
+                      </Box>
+                      <Box className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
                         <img
-                          src="public/social-icons/twitter.png"
+                          src="../../../public/social-icons/twitter.png"
                           className="w-[1.5rem]  pr-1 mr-[0.69rem]"
                         />
-                        <p>Continue with Twitter</p>
-                      </div>
+                        <Typography variant="p" className="text-[1rem] pt-1">
+                          Continue with Twitter
+                        </Typography>
+                      </Box>
 
-                      <p className="self-center mt-[0.4rem] mb-[0.5rem] text-[0.8rem]">
+                      <p className="self-center mt-[0.4rem] mb-[0.8rem] text-[0.8rem]">
                         or use your email for registration
                       </p>
 
@@ -366,8 +483,8 @@ function Login() {
               </Box>
             </Box>
           </Box>
-          <div className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3">
-            <p>
+          <Box className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3 opacity-90">
+            <Typography vairant="p">
               By clicking "Continue with Email/Apple/Google/X" above, you agree
               to Bookmarkd's{" "}
               <span
@@ -385,8 +502,8 @@ function Login() {
                 Privacy Policy
               </span>
               .
-            </p>
-          </div>
+            </Typography>
+          </Box>
         </Container>
       ) : (
         <Container maxWidth="sm">
