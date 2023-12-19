@@ -2,10 +2,8 @@ import { useState } from 'react'
 import Typography from "@mui/material/Typography";
 import ProfileProgress from '../ProfileProgress/ProfileProgress';
 import { Box } from "@mui/material";
-import { bookmarkd } from "../../../definitions/bookmarkdTheme";
 import { ProfileSlider } from '../../../definitions/CustomComponents';
-import { set } from 'react-hook-form';
-import { parse } from 'dotenv';
+
 
 function ProfileBookSlider() {
 
