@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BookInfo from "../BookInfo/BookInfo";
 import BookMenu from "../BookMenu/BookMenu";
+import SnackbarFavourite from "../SnackbarFavourite/SnackbarFavourite";
 import backArrow from "../../assets/BackArrow.svg";
 import { Box, Skeleton } from "@mui/material";
 import { Link, useParams } from "react-router-dom";

@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/material";
+import { Box, Snackbar } from "@mui/material";
 import { useContext } from "react";
 import { TokenContext } from "../App/App";
+import { set } from "react-hook-form";
 
 function BookMenu({ leftElementClass, book_id }) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+    function handleSnackbarClose(event, reason) {
+        if(reason === "clickaway") {
+            return;
+        }
+        setSnackbarOpen(false);
+    }
 
     useEffect(() => {
         // Grab user favs from fav bookshelf to check if this book is in there
@@ -57,6 +66,11 @@ function BookMenu({ leftElementClass, book_id }) {
             .catch((error) => {
                 console.error(`Error fetching: ${error}`);
             });
+    }, [liked, completed]);
+
+
+    useEffect(() => {
+        setSnackbarOpen(true);
     }, [liked, completed]);
 
     async function likeButton() {
@@ -134,6 +148,7 @@ function BookMenu({ leftElementClass, book_id }) {
     const buttonStyling = "w-[10vw] md:w-auto md:h-[15%]";
 
     return (
+        <>
         <Box
             className={`flex justify-around flex-row mt-[5vw] md:mt-[10vw]  ${leftElementClass}`}
         >
@@ -156,6 +171,14 @@ function BookMenu({ leftElementClass, book_id }) {
                 onClick={completedButton}
             />
         </Box>
+        <Snackbar 
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        open={snackbarOpen} 
+        autoHideDuration={5000} 
+        onClose={handleSnackbarClose}
+        message={liked ? "Added to favourites" : "Removed from favourites"}
+        />
+        </>
     );
 }
 
