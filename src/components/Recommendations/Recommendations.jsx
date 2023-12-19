@@ -14,7 +14,7 @@ import { data } from "autoprefixer";
 function Recommendations() {
   const [searchType, setSearchType] = useState("title");
   const [searchInput, setSearchInput] = useState("");
-  const [recommendations, setRecommendations] = useState([]);
+  const [recommendations, setRecommendations] = useState();
 
 
   function handleSearchTypeChange(e) {
@@ -167,7 +167,7 @@ function Recommendations() {
                 </Typography>
           
                 {!recommendations && <CircularProgress />}
-                {recommendations.map((item, val) => {
+                {recommendations && recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
                       <p className="md:text-2xl md:py-[0.4vh]">
