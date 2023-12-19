@@ -82,7 +82,7 @@ function Recommendations() {
   return (
     <div>
       <ThemeProvider theme={bookmarkd}>
-        <div className="md:mr-20 lg:mr-20">
+        <div className="md:mr-20 lg:mr-30 lg:ml-20 xl:ml-40 xl:mr-40 sm:ml-10">
           <Link to="/dashboard" className="md:hidden">
             <img
               src={backArrow}
@@ -109,12 +109,14 @@ function Recommendations() {
                   below.
                 </Typography>
               </Box>
-              <div className="md:flex md:flex-row md:items-end ">
-                <Box className="p-4 mb-2 mx-8 rounded-2xl bg-element-blue">
+              <Box className="md:flex md:flex-row">
+              <div className="">
+
+                <Box className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:min-w-[30vw]">
                   <div>
                     <Typography
                       variant="h3"
-                      className="md:text-xl lg:text-xl"
+                      className="md:text-2xl mb-2 lg:text-xl"
                     >
                       Get recommendation by:
                     </Typography>
@@ -133,7 +135,7 @@ function Recommendations() {
 
                 <Box
                   // // className="md:grow-1 bg-element-blue "
-                  className="p-4 mb-2 mx-8 rounded-2xl bg-element-blue md:text-2xl md:h-full"
+                  className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:text-2xl "
       
                 >
                   <SearchBar
@@ -153,14 +155,17 @@ function Recommendations() {
                     Submit
                   </button>
                 </div>
+                
               </div>
               <Box
                 component="section"
-                className="p-4 rounded-2xl bg-element-blue m-8"
+                className="p-4 rounded-2xl bg-element-blue m-8 md:m-0 md:min-w-[30vw]"
               >
+
                 <Typography variant="h4" className="md:text-2xl lg:text-2xl">
                   We recommend:
                 </Typography>
+          
                 {!recommendations && <CircularProgress />}
                 {recommendations.map((item, val) => {
                   return (
@@ -176,6 +181,7 @@ function Recommendations() {
                   );
                 })}{" "}
                 <br />
+              </Box>
               </Box>
               {/* <Box
                 sx={{

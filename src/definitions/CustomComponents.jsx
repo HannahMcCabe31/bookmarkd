@@ -12,7 +12,7 @@ export const SearchBar = styled(TextField)({
     },
     "& label.Mui-focused": {
         fontSize: "3vw",
-        color: "#FFFFFF",
+        // color: "#FFFFFF",
     },
     "& .MuiOutlinedInput-root": {
         fontFamily: "League Spartan",
