@@ -14,6 +14,7 @@ function Login() {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [forgottenPassword, setForgottenPassword] = useState(false);
+  const [isRegister, setisRegister] = useState(false);
   let navigate = useNavigate();
   const setToken = useContext(SetTokenContext);
 
@@ -264,8 +265,8 @@ function Login() {
                       </button>
                     </form>
                   </Box>
-                  <Box className="w-[100%] h-[100%] grow">
-                    <Box className="bg-background-blue flex text-white h-[31.5rem] w-[99%] mt-1 rounded-r-[1.9rem] ">
+                  <Box className="w-[100%] h-[100%] grow hover:-translate-x-[20rem] transition-all duration-300">
+                    <Box className="bg-background-blue flex text-white h-[31.5rem] w-[99%] mt-1 rounded-r-[1.9rem] hover:rounded-r-[0] hover:rounded-l-[1.9rem]">
                       <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center">
                         <h1 className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
                           Ready to Start a New Chapter...
@@ -281,8 +282,12 @@ function Login() {
                         </p>
                         <button
                           type="submit"
-                          onClick={handleLoginSubmit}
                           className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
+                          onClick={() => {
+                            isRegister
+                              ? setisRegister(true)
+                              : setisRegister(false);
+                          }}
                         >
                           REGISTER
                         </button>
