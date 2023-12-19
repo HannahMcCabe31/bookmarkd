@@ -1,8 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../../definitions/bookmarkdTheme.jsx";
 import useUserData from "./useUserData.js";
 import { TokenContext } from "../../App/App";
 import Statistics from "../Statistics/Statistics.jsx";
@@ -32,11 +30,10 @@ function ProfileStatistics() {
     }, [token]);
 
     return (
-      <ThemeProvider theme={bookmarkd}>
         <div className="p-3 md:p-0 lg:p-0">
           <Typography
             variant="h5"
-            className="text-white md:text-xl lg:text-xl"
+            className="text-white md:text-2xl lg:text-3xl"
           >
             Your Statistics
           </Typography>
@@ -48,7 +45,6 @@ function ProfileStatistics() {
             {userData && <Statistics userData={userData} />}
           </Box>
         </div>
-      </ThemeProvider>
     );
 }
 

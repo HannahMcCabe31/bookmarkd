@@ -8,9 +8,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 function ProfileBookshelves({ bookshelves }) {
     return (
-      <ThemeProvider theme={bookmarkd}>
         <div className="text-white p-[3vw] text-white lg:pr-[2vw] md:px-[2vw] md:py-0">
-          <Typography variant="h5" className="md:text-xl lg:text-xl">
+          <Typography variant="h5" className="md:text-2xl lg:text-3xl">
             Your Bookshelves
           </Typography>
           <Box className="bg-element-blue rounded-3xl my-3 p-3 md:p-2 flex flex-col">
@@ -27,7 +26,6 @@ function ProfileBookshelves({ bookshelves }) {
               })}
           </Box>
         </div>
-      </ThemeProvider>
     );
 }
 
