@@ -43,7 +43,7 @@ function BookInfo({
             <Box className={`${rightElementClass}`}>
                 <Typography
                     variant="h2"
-                    className={`m-auto p-auto mt-3 md:text-left md:text-5xl md:font-normal`}
+                    className={`m-auto p-auto mt-3 md:text-center md:text-5xl md:font-normal`}
                 >
                     {bookPageData.title ? (
                         bookPageData.title
@@ -60,7 +60,7 @@ function BookInfo({
                 <Box className=" md:mt-[3vw]">
                     <Typography
                         variant="p"
-                        className={`m-auto p-auto mt-0 md:text-3xl md:text-left`}
+                        className={`m-auto p-auto mt-0 md:text-3xl md:text-center`}
                     >
                         {bookPageData.author ? (
                             bookPageData.author
@@ -78,7 +78,7 @@ function BookInfo({
             <Box className={`${leftElementClass}`}>
                 <Typography
                     variant="h3"
-                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-5xl"
+                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-5xl md:mt-[1vw] md:pt-0"
                 >
                     {bookPageData.overall_rating ? (
                         renderStars()
