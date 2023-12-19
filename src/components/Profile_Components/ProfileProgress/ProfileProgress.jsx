@@ -17,15 +17,16 @@ function ProfileProgress({ isOpen, onClose, onUpdateProgress, currentPageNumber 
   }
 
   return (
-    <Box className={`modal ${isOpen ? `block` : `hidden`} absolute top-[50%] left-[50%]  bg-element-blue rounded p-6 content-center m-auto`}>
+    <Box className={`modal ${isOpen ? `block` : `hidden`} absolute lg:top-[50%] lg:right-[30%] md:right-[20%] bg-element-blue rounded-lg p-6 content-center m-auto z-[1400]`}>
       <Box className="">
         <label>
         <Typography>
-          New Page Number:
+          Page Number:
           <input className="text-black rounded ml-5"
-            type="text"
+            type="number"
             value={pageNumber}
             onChange={handleInputChange}
+            placeholder={currentPageNumber}
           ></input>
         </Typography></label>
         <Box className="mx-auto p-auto text-center mt-3">
