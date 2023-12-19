@@ -1,8 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "@mui/material/styles";
-import { bookmarkd } from "../../../definitions/bookmarkdTheme.jsx";
 import useUserData from "./useUserData.js";
 import { TokenContext } from "../../App/App";
 import Statistics from "../Statistics/Statistics.jsx";

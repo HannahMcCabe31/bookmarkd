@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import rightArrow from "../../assets/RightArrow.svg";
+import rightArrow from "../../assets/rightArrow.svg";
 import { Link } from "react-router-dom";
 
 function SearchResult({ title, cover, id }) {
