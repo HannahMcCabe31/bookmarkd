@@ -1,8 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import { ImageList, ImageListItem } from "@mui/material";
-
 
 function Bookshelf(props) {
     // Stuff

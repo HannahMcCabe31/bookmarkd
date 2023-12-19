@@ -5,14 +5,14 @@ export const SearchBar = styled(TextField)({
     "& label.MuiInputLabel-root": {
         fontFamily: "League Spartan",
         color: "#FFFFFF",
-        fontSize: "4vw"
+        fontSize: "2vw"
     },
     "& label.Mui-root": {
         color: "#FFFFFF",
     },
     "& label.Mui-focused": {
         fontSize: "3vw",
-        color: "#FFFFFF",
+        // color: "#FFFFFF",
     },
     "& .MuiOutlinedInput-root": {
         fontFamily: "League Spartan",
@@ -83,6 +83,25 @@ export const BookSlideBar = styled(Slider)({
     color: '#68B9FF',
     height: "1vw",
     width: "30vw",
+    '& .MuiSlider-track': {
+      border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+        display: 'none',
+        },
+        '&:before': {
+          display: 'none',
+        },
+        '&.Mui-disabled .MuiSlider-track': {
+            color: '#68B9FF'
+          }
+      },
+  );
+
+  export const ProfileSlider = styled(Slider)({
+    color: '#68B9FF',
+    height: "1vw",
+    width: "100%",
     '& .MuiSlider-track': {
       border: 'none',
     },
