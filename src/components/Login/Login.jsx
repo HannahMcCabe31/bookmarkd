@@ -74,7 +74,7 @@ function Login() {
     <ThemeProvider theme={bookmarkd}>
       {!forgottenPassword ? (
         <Container maxWidth="lg">
-          <Box className="md:hidden">
+          <Box className="md:hidden ">
             <Box textAlign="right" sx={{ mt: 3 }}>
               <Typography variant="p" color="white.main">
                 AI Powered
@@ -206,7 +206,7 @@ function Login() {
             <Box className=" bg-[#14191d] flex items-center justify-center ">
               <Box className="bg-white shadow-[0_5px_15px_rgba(0,0,0,0.35)]  overflow-hidden min-h-[500px] rounded-[30px] w-[44rem] h-[32rem]">
                 <Box className="flex justify-center">
-                  <Box className="flex justify-center  w-[100%] h-[100%] ">
+                  <Box className="flex justify-center  w-[100%] h-[100%]">
                     <form className="bg-white flex flex-col justify-center ">
                       <h1 className="text-[2.5rem] font-bold self-center mb-[0.5rem] mt-[2rem]">
                         Sign In
@@ -265,8 +265,15 @@ function Login() {
                       </button>
                     </form>
                   </Box>
-                  <Box className="w-[100%] h-[100%] grow hover:-translate-x-[20rem] transition-all duration-300">
-                    <Box className="bg-background-blue flex text-white h-[31.5rem] w-[99%] mt-1 rounded-r-[1.9rem] hover:rounded-r-[0] hover:rounded-l-[1.9rem]">
+
+                  <Box>
+                    <Box
+                      className={`bg-background-blue flex text-white h-[31.5rem] duration-500 w-[21.8rem] fixed  transition-all  mt-1 ${
+                        !isRegister
+                          ? " rounded-r-[1.9rem]"
+                          : "rounded-l-[1.9rem] -translate-x-[21.8rem]"
+                      }`}
+                    >
                       <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center">
                         <h1 className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
                           Ready to Start a New Chapter...
@@ -285,14 +292,75 @@ function Login() {
                           className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
                           onClick={() => {
                             isRegister
-                              ? setisRegister(true)
-                              : setisRegister(false);
+                              ? setisRegister(false)
+                              : setisRegister(true);
                           }}
                         >
                           REGISTER
                         </button>
                       </Box>
                     </Box>
+                  </Box>
+                  <Box className={`flex justify-center  w-[100%] h-[100%] `}>
+                    <form className="bg-white flex flex-col justify-center ">
+                      <h1 className="text-[2.5rem] font-bold self-center mb-[1rem] mt-[2rem]">
+                        Create Account
+                      </h1>
+                      <div className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
+                        <img
+                          src="social-icons/apple.png"
+                          className="w-[1.8rem]  pr-2 mr-[0.6rem] "
+                        />
+                        <p> Continue with Apple</p>
+                      </div>
+                      <div className="self-center text-center bg-[#0077BA] flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.5rem] cursor-pointer">
+                        <img
+                          src="public/social-icons/google.png"
+                          className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
+                        />
+                        <p>Continue with Google</p>
+                      </div>
+                      <div className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
+                        <img
+                          src="public/social-icons/twitter.png"
+                          className="w-[1.5rem]  pr-1 mr-[0.69rem]"
+                        />
+                        <p>Continue with Twitter</p>
+                      </div>
+
+                      <p className="self-center mt-[0.4rem] mb-[0.5rem] text-[0.8rem]">
+                        or use your email for registration
+                      </p>
+
+                      <input
+                        className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
+                        type="username"
+                        placeholder="Username"
+                        onChange={() => {}}
+                      />
+
+                      <input
+                        className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
+                        type="email"
+                        placeholder="Email"
+                        onChange={handleEmailAddressChange}
+                      />
+
+                      <input
+                        className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
+                        type="password"
+                        placeholder="Password"
+                        onChange={handlePasswordChange}
+                      />
+
+                      <button
+                        type="submit"
+                        onClick={handleLoginSubmit}
+                        className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
+                      >
+                        REGISTER
+                      </button>
+                    </form>
                   </Box>
                 </Box>
               </Box>
