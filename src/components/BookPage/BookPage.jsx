@@ -74,7 +74,7 @@ function BookPage() {
                     rightElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-1 text-center"
                     rightLowerElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-2 text-center"
                 />
-                {/* <BookMenu /> */}
+                <BookMenu book_id={book_url_id} leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"/>
                 {/*                 </Box> */}
             </div>
         </div>

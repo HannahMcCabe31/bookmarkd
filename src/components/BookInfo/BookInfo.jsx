@@ -78,7 +78,7 @@ function BookInfo({
             <Box className={`${leftElementClass}`}>
                 <Typography
                     variant="h3"
-                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-5xl"
+                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-5xl md:mt-[1vw] md:pt-0"
                 >
                     {bookPageData.overall_rating ? (
                         renderStars()
