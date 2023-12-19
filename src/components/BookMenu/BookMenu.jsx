@@ -6,7 +6,7 @@ import { TokenContext } from "../App/App";
 function BookMenu({ leftElementClass, book_id }) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
-    const [completed, setCompleted] = useState(false)
+    const [completed, setCompleted] = useState(false);
 
     useEffect(() => {
         // Grab user favs from fav bookshelf to check if this book is in there
@@ -52,7 +52,7 @@ function BookMenu({ leftElementClass, book_id }) {
         getBookshelves()
             .then((payload) => {
                 setLiked(payload[0]);
-                setCompleted(payload[1])
+                setCompleted(payload[1]);
             })
             .catch((error) => {
                 console.error(`Error fetching: ${error}`);
@@ -146,7 +146,15 @@ function BookMenu({ leftElementClass, book_id }) {
                 className={`${buttonStyling}`}
                 src="/img/add_to_shelf_icon.png"
             />
-            <img className={`${buttonStyling}`} src={completed ? "/img/completed_icon.png" : "/img/not_completed_icon.png"} onClick={completedButton}/>
+            <img
+                className={`${buttonStyling}`}
+                src={
+                    completed
+                        ? "/img/completed_icon.png"
+                        : "/img/not_completed_icon.png"
+                }
+                onClick={completedButton}
+            />
         </Box>
     );
 }
