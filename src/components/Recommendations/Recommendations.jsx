@@ -16,6 +16,21 @@ function Recommendations() {
   const [searchInput, setSearchInput] = useState("");
   const [recommendations, setRecommendations] = useState();
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    if (recommendations && searchInput) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 500);
+
+      // Cleanup
+      return () => clearTimeout(timer);
+    }
+  }, [searchInput]);
+
+  
 
   function handleSearchTypeChange(e) {
     setSearchType(e.target.value);
@@ -150,7 +165,7 @@ function Recommendations() {
                 <div >
                   <button
                     className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 ml-8 md:mr-8 lg:mr-8"
-                    onClick={fetchAIRec}
+                    onClick={fetchAIRec} 
                   >
                     Submit
                   </button>
@@ -166,7 +181,7 @@ function Recommendations() {
                   We recommend:
                 </Typography>
           
-                {!recommendations && <CircularProgress />}
+                  {!recommendations && <CircularProgress />}
                 {recommendations && recommendations.map((item, val) => {
                   return (
                     <div className="m-5" key={val}>
