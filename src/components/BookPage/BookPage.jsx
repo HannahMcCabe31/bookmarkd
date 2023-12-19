@@ -2,13 +2,28 @@ import React, { useState, useEffect } from "react";
 import BookInfo from "../BookInfo/BookInfo";
 import BookMenu from "../BookMenu/BookMenu";
 import backArrow from "../../assets/BackArrow.svg";
-import { Box, Skeleton } from "@mui/material";
+import { Box, Skeleton, Button } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
+import { Typography } from "@mui/material";
+import { bookmarkd } from "../../definitions/bookmarkdTheme";
 
 function BookPage() {
     let { book_url_id } = useParams();
     const [bookPageData, setbookPageData] = useState({});
     const [imageLoaded, setImageLoaded] = useState(false);
+    const [editingBookshelf, setEditingBookshelf] = useState(false);
+
+    /*     useEffect(() => { // Test to determine if editingBookshelf is being flipped correctly
+        if (editingBookshelf === true) {
+            alert("Bingo");
+        }
+    }, [editingBookshelf]); */
+
+    function bookshelfEditMode() {
+        setTimeout(() => {
+            setEditingBookshelf((mode) => !mode);
+        }, 250);
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -37,6 +52,30 @@ function BookPage() {
 
     return (
         <div className="text-white p-[3vw] md:pl-[10vw]">
+            {editingBookshelf && (
+                <>
+                    <Box
+                        className="z-[9999] absolute top-0 right-0 h-[100%] w-[100%] bg-[#00000077]"
+                        tag="Box to fade background while bookshelves menu open"
+                    />
+                    <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] bg-element-blue text-center rounded-2xl">
+                        <Box className="text-center">
+                            <Typography variant="h2" className="mt-[5%]">
+                                Your bookshelves
+                            </Typography>
+                            <Button
+                                className="absolute bottom-0 bg-star-blue text-black"
+                                type="submit"
+                                variant="contained"
+                                onClick={bookshelfEditMode}
+                            >
+                                <Typography variant="h3">Done</Typography>
+                            </Button>
+                        </Box>
+                    </Box>
+                </>
+            )}
+
             <Link to="/dashboard">
                 <img
                     src={backArrow}
@@ -74,7 +113,12 @@ function BookPage() {
                     rightElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-1 text-center"
                     rightLowerElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-2 text-center"
                 />
-                <BookMenu book_id={book_url_id} leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"/>
+                <BookMenu
+                    editingBookshelf={editingBookshelf}
+                    setEditingBookshelf={setEditingBookshelf}
+                    book_id={book_url_id}
+                    leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
+                />
                 {/*                 </Box> */}
             </div>
         </div>

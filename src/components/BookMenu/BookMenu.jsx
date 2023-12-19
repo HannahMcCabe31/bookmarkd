@@ -3,10 +3,19 @@ import { Box } from "@mui/material";
 import { useContext } from "react";
 import { TokenContext } from "../App/App";
 
-function BookMenu({ leftElementClass, book_id }) {
+function BookMenu({
+    leftElementClass,
+    book_id,
+    editingBookshelf,
+    setEditingBookshelf,
+}) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
     const [completed, setCompleted] = useState(false);
+
+    function bookshelfEditMode() {
+        setEditingBookshelf((mode) => !mode);
+    }
 
     useEffect(() => {
         // Grab user favs from fav bookshelf to check if this book is in there
@@ -51,7 +60,9 @@ function BookMenu({ leftElementClass, book_id }) {
 
         getBookshelves()
             .then((payload) => {
+               // if (payload[0] === true && liked === false) {
                 setLiked(payload[0]);
+              //  
                 setCompleted(payload[1]);
             })
             .catch((error) => {
@@ -143,6 +154,7 @@ function BookMenu({ leftElementClass, book_id }) {
                 onClick={likeButton}
             />
             <img
+                onClick={bookshelfEditMode}
                 className={`${buttonStyling}`}
                 src="/img/add_to_shelf_icon.png"
             />
