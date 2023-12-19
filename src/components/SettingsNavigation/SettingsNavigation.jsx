@@ -19,11 +19,11 @@ function SettingsNavigation() {
 
   return (
     <>
-      <div className="text-3xl flex flex-col mt-5 px-5 md:pt-[2vh] md:max-w-[60%] ">
+      <div className="text-3xl flex flex-col mt-5 px-5 md:pt-[2vh] md:max-w-[70%] ">
         <div className="md:ml-40 lg:ml-40 ">
           <Link to="/privacy-policy">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
-              <Typography variant="h3" className="md:text-4xl md:my-[2vh]">
+              <Typography variant="h3" className="md:text-4xl ">
                 Privacy Policy
               </Typography>
               <img src={rightArrow} alt="Right arrow" />
@@ -31,7 +31,7 @@ function SettingsNavigation() {
           </Link>
           <Link to="/terms-and-conditions">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
-              <Typography variant="h3" className="md:text-4xl md:my-[2vh]">
+              <Typography variant="h3" className="md:text-4xl">
                 Terms and Conditions
               </Typography>
               <img src={rightArrow} alt="Right arrow" />
@@ -39,7 +39,7 @@ function SettingsNavigation() {
           </Link>
           <Link to="/ai-powered">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between mb-5">
-              <Typography variant="h3" className="md:text-4xl md:my-[2vh]">
+              <Typography variant="h3" className="md:text-4xl">
                 AI Powered
               </Typography>
               <img src={rightArrow} alt="Right arrow" />
