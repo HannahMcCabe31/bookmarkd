@@ -36,7 +36,7 @@ function BookPage() {
     }, [book_url_id]);
 
     return (
-        <div className="text-white p-[3vw] md:pl-[10vw]">
+        <div className="text-white p-[3vw] md:pl-[10vw] lg:pl-[14vw]">
             <Link to="/dashboard">
                 <img
                     src={backArrow}
