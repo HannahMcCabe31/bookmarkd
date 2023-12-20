@@ -6,6 +6,7 @@ import { Box, Skeleton, Button } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
+import AddToBookshelfContainer from "../AddToBookshelfContainer/AddToBookshelfContainer";
 
 function BookPage() {
     let { book_url_id } = useParams();
@@ -20,9 +21,11 @@ function BookPage() {
     }, [editingBookshelf]); */
 
     function bookshelfEditMode() {
+        window.scrollTo(0, 0); // Scrolls to top of page when edit mode is
         setTimeout(() => {
             setEditingBookshelf((mode) => !mode);
-        }, 250);
+            document.body.style.overflow = editingBookshelf ? "scroll" : "hidden" // Disables scrolling while in edit mode
+        }, editingBookshelf ? 250 : 0);
     }
 
     useEffect(() => {
@@ -50,6 +53,8 @@ function BookPage() {
         });
     }, [book_url_id]);
 
+    /**************************************************************************************************************************************************************************************************************** */
+
     return (
         <div className="text-white p-[3vw] md:pl-[10vw]">
             {editingBookshelf && (
@@ -60,17 +65,25 @@ function BookPage() {
                     />
                     <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] bg-element-blue text-center rounded-2xl">
                         <Box className="text-center">
-                            <Typography variant="h2" className="mt-[5%]">
-                                Your bookshelves
-                            </Typography>
-                            <Button
-                                className="absolute bottom-0 bg-star-blue text-black"
-                                type="submit"
-                                variant="contained"
-                                onClick={bookshelfEditMode}
+                            <Typography
+                                variant="h2"
+                                className="mt-[10%] mb-[15%]"
                             >
-                                <Typography variant="h3">Done</Typography>
-                            </Button>
+                                Add to bookshelf
+                            </Typography>
+                            <AddToBookshelfContainer
+                                bookshelfEditMode={bookshelfEditMode}
+                            />
+                            <div className="absolute text-center m-auto p-auto bottom-[5%] left-[39.5%]">
+                                <Button
+                                    className="bg-star-blue text-black"
+                                    type="submit"
+                                    variant="contained"
+                                    onClick={bookshelfEditMode}
+                                >
+                                    <Typography variant="h3">Done</Typography>
+                                </Button>
+                            </div>
                         </Box>
                     </Box>
                 </>
@@ -115,7 +128,7 @@ function BookPage() {
                 />
                 <BookMenu
                     editingBookshelf={editingBookshelf}
-                    setEditingBookshelf={setEditingBookshelf}
+                    bookshelfEditMode={bookshelfEditMode}
                     book_id={book_url_id}
                     leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
                 />

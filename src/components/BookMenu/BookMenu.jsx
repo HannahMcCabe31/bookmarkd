@@ -6,8 +6,7 @@ import { TokenContext } from "../App/App";
 function BookMenu({
     leftElementClass,
     book_id,
-    editingBookshelf,
-    setEditingBookshelf,
+    bookshelfEditMode,
 }) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
@@ -98,10 +97,6 @@ function BookMenu({
             console.error(`Text: ${await responseRequest.text()}`);
             console.error("Data not available");
         }
-    }
-
-    function bookshelfEditMode() {
-        setEditingBookshelf((mode) => !mode);
     }
 
     const buttonStyling = "w-[10vw] md:w-auto md:h-[15%]";
