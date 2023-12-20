@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { Box, Snackbar } from "@mui/material";
 import { useContext } from "react";
 import { TokenContext } from "../App/App";
-import { set } from "react-hook-form";
 
-function BookMenu({ leftElementClass, book_id }) {
+function BookMenu({ leftElementClass, book_id , bookPageData}) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
     const [completed, setCompleted] = useState(false);

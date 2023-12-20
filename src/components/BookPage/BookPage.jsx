@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BookInfo from "../BookInfo/BookInfo";
 import BookMenu from "../BookMenu/BookMenu";
-import SnackbarFavourite from "../SnackbarFavourite/SnackbarFavourite";
+// import SnackbarFavourite from "../SnackbarFavourite/SnackbarFavourite";
 import backArrow from "../../assets/BackArrow.svg";
 import { Box, Skeleton } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
@@ -75,7 +75,7 @@ function BookPage() {
                     rightElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-1 text-center"
                     rightLowerElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-2 text-center"
                 />
-                <BookMenu book_id={book_url_id} leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"/>
+                <BookMenu book_id={book_url_id} bookPageData={bookPageData} leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"/>
                 {/*                 </Box> */}
             </div>
         </div>
