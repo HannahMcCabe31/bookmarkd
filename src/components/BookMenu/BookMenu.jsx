@@ -9,12 +9,14 @@ function BookMenu({ leftElementClass, book_id }) {
     const [liked, setLiked] = useState(false);
     const [completed, setCompleted] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [completedSnackbarOpen, setCompletedSnackbarOpen] = useState(false);
 
     function handleSnackbarClose(event, reason) {
         if(reason === "clickaway") {
             return;
         }
         setSnackbarOpen(false);
+        setCompletedSnackbarOpen(false);
     }
 
     useEffect(() => {
@@ -69,9 +71,6 @@ function BookMenu({ leftElementClass, book_id }) {
     }, [liked, completed]);
 
 
-    useEffect(() => {
-        setSnackbarOpen(true);
-    }, [liked, completed]);
 
     async function likeButton() {
         async function updateFavs(action) {
@@ -97,6 +96,7 @@ function BookMenu({ leftElementClass, book_id }) {
 
             if (responseRequest.ok) {
                 const responseData = await responseRequest.json();
+                setSnackbarOpen(true);
 
                 return responseData;
             } else if (!responseRequest.ok) {
@@ -132,6 +132,7 @@ function BookMenu({ leftElementClass, book_id }) {
 
             if (responseRequest.ok) {
                 const responseData = await responseRequest.json();
+                setCompletedSnackbarOpen(true);
 
                 return responseData;
             } else if (!responseRequest.ok) {
@@ -174,9 +175,16 @@ function BookMenu({ leftElementClass, book_id }) {
         <Snackbar 
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         open={snackbarOpen} 
-        autoHideDuration={5000} 
+        autoHideDuration={3000} 
         onClose={handleSnackbarClose}
         message={liked ? "Added to favourites" : "Removed from favourites"}
+        />
+        <Snackbar 
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        open={completedSnackbarOpen} 
+        autoHideDuration={3000} 
+        onClose={handleSnackbarClose}
+        message={completed ? "Added to completed books" : "Removed from completed books"}
         />
         </>
     );
