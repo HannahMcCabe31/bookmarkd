@@ -11,8 +11,10 @@ function Settings() {
     const token = useContext(TokenContext)
 
   return (
-    // md:max-w-[85%] 
-        <div className="lg:ml-20">
+    // md:max-w-[85%]
+    // 
+    // lg:ml-20 xl:ml-20 2xl:ml-40 
+        <div className="md:mr-20 lg:mr-30 lg:ml-20 xl:ml-40 xl:mr-40 sm:ml-10">
           <Link to="/dashboard">
             <img
               src={backArrow}
