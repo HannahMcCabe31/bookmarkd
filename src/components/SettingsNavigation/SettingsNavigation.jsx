@@ -71,7 +71,7 @@ function SettingsNavigation() {
         <Link to="/contact-us">
           <Typography
             variant="h3"
-            className="md:fixed md:w-full md:bottom-[3%] md:left-[74%] md:text-4xl md:my-[2vh] "
+            className=" md:fixed md:w-full md:bottom-[3%] md:left-[74%] md:text-4xl md:my-[2vh] "
           >
             Contact Us
           </Typography>
