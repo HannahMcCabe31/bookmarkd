@@ -10,7 +10,7 @@ function BookSlider({ bookPageData }) {
 
     
 
-    const maxPages = bookPageData.number_of_pages;
+    const maxPages = bookPageData.number_of_pages || 1
 
     function handlePage(e, value) {
         setPageNumber(value);
