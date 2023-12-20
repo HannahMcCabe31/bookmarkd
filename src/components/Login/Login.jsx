@@ -60,6 +60,38 @@ function Login() {
     }
   }
 
+  // Register Form
+  const [registerFormData, setRegisterFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  function handleRegisterChange(e) {
+    setRegisterFormData((prevRegisterFormData) => {
+      return {
+        ...prevRegisterFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  }
+
+  async function handleRegisterSubmit(e) {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: registerFormData.email,
+        password: registerFormData.password,
+        options: {
+          data: { username: registerFormData.username },
+        },
+      });
+      alert("Check your email for the confirmation link!");
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   function handleTermsandConditions() {
     alert("Terms and Conditions");
   }
@@ -220,7 +252,10 @@ function Login() {
                 <Box className="flex justify-center">
                   <Box className="flex justify-center  w-[100%] h-[100%]">
                     <form className="bg-white flex flex-col justify-center ">
-                      <Typography className="text-[2.5rem] font-bold self-center mb-[0.5rem] mt-[2rem]">
+                      <Typography
+                        variant="h1"
+                        className="text-[2.5rem] font-bold self-center mb-[0.5rem] mt-[3rem]"
+                      >
                         Sign In
                       </Typography>
                       {!forgottenPasswordDesktop ? (
@@ -228,11 +263,11 @@ function Login() {
                           <Box className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.5rem] mb-[0.5rem] cursor-pointer">
                             <img
                               src="../../../public/social-icons/apple.png"
-                              className="w-[2rem]  pr-3 mr-[0.45rem] "
+                              className="w-[2rem]  pr-3 mr-[0.1rem] "
                             />
                             <Typography
                               variant="p"
-                              className="text-[1rem] self-center pt-[0.35rem]"
+                              className="text-[0.95rem] self-center pt-[0.35rem]"
                             >
                               {" "}
                               Continue with Apple
@@ -243,39 +278,67 @@ function Login() {
                               src="../../../public/social-icons/google.png"
                               className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
                             />
-                            <Typography variant="p" class="text-[0.9rem]">
+                            <Typography
+                              variant="p"
+                              className="text-[0.9rem] mt-[0.3rem]"
+                            >
                               Continue with Google
                             </Typography>
                           </Box>
                           <Box className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
                             <img
-                              src="../../../public/social-icons/twitter.png"
+                              src="social-icons/twitter.png"
                               className="w-[1.5rem]  pr-1 mr-[0.69rem]"
                             />
                             <Typography
                               variant="p"
-                              className="text-[1rem] pt-1"
+                              className="text-[0.9rem] pt-1"
                             >
                               Continue with Twitter
                             </Typography>
                           </Box>
 
-                          <Typography className="self-center mt-[0.4rem] mb-[0.5rem] text-[0.8rem]">
+                          <Typography
+                            variant="p"
+                            className="self-center font-medium mt-[0.4rem] mb-[0.5rem] text-[0.9rem]"
+                          >
                             or use your email password
                           </Typography>
-                          <p className="self-center  text-[0.8rem] mb-[0.1rem]">
-                            <span className=" font-bold">DEMO:</span>{" "}
-                            JamSlam@Email.com
-                          </p>
+                          <Box className="self-center flex flex-row mb-[0.1rem]">
+                            <Typography
+                              variant="p"
+                              className="font-bold text-[0.8rem]"
+                            >
+                              DEMO:{" "}
+                            </Typography>
+                            <Typography
+                              variant="p"
+                              className="text-[0.8rem] font-medium ml-1"
+                            >
+                              JamSlam@Email.com
+                            </Typography>
+                          </Box>
                           <input
                             className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
                             type="email"
                             placeholder="Email"
                             onChange={handleEmailAddressChange}
                           />
-                          <p className="self-center  text-[0.8rem] mb-[0.1rem]">
-                            <span className=" font-bold">DEMO:</span> 123456
-                          </p>
+
+                          <Box className="self-center flex flex-row mb-[0.1rem]">
+                            <Typography
+                              variant="p"
+                              className="font-bold text-[0.8rem]"
+                            >
+                              DEMO:{" "}
+                            </Typography>
+                            <Typography
+                              variant="p"
+                              className="text-[0.8rem] font-medium ml-1"
+                            >
+                              123456
+                            </Typography>
+                          </Box>
                           <input
                             className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
                             type="password"
@@ -301,7 +364,10 @@ function Login() {
                         </>
                       ) : (
                         <>
-                          <Typography className="self-center  mb-4 mt-5 text-[1rem] font-bold">
+                          <Typography
+                            variant="p"
+                            className="self-center  mb-4 mt-5 text-[1rem] font-bold"
+                          >
                             Forgotten your Password?
                           </Typography>
 
@@ -320,7 +386,8 @@ function Login() {
                             SEND
                           </button>
                           <Typography
-                            className="self-center cursor-pointer mb-5 font-bold text-[0.8rem]"
+                            variant="p"
+                            className="self-center cursor-pointer mb-5 font-bold text-[0.8rem] underline"
                             onClick={() => {
                               setForgottenPasswordDesktop(false);
                             }}
@@ -328,18 +395,32 @@ function Login() {
                             Remember your Password?
                           </Typography>
                           <Box className="flex  flex-col justify-center">
-                            <Typography className="self-center mb-5">
+                            <Typography
+                              variant="p"
+                              className="self-center mb-5 text-[1rem] font-medium"
+                            >
                               Check your email.
                             </Typography>
-                            <Typography className="self-center mb-[3rem]">
+                            <Typography
+                              variant="p"
+                              className="self-center mb-[3rem] font-medium text-[1rem]"
+                            >
                               It has a magic link that'll sign you in.
                             </Typography>
-                            <p className="flex flex-col font-semibold">
-                              Any further issues, please contact us at{" "}
-                              <span className="text-[#006ECD] self-center">
+                            <Box className="flex flex-col justify-center font-semibold ">
+                              <Typography
+                                variant="p"
+                                className="text-[1rem] font-light self-center"
+                              >
+                                Any further issues, please contact us at
+                              </Typography>
+                              <Typography
+                                variant="p"
+                                className="text-[#006ECD] self-center text-[1rem] font-semibold"
+                              >
                                 contact@bookmarkd.com
-                              </span>
-                            </p>
+                              </Typography>
+                            </Box>
                           </Box>
                         </>
                       )}
@@ -356,18 +437,27 @@ function Login() {
                     >
                       {!isRegister ? (
                         <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center  duration-1000 transition-opacity opacity-100 ">
-                          <Typography className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
+                          <Typography
+                            variant="p"
+                            className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start"
+                          >
                             Ready to Start a New Chapter...
                           </Typography>
 
-                          <p className="self-center mb-[2vh] text-start">
+                          <Typography
+                            variant="p"
+                            className="self-center mb-[2vh] text-start text-[1.2rem]"
+                          >
                             We'll help you find your next great read
-                          </p>
+                          </Typography>
 
-                          <p className="self-center mt-[4rem] text-[0.8rem] w-[80%]">
+                          <Typography
+                            variant="p"
+                            className="self-center mt-[4rem] text-[0.8rem] w-[80%] font-medium"
+                          >
                             Register for a free account to use all of the site
                             features
-                          </p>
+                          </Typography>
                           <button
                             type="submit"
                             className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
@@ -382,17 +472,26 @@ function Login() {
                         </Box>
                       ) : (
                         <Box className=" w-[75%] flex flex-col m-auto h-[auto] text-center transition-all duration-1000">
-                          <Typography className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start">
+                          <Typography
+                            variant="p"
+                            className="text-[1.8rem] font-light self-center mb-[2.2vh] text-start"
+                          >
                             Already Registered with us...
                           </Typography>
 
-                          <p className="self-center mb-[2vh] text-start">
+                          <Typography
+                            variant="p"
+                            className="self-center mb-[2vh] text-start text-[1.2rem]"
+                          >
                             accounce your new discoveries with your friends
-                          </p>
+                          </Typography>
 
-                          <p className="self-center mt-[4rem] text-[0.8rem] w-[80%]">
+                          <Typography
+                            variant="p"
+                            className="self-center mt-[4rem] text-[0.8rem] w-[80%] font-medium"
+                          >
                             Sign in to use all of the site features
-                          </p>
+                          </Typography>
                           <button
                             type="submit"
                             className="self-center p-2 bg-background-blue border text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[2vh] mb-[2vh] px-10"
@@ -410,17 +509,20 @@ function Login() {
                   </Box>
                   <Box className={`flex justify-center  w-[100%] h-[100%] `}>
                     <form className="bg-white flex flex-col justify-center ">
-                      <Typography className="text-[2.5rem] font-bold self-center mb-[1rem] mt-[2rem]">
+                      <Typography
+                        variant="h1"
+                        className="text-[2.5rem] font-bold self-center mb-[1rem] mt-[3rem]"
+                      >
                         Create Account
                       </Typography>
                       <Box className="self-center text-center bg-black flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.5rem] mb-[0.5rem] cursor-pointer">
                         <img
                           src="../../../public/social-icons/apple.png"
-                          className="w-[2rem]  pr-3 mr-[0.45rem] "
+                          className="w-[2rem]  pr-3 mr-[0.1rem] "
                         />
                         <Typography
                           variant="p"
-                          className="text-[1rem] self-center pt-[0.35rem]"
+                          className="text-[0.95rem] self-center pt-[0.35rem]"
                         >
                           {" "}
                           Continue with Apple
@@ -431,48 +533,57 @@ function Login() {
                           src="../../../public/social-icons/google.png"
                           className="w-[1.1rem] h-[1.2rem]  mr-3 pt-[0.1rem]"
                         />
-                        <Typography variant="p" class="text-[0.9rem]">
+                        <Typography
+                          variant="p"
+                          className="text-[0.9rem] mt-[0.3rem]"
+                        >
                           Continue with Google
                         </Typography>
                       </Box>
                       <Box className="self-center text-center bg-background-blue flex flex-row justify-center text-white text-[0.8rem]  rounded-xl w-[15rem] h-[2.1rem]  p-[0.4rem] mb-[0.6rem] cursor-pointer">
                         <img
-                          src="../../../public/social-icons/twitter.png"
+                          src="social-icons/twitter.png"
                           className="w-[1.5rem]  pr-1 mr-[0.69rem]"
                         />
-                        <Typography variant="p" className="text-[1rem] pt-1">
+                        <Typography variant="p" className="text-[0.9rem] pt-1">
                           Continue with Twitter
                         </Typography>
                       </Box>
 
-                      <p className="self-center mt-[0.4rem] mb-[0.8rem] text-[0.8rem]">
+                      <Typography
+                        variant="p"
+                        className="self-center mt-[0.4rem] mb-[0.8rem] text-[0.8rem] font-semibold"
+                      >
                         or use your email for registration
-                      </p>
+                      </Typography>
 
                       <input
                         className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
                         type="username"
                         placeholder="Username"
-                        onChange={() => {}}
+                        name="username"
+                        onChange={handleRegisterChange}
                       />
 
                       <input
                         className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
                         type="email"
                         placeholder="Email"
-                        onChange={handleEmailAddressChange}
+                        name="email"
+                        onChange={handleRegisterChange}
                       />
 
                       <input
                         className="self-center bg-input-gray p-2 pl-5 rounded-[0.5rem] mb-2  w-[18rem]"
                         type="password"
                         placeholder="Password"
-                        onChange={handlePasswordChange}
+                        name="password"
+                        onChange={handleRegisterChange}
                       />
 
                       <button
                         type="submit"
-                        onClick={handleLoginSubmit}
+                        onClick={handleRegisterSubmit}
                         className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
                       >
                         REGISTER
@@ -484,7 +595,7 @@ function Login() {
             </Box>
           </Box>
           <Box className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3 opacity-90">
-            <Typography vairant="p">
+            <Typography variant="p" className="text-[1.1rem]">
               By clicking "Continue with Email/Apple/Google/X" above, you agree
               to Bookmarkd's{" "}
               <span
