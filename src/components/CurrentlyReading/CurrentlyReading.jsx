@@ -66,12 +66,12 @@ function CurrentlyReading(props) {
       <Link
         to={currentBook ? `/book-page/${currentBook.book_id}` : `/dashboard`}
       >
-        <Box className="text-black border rounded-2xl bg-white p-3 border-element-blue border-4   md:mx-20 sm:w-[60vw] md:w-[70vw] lg:w-[50vw]">
+        <Box className="text-black border rounded-2xl bg-white p-3 border-element-blue border-4 md:mr-10 lg:mr-10">
           <Box className="relative">
             <Box>
               <Typography
                 variant="h6"
-                className="pt-1 md:text-4xl lg:text-4xl mb-2"
+                className="pt-1 md:text-2xl lg:text-2xl mb-2 font-medium"
               >
                 My Current Read
               </Typography>
@@ -86,7 +86,7 @@ function CurrentlyReading(props) {
           </Box>
 
           <Box className="flex justify-evenly ">
-            <Box className="relative w-[50vw] md:w-[20vw] h-[64vw] sm:h-[45vw] md:h-[30vw] mr-5 overflow-hidden  px-auto md:p-0 lg:p-0 ">
+            <Box className="relative w-60 h-70 sm:h-60 sm:w-40 md:w-60 md:h-60 mr-5 overflow-hidden  px-auto md:p-0 lg:w-40 ">
               <img
                 src={
                   currentBook?.image
@@ -99,45 +99,45 @@ function CurrentlyReading(props) {
             </Box>
             <Box className="">
               <Typography
-                className="font-medium md:text-3xl sm:text-3xl lg:text-4xl mb-4 font-light"
+                className="font-bold md:text-2xl sm:text-2xl lg:text-2xl mb-4 "
                 variant="h3"
               >
                 {currentBook?.title ? currentBook.title : "loading"}
               </Typography>
               <Typography
-                className="font-medium md:text-2xl lg:text-2xl sm:text-2xl"
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
                 variant="p"
               >
                 Author:
               </Typography>
               <Typography
-                className="text-center py-1 md:text-xl lg:text-xl sm:text-xl"
+                className="text-center py-1 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >
                 {currentBook?.author ? currentBook.author : "loading"}
               </Typography>
               <Typography
-                className="font-medium md:text-2xl lg:text-2xl sm:text-2xl"
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
                 variant="p"
               >
                 Rating:
               </Typography>
               <Typography
-                className="text-center py-1 md:text-xl lg:text-xl sm:text-xl"
+                className="text-center py-1 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >
                 3.90 / 5
               </Typography>
               <Typography
-                className="font-medium md:text-2xl lg:text-2xl sm:text-2xl"
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
                 variant="p"
               >
                 Current Page:
               </Typography>
               <Typography
-                className="text-center py-2 md:text-xl lg:text-xl sm:text-xl"
+                className="text-center py-2 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >

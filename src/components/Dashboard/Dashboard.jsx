@@ -10,18 +10,23 @@ function Dashboard() {
     <div>
       <>
         {/* Mobile display only  */}
-        <div className="text-white p-6 mb-[8vh]  flex flex-col items-center">
+        <div className="text-white p-6 mb-[8vh] flex flex-col items-center  lg:ml-16 md:mr-10 lg:mr-20">
+
+     
           {/* This component contains the header (profile picture and username) */}
-          <div className="text-[5vw]">
+          <div className="">
             <WelcomeUser />
           </div>
           {/* This component contains the my current reads */}
-          <div className="md:max-w-30 md:mr-10">
+          <div className="md:flex md:flex-row lg:flex lg:flex-row md:justify-between lg:justify-between">
+          <div className="">
             <CurrentlyReading />
-          </div>
+            </div>
+         
           {/* This component contains multiple links to other pages */}
-          <div className="md:mr-10 lg:mr-10 ">
+          <div className=" ">
             <DashboardNavigation />
+          </div>
           </div>
         </div>
       </>
