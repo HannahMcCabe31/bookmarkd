@@ -107,7 +107,7 @@ function Login() {
   return (
     <ThemeProvider theme={bookmarkd}>
       {!forgottenPassword ? (
-        <Container maxWidth="lg" className=" md:mb-[-4rem] md:ml-[-3.7rem]">
+        <Container maxWidth="lg" className=" md:mb-[-4rem] md:ml-[-2.5rem]">
           <Box className="md:hidden">
             <Box textAlign="right" sx={{ mt: 3 }}>
               <Typography variant="p" color="white.main">
