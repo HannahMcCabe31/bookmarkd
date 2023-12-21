@@ -11,7 +11,7 @@ function UserHeader({ token }) {
     <ThemeProvider theme={bookmarkd}>
       <Box
         component="section"
-        className=" flex flex-col items-center mb-10 mt-4 md:absolute md:top-[10vh] md:right-28 md:m-0 md:p-0 lg:mr-4"
+        className=" flex flex-col items-center mb-10 mt-4 md:absolute lg:absolute lg:right-[20vw] md:right-[20vw] md:top-[10vh] md:m-0 md:p-0 lg:mr-4 "
       >
         <Link to="/profile">
           <img
