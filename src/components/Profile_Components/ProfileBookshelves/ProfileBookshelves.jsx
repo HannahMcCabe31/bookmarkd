@@ -8,7 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 function ProfileBookshelves({ bookshelves }) {
     return (
-        <div className="text-white p-[3vw] text-white lg:pr-[2vw] md:px-[2vw] md:py-0">
+        <div className="text-white text-white md:pr-[2vw] md:py-0">
           <Typography variant="h5" className="md:text-2xl lg:text-3xl">
             Your Bookshelves
           </Typography>

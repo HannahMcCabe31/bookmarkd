@@ -3,10 +3,9 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
-import defaultProfilePic from "/default-profile-pic.jpg"
+import defaultProfilePic from "/default-profile-pic.jpg";
 
 function UserHeader({ token }) {
-
   return (
     <ThemeProvider theme={bookmarkd}>
       <Box

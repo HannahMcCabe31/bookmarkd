@@ -51,7 +51,7 @@ function Profile() {
 
   return (
     <>
-      <div className="text-white md:pr-20 md:mt-20 lg:pr-10 md:ml-20 mt-10">
+      <div className="text-white md:pr-20 md:mt-20 lg:pr-10 md:ml-20">
         <div className="ml-5 lg:ml-20 mt-5">
           <WelcomeUser token={token} />
         </div>

@@ -5,7 +5,7 @@ import ProfileBookSlider from "../ProfileBookSlider/ProfileBookSlider.jsx";
 function ProfileCurrentlyReading() {
 
   return (
-      <div className="p-[3vw] md:p-0">
+      <div className="px-[3vw] md:p-0">
         <Typography variant="h5" className="md:text-2xl lg:text-3xl">
           Currently Reading
         </Typography>

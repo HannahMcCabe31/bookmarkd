@@ -16,7 +16,7 @@ function Settings() {
     // md:max-w-[85%]
     //
     // lg:ml-20 xl:ml-20 2xl:ml-40
-    <div className="sm:ml-16 md:max-w-[640px] md:m-auto">
+    <div className="md:m-auto lg:mr-30 sm:ml-16 md:max-w-[640px]">
       <Link to="/dashboard">
         <img
           src={backArrow}
