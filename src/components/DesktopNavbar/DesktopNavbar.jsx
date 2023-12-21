@@ -15,7 +15,6 @@ function handleSignOut() {
 function DesktopNavbar() {
   const token = useContext(TokenContext);
   const [selectedPage, setSelectedPage] = useState("dashboard");
-  console.log(selectedPage);
   return (
     <>
       {token ? (
@@ -53,7 +52,7 @@ function DesktopNavbar() {
             <Box
               className={`sm:bg-invisible lg:py-3 lg:px-[4rem]  w-full rounded-[3rem] p-2 text-center my-4 ${
                 selectedPage === "profile"
-                  ? "lg:bg-[#14191D]"
+                  ? "lg:bg-background-blue"
                   : "lg:bg-element-blue"
               }`}
               onClick={() => {
@@ -74,9 +73,9 @@ function DesktopNavbar() {
           </Link>
           <Link to="/dashboard" className="text-button-beige">
             <Box
-              className={`sm:bg-invisible lg:py-3 lg:px-[4rem] lg:bg-element-blue w-full rounded-[3rem] p-2 text-center my-4 ${
+              className={`sm:bg-invisible lg:py-3 lg:px-[4rem]  w-full rounded-[3rem] p-2 text-center my-4 ${
                 selectedPage === "dashboard"
-                  ? "lg:bg-[#14191D] "
+                  ? "lg:bg-background-blue "
                   : "lg:bg-element-blue"
               }`}
               onClick={() => {
@@ -97,9 +96,9 @@ function DesktopNavbar() {
           </Link>
           <Link to="/search" className="text-button-beige">
             <Box
-              className={`sm:bg-invisible lg:py-3 lg:px-[4rem] lg:bg-element-blue w-full rounded-[3rem] p-2 text-center my-4 lg:block ${
+              className={`sm:bg-invisible lg:py-3 lg:px-[4rem] w-full rounded-[3rem] p-2 text-center my-4 lg:block ${
                 selectedPage === "search"
-                  ? "lg:bg-[#14191D] "
+                  ? "lg:bg-background-blue "
                   : "lg:bg-element-blue"
               }`}
               onClick={() => {
@@ -117,9 +116,9 @@ function DesktopNavbar() {
           </Link>
           <Link to="/recommendations" className="text-button-beige">
             <Box
-              className={`sm:bg-invisible lg:py-3 lg:px-[3.2rem] lg:bg-element-blue w-full rounded-[3rem] p-2 text-center my-4 ${
+              className={`sm:bg-invisible lg:py-3 lg:px-[3.2rem]  w-full rounded-[3rem] p-2 text-center my-4 ${
                 selectedPage === "recommendations"
-                  ? "lg:bg-[#14191D]"
+                  ? "lg:bg-background-blue"
                   : "lg:bg-element-blue "
               }`}
               onClick={() => {
@@ -137,9 +136,9 @@ function DesktopNavbar() {
           </Link>
           <Link to="/settings" className="text-button-beige">
             <Box
-              className={`sm:bg-invisible lg:bg-element-blue w-full rounded-[3rem] p-2 lg:py-3 lg:px-[3.55rem] text-center my-4 ${
+              className={`sm:bg-invisible  w-full rounded-[3rem] p-2 lg:py-3 lg:px-[3.55rem] text-center my-4 ${
                 selectedPage === "settings"
-                  ? "lg:bg-[#14191D]"
+                  ? "lg:bg-background-blue"
                   : "lg:bg-element-blue"
               }`}
               onClick={() => {
