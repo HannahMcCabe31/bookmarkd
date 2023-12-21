@@ -66,10 +66,13 @@ function CurrentlyReading(props) {
       <Link
         to={currentBook ? `/book-page/${currentBook.book_id}` : `/dashboard`}
       >
-        <Box className="text-black border rounded-2xl bg-white p-2 border-element-blue border-4  lg:mx-20">
+        <Box className="text-black border rounded-2xl bg-white p-3 border-element-blue border-4 md:mr-10 lg:mr-10">
           <Box className="relative">
             <Box>
-              <Typography className="pt-1" variant="h6">
+              <Typography
+                variant="h6"
+                className="pt-1 md:text-2xl lg:text-2xl mb-2 font-medium"
+              >
                 My Current Read
               </Typography>
             </Box>
@@ -82,47 +85,59 @@ function CurrentlyReading(props) {
             </BookButton>
           </Box>
 
-          <Box className="flex justify-evenly gap-x-5 mr-10">
-            <Box className="relative w-[80vw] h-[60vw] overflow-hidden mx-auto px-auto">
+          <Box className="flex justify-evenly ">
+            <Box className="relative w-60 h-70 sm:h-60 sm:w-40 md:w-60 md:h-60 mr-5 overflow-hidden  px-auto md:p-0 lg:w-40 ">
               <img
                 src={
                   currentBook?.image
                     ? `https://bookmarkd-server.onrender.com${currentBook.image}`
                     : "loading"
                 }
-                className="absolute top-0 object-contain"
+                className="absolute top-0 object-contain "
               />
               {/* m-auto p-auto */}
             </Box>
-            <Box className="font-light">
-              <Typography className="font-medium" variant="h3">
+            <Box className="">
+              <Typography
+                className="font-bold md:text-2xl sm:text-2xl lg:text-2xl mb-4 "
+                variant="h3"
+              >
                 {currentBook?.title ? currentBook.title : "loading"}
               </Typography>
-              <Typography className="font-medium" variant="p">
+              <Typography
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
+                variant="p"
+              >
                 Author:
               </Typography>
               <Typography
-                className="text-center py-1 "
+                className="text-center py-1 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >
                 {currentBook?.author ? currentBook.author : "loading"}
               </Typography>
-              <Typography className="font-medium" variant="p">
+              <Typography
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
+                variant="p"
+              >
                 Rating:
               </Typography>
               <Typography
-                className="text-center py-1"
+                className="text-center py-1 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >
                 3.90 / 5
               </Typography>
-              <Typography className="font-medium" variant="p">
+              <Typography
+                className="font-medium md:text-lg lg:text-lg sm:text-lg italic"
+                variant="p"
+              >
                 Current Page:
               </Typography>
               <Typography
-                className="text-center py-2"
+                className="text-center py-2 md:text-base lg:text-base sm:text-base"
                 display="block"
                 variant="p"
               >
