@@ -53,7 +53,7 @@ function App() {
           <Router>
             {token && isMobile && <Navbar />}
             {token && !isMobile && <DesktopNavbar />}
-            <div className="pb-16 md:pl-[20rem]">
+            <div className="pb-16 lg:pl-[20rem] md:pl-[7.5rem]">
               <AppRoutes token={token} />
             </div>
           </Router>

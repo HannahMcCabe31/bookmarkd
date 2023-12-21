@@ -9,7 +9,9 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 function ContactUs() {
   return (
     <>
-      <div className="md:max-w-[75%] md:pl-[20%]">
+      <div
+      //  className="md:max-w-[75%] md:pl-[20%]"
+      >
         <Box className="mx-8">
           <Link to="/settings">
             <img
@@ -118,11 +120,11 @@ function ContactUs() {
                 </Typography>
               </Typography>
 
-              <Typography variant="h2" className="md:text-xl md:mt-[2rem]">
+              <Typography variant="p" className="text-xl mt-[2rem] ">
                 We hope to hear from you soon!
               </Typography>
-
-              <Typography className="md:text-xl md:my-[1rem]">
+              <br className="m-5" />
+              <Typography variant="p" className="md:text-xl md:my-[1rem]">
                 Please note that our response time may vary depending on the
                 volume of inquiries we receive. We will do our best to respond
                 to your message within 24 hours.

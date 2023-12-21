@@ -16,7 +16,7 @@ function SettingsNavigation() {
 
   return (
     <>
-      <div className="text-3xl flex flex-col mt-5 md:mt-[10vw] px-5 md:pt-[2vh] md:w-[40vw] ">
+      <div className="text-3xl flex flex-col mt-5  px-5 md:pt-[2vh] md:mt-0">
         <div className="">
           <Link to="/privacy-policy">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
@@ -35,7 +35,7 @@ function SettingsNavigation() {
             </div>
           </Link>
           <Link to="/ai-powered">
-            <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between mb-5">
+            <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
               <Typography variant="h3" className="md:text-xl">
                 AI Powered
               </Typography>
@@ -43,21 +43,21 @@ function SettingsNavigation() {
             </div>
           </Link>
           <Link to="/contact-us">
-            <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between mb-5">
+            <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">
               <Typography variant="h3" className="md:text-xl">
                 Contact Us
               </Typography>
               <img src={rightArrow} alt="Right arrow" />
             </div>
           </Link>
-          <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between mb-5"></div>
+          <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between mb-2"></div>
         </div>
       </div>
       {/* flex flex-col items-center mb-10 mt-4 md:absolute md:top-[10vh] md:right-10 md:m-0 md:p-0 lg:mr-4 */}
-  
-      <div className="md:hidden lg:hidden">
+
+      <div className="md:hidden lg:hidden flex justify-center">
         <Button
-          className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md mb-5 ml-[35%]"
+          className="bg-navbar text-lg text-white font-semi-bold py-1 px-10 rounded-md mb-8  "
           onClick={handleSignOut}
         >
           LOG OUT

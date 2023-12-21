@@ -14,12 +14,7 @@ function BookPage() {
     const [bookPageData, setbookPageData] = useState({});
     const [imageLoaded, setImageLoaded] = useState(false);
     const [editingBookshelf, setEditingBookshelf] = useState(false);
-
-    /*     useEffect(() => { // Test to determine if editingBookshelf is being flipped correctly
-        if (editingBookshelf === true) {
-            alert("Bingo");
-        }
-    }, [editingBookshelf]); */
+    const [completed, setCompleted] = useState(false);
 
     function bookshelfEditMode() {
         window.scrollTo(0, 0); // Scrolls to top of page when edit mode is
@@ -134,6 +129,7 @@ function BookPage() {
                 > */}
                 <BookInfo
                     bookPageData={bookPageData}
+                    completed={completed}
                     leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
                     rightElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-1 text-center"
                     rightLowerElementClass="md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-2 text-center"
@@ -143,6 +139,8 @@ function BookPage() {
                     bookshelfEditMode={bookshelfEditMode}
                     book_id={book_url_id}
                     bookPageData={bookPageData}
+                    completed={completed}
+                    setCompleted={setCompleted}
                     leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
                 />
                 {/*                 </Box> */}

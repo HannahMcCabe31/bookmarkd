@@ -7,10 +7,12 @@ function BookMenu({
     leftElementClass,
     book_id,
     bookshelfEditMode,
+    completed,
+    setCompleted
 }) {
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
-    const [completed, setCompleted] = useState(false);
+
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [completedSnackbarOpen, setCompletedSnackbarOpen] = useState(false);
 

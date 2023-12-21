@@ -6,10 +6,14 @@ import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 
 function TermsConditions() {
+  window.scrollTo(0, 0);
+
   return (
     <>
       <ThemeProvider theme={bookmarkd}>
-        <div className="md:max-w-[85%] md:pl-[20%]">
+        <div
+        //  className="md:m-auto md:max-w-[640px]"
+        >
           <Box className="mx-8">
             <Link to="/settings">
               <img
