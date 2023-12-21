@@ -15,7 +15,7 @@ function Settings() {
     // md:max-w-[85%]
     //
     // lg:ml-20 xl:ml-20 2xl:ml-40
-    <div className="md:mr-20 lg:mr-30">
+    <div className="md:mr-20 lg:mr-30 sm:ml-16">
       <Link to="/dashboard">
         <img
           src={backArrow}
@@ -27,7 +27,7 @@ function Settings() {
         <div className="">
           <UserHeader token={token} />
           {/* need a section for user email */}
-          <div className="md:mt-24 hidden md:block lg:ml-[10vw]">
+          <div className="md:mt-24 hidden md:block ">
             <Typography className="text-6xl">Settings</Typography>
           </div>
           <div className="md:flex md:flex-row lg:flex lg:flex-row">
