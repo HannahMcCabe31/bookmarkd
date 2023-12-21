@@ -9,7 +9,8 @@ import { TokenContext } from "../App/App";
 import { Typography } from "@mui/material";
 
 function Settings() {
-    const token = useContext(TokenContext)
+  const token = useContext(TokenContext);
+  window.scrollTo(0, 0);
 
   return (
     // md:max-w-[85%]
@@ -34,8 +35,8 @@ function Settings() {
         <div className="md:col-start-1 md:row-start-2">
           <SettingsUserInfo token={token} />
         </div>
-          <div className="md:col-start-2 md:row-start-2">
-            <SettingsNavigation />
+        <div className="md:col-start-2 md:row-start-2">
+          <SettingsNavigation />
         </div>
       </div>
     </div>
