@@ -44,6 +44,22 @@ function Login() {
     }
   }
 
+  async function loginAsDemoUser(e) {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: `JamSlam@Email.com`,
+        password: `123456`,
+      });
+      if (error) throw error;
+
+      setToken(data);
+      navigate("/dashboard");
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
@@ -106,6 +122,7 @@ function Login() {
 
   return (
     <ThemeProvider theme={bookmarkd}>
+        
       {!forgottenPassword ? (
         <Container maxWidth="lg" className=" md:mb-[-4rem]">
           <Box className=" md:ml-[-10rem] lg:ml-[-20rem]">
@@ -117,110 +134,114 @@ function Login() {
                 {/* <Link to> */}
                 {/* <img src={backArrow}/>
         </Link> */}
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  marginTop: 12,
-                  marginBottom: 8,
-                }}
-              >
-                <Typography variant="logo" color="white.main" className="m-3">
-                  book
-                  <Typography
-                    display="inline"
-                    variant="logo"
-                    color="starBlue.main"
-                  >
-                    mark
-                  </Typography>
-                  d
-                </Typography>
-                <Typography variant="h4" color="white.main" className="mb-10">
-                  by readers, for readers
-                </Typography>
-                <Typography variant="p" color="white.main" className="m-5">
-                  We'll help you find your next great read
-                </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                marginTop: 12,
+                marginBottom: 8,
+              }}
+            >
+              <Typography variant="logo" color="white.main" className="m-3">
+                book
                 <Typography
-                  variant="p"
-                  color="white.main"
-                  textAlign="center"
-                  className="m-5"
+                  display="inline"
+                  variant="logo"
+                  color="starBlue.main"
                 >
-                  Register for a free account to use all of the site features
+                  mark
                 </Typography>
-                <Typography variant="p" color="white.main" className="mt-10">
-                  Sign in using your email address
-                </Typography>
-                <Box
-                  component="form"
-                  noValidate
-                  sx={{ mt: 1, width: 2 / 3 }}
-                  textAlign="center"
-                >
-                  <TextField
-                    onChange={handleEmailAddressChange}
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="emailAddress"
-                    label="Email Address"
-                    name="emailAddress"
-                    autoComplete="emailAddress"
-                    autoFocus
-                    className="bg-input-gray rounded-3xl"
-                  />
-                  <TextField
-                    onChange={handlePasswordChange}
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="password"
-                    className="bg-input-gray rounded-3xl"
-                  />
-                  <Box textAlign="center">
-                    <Typography variant="p">
-                      <Link
-                        className="text-white"
-                        onClick={() => setForgottenPassword(true)}
-                      >
-                        Forgot your password?
-                      </Link>
-                    </Typography>
-                  </Box>
-                  <Box textAlign="center">
-                    <Button
-                      onClick={handleLoginSubmit}
-                      type="submit"
-                      variant="contained"
-                      sx={{ mt: 3, mb: 2, borderRadius: 2 }}
-                      className="bg-[#06B502] w-2/3"
+                d
+              </Typography>
+              <Typography variant="h4" color="white.main" className="mb-10">
+                by readers, for readers
+              </Typography>
+              <Typography variant="p" color="white.main" className="m-5">
+                We'll help you find your next great read
+              </Typography>
+              <Typography
+                variant="p"
+                color="white.main"
+                textAlign="center"
+                className="m-5"
+              >
+                Register for a free account to use all of the site features
+              </Typography>
+              <Typography variant="p" color="white.main" className="mt-10">
+                Sign in using your email address
+              </Typography>
+              <Box
+                component="form"
+                noValidate
+                sx={{ mt: 1, width: 2 / 3 }}
+                textAlign="center"
+              >
+                <TextField
+                  onChange={handleEmailAddressChange}
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="emailAddress"
+                  label="Email Address"
+                  name="emailAddress"
+                  autoComplete="emailAddress"
+                  autoFocus
+                  className="bg-input-gray rounded-3xl"
+                />
+                <TextField
+                  onChange={handlePasswordChange}
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="password"
+                  className="bg-input-gray rounded-3xl"
+                />
+                <Box textAlign="center">
+                  <Typography variant="p">
+                    <Link
+                      className="text-white"
+                      onClick={() => setForgottenPassword(true)}
                     >
-                      SIGN IN
-                    </Button>
-                  </Box>
+                      Forgot your password?
+                    </Link>
+                  </Typography>
                 </Box>
                 <Box textAlign="center">
-                  <Typography
-                    variant="terms"
-                    color="white.main"
-                    className="p-2 pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center"
+                  <Button
+                    onClick={handleLoginSubmit}
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, borderRadius: 2 }}
+                    className="bg-[#06B502] w-2/3"
                   >
-                    {" "}
-                    By clicking &quot;Continue with Email/Apple/Google/X&quot;
-                    above, you agree to bookmarkd&apos;s Terms & Conditions and
-                    Privacy Policy
-                  </Typography>
+                    SIGN IN
+                  </Button>
+                  
                 </Box>
+                
               </Box>
+              <Box textAlign="center">
+                <Typography
+                  variant="terms"
+                  color="white.main"
+                  className="p-2 pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center"
+                >
+                  {" "}
+                  By clicking &quot;Continue with Email/Apple/Google/X&quot;
+                  above, you agree to bookmarkd&apos;s Terms & Conditions and
+                  Privacy Policy
+                </Typography>
+                <Button variant="contained" onClick={loginAsDemoUser}><Typography variant="p" className="text-white md:text-xl">Demo</Typography></Button>
+              </Box>
+              
             </Box>
+          </Box>
 
             <Box className="hidden md:block m-0 p-0  ">
               <Box className="text-white text-[1.3rem] font-light flex justify-end pt-[3.5%] pr-[5%]">
@@ -585,41 +606,42 @@ function Login() {
                           onChange={handleRegisterChange}
                         />
 
-                        <button
-                          type="submit"
-                          onClick={handleRegisterSubmit}
-                          className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
-                        >
-                          REGISTER
-                        </button>
-                      </form>
-                    </Box>
+                      <button
+                        type="submit"
+                        onClick={handleRegisterSubmit}
+                        className="self-center p-2 bg-background-blue text-[0.9rem] font-bold text-white rounded-[0.5rem] mt-[1rem] mb-[2rem] px-10"
+                      >
+                        REGISTER
+                      </button>
+                    </form>
                   </Box>
                 </Box>
               </Box>
             </Box>
-            <Box className="text-white hidden md:flex justify-center w-[45%] m-auto text-center mt-3 opacity-90 ">
-              <Typography variant="p" className="text-[1.1rem]">
-                By clicking "Continue with Email/Apple/Google/X" above, you
-                agree to Bookmarkd's{" "}
-                <span
-                  className="text-[#FBF214] cursor-pointer"
-                  onClick={handleTermsandConditions}
-                >
-                  Terms & Conditions
-                </span>{" "}
-                and
-                <span
-                  className="text-[#FBF214] cursor-pointer"
-                  onClick={handlePrivacyPolicy}
-                >
-                  {" "}
-                  Privacy Policy
-                </span>
-                .
-              </Typography>
-            </Box>
           </Box>
+          <Box className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3 opacity-90 ">
+            <Typography variant="p" className="text-[1.1rem]">
+              By clicking "Continue with Email/Apple/Google/X" above, you agree
+              to Bookmarkd's{" "}
+              <span
+                className="text-[#FBF214] cursor-pointer"
+                onClick={handleTermsandConditions}
+              >
+                Terms & Conditions
+              </span>{" "}
+              and
+              <span
+                className="text-[#FBF214] cursor-pointer"
+                onClick={handlePrivacyPolicy}
+              >
+                {" "}
+                Privacy Policy
+              </span>
+              .
+            </Typography><br />
+            <Button className="text-center m-auto p-auto" variant="contained" onClick={loginAsDemoUser}><Typography variant="p" className="text-white md:text-xl">Demo</Typography></Button>
+          </Box>
+          
         </Container>
       ) : (
         <Container maxWidth="sm">
@@ -707,6 +729,7 @@ function Login() {
                 </Box>
               </Box>
               <Box textAlign="center">
+              
                 <Typography
                   variant="terms"
                   color="white.main"
@@ -717,7 +740,9 @@ function Login() {
                   above, you agree to bookmarkd&apos;s Terms & Conditions and
                   Privacy Policy
                 </Typography>
+                
               </Box>
+
             </Box>
           </Box>
         </Container>

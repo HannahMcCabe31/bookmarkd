@@ -4,21 +4,17 @@ import ProfileStatistics from "../Profile_Components/ProfileStatistics/ProfileSt
 import ProfileCurrentlyReading from "../Profile_Components/ProfileCurrentlyReading/ProfileCurrentlyReading";
 import WelcomeUser from "../WelcomeUser/WelcomeUser";
 
-
-
 import { useContext } from "react";
-import {
-
-  TokenContext
-} from "../App/App";
+import { TokenContext } from "../App/App";
 
 // create container to render bookshelf components within
 
 function Profile() {
+    const token = useContext(TokenContext);
+    console.log(`Token:`)
+    console.log(token)
 
-  const token = useContext(TokenContext)
-
-  const [bookshelves, setBookshelves] = useState();
+    const [bookshelves, setBookshelves] = useState();
 
     useEffect(() => {
         async function getBookshelves() {
@@ -43,8 +39,6 @@ function Profile() {
             }
         }
         if (token) {
- 
-
             getBookshelves()
                 .then((payload) => {
                     setBookshelves(payload);
@@ -56,22 +50,22 @@ function Profile() {
     }, []);
 
     return (
-      <>
-        <div className="text-white md:pr-20 md:mt-20 lg:pr-10 md:ml-20">
-        <div className="ml-5 lg:ml-20 mt-5">
-          <WelcomeUser token={token} />
-          </div>
-          <div className="md:grid md:grid-cols-4 md:pl-15 md:mt-20 lg:mr-28 lg:ml-40">
-            <div className="md:col-start-3 md:col-span-2 ">
-              <ProfileCurrentlyReading />
-              <ProfileStatistics />
+        <>
+            <div className="text-white md:pr-20 md:mt-20 lg:pr-10 md:ml-20">
+                <div className="ml-5 lg:ml-20 mt-5">
+                    <WelcomeUser token={token} />
+                </div>
+                <div className="md:grid md:grid-cols-4 md:pl-15 md:mt-20 lg:mr-28 lg:ml-40">
+                    <div className="md:col-start-3 md:col-span-2 ">
+                        <ProfileCurrentlyReading />
+                        <ProfileStatistics />
+                    </div>
+                    <div className="md:col-start-1 md:col-end-3 md:row-start-1">
+                        <ProfileBookshelves bookshelves={bookshelves} />
+                    </div>
+                </div>
             </div>
-            <div className="md:col-start-1 md:col-end-3 md:row-start-1">
-              <ProfileBookshelves bookshelves={bookshelves} />
-            </div>
-          </div>
-        </div>
-      </>
+        </>
     );
 }
 
