@@ -35,7 +35,6 @@ function Recommendations() {
     e.preventDefault();
     setLoading(true);
     // fetch data from server
-    console.log("fetching data");
     const response = await fetch(
       "https://bookmarkd-server.onrender.com/api/ai_api",
       {
@@ -52,10 +51,8 @@ function Recommendations() {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       // setRecommendations(data.payload.content);
       setRecommendations(extractBooks(data.payload.content));
-      console.log(recommendations);
     } else {
       console.log("error");
     }
@@ -104,9 +101,8 @@ function Recommendations() {
                 "The sky above the port was the colour of television, tuned to a
                 dead channel." - William Gibson, Neuromancer
               </Typography>
-              <Typography variant="p" className="md:text-[3vh] md:mb-5">
+              <Typography variant="p" className="md:text-[3vh] md:mb-5 mb-5 ">
                 We use AI to generate book recommendations based on your search.
-                Click here to read our blog
               </Typography>
 
               <Typography variant="p" className="md:text-[3.5vh]">
@@ -161,11 +157,19 @@ function Recommendations() {
               </div>
               <Box
                 component="section"
-                className="p-4 rounded-2xl bg-element-blue m-8 md:m-0 md:min-w-[30vw]"
+                className="p-4 pb-8 rounded-2xl bg-element-blue m-8 md:m-0 md:min-w-[30vw]"
               >
-                <Typography variant="h4" className="md:text-2xl lg:text-2xl">
-                  We recommend:
-                </Typography>
+                <Box className="flex justify-between">
+                  <Typography variant="h4" className="md:text-2xl lg:text-2xl">
+                    We recommend:
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    className="mt-[-0.15rem] font-medium md:text-xl"
+                  >
+                    OpenAi.
+                  </Typography>
+                </Box>
                 {loading && <CircularProgress className="hidden={!loading}" />}
                 {recommendations &&
                   recommendations.map((item, val) => {
@@ -173,7 +177,7 @@ function Recommendations() {
                       <div className="m-5" key={val} hidden={loading}>
                         <p className="md:text-2xl md:py-[0.4vh]">
                           {item.number}.{" "}
-                          <span className="italic md:m-2 md:text-2xl">
+                          <span className="italic md:m-2 md:text-2xl text-xl m-1">
                             "{item.title}"
                           </span>
                           <br /> by <span className="">{item.author}</span>

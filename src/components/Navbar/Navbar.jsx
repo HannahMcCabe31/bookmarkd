@@ -7,9 +7,9 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-navbar p-[0.1rem] pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center z-[1500]">
+      <nav className="bg-navbar p-[0.1rem]  fixed bottom-0 left-0 w-full flex justify-around items-center z-[1500] transition-all">
         <div
-          className={`m-full   p-2    ${
+          className={`m-full p-auto transition-all   ${
             selectedPage === "profile" ? "bg-background-blue" : ""
           }`}
           onClick={() => {
