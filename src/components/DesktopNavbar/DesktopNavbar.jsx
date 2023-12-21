@@ -19,19 +19,20 @@ function DesktopNavbar() {
   return (
     <>
       {token ? (
-        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pt-5 fixed left-0 top-0 w-1/8 flex flex-col items-center z-[1500] h-full ">
+        <nav className="bg-gradient-to-b from-desktop-navbar to-background-blue p-2 pt-5 fixed left-0 top-0 w-1/8 flex flex-col items-center z-[1500] h-full max-w-[20rem] ">
           <Box className="lg:mt-2">
             <Box className="hidden lg:mx-5 lg:flex lg:flex-col justify-center">
               <Typography
                 variant="subtitle"
                 color="white.main"
-                className="self-center"
+                className="self-center text-[3rem]"
               >
                 book
                 <Typography
                   display="inline"
                   variant="subtitle"
                   color="starBlue.main"
+                  className="text-[3rem]"
                 >
                   mark
                 </Typography>
@@ -65,7 +66,7 @@ function DesktopNavbar() {
               />
               <Typography
                 variant="terms"
-                className="text-white hidden lg:inline-block ml-2"
+                className="text-white hidden lg:inline-block ml-2 text-[2rem]"
               >
                 Profile
               </Typography>
@@ -88,7 +89,7 @@ function DesktopNavbar() {
               />
               <Typography
                 variant="terms"
-                className="text-white hidden lg:inline-block "
+                className="text-white hidden lg:inline-block text-[2rem]"
               >
                 Home
               </Typography>
@@ -108,7 +109,7 @@ function DesktopNavbar() {
               <img className="max-h-9 inline mr-1" src="/img/search_icon.png" />
               <Typography
                 variant="terms"
-                className="text-white hidden lg:inline-block ml-2"
+                className="text-white hidden lg:inline-block ml-2 text-[2rem]"
               >
                 Search
               </Typography>
@@ -128,7 +129,7 @@ function DesktopNavbar() {
               <img className="max-h-9 inline mr-1" src="/img/recrobot.png" />
               <Typography
                 variant="terms"
-                className="text-white hidden lg:inline-block ml-2 mt-2"
+                className="text-white hidden lg:inline-block ml-2 mt-2 text-[2rem]"
               >
                 Book REC
               </Typography>
@@ -148,7 +149,7 @@ function DesktopNavbar() {
               <img className="max-h-9 inline mr-1" src="/img/settings.png" />
               <Typography
                 variant="terms"
-                className="text-white hidden lg:inline-block ml-1"
+                className="text-white hidden lg:inline-block ml-1 text-[2rem]"
               >
                 Settings
               </Typography>
@@ -158,7 +159,7 @@ function DesktopNavbar() {
             <Link onClick={handleSignOut} className="text-button-beige">
               <Typography
                 variant="terms"
-                className="text-white block font-bold"
+                className="text-white block font-bold text-[1rem]"
               >
                 LOG OUT
               </Typography>
