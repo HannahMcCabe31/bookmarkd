@@ -85,7 +85,7 @@ function Recommendations() {
 
   return (
     <div>
-      <div className="md:mr-20 md:ml-20 lg:mr-10 lg:ml-40 lg:pl-5">
+      <div className="md:m-auto md:max-w-[640px]">
         <Link to="/dashboard" className="md:hidden">
           <img
             src={backArrow}
@@ -96,7 +96,7 @@ function Recommendations() {
         <div className="bg-background-blue text-white">
           <Box component="section" sx={{ p: 2, fontFamily: "League Spartan" }}>
             {" "}
-            <Box className="flex p-8 flex-col items-start md:p-6 lg:p-6">
+            <Box className="flex p-8 flex-col items-start">
               <Typography variant="h1" className="md:text-[7vh]">
                 Recommendations
               </Typography>
@@ -114,7 +114,7 @@ function Recommendations() {
                 below.
               </Typography>
             </Box>
-            <Box className="md:flex md:flex-row">
+            <Box className="">
               <div className="">
                 <Box className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:min-w-[30vw]">
                   <div>
@@ -139,10 +139,10 @@ function Recommendations() {
 
                 <Box
                   // // className="md:grow-1 bg-element-blue "
-                  className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:text-2xl "
+                  className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:text-2xl"
                 >
                   <SearchBar
-                    // className=" lg:text-2xl bg-starBlue"
+                    // className="" 
                     id="search-bar"
                     label={`Search by ${searchType}`}
                     variant="standard"
@@ -150,9 +150,9 @@ function Recommendations() {
                     onChange={handleSearchInputChange}
                   ></SearchBar>
                 </Box>
-                <div>
+                <div className="flex justify-center">
                   <button
-                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 ml-8 md:mr-8 lg:mr-8"
+                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 md:mb-5 "
                     onClick={fetchAIRec}
                   >
                     Submit
@@ -161,7 +161,7 @@ function Recommendations() {
               </div>
               <Box
                 component="section"
-                className="p-4 rounded-2xl bg-element-blue m-8 md:m-0 md:min-w-[30vw]"
+                className="p-4  rounded-2xl bg-element-blue md:w-auto"
               >
                 <Typography variant="h4" className="md:text-2xl lg:text-2xl">
                   We recommend:

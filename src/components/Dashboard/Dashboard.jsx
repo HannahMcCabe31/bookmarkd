@@ -10,16 +10,16 @@ function Dashboard() {
     <div>
       <>
         {/* Mobile display only  */}
-        <div className="text-white p-6 mb-[8vh] flex flex-col items-center  lg:ml-16 md:mr-10 lg:mr-20">
+        <div className="text-white p-6 mb-[8vh] flex flex-col   lg:ml-16 md:mr-10 lg:mr-20">
 
      
           {/* This component contains the header (profile picture and username) */}
-          <div className="">
+          <div>
             <WelcomeUser />
           </div>
           {/* This component contains the my current reads */}
-          <div className="md:flex md:flex-row lg:flex lg:flex-row md:justify-between lg:justify-between">
-          <div className="">
+          <div className="md:flex md:flex-row lg:flex lg:flex-row md:justify-between lg:justify-between mt-7 items-center">
+          <div>
             <CurrentlyReading />
             </div>
          

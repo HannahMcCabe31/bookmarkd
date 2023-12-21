@@ -52,7 +52,7 @@ function Profile() {
     return (
         <>
             <div className="text-white md:m-auto md:pr-5 md:max-w-[640px]">
-                <div className="mt-5 flex flex-row justify-center">
+                <div className="mt-5 flex flex-row">
                     <WelcomeUser token={token} />
                 </div>
                 <div className="md:grid md:grid-cols-4 md:mt-10">
