@@ -7,6 +7,7 @@ import SearchContainer from "../SearchContainer/SearchContainer";
 import { useState, useEffect } from "react";
 
 function Search() {
+  window.scrollTo(0, 0);
   const [searchResults, setSearchResults] = useState();
   const [searchQuery, setSearchQuery] = useState(""); // Actual query sent in fetch request
   const [currentSearchValue, setCurrentSearchValue] = useState(""); // Live-updated search terms ready to be passed to query
@@ -72,11 +73,15 @@ function Search() {
   }, [searchQuery]);
 
   return (
-    <div className=" md:max-w-[85%] md:pl-[20%]">
+    <div className=" md:max-w-[85%] md:pl-[20%] ">
       <div className="bg-search h-screen flex flex-col md:items-center sm:items-center text-white p-[3vw]">
         <Box className="flex text-center items-center md:hidden lg:hidden sm:hidden">
           <Link to="/dashboard">
-            <img src={backArrow} alt="backArrow" className="w-[8vw] h-[8vw]" />
+            <img
+              src={backArrow}
+              alt="backArrow"
+              className="w-[8vw] h-[8vw] mt-5 ml-5"
+            />
           </Link>
         </Box>
         <Box className="flex flex-col items-center">
