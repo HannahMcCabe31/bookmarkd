@@ -11,7 +11,7 @@ function WelcomeUser() {
   return (
     <Box
       component="section"
-      className=" flex items-center space-x-6 mb-10 mt-4 md:items-center md:justify-center"
+      className=" flex items-center space-x-6 mt-4"
     >
       <Link to="/profile">
         <img
@@ -19,7 +19,7 @@ function WelcomeUser() {
           src={defaultProfilePic}
         />
       </Link>
-      <Typography variant="h2">
+      <Typography variant="h2" className="md:text-3xl">
         Hello, {token.user.user_metadata.username}!
       </Typography>
     </Box>

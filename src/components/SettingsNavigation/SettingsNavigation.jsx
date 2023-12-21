@@ -16,7 +16,7 @@ function SettingsNavigation() {
 
   return (
     <>
-      <div className="text-3xl flex flex-col mt-5 md:mt-[10vw] px-5 md:pt-[2vh] md:w-[30vw] ">
+      <div className="text-3xl flex flex-col mt-5 md:mt-[10vw] px-5 md:pt-[2vh]">
         <div className="">
           <Link to="/privacy-policy">
             <div className=" py-5 px-2  border-element-blue border-t-2 flex flex-row justify-between ">

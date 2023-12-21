@@ -51,11 +51,11 @@ function Profile() {
 
     return (
         <>
-            <div className="text-white md:pr-20 md:mt-20 lg:pr-10 md:ml-20">
-                <div className="ml-5 lg:ml-20 mt-5">
+            <div className="text-white md:m-auto md:pr-5 md:max-w-[640px]">
+                <div className="mt-5 flex flex-row justify-center">
                     <WelcomeUser token={token} />
                 </div>
-                <div className="md:grid md:grid-cols-4 md:pl-15 md:mt-20 lg:mr-28 lg:ml-40">
+                <div className="md:grid md:grid-cols-4 md:mt-10">
                     <div className="md:col-start-3 md:col-span-2 ">
                         <ProfileCurrentlyReading />
                         <ProfileStatistics />
