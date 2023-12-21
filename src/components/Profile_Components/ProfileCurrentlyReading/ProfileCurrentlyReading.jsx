@@ -59,30 +59,22 @@ function ProfileCurrentlyReading() {
         Currently Reading
       </Typography>
       <Box className="bg-element-blue rounded-3xl my-3 p-3 md:p-1">
-        <Box className="m-3">
-          <Typography variant="h6" className="md:text-lg">
-            The Wind in the Willows
-          </Typography>
-
-          <Typography variant="h8" className="md:text-base">
-            by Kenneth Grahame
-          </Typography>
-          <div>
-            <ProfileBookSlider className="col-start-2 row-span-1" />
-          </div>
-        </Box>
-        <Box className="m-3">
-          <Typography variant="h6" className="md:text-lg">
-            Neuromancer
-          </Typography>
-
-          <Typography variant="h8" className="md:text-base">
-            by Ameenah Jalil
-          </Typography>
-          <div>
-            <ProfileBookSlider className="col-start-2 row-span-1" />
-          </div>
-        </Box>
+        {currentlyReadingBookData.length > 0 && (
+          <>
+            <ProfileCurrentlyReadingBook
+              book_title={currentlyReadingBookData[0]?.title}
+              book_author={currentlyReadingBookData[0]?.author}
+              book_pages={currentlyReadingBookData[0]?.number_of_pages}
+              book_id={currentlyReadingBookData[0]?.book_id}
+            />
+            <ProfileCurrentlyReadingBook
+              book_title={currentlyReadingBookData[1]?.title}
+              book_author={currentlyReadingBookData[1]?.author}
+              book_pages={currentlyReadingBookData[1]?.number_of_pages}
+              book_id={currentlyReadingBookData[1]?.book_id}
+            />
+          </>
+        )}
       </Box>
     </div>
   );

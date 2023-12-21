@@ -14,7 +14,7 @@ function UserHeader({ token }) {
       >
         <Link to="/profile">
           <img
-            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[15vh] md:h-[15vh] md:mb-[2.5vh] lg:w-[20vh] lg:h-[20vh]"
+            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[15vh] md:h-[15vh] md:mb-[2.5vh] lg:w-[15vh] lg:h-[15vh]"
             src={defaultProfilePic}
           />
         </Link>

@@ -50,7 +50,7 @@ function Profile() {
   return (
     <>
       <div className="text-white md:m-auto md:pr-5 md:max-w-[640px]">
-        <div className="mt-5 flex flex-row">
+        <div className="mt-5 flex flex-row px-[3vw] md:px-0">
           <WelcomeUser token={token} />
         </div>
         <div className="md:grid md:grid-cols-4 md:mt-10">
@@ -58,7 +58,7 @@ function Profile() {
             <ProfileCurrentlyReading />
             <ProfileStatistics />
           </div>
-          <div className="md:col-start-1 md:col-end-3 md:row-start-1">
+          <div className="md:col-start-1 md:col-end-3 md:row-start-1  md:px-0 px-[3vw]">
             <ProfileBookshelves bookshelves={bookshelves} />
           </div>
         </div>
