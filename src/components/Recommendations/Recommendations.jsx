@@ -88,7 +88,7 @@ function Recommendations() {
 
   return (
     <div>
-        <div className="md:mr-20 md:ml-20 lg:mr-10 lg:ml-40 lg:pl-5">
+        <div className="md:mr-20 lg:mr-10">
           <Link to="/dashboard" className="md:hidden">
             <img
               src={backArrow}
@@ -102,7 +102,7 @@ function Recommendations() {
               sx={{ p: 2, fontFamily: "League Spartan" }}
             >
               {" "}
-              <Box className="flex p-8 flex-col items-start md:p-6 lg:p-6">
+              <Box className="flex p-8 flex-col items-start lg:p-6">
                 <Typography variant="h1" className="md:text-[7vh]">
                   Recommendations
                 </Typography>
