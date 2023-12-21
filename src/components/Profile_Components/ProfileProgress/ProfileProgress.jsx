@@ -13,7 +13,15 @@ function ProfileProgress({
   const maxPages = 320;
 
   function handleInputChange(e) {
-    setPageNumber(e.target.value);
+    setPageNumber(() => {
+      if (e.target.value > maxPages) {
+        return maxPages;
+      } else if (e.target.value < 0) {
+        return 0;
+      } else {
+        return e.target.value;
+      }
+    });
   }
 
   function handleProgressUpdate() {
