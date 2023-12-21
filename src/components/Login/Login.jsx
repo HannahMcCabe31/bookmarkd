@@ -641,7 +641,7 @@ function Login() {
             </Typography><br />
             <Button className="text-center m-auto p-auto" variant="contained" onClick={loginAsDemoUser}><Typography variant="p" className="text-white md:text-xl">Demo</Typography></Button>
           </Box>
-          
+         </Box> 
         </Container>
       ) : (
         <Container maxWidth="sm">
