@@ -2,10 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { Typography } from "@mui/material";
 import AddToBookshelf from "../AddToBookshelf/AddToBookshelf";
 import { TokenContext } from "../App/App";
+import addNewBookshelf from "./addNewBookshelf";
 
-function AddToBookshelfContainer({ bookshelfEditMode }) {
+function AddToBookshelfContainer({ bookshelfEditMode, book_id }) {
     const token = useContext(TokenContext);
     const [editableShelves, setEditableShelves] = useState([]);
+
+    function handleAddNewBookshelf() {
+        const bookshelfName = prompt()
+        addNewBookshelf(token.user.id, bookshelfName, book_id)
+        bookshelfEditMode()
+    }
 
     useEffect(() => {
         async function getBookshelves() {
@@ -42,6 +49,7 @@ function AddToBookshelfContainer({ bookshelfEditMode }) {
     }, []);
     return (
         <>
+        <div tag="Container for all the bookshelves" className=" absolute w-[100%] max-h-[50%] h-[50%] overflow-scroll">
             {editableShelves.map((shelf, i) => {
                 return (
                     <AddToBookshelf
@@ -49,9 +57,20 @@ function AddToBookshelfContainer({ bookshelfEditMode }) {
                         bookshelf_id={shelf.bookshelf_id}
                         bookshelf_name={shelf.bookshelf_name}
                         bookshelfEditMode={bookshelfEditMode}
+                        token={token}
+                        book_id={book_id}
                     />
                 );
             })}
+            <div
+                className="justify-center text-center w-[90%] m-auto p-auto py-[1vw] mt-[1vw] border-2 rounded-2xl border-heart-red hover:border-white hover:bg-[#FFFFFF15] transition ease-in-out"
+                 onClick={handleAddNewBookshelf}
+            >
+                <Typography variant="p" className="md:text-xl">
+                    Add to new bookshelf!
+                </Typography>
+            </div>
+            </div>
         </>
     );
 }

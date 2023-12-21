@@ -63,16 +63,17 @@ function BookPage() {
                         className="z-[9999] absolute top-0 right-0 h-[100%] w-[100%] bg-[#00000077]"
                         tag="Box to fade background while bookshelves menu open"
                     />
-                    <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] bg-element-blue text-center rounded-2xl">
+                    <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] md:h-[40%] md:w-[30%] md:right-[30%] bg-element-blue text-center rounded-2xl">
                         <Box className="text-center">
                             <Typography
                                 variant="h2"
-                                className="mt-[10%] mb-[15%]"
+                                className="mt-[10%] mb-[15%] md:text-2xl"
                             >
                                 Add to bookshelf
                             </Typography>
                             <AddToBookshelfContainer
                                 bookshelfEditMode={bookshelfEditMode}
+                                book_id={book_url_id}
                             />
                             <div className="absolute text-center m-auto p-auto bottom-[5%] left-[39.5%]">
                                 <Button
@@ -81,7 +82,7 @@ function BookPage() {
                                     variant="contained"
                                     onClick={bookshelfEditMode}
                                 >
-                                    <Typography variant="h3">Done</Typography>
+                                    <Typography variant="p" className="md:text-xl"><strong>Done</strong></Typography>
                                 </Button>
                             </div>
                         </Box>
