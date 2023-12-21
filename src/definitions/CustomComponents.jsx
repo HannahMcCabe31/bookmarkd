@@ -23,7 +23,42 @@ export const SearchBar = styled(TextField)({
     },
     "& .MuiTextField-root": {
         color: "#FFFFFF",
-}});
+  }
+});
+
+export const SearchPageBar = styled(TextField)({
+  "& label.MuiInputLabel-root": {
+    fontFamily: "League Spartan",
+    color: "#FFFFFF",
+    fontSize: "2vw",
+  },
+  "& label.Mui-root": {
+    color: "#FFFFFF",
+  },
+  "& label.Mui-focused": {
+    fontSize: "3vw",
+    color: "#FFFFFF",
+  },
+  "& .MuiOutlinedInput-root": {
+    fontFamily: "League Spartan",
+    color: "#FFFFFF",
+    "& fieldset": {
+      borderColor: "#16344E",
+      borderRadius: "5vw",
+    },
+    "&:hover fieldset": {
+      borderColor: "#FFFFFF",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#FFFFFF",
+    },
+  },
+  "& .MuiTextField-root": {
+    color: "#FFFFFF",
+  },
+});
+
+
 
 export const BookButton = styled(Button)({
     padding: 0,

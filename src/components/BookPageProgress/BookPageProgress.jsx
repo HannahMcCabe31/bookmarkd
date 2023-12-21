@@ -2,26 +2,28 @@ import React from "react";
 import { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-function ProfileProgress({
+function BookProgress({
   isOpen,
   onClose,
   onUpdateProgress,
   currentPageNumber,
+  bookPageData,
 }) {
   const [pageNumber, setPageNumber] = useState("");
-  const [progressModalOpen, setProgressModalOpen] = useState(false);
-  const maxPages = 320;
+  const maxPages = bookPageData.number_of_pages;
 
   function handleInputChange(e) {
-    setPageNumber(() => {
-      if (e.target.value > maxPages) {
-        return maxPages;
-      } else if (e.target.value < 0) {
-        return 0;
+    setPageNumber(()=> {
+      if(e.target.value > maxPages) {
+        return maxPages
+      } else if(e.target.value < 0) {
+        return 0
       } else {
-        return e.target.value;
+        return e.target.value
       }
+      
     });
+   
   }
 
   function handleProgressUpdate() {
@@ -29,11 +31,12 @@ function ProfileProgress({
     onClose();
   }
 
+  console.log("progress modal open in bookprogress: ", isOpen);
   return (
     <Box
       className={`modal ${
         isOpen ? `block` : `hidden`
-      } absolute lg:top-[50%] lg:right-[30%] md:right-[20%] bg-element-blue rounded-lg p-6 content-center m-auto z-[1400]`}
+      }  bg-element-blue rounded-lg p-6 content-center m-auto z-[1400]`}
     >
       <Box className="">
         <label>
@@ -45,6 +48,7 @@ function ProfileProgress({
               value={pageNumber}
               onChange={handleInputChange}
               placeholder={currentPageNumber}
+              max={maxPages}
             ></input>
           </Typography>
         </label>
@@ -59,6 +63,6 @@ function ProfileProgress({
       </Box>
     </Box>
   );
-}
+    }
 
-export default ProfileProgress;
+export default BookProgress;
