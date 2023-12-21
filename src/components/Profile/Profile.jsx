@@ -11,8 +11,6 @@ import { TokenContext } from "../App/App";
 
 function Profile() {
   const token = useContext(TokenContext);
-  console.log(`Token:`);
-  console.log(token);
 
   const [bookshelves, setBookshelves] = useState();
 
