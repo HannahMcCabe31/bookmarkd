@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { BookPageSlider } from "../../definitions/CustomComponents";
 import BookProgress from "../BookPageProgress/BookPageProgress";
 
@@ -68,6 +68,9 @@ function BookSlider({ bookPageData, completed }) {
                     currentPageNumber={pageNumber}
                     bookPageData={bookPageData}
                 />
+                {!progressModalOpen && (
+                <Button onClick={handleModalOpen}>Update Progress</Button>
+                )}
             </Box>
         </>
     );
