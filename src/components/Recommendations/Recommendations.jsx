@@ -82,7 +82,7 @@ function Recommendations() {
 
   return (
     <div className="md:m-auto md:max-w-[640px]">
-      <div >
+      <div>
         <Link to="/dashboard" className="md:hidden">
           <img
             src={backArrow}
@@ -135,7 +135,7 @@ function Recommendations() {
 
                 <Box
                   // // className="md:grow-1 bg-element-blue "
-                  className="p-4 mb-8 rounded-2xl bg-element-blue md:text-2xl"
+                  className="p-4 mb-8 rounded-2xl bg-element-blue md:text-2xl flex justify-between items-center"
                 >
                   <SearchBar
                     // className=""
@@ -145,15 +145,14 @@ function Recommendations() {
                     inputProps={{ style: { color: "white" } }}
                     onChange={handleSearchInputChange}
                   ></SearchBar>
-                </Box>
-                <div className="flex justify-center">
                   <button
-                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 mb-5 "
+                    className="bg-background-blue md:text-base lg:text-base text-white rounded-2xl px-5 pt-2 pb-1 "
                     onClick={fetchAIRec}
                   >
                     Submit
                   </button>
-                </div>
+                </Box>
+                <div className="flex justify-center"></div>
               </div>
               <Box
                 component="section"
