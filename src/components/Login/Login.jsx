@@ -107,8 +107,8 @@ function Login() {
   return (
     <ThemeProvider theme={bookmarkd}>
       {!forgottenPassword ? (
-        <Container maxWidth="lg">
-          <Box className="md:hidden ">
+        <Container maxWidth="lg" className=" md:mb-[-4rem] md:ml-[-3.7rem]">
+          <Box className="md:hidden">
             <Box textAlign="right" sx={{ mt: 3 }}>
               <Typography variant="p" color="white.main">
                 AI Powered
@@ -221,7 +221,7 @@ function Login() {
             </Box>
           </Box>
 
-          <Box className="hidden md:block m-0 p-0">
+          <Box className="hidden md:block m-0 p-0  ">
             <Box className="text-white text-[1.3rem] font-light flex justify-end pt-[3.5%] pr-[5%]">
               <Typography
                 variant="p"
@@ -594,7 +594,7 @@ function Login() {
               </Box>
             </Box>
           </Box>
-          <Box className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3 opacity-90">
+          <Box className="text-white hidden md:flex justify-center w-[55%] m-auto text-center mt-3 opacity-90 ">
             <Typography variant="p" className="text-[1.1rem]">
               By clicking "Continue with Email/Apple/Google/X" above, you agree
               to Bookmarkd's{" "}
