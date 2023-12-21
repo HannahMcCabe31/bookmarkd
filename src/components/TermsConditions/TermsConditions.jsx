@@ -6,6 +6,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 
 function TermsConditions() {
+  window.scrollTo(0, 0);
+
   return (
     <>
       <ThemeProvider theme={bookmarkd}>
