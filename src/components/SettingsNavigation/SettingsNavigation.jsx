@@ -5,17 +5,14 @@ import Typography from "@mui/material/Typography";
 import { SetTokenContext } from "../App/App.jsx";
 import { useContext } from "react";
 
-
 function SettingsNavigation() {
+  const setToken = useContext(SetTokenContext);
 
-    const setToken = useContext(SetTokenContext);
-
-    function handleSignOut() {
-        sessionStorage.removeItem("token");
-        setToken(false);
-        setHasProfilePic([]);
-      }
-
+  function handleSignOut() {
+    sessionStorage.removeItem("token");
+    setToken(false);
+    setHasProfilePic([]);
+  }
 
   return (
     <>
