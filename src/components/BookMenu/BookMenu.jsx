@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/material";
+import { Box, Snackbar } from "@mui/material";
 import { useContext } from "react";
 import { TokenContext } from "../App/App";
 
@@ -11,6 +11,16 @@ function BookMenu({
     const token = useContext(TokenContext);
     const [liked, setLiked] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [completedSnackbarOpen, setCompletedSnackbarOpen] = useState(false);
+
+    function handleSnackbarClose(_event, reason) {
+        if (reason === "clickaway") {
+            return;
+        }
+        setSnackbarOpen(false);
+        setCompletedSnackbarOpen(false);
+    }
 
     useEffect(() => {
         async function getBookshelves() {
@@ -69,11 +79,16 @@ function BookMenu({
             }
         );
 
-        if (!responseRequest.ok) {
-            setLiked((prevLiked) => !prevLiked); // Revert the liked state if the request fails
+        if (responseRequest.ok) {
+            const responseData = await responseRequest.json();
+            setSnackbarOpen(true);
+
+            return responseData;
+        } else if (!responseRequest.ok) {
             console.error(`Status: ${responseRequest.status}`);
             console.error(`Text: ${await responseRequest.text()}`);
             console.error("Data not available");
+            return;
         }
     }
 
@@ -91,34 +106,72 @@ function BookMenu({
             }
         );
 
-        if (!responseRequest.ok) {
+        if (responseRequest.ok) {
+            const responseData = await responseRequest.json();
+            setCompletedSnackbarOpen(true);
+
+            return responseData;
+        } else if (!responseRequest.ok) {
             setCompleted((prevCompleted) => !prevCompleted); // Revert the completed state if the request fails
             console.error(`Status: ${responseRequest.status}`);
             console.error(`Text: ${await responseRequest.text()}`);
             console.error("Data not available");
+            return;
         }
     }
 
     const buttonStyling = "w-[10vw] md:w-auto md:h-[15%]";
 
     return (
-        <Box className={`flex justify-around flex-row mt-[5vw] md:mt-[10vw] ${leftElementClass}`}>
-            <img
-                className={`${buttonStyling}`}
-                src={liked ? "/img/liked_icon.png" : "/img/not_liked_icon.png"}
-                onClick={likeButton}
+        <>
+            <Box
+                className={`flex justify-around flex-row mt-[5vw] md:mt-[10vw] ${leftElementClass}`}
+            >
+                <img
+                    className={`${buttonStyling}`}
+                    src={
+                        liked
+                            ? "/img/liked_icon.png"
+                            : "/img/not_liked_icon.png"
+                    }
+                    onClick={likeButton}
+                />
+                <img
+                    onClick={bookshelfEditMode}
+                    className={`${buttonStyling}`}
+                    src="/img/add_to_shelf_icon.png"
+                />
+                <img
+                    className={`${buttonStyling}`}
+                    src={
+                        completed
+                            ? "/img/completed_icon.png"
+                            : "/img/not_completed_icon.png"
+                    }
+                    onClick={completedButton}
+                />
+            </Box>
+            <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                onClose={handleSnackbarClose}
+                message={
+                    liked ? "Added to favourites" : "Removed from favourites"
+                }
             />
-            <img
-                onClick={bookshelfEditMode}
-                className={`${buttonStyling}`}
-                src="/img/add_to_shelf_icon.png"
+            <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                open={completedSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={handleSnackbarClose}
+                message={
+                    completed
+                        ? "Added to completed books"
+                        : "Removed from completed books"
+                }
             />
-            <img
-                className={`${buttonStyling}`}
-                src={completed ? "/img/completed_icon.png" : "/img/not_completed_icon.png"}
-                onClick={completedButton}
-            />
-        </Box>
+        </>
     );
 }
 

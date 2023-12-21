@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BookInfo from "../BookInfo/BookInfo";
 import BookMenu from "../BookMenu/BookMenu";
+// import SnackbarFavourite from "../SnackbarFavourite/SnackbarFavourite";
 import backArrow from "../../assets/BackArrow.svg";
 import { Box, Skeleton, Button } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
@@ -22,10 +23,15 @@ function BookPage() {
 
     function bookshelfEditMode() {
         window.scrollTo(0, 0); // Scrolls to top of page when edit mode is
-        setTimeout(() => {
-            setEditingBookshelf((mode) => !mode);
-            document.body.style.overflow = editingBookshelf ? "scroll" : "hidden" // Disables scrolling while in edit mode
-        }, editingBookshelf ? 250 : 0);
+        setTimeout(
+            () => {
+                setEditingBookshelf((mode) => !mode);
+                document.body.style.overflow = editingBookshelf
+                    ? "scroll"
+                    : "hidden"; // Disables scrolling while in edit mode
+            },
+            editingBookshelf ? 250 : 0
+        );
     }
 
     useEffect(() => {
@@ -56,7 +62,7 @@ function BookPage() {
     /**************************************************************************************************************************************************************************************************************** */
 
     return (
-        <div className="text-white p-[3vw] md:pl-[10vw]">
+        <div className="text-white p-[3vw] md:pl-[10vw] lg:pl-[14vw]">
             {editingBookshelf && (
                 <>
                     <Box
@@ -82,7 +88,12 @@ function BookPage() {
                                     variant="contained"
                                     onClick={bookshelfEditMode}
                                 >
-                                    <Typography variant="p" className="md:text-xl"><strong>Done</strong></Typography>
+                                    <Typography
+                                        variant="p"
+                                        className="md:text-xl"
+                                    >
+                                        <strong>Done</strong>
+                                    </Typography>
                                 </Button>
                             </div>
                         </Box>
@@ -131,6 +142,7 @@ function BookPage() {
                     editingBookshelf={editingBookshelf}
                     bookshelfEditMode={bookshelfEditMode}
                     book_id={book_url_id}
+                    bookPageData={bookPageData}
                     leftElementClass="md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 text-center"
                 />
                 {/*                 </Box> */}
