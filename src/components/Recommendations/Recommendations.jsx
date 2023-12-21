@@ -84,8 +84,8 @@ function Recommendations() {
   }
 
   return (
-    <div>
-      <div className="md:m-auto md:max-w-[640px]">
+    <div className="md:m-auto md:max-w-[640px]">
+      <div >
         <Link to="/dashboard" className="md:hidden">
           <img
             src={backArrow}
@@ -96,7 +96,7 @@ function Recommendations() {
         <div className="bg-background-blue text-white">
           <Box component="section" sx={{ p: 2, fontFamily: "League Spartan" }}>
             {" "}
-            <Box className="flex p-8 flex-col items-start">
+            <Box className="flex py-8 flex-col items-start">
               <Typography variant="h1" className="md:text-[7vh]">
                 Recommendations
               </Typography>
@@ -116,7 +116,7 @@ function Recommendations() {
             </Box>
             <Box className="">
               <div className="">
-                <Box className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:min-w-[30vw]">
+                <Box className="p-4 mb-8 rounded-2xl bg-element-blue md:min-w-[30vw]">
                   <div>
                     <Typography
                       variant="h3"
@@ -139,7 +139,7 @@ function Recommendations() {
 
                 <Box
                   // // className="md:grow-1 bg-element-blue "
-                  className="p-4 mb-8 mx-8 rounded-2xl bg-element-blue md:text-2xl"
+                  className="p-4 mb-8 rounded-2xl bg-element-blue md:text-2xl"
                 >
                   <SearchBar
                     // className="" 
@@ -152,7 +152,7 @@ function Recommendations() {
                 </Box>
                 <div className="flex justify-center">
                   <button
-                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 md:mb-5 "
+                    className="bg-element-blue md:text-base lg:text-base text-white rounded-2xl px-5 py-2 mb-5 "
                     onClick={fetchAIRec}
                   >
                     Submit
