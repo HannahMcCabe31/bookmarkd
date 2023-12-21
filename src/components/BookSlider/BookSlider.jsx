@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { BookPageSlider } from "../../definitions/CustomComponents";
 import BookProgress from "../BookPageProgress/BookPageProgress";
 
-function BookSlider({ bookPageData }) {
+function BookSlider({ bookPageData, completed }) {
     const [pageNumber, setPageNumber] = useState(80);
-    const [progressModalOpen, setProgressModalOpen] = useState(false)
+    const [progressModalOpen, setProgressModalOpen] = useState(false);
 
-    
+    const maxPages = bookPageData.number_of_pages || 1;
 
-    const maxPages = bookPageData.number_of_pages || 1
+    useEffect(() => {
+        if (completed) {
+            setPageNumber(maxPages);
+        }
+    }, [completed]);
 
     function handlePage(e, value) {
         setPageNumber(value);
@@ -18,25 +22,25 @@ function BookSlider({ bookPageData }) {
 
     function handleModalOpen(e) {
         // console.log("modal open")
-        e.stopPropagation()
+        e.stopPropagation();
         if (!progressModalOpen) {
-        setProgressModalOpen(true)
-      } }
+            setProgressModalOpen(true);
+        }
+    }
 
-      function handleModalClose() {
+    function handleModalClose() {
         // console.log("modal closed")
-        setProgressModalOpen(false)
-      }
+        setProgressModalOpen(false);
+    }
 
-      function handleProgressUpdate(pageNumber) {
-        setPageNumber(pageNumber)
-      } 
+    function handleProgressUpdate(pageNumber) {
+        setPageNumber(pageNumber);
+    }
 
-      const percentage = Math.floor((pageNumber/maxPages) * 100)
+    const percentage = Math.floor((pageNumber / maxPages) * 100);
 
-      console.log("progress modal open in bookslider: ", progressModalOpen)
+    console.log("progress modal open in bookslider: ", progressModalOpen);
 
-      
     return (
         <>
             <Box onClick={handleModalOpen}>
@@ -51,13 +55,19 @@ function BookSlider({ bookPageData }) {
                         value={percentage}
                         disabled
                     />
-                </Box>  
+                </Box>
                 <Box className="flex justify-center mt-0 pt-0">
                     <Typography variant="subtitle">
                         {pageNumber} of {maxPages} pages
                     </Typography>
                 </Box>
-                <BookProgress isOpen={progressModalOpen} onClose={handleModalClose} onUpdateProgress={handleProgressUpdate} currentPageNumber={pageNumber} bookPageData={bookPageData}/>
+                <BookProgress
+                    isOpen={progressModalOpen}
+                    onClose={handleModalClose}
+                    onUpdateProgress={handleProgressUpdate}
+                    currentPageNumber={pageNumber}
+                    bookPageData={bookPageData}
+                />
             </Box>
         </>
     );

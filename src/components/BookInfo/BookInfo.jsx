@@ -8,6 +8,7 @@ function BookInfo({
     leftElementClass,
     rightElementClass,
     rightLowerElementClass,
+    completed
 }) {
     const filledStars = Math.ceil(bookPageData.overall_rating);
     const emptyStars = 5 - filledStars;
@@ -111,7 +112,7 @@ function BookInfo({
             </Box>
             <Box className={`${rightLowerElementClass} md:relative`}>
                 <Box className={`md:absolute md:top-[50%] md:max-w-[100%] md:px-[2vw]`}>
-                    <BookSlider bookPageData={bookPageData} />
+                    <BookSlider completed={completed} bookPageData={bookPageData} />
                     <Box className="flex md:max-w-[100%] md:max-h-[20vw] text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[4vw] w-[80vw] h-[30vw] text-center items-center shadow-element-shadow">
                         <Typography
                             variant="p"
