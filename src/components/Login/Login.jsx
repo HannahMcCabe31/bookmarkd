@@ -44,6 +44,22 @@ function Login() {
     }
   }
 
+  async function loginAsDemoUser(e) {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: `JamSlam@Email.com`,
+        password: `123456`,
+      });
+      if (error) throw error;
+
+      setToken(data);
+      navigate("/dashboard");
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
@@ -106,6 +122,7 @@ function Login() {
 
   return (
     <ThemeProvider theme={bookmarkd}>
+        
       {!forgottenPassword ? (
         <Container maxWidth="lg" className=" md:mb-[-4rem] md:ml-[-2.5rem]">
           <Box className="md:hidden">
@@ -204,7 +221,9 @@ function Login() {
                   >
                     SIGN IN
                   </Button>
+                  
                 </Box>
+                
               </Box>
               <Box textAlign="center">
                 <Typography
@@ -217,7 +236,9 @@ function Login() {
                   above, you agree to bookmarkd&apos;s Terms & Conditions and
                   Privacy Policy
                 </Typography>
+                <Button variant="contained" onClick={loginAsDemoUser}><Typography variant="p" className="text-white md:text-xl">Demo</Typography></Button>
               </Box>
+              
             </Box>
           </Box>
 
@@ -613,8 +634,10 @@ function Login() {
                 Privacy Policy
               </span>
               .
-            </Typography>
+            </Typography><br />
+            <Button className="text-center m-auto p-auto" variant="contained" onClick={loginAsDemoUser}><Typography variant="p" className="text-white md:text-xl">Demo</Typography></Button>
           </Box>
+          
         </Container>
       ) : (
         <Container maxWidth="sm">
@@ -702,6 +725,7 @@ function Login() {
                 </Box>
               </Box>
               <Box textAlign="center">
+              
                 <Typography
                   variant="terms"
                   color="white.main"
@@ -712,7 +736,9 @@ function Login() {
                   above, you agree to bookmarkd&apos;s Terms & Conditions and
                   Privacy Policy
                 </Typography>
+                
               </Box>
+
             </Box>
           </Box>
         </Container>
