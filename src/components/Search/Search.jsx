@@ -72,7 +72,7 @@ function Search() {
   }, [searchQuery]);
 
   return (
-    <div className=" md:max-w-[85%] md:pl-[20%]">
+    <div className=" md:max-w-[85%]">
       <div className="bg-search h-screen flex flex-col md:items-center sm:items-center text-white p-[3vw]">
         <Box className="flex text-center items-center md:hidden lg:hidden sm:hidden">
           <Link to="/dashboard">

@@ -142,7 +142,7 @@ function Recommendations() {
                   className="p-4 mb-8 rounded-2xl bg-element-blue md:text-2xl"
                 >
                   <SearchBar
-                    // className="" 
+                    className="" 
                     id="search-bar"
                     label={`Search by ${searchType}`}
                     variant="standard"

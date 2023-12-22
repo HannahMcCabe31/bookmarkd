@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import Typography from "@mui/material/Typography";
 import ProfileProgress from '../ProfileProgress/ProfileProgress';
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { ProfileSlider } from '../../../definitions/CustomComponents';
 
 
-function ProfileBookSlider() {
+function ProfileBookSlider({isOpen}) {
 
 const [pageNumber, setPageNumber] = useState(160)
 const [progressModalOpen, setProgressModalOpen] = useState(false)
@@ -63,6 +63,14 @@ const percentage = Math.floor((pageNumber/maxPages) * 100)
           </Typography>
           
         </div>
+        {!progressModalOpen && (
+        <div className="text-center">
+          <Button 
+          variant="contained" 
+          onClick={handleModalOpen}
+          className="bg-element-blue text-white rounded-lg"
+          ><Typography variant="p" className="text-xs">Update Progress</Typography></Button>
+        </div>)}
         <ProfileProgress
           isOpen={progressModalOpen}
           onClose={handleModalClose}
