@@ -3,19 +3,18 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import { Link } from "react-router-dom";
-import defaultProfilePic from "/default-profile-pic.jpg"
+import defaultProfilePic from "/default-profile-pic.jpg";
 
 function UserHeader({ token }) {
-
   return (
     <ThemeProvider theme={bookmarkd}>
       <Box
         component="section"
-        className=" flex flex-col items-center mb-10 mt-4  "
+        className=" flex flex-col items-center mb-10 md:mb-0 mt-4 md:mt-0"
       >
         <Link to="/profile">
           <img
-            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[15vh] md:h-[15vh] md:mb-[2.5vh] lg:w-[20vh] lg:h-[20vh]"
+            className="w-24 h-24 bg-white border rounded-full md:m-0 md:w-[15vh] md:h-[15vh] md:mb-[2.5vh] lg:w-[15vh] lg:h-[15vh]"
             src={defaultProfilePic}
           />
         </Link>

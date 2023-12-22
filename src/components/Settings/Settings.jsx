@@ -9,7 +9,8 @@ import { TokenContext } from "../App/App";
 import { Typography } from "@mui/material";
 
 function Settings() {
-    const token = useContext(TokenContext)
+  const token = useContext(TokenContext);
+  window.scrollTo(0, 0);
 
   return (
     // md:max-w-[85%]
@@ -23,19 +24,19 @@ function Settings() {
           className="w-8 h-8 ml-10 mt-10 md:hidden"
         />
       </Link>
-      <div className="text-white">
-        <div className="">
+      <div className="text-white md:grid md:grid-cols-2 md:grid-rows-2 md:items-center">
+        <div className="md:col-start-2 md:row-start-1">
           <UserHeader token={token} />
-          {/* need a section for user email */}
-          <div className="md:mt-24 hidden md:block ">
-            <Typography className="text-6xl">Settings</Typography>
-          </div>
-          <div className="md:flex md:flex-row lg:flex lg:flex-row">
-            <SettingsUserInfo token={token} />
-            <div className="">
-              <SettingsNavigation />
-            </div>
-          </div>
+        </div>
+        {/* need a section for user email */}
+        <div className="hidden md:block md:col-start-1 ">
+          <Typography className="text-6xl ">Settings</Typography>
+        </div>
+        <div className="md:col-start-1 md:row-start-2">
+          <SettingsUserInfo token={token} />
+        </div>
+        <div className="md:col-start-2 md:row-start-2">
+          <SettingsNavigation />
         </div>
       </div>
     </div>

@@ -9,7 +9,9 @@ function AIPowered() {
   return (
     <>
       <ThemeProvider theme={bookmarkd}>
-        <div className="md:max-w-[85%] md:pl-[20%]">
+        <div
+        // className="md:max-w-[85%] md:pl-[20%]"
+        >
           <Box className="mx-8">
             <Link to="/settings">
               <img

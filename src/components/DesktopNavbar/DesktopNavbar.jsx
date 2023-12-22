@@ -10,6 +10,7 @@ function handleSignOut() {
   sessionStorage.removeItem("token");
   setToken(false);
   setHasProfilePic([]);
+  navigate("/");
 }
 
 function DesktopNavbar() {

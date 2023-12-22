@@ -7,11 +7,17 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-navbar p-[0.1rem] pl-10 pr-10 fixed bottom-0 left-0 w-full flex justify-between items-center z-[1500]">
+      <nav className="bg-navbar h-[7%] fixed bottom-[-0.2rem] left-0 w-full flex justify-around items-center z-[1500] transition-all">
         <div
-          className={`m-full   p-2    ${
-            selectedPage === "profile" ? "bg-background-blue" : ""
-          }`}
+          className={`bg-background-blue  h-[100%] absolute z-[-1]  transition-all
+        ${selectedPage === "profile" ? "translate-x-[-33.3vw] w-[5rem]" : ""}
+        ${selectedPage === "dashboard" ? "w-[8rem]" : ""} } 
+        ${selectedPage === "search" ? "translate-x-[33.3vw] w-[5rem]" : ""}
+        `}
+        ></div>
+
+        <div
+          className="m-full transition-al"
           onClick={() => {
             setSelectedPage("profile");
           }}
@@ -21,21 +27,17 @@ function Navbar() {
           </Link>
         </div>
         <div
-          className={`m-full   p-2    ${
-            selectedPage === "dashboard" ? "bg-background-blue" : ""
-          }`}
+          className="m-full"
           onClick={() => {
             setSelectedPage("dashboard");
           }}
         >
           <Link to="/dashboard" className="text-button-beige">
-            <img className="max-h-9" src="/img/dashboard_icon.png" />
+            <img className="max-h-9 " src="/img/dashboard_icon.png" />
           </Link>
         </div>
         <div
-          className={`m-full   p-2    ${
-            selectedPage === "search" ? "bg-background-blue" : ""
-          }`}
+          className="m-full"
           onClick={() => {
             setSelectedPage("search");
           }}

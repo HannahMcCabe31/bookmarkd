@@ -77,7 +77,7 @@ function ProfileUserInfo({ token }) {
   }
   return (
     <ThemeProvider theme={bookmarkd}>
-      <Box className="md:max-w-[44%] md:left-0 m-10 md:ml-0 lg:ml-0 md:mt-[5vw] ">
+      <Box className="m-10 md:m-0">
         <Typography
           className="border- border-element-blue text-2xl"
           variant="h3"
@@ -121,7 +121,7 @@ function ProfileUserInfo({ token }) {
           />
         </Box>
         <Box className="flex flex-row justify-between mt-10 md:mt-[3vh]">
-          <Typography variant="h4" className="md:text-[2.5vh]">
+          <Typography variant="h4" className="text-xl md:text-xl md:mr-1">
             Update Profile Picture
           </Typography>
           <Box>
