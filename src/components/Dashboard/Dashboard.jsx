@@ -5,10 +5,10 @@ import DashboardNavigation from "../DashboardNavigation/DashboardNavigation";
 function Dashboard() {
   window.scrollTo(0, 0);
   return (
-    <div>
+    <div className="md:m-auto lg:m-auto">
       <>
-        {/* Mobile display only  */}
-        <div className="mt-10 text-white p-6 mb-[8vh] flex flex-col items-start  lg:ml-16 md:mr-10 lg:mr-20  ">
+    
+        <div className="mt-10 text-white p-6 mb-[8vh] flex flex-col items-start   ">
           {/* This component contains the header (profile picture and username) */}
           <div>
             <WelcomeUser />
