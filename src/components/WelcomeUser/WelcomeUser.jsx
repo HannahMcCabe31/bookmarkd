@@ -19,7 +19,7 @@ function WelcomeUser() {
           src={defaultProfilePic}
         />
       </Link>
-      <Typography variant="h2" className="md:text-3xl">
+      <Typography variant="h2" className="md:text-6xl">
         Hello, {token.user.user_metadata.username}!
       </Typography>
     </Box>

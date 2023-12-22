@@ -79,11 +79,12 @@ function BookInfo({
             <Box className={`${leftElementClass}`}>
                 <Typography
                     variant="h3"
-                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-5xl md:mt-[1vw] md:pt-0"
+                    className="mx-auto my-0 p-auto pt-[3vw] pb-0 mb-0 md:text-3xl md:mt-[1vw] md:pt-0"
                 >
                     {bookPageData.overall_rating ? (
                         renderStars()
                     ) : (
+                        
                         <Skeleton
                             sx={{ bgcolor: "grey.900" }}
                             variant="rectangular"
@@ -91,6 +92,7 @@ function BookInfo({
                             height="5vw"
                             className="mb-2"
                         />
+                       
                     )}
                 </Typography>
                 <Typography
