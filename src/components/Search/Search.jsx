@@ -92,7 +92,7 @@ function Search() {
           <form className="text-center" onSubmit={handleSearch}>
             <SearchPageBar
               onChange={handleUpdateQuery}
-              className=" bg-element-blue border-element-blue rounded-[5vw] m-auto mt-[10vw]  w-[80vw] md:mt-[5vh] md:w-[80vh] md:p-[0.2rem] md:mb-[5vh]"
+              className=" bg-element-blue border-element-blue rounded-[5vw] m-auto mt-[10vw]  md:mt-[5vh] md:w-[80vh] md:p-[0.2rem] md:mb-[5vh] md:max-w-[50rem]"
               placeholder="Search for books, users, authors..."
               inputProps={{
                 "aria-label": "search",
