@@ -84,6 +84,7 @@ function BookInfo({
                     {bookPageData.overall_rating ? (
                         renderStars()
                     ) : (
+                        
                         <Skeleton
                             sx={{ bgcolor: "grey.900" }}
                             variant="rectangular"
@@ -91,6 +92,7 @@ function BookInfo({
                             height="5vw"
                             className="mb-2"
                         />
+                       
                     )}
                 </Typography>
                 <Typography

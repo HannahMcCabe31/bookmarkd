@@ -57,7 +57,7 @@ function BookPage() {
     /**************************************************************************************************************************************************************************************************************** */
 
     return (
-        <div className="text-white p-[3vw] md:pl-[10vw] lg:pl-[14vw]">
+        <div className="text-white p-[3vw] md:pl-[10vw] lg:pl-[14vw] md:max-w-[640px]">
             {editingBookshelf && (
                 <>
                     <Box
@@ -103,8 +103,8 @@ function BookPage() {
                     className="w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw]"
                 />
             </Link>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-cols-[50%, 50%] grid-rows-[80vw,1fr] mt-[5vw]">
-                <Box className="relative w-[70vw] h-[70vw] md:w-[30vw] md:h-[45vw] max-w-[900px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
+            <div className="md:gap-16 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-cols-[50%, 50%] grid-rows-[80vw,1fr] mt-[5vw]">
+                <Box className="relative w-[70vw] h-[70vw] md:w-[25vw] md:h-[41vw] max-w-[900px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
                     {bookPageData.image ? (
                         <img
                             src={`https://bookmarkd-server.onrender.com${bookPageData.image}`}
