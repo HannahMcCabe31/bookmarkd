@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import ProfileProgress from "../ProfileProgress/ProfileProgress";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { ProfileSlider } from "../../../definitions/CustomComponents";
 import { useContext } from "react";
 import { TokenContext } from "../../App/App";
 import fetchPagesRead from "./fetchPagesRead";
 
-function ProfileBookSlider({ book_pages, book_id }) {
+function ProfileBookSlider({ book_pages, book_id, isOpen }) {
     const token = useContext(TokenContext);
     const [pageNumber, setPageNumber] = useState(0);
     const [progressModalOpen, setProgressModalOpen] = useState(false);
@@ -87,7 +87,15 @@ function ProfileBookSlider({ book_pages, book_id }) {
                     {percentage}%
                 </Typography>
             </div>
-            <ProfileProgress
+            {!progressModalOpen && (
+        <div className="text-center">
+          <Button 
+          variant="contained" 
+          onClick={handleModalOpen}
+          className="bg-element-blue text-white rounded-lg"
+          ><Typography variant="p" className="text-xs">Update Progress</Typography></Button>
+        </div>)}
+        <ProfileProgress
                 isOpen={progressModalOpen}
                 onClose={handleModalClose}
                 onUpdateProgress={handleProgressUpdate}

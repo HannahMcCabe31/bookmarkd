@@ -57,7 +57,7 @@ function BookSlider({ bookPageData, completed }) {
                     />
                 </Box>
                 <Box className="flex justify-center mt-0 pt-0">
-                    <Typography variant="subtitle">
+                    <Typography variant="subtitle" className="md:text-2xl">
                         {pageNumber} of {maxPages} pages
                     </Typography>
                 </Box>
@@ -69,7 +69,7 @@ function BookSlider({ bookPageData, completed }) {
                     bookPageData={bookPageData}
                 />
                 {!progressModalOpen && (
-                <Button onClick={handleModalOpen}>Update Progress</Button>
+                <Button className="text-white" onClick={handleModalOpen}>Update Progress</Button>
                 )}
             </Box>
         </>

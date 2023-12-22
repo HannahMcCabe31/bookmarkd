@@ -317,6 +317,21 @@ function TermsConditions() {
                     responsible for reviewing the updated Terms and agreeing to
                     them before
                   </Typography>
+                  <Typography
+                    variant="subtitle"
+                    display="block"
+                    className="font-semibold md:py-[1rem]"
+                  >
+                    Attribution{" "}
+                  </Typography>
+                  <Typography
+                    variant="subtitle"
+                    display="block"
+                    className="md:text-xl"
+                  >
+                    {" "}
+                    Icons designed by freepik
+                  </Typography>
                 </div>
               </Typography>
             </Box>

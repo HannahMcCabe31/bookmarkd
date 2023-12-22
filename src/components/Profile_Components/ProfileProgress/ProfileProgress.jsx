@@ -48,11 +48,11 @@ function ProfileProgress({
             ></input>
           </Typography>
         </label>
-        <Box className="mx-auto p-auto text-center mt-3">
-          <Button onClick={handleProgressUpdate} className="mx-2">
+        <Box className="mx-auto p-auto text-center mt-3 ">
+          <Button onClick={handleProgressUpdate} className="mx-2 text-white">
             Update Progress
           </Button>
-          <Button onClick={onClose} className="mx-2">
+          <Button onClick={onClose} className="mx-2 text-white">
             Cancel
           </Button>
         </Box>
