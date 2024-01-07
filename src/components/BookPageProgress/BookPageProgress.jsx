@@ -31,7 +31,7 @@ function BookProgress({
     onClose();
   }
 
-  console.log("progress modal open in bookprogress: ", isOpen);
+  /* console.log("progress modal open in bookprogress: ", isOpen); */
   return (
     <Box
       className={`modal ${

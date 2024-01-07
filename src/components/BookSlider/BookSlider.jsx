@@ -39,7 +39,7 @@ function BookSlider({ bookPageData, completed }) {
 
     const percentage = Math.floor((pageNumber / maxPages) * 100);
 
-    console.log("progress modal open in bookslider: ", progressModalOpen);
+    /* console.log("progress modal open in bookslider: ", progressModalOpen); */
 
     return (
         <>
