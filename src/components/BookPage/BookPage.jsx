@@ -10,6 +10,8 @@ import { bookmarkd } from "../../definitions/bookmarkdTheme";
 import AddToBookshelfContainer from "../AddToBookshelfContainer/AddToBookshelfContainer";
 
 function BookPage() {
+    window.scrollTo(0, 0); // Reset page to top when page is first loaded
+
     let { book_url_id } = useParams();
     const [bookPageData, setbookPageData] = useState({});
     const [imageLoaded, setImageLoaded] = useState(false);
