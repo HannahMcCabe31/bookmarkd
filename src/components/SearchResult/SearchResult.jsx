@@ -22,6 +22,7 @@ function SearchResult({ title, image, book_id }) {
   }, [title]);
 
   return (
+    <div className="max-w-[640px]">
     <Link to={`/book-page/${book_id}`}>
     <div className=" my-[2vh] mx-[3vh]  md:bg-element-blue md:max-w-[80%] rounded-xl">
       <div className="flex justify-center md:py-5 md:px-12 ">
@@ -43,6 +44,7 @@ function SearchResult({ title, image, book_id }) {
       </div>
     </div>
     </Link>
+    </div>
   );
 }
 

@@ -20,25 +20,35 @@ function SearchContainer({ searchResults, searchQuery }) {
 
     return (
         <>
-            {searchResults && searchQuery && (
-                <>
-                    <div className="m-auto mt-[30%] p-auto text-center" hidden={!loading}>
-                        <CircularProgress />
-                    </div>
-                    <div hidden={loading}>
-                    {searchResults.length > 0 ? searchResults.map((item, i) => (
-                            <Box key={`searchresult_${i}`}>
-                                <SearchResult
-                                    book_id={item.book_id}
-                                    title={item.title}
-                                    image={item.image}
-                                />
-                            </Box>
-                        )) : <h2 className="m-auto mt-[30%] p-auto text-center">No results found!</h2>}
-                        
-                    </div>
-                </>
-            )}
+            <div className="max-w-[640px]">
+                {searchResults && searchQuery && (
+                    <>
+                        <div
+                            className="m-auto mt-[30%] p-auto text-center"
+                            hidden={!loading}
+                        >
+                            <CircularProgress />
+                        </div>
+                        <div hidden={loading}>
+                            {searchResults.length > 0 ? (
+                                searchResults.map((item, i) => (
+                                    <Box key={`searchresult_${i}`}>
+                                        <SearchResult
+                                            book_id={item.book_id}
+                                            title={item.title}
+                                            image={item.image}
+                                        />
+                                    </Box>
+                                ))
+                            ) : (
+                                <h2 className="m-auto mt-[30%] p-auto text-center">
+                                    No results found!
+                                </h2>
+                            )}
+                        </div>
+                    </>
+                )}
+            </div>
         </>
     );
 }

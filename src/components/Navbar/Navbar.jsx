@@ -46,7 +46,7 @@ function Navbar() {
                     }}
                 >
                     <Link to="/search" className="text-button-beige">
-                        <img className="max-h-9" src="/img/search_icon.png" />
+                        <img className="max-h-9 aspect-square" src="/img/search_icon.png" />
                     </Link>
                 </div>
             </nav>
