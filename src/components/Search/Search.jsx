@@ -21,25 +21,6 @@ function Search() {
         setSearchQuery(currentSearchValue);
     }
 
-    // Probably need to just run a search on the query again instead of trying to store the results
-
-    /*         // Update session storage when searchQuery changes
-        useEffect(() => {
-            console.log(`Saving search results`)
-            sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
-        }, [searchResults]);
-
-    useEffect(() => {
-        console.log(`Getting saved results from storage`)
-        const savedResults = sessionStorage.getItem("searchResults");
-        console.log(savedResults)
-
-        if (savedResults) {
-            console.log(JSON.parse(savedResults))
-            setSearchResults(JSON.parse(savedResults));
-        }
-    }, []); */
-
     useEffect(() => {
         async function fetchSearchResults() {
             const responseRequest = await fetch(
