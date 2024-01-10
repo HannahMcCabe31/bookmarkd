@@ -48,8 +48,11 @@ function Bookshelf(props) {
                 {books.length > 0 &&
                     books.map((book, i) => {
                         return (
-                            <Link to={`/book-page/${book.book_id}`} key={`bookimage_` + i}>
-                                <Box >
+                            <Link
+                                to={`/book-page/${book.book_id}`}
+                                key={`bookimage_` + i}
+                            >
+                                <Box>
                                     <img
                                         className="max-h-[20vw] md:max-h-[10vw] m-1 ml-0 "
                                         src={
