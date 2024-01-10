@@ -59,14 +59,14 @@ function BookPage() {
     /**************************************************************************************************************************************************************************************************************** */
 
     return (
-        <div className="text-white m-auto sm:ml-[10vw] md:max-w-[640px] md:mt-[10vw] md:m-auto">
+        <div className="text-white m-auto sm:ml-[10vw] md:max-w-[640px] md:mt-[1rem] md:m-auto">
             {editingBookshelf && (
                 <>
                     <Box
                         className="z-[9999] absolute top-0 right-0 h-[100%] w-[100%] bg-[#00000077]"
-                        tag="Box to fade background while bookshelves menu open"
+                        desc="Box to fade background while bookshelves menu open"
                     />
-                    <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] md:h-[40%] md:w-[30%] md:right-[30%] bg-element-blue text-center rounded-2xl">
+                    <Box className="z-[10000] absolute top-[25%] right-[12.5%] h-[50%] w-[75%] md:h-[40%] md:w-[30%] md:right-[30%] bg-element-blue text-center rounded-2xl" desc="Input window for bookshelves menu">
                         <Box className="text-center">
                             <Typography
                                 variant="h2"
@@ -106,7 +106,7 @@ function BookPage() {
                 />
             </Link>
             <div className="md:gap-16 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:grid-cols-[50%, 50%] grid-rows-[80vw,1fr] mt-[5vw]">
-                <Box className="relative w-[40vw] h-[65vw] md:w-[25vw] md:h-[41vw] lg:w-[20vw] lg:h-[33vw] max-w-[500px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
+                <Box className="relative w-[40vw] h-[65vw] aspect-[5/8] max-w-[300px] max-h-[480px] md:col-span-1 overflow-hidden m-auto md:mt-2 p-auto shadow-element-shadow">
                     {bookPageData.image ? (
                         <img
                             src={`https://bookmarkd-server.onrender.com${bookPageData.image}`}

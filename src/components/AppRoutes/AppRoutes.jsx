@@ -19,8 +19,6 @@ function AppRoutes({ token }) {
             <Routes>
                 <Route path="/" element={<Login />} />
 
-                <Route path="/" element={<LoginPage />} />
-
                 {/* Redirect to login if no token */}
                 {!token && (
                     <Route path="/dashboard" element={<Navigate to="/" />} />
@@ -64,7 +62,12 @@ function AppRoutes({ token }) {
                 )}
                 {token && <Route path="/contact-us" element={<ContactUs />} />}
                 {token && <Route path="/ai-powered" element={<AIPowered />} />}
-                {token && <Route path="/book-page/:book_url_id" element={<BookPage />} />}
+                {token && (
+                    <Route
+                        path="/book-page/:book_url_id"
+                        element={<BookPage />}
+                    />
+                )}
             </Routes>
         </>
     );

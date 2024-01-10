@@ -58,6 +58,38 @@ export const SearchPageBar = styled(TextField)({
   },
 });
 
+export const AddBookshelfBar = styled(TextField)({
+    "& label.MuiInputLabel-root": {
+      fontFamily: "League Spartan",
+      color: "#FFFFFF",
+      fontSize: "2vw",
+    },
+    "& label.Mui-root": {
+      color: "#FFFFFF",
+    },
+    "& label.Mui-focused": {
+      fontSize: "3vw",
+      color: "#FFFFFF",
+    },
+    "& .MuiOutlinedInput-root": {
+      fontFamily: "League Spartan",
+      color: "#FFFFFF",
+      "& fieldset": {
+        borderColor: "#16344E",
+        borderRadius: "5vw",
+      },
+      "&:hover fieldset": {
+        borderColor: "#FFFFFF",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFFFFF",
+      },
+    },
+    "& .MuiTextField-root": {
+      color: "#FFFFFF",
+    },
+  });
+
 export const BookButton = styled(Button)({
   padding: 0,
   border: 0,
@@ -70,7 +102,7 @@ export const BookButton = styled(Button)({
 
 export const BookSlideBar = styled(Slider)({
   color: "#A7ADBB",
-  height: "3vw",
+  height: "1rem",
   width: "80vw",
   "& .MuiSlider-track": {
     border: "none",
@@ -114,7 +146,7 @@ export const BookSlideBar = styled(Slider)({
 
 export const BookPageSlider = styled(Slider)({
   color: "#68B9FF",
-  height: "1vw",
+  height: "0.64rem",
   width: "30vw",
   "& .MuiSlider-track": {
     border: "none",
@@ -132,7 +164,7 @@ export const BookPageSlider = styled(Slider)({
 
 export const ProfileSlider = styled(Slider)({
   color: "#68B9FF",
-  height: "1vw",
+  height: "0.65rem",
   width: "100%",
   "& .MuiSlider-track": {
     border: "none",

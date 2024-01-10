@@ -115,10 +115,10 @@ function BookInfo({
             <Box className={`${rightLowerElementClass} md:relative`}>
                 <Box className={`md:absolute md:top-[50%] md:max-w-[100%] md:px-[2vw]`}>
                     <BookSlider completed={completed} bookPageData={bookPageData} />
-                    <Box className="flex md:max-w-[100%] md:max-h-[20vw] text-ellipsis overflow-hidden m-auto px-[3vw] rounded-2xl bg-element-blue mt-[4vw] w-[80vw] h-[30vw] text-center items-center shadow-element-shadow">
+                    <Box className="flex md:max-w-[100%] md:max-h-[15rem] text-ellipsis overflow-hidden m-auto px-[2rem] rounded-2xl bg-element-blue mt-[4vw] w-[80vw] h-[30vw] text-center items-center shadow-element-shadow">
                         <Typography
                             variant="p"
-                            className="m-auto p-auto line-clamp-4 md:text-xl"
+                            className="m-auto p-auto line-clamp-4 md:line-clamp-[4] lg:line-clamp-[8] md:text-xl"
                         >
                             {bookPageData.short_description ? (
                                 bookPageData.short_description
